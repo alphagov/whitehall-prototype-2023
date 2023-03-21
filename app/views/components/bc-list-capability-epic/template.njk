@@ -1,0 +1,59 @@
+{% set idPrefix = params.idPrefix %}
+<div class="nhsuk-form-group">
+
+  <fieldset class="nhsuk-fieldset" aria-describedby="{{idPrefix}}-hint">
+    <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+      <h2 class="nhsuk-fieldset__heading">
+        {{params.category}}
+      </h2>
+    </legend>
+
+    <div class="nhsuk-hint" id="{{idPrefix}}-hint">
+      {{params.description}}
+    </div>
+
+    {% for capability in params.capabilities %}
+    {% set id = loop.index %}
+    <div class="nhsuk-checkboxes nhsuk-checkboxes--conditional">
+
+      <div class="nhsuk-checkboxes__item">
+        <input class="nhsuk-checkboxes__input" id="{{idPrefix}}-{{id}}" name="{{idPrefix}}" type="checkbox" value="{{idPrefix}}" aria-controls="conditional-{{idPrefix}}-{{id}}" aria-expanded="false">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="{{idPrefix}}-{{id}}">
+          {{capability.text}}
+        </label>
+      </div>
+
+      <div class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden" id="conditional-{{idPrefix}}-{{id}}">
+        <div class="nhsuk-form-group">
+<!--
+          <h3 class="nhsuk-fieldset__legend--s" style="padding-top: 0.5em;">
+            Must epics
+          </h3>
+
+          {% for mustEpic in capability.mustEpics %}
+          <div class="nhsuk-checkboxes__item" style="padding-left: 4px;">
+            <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12"></path></svg>
+            <span style="padding-left: 10px;">{{mustEpic.text}}</span>
+          </div>
+          {% endfor %}
+
+          <h3 class="nhsuk-fieldset__legend--s" style="padding-top: 1em;">
+            May epics
+          </h3>
+-->
+          {% for mayEpic in capability.mayEpics %}
+          <div class="nhsuk-checkboxes__item">
+            <input class="nhsuk-checkboxes__input" id="{{idPrefix}}-may-epic-{{id}}" name="{{idPrefix}}-may-epic-{{id}}" type="checkbox" value="{{idPrefix}}-may-epic-{{id}}" aria-controls="conditional-{{idPrefix}}-may-epic-{{id}}" aria-expanded="false">
+            <label class="nhsuk-label nhsuk-checkboxes__label" for="{{idPrefix}}-may-epic-{{id}}">
+              {{mayEpic.text}}
+            </label>
+          </div>
+          {% endfor %}
+
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </fieldset>
+
+</div>

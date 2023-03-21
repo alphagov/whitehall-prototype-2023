@@ -1,0 +1,217 @@
+
+{% set sectionState = [] %}
+{# <h3 class="govuk-heading-l">Attachments</h3> #}
+
+{% if data['pageState'] === 'populated' or data['pageState'] === 'bodyAttachments' or data['pageState'] === 'fullPopulated' %}
+  {{ govukButton({
+      text: "Edit attachments",
+      classes: "govuk-button--secondary",
+      href: "../publication/attachments/" + hrefParams
+  }) }}
+{# <p class="govuk-body whitehall-summary-change-link">
+  <a href="../publication/attachments/{{hrefParams}}" class="govuk-link">Edit attachments</a>
+</p> #}
+{% endif %}
+
+{% if data['pageState'] === 'empty' %}
+  {{ govukButton({
+      text: "Add an attachment",
+      classes: "govuk-button--secondary",
+      href: "../publication/attachments/" + hrefParams
+  }) }}
+{# <p class="govuk-body whitehall-summary-change-link">
+  <a href="../publication/attachments/{{hrefParams}}" class="govuk-link">Add an attachment</a>
+</p> #}
+{% endif %}
+
+{% macro attachmentTitle(id)  %}
+  {# {{ content.attachmentsExample[id].title }} #}
+  Attachment {{id+1}}
+{% endmacro %}
+
+{% macro attachment(id)  %}
+  <p class="govuk-body">
+    <a href="{{attachmentsExample[0].url}}" target="_blank" class="govuk-link">
+      {{ content.attachmentsExample[id].title }}
+    </a>
+  </p>
+  <p class="govuk-body">
+    {{ content.attachmentsExample[id].type }}
+    {% if content.attachmentsExample[id].size %}, {{ content.attachmentsExample[id].size }}{% endif %}
+    {% if content.attachmentsExample[id].pages %}, {{ content.attachmentsExample[id].pages }}{% endif %}
+    {% if content.attachmentsExample[id].reference %}, {{ content.attachmentsExample[id].reference }}{% endif %}
+  </p>
+  {% if attachment.accessible %}
+    <p class="govuk-body">
+      {{ attachment.accessible }}
+    </p>
+  {% endif %}
+{% endmacro %}
+
+{% if data['pageState'] === 'populated' or data['pageState'] === 'bodyAttachments' or data['pageState'] === 'fullPopulated' %}
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        html: attachmentTitle(0)
+      },
+      value: {
+        html: attachment(0)
+      },
+      actions: {
+        items: [
+          {
+            href: content.attachmentsExample[0].url,
+            text: "View",
+            visuallyHiddenText: "View",
+            attributes: {
+              'target': "_blank"
+            }
+          },
+          {
+            href: "../publication/edit/attachments-email" + hrefParams,
+            text: "Edit",
+            visuallyHiddenText: "Edit"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        html: attachmentTitle(1)
+      },
+      value: {
+        html: attachment(1)
+      },
+      actions: {
+        items: [
+          {
+            href: content.attachmentsExample[1].url,
+            text: "View",
+            visuallyHiddenText: "View",
+            attributes: {
+              'target': "_blank"
+            }
+          },
+          {
+            href: "../publication/edit/attachments-email" + hrefParams,
+            text: "Edit",
+            visuallyHiddenText: "Edit"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        html: attachmentTitle(2)
+      },
+      value: {
+        html: attachment(2)
+      },
+      actions: {
+        items: [
+          {
+            href: content.attachmentsExample[2].url,
+            text: "View",
+            visuallyHiddenText: "View",
+            attributes: {
+              'target': "_blank"
+            }
+          },
+          {
+            href: "../publication/edit/attachments-email" + hrefParams,
+            text: "Edit",
+            visuallyHiddenText: "Edit"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        html: attachmentTitle(3)
+      },
+      value: {
+        html: attachment(3)
+      },
+      actions: {
+        items: [
+          {
+            href: content.attachmentsExample[3].url,
+            text: "View",
+            visuallyHiddenText: "View",
+            attributes: {
+              'target': "_blank"
+            }
+          },
+          {
+            href: "../publication/edit/attachments-email" + hrefParams,
+            text: "Edit",
+            visuallyHiddenText: "Edit"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Email address"
+      },
+      value: {
+        html: '<p class="govuk-body">' + content.documentContent[0].accessibleEmail + '</p>' + '<p class="govuk-body-s">Email address for ordering attachment files in an alternative format</p>'
+      },
+      actions: {
+        items: [
+          {
+            href: "../publication/edit/attachments-email" + hrefParams,
+            text: "Edit",
+            visuallyHiddenText: "Edit"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+{% endif %}
+
+
+
+{% if data['pageState'] === 'empty' %}
+{# <p class="govuk-body whitehall-body-empty">
+  You need to add an attachment before publishing
+</p>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-bottom-4 govuk-!-margin-top-8"> #}
+
+{{ govukSummaryList({
+  classes: "whitehall-summary-list-row-empty",
+  rows: [
+    {
+      key: {
+        text: "",
+        classes: "govuk-!-display-none"
+      },
+      value: {
+        html: '<p class="govuk-body whitehall-body-empty-list">
+                    You need to add an attachment before publishing
+                </p>'
+      }
+    },
+    {
+      key: {
+        text: "Email address"
+      },
+      value: {
+        html: '<p class="govuk-body">' + content.documentContent[0].accessibleEmail + '</p>' + '<p class="govuk-body-s">Email address for ordering attachment files in an alternative format</p>'
+      },
+      actions: {
+        items: [
+          {
+            href: "../publication/edit/attachments-email" + hrefParams,
+            text: "Edit",
+            visuallyHiddenText: "Edit"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+{% endif %}

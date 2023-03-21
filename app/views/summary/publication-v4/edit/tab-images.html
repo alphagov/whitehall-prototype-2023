@@ -1,0 +1,128 @@
+
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+  {{ super() }}
+{% endblock %} 
+
+{% block header %}
+  {{ super() }}
+  {{ whitehallHeader({
+      homepageUrl: "dashboard/",
+      serviceName: serviceName,
+      serviceUrl: "/",
+      containerClasses: "govuk-width-container",
+      phaseBanner: true,
+      navigation: [
+        {
+          href: "../documents/" + hrefParams,
+          text: "Documents",
+          active: true
+        },
+        {
+          href: "../organisation/" + hrefParams,
+          text: "My organisation"
+        },
+        {
+          href: "../support/" + hrefParams,
+          text: "Support information"
+        },
+        {
+          href: "../guidance/" + hrefParams,
+          text: "Guidance"
+        },
+        {
+          href: "../account/" + hrefParams,
+          text: globals.loggedUser
+        },
+        {
+          href: "../signout" + hrefParams,
+          text: "Sign out"
+        }
+      ],
+      back:
+        {
+          text: "Back",
+          href: "../../publication/summary" + hrefParams
+        }
+  }) }}
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
+      Edit document body and images
+    </h1>
+
+    {% include "../includes/document-info.html" %}
+
+  </div>
+</div>
+
+<div class="govuk-grid-row body-populated">
+  <div class="govuk-grid-column-three-quarters">
+    {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+    {{ mojSubNavigation({
+      label: 'Sub navigation',
+      items: [{
+        text: 'Document body',
+        href: '../publication/edit/body' + hrefParams
+      },
+      {
+        html: 'Images <span id="notifications" class="moj-notification-badge">0</span>',
+        href: '../publication/edit/tab-images' + hrefParams,
+        active: true
+      }]
+    }) }}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <p class="govuk-body">  
+        TBD
+    </p>
+
+    <div class="govuk-button-group">
+      {{ govukButton({
+          text: "Save as draft",
+          classes: "govuk-button--secondary",
+          href: "../../publication/edit/body" + hrefParam + "&pageMessage=documentSaved"
+      }) }}
+
+      {{ govukButton({
+        text: "Save and back",
+        href: "../../publication/summary" + hrefParam
+      }) }}
+
+      <a class="govuk-link" href="../publication/summary{{hrefParams}}">Cancel</a>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
+
+
+{% block pageScripts %}
+{{ super() }}
+<script>
+  var state = getUrlParameter('state');
+
+  if(state === "empty") {
+    $('.body-empty').show();
+    $('.body-populated').hide();
+  //} else if(state === "documentCreated") {
+  //  $('main').addClass('empty documentCreated');
+  //} else if(state === "saved") {
+  //  $('main').addClass('saved');
+  } else {
+    $('.body-empty').hide();
+    $('.body-populated').show();
+  }
+</script>
+{% endblock %}

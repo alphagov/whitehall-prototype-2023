@@ -1,0 +1,40 @@
+{#- If an id 'prefix' is not passed, fall back to using the name attribute
+   instead. We need this for error messages and hints as well -#}
+{% set idPrefix = params.idPrefix if params.idPrefix else params.name %}
+
+{%- if params.task %}
+  {%- for item in params.task %}
+  {% set id = item.id if item.id else idPrefix + "-" + loop.index %}
+  <li class="app-task-list__item"  id="{{ id }}"  name="{{ name }}">
+    <div class="nhsuk-grid-column-one-half" >
+      <span class="app-task-list__task-name">
+        <a href="{{ item.URL }}" aria-describedby="eligibility-completed">
+          {{ item.title }}
+        </a>
+      </span>
+    </div>
+    <div class="nhsuk-grid-column-two-quarters">
+      <span class="app-task-list__task-name">
+        <p>{{ item.requirement }}</p>
+      </span>
+      <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">{{ item.status }}</strong>
+    </div>
+  </li>
+  {% endfor %}
+{% endif %}
+
+{%- if params.list %}
+  {%- for item in params.list %}
+  {% set id = item.id if item.id else idPrefix + "-" + loop.index %}
+  <li class="app-task-list__item"  id="{{ id }}"  name="{{ name }}">
+    <div class="nhsuk-grid-column-one-half" >
+      <span class="app-task-list__task-name">
+          {{ item.title }}
+      </span>
+    </div>
+    <div class="nhsuk-grid-column-two-quarters">
+      <p class="app-task-list__task" id="eligibility-completed">{{ item.status }}</p>
+    </div>
+  </li>
+  {% endfor %}
+{% endif %}

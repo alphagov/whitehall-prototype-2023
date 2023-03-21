@@ -1,0 +1,479 @@
+
+{% extends "layouts/main.html" %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{% block pageTitle %}
+  {{ super() }}
+{% endblock %} 
+
+{% block header %}
+  {{ super() }}
+
+{#
+<div class="govuk-width-container">
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="javascript: submitNavForm('dashboard/', $(this));">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item" aria-current="page">Home</li>
+    </ol>
+  </div>
+</div>
+
+<div class="govuk-width-container">
+  <a href="#" class="govuk-back-link">Back</a>
+</div>
+#}
+
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+  <div class="govuk-grid-row govuk-!-margin-bottom-9">
+    <div class="govuk-grid-column-full">
+
+      <h2 class="govuk-heading-l">My draft documents</h2>
+
+      {{ govukButton({
+        text: 'Create new document',
+        href: "../documents/create/type",
+        classes: "govuk-button--primary"
+      }) }}
+
+      {{ govukTable({
+        sortable: true,
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Type",
+            classes: 'govuk-!-width-one-quarter'
+          },
+          {
+            text: "Title",
+            classes: 'govuk-!-width-one-half'
+          },
+          {
+            text: "Updated",
+            classes: 'govuk-!-width-one-quarter'
+          },
+          {
+            text: "",
+            classes: 'govuk-!-width-one-quarter',
+            format: "numeric"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Publication: Guidance"
+            },
+            {
+              text: "Apply for qualified teacher status (QTS) if you teach outside the UK"
+            },
+            {
+              html: '40 minutes ago<br />by <a href="/account/profile">' + globals.loggedUser + '</a>'
+            },
+            {
+              html: '<a href="../publication/summary?documentState=published&pageState=populated">Edit</a>',
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "Consultation"
+            },
+            {
+              text: "Draft data sharing legislation to support identity verification"
+            },
+            {
+              html: '2 days ago<br />by <a href="/account/profile">' + globals.loggedUser + '</a>'
+            },
+            {
+              html: '<a href="../publication/summary?documentState=published&pageState=populated">Edit</a>',
+              format: "numeric"
+            }
+          ]
+        ]
+      }) }}
+
+      <p class="govuk-body">
+        <a class="govuk-link" href="../documents/">See all documents</a>
+      </p>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-9">
+    <div class="govuk-grid-column-full">
+
+      {{ govukTable({
+        caption: content.documentContent[0].department + "’s force-published documents",
+        sortable: true,
+        captionClasses: "govuk-table__caption--l",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Type",
+            classes: 'govuk-!-width-one-quarter'
+          },
+          {
+            text: "Title",
+            classes: 'govuk-!-width-one-half'
+          },
+          {
+            text: "Updated",
+            classes: 'govuk-!-width-one-quarter'
+          },
+          {
+            text: "Status",
+            classes: 'govuk-!-width-one-quarter'
+          },
+          {
+            text: "",
+            classes: 'govuk-!-width-one-quarter',
+            format: "numeric"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Publication: Guidance"
+            },
+            {
+              text: "London Capital & Finance (LCF) Compensation Scheme"
+            },
+            {
+              html: '20 minutes ago<br />by <a href="/account/profile">Anne Lewis</a>'
+            },
+            {
+              html: '<strong class="govuk-tag govuk-tag--red" style="white-space: nowrap;">Not reviewed</strong>'
+            },
+            {
+              html: '<a href="../publication/summary?documentState=forcePublished&pageState=populated">Review</a>',
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "Detailed guide"
+            },
+            {
+              text: "Making Tax Digital for Business — stakeholder communications pack"
+            },
+            {
+              html: '40 minutes ago<br />by <a href="/account/profile">Clarence Boddicker</a>'
+            },
+            {
+              html: '<strong class="govuk-tag govuk-tag--red" style="white-space: nowrap;">Not reviewed</strong>'
+            },
+            {
+              html: '<a href="../publication/summary?documentState=forcePublished&pageState=populated">Review</a>',
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "Consultation"
+            },
+            {
+              text: "Draft data sharing legislation to support identity verification"
+            },
+            {
+              html: '20 minutes ago<br />by <a href="/account/profile">Anne Lewis</a>'
+            },
+            {
+              html: '<strong class="govuk-tag govuk-tag--red" style="white-space: nowrap;">Not reviewed</strong>'
+            },
+            {
+              html: '<a href="../publication/summary?documentState=forcePublished&pageState=populated">Review</a>',
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "Document collection"
+            },
+            {
+              text: "UK Export Finance commits up to £4bn to strengthen UK and Moroccan trade ties"
+            },
+            {
+              html: '20 minutes ago<br />by <a href="/account/profile">Clarence Boddicker</a>'
+            },
+            {
+              html: '<strong class="govuk-tag govuk-tag--red" style="white-space: nowrap;">Not reviewed</strong>'
+            },
+            {
+              html: '<a href="../publication/summary?documentState=forcePublished&pageState=populated">Review</a>',
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "Publication: Transparency data"
+            },
+            {
+              text: "Environmental permitting: notices of water quality applications made - A to H"
+            },
+            {
+              html: '20 minutes ago<br />by <a href="/account/profile">Clarence Boddicker</a>'
+            },
+            {
+              html: '<strong class="govuk-tag govuk-tag--red" style="white-space: nowrap;">Not reviewed</strong>'
+            },
+            {
+              html: '<a href="../publication/summary?documentState=forcePublished&pageState=populated">Review</a>',
+              format: "numeric"
+            }
+          ]
+        ]
+      }) }}
+
+      {# {% from "govuk/components/pagination/macro.njk" import govukPagination %} #}
+      {{ govukPagination({
+        next: {
+          href: "#"
+        },
+        items: [
+          {
+            number: 1,
+            current: true,
+            href: "#"
+          },
+          {
+            number: 2,
+            href: "#"
+          },
+          {
+            number: 3,
+            href: "#"
+          }
+        ]
+      }) }}
+
+      <p class="govuk-body">
+        <a class="govuk-link" href="../documents/">See all force-published documents</a>
+      </p>
+    </div>
+  </div>
+
+
+{# 
+    {
+        title: "",
+        id: 1
+    },
+    {
+        title: "",
+        id: 2
+    },
+    {
+        title: "Draft data sharing legislation to support identity verification",
+        id: 3
+    },
+    {
+        title: "",
+        id: 4
+    },
+    {
+        title: "",
+        id: 5
+    },
+    {
+        title: "Introducing a separate judgement about care leavers within the inspection of local authority children’s services (ILACS)",
+        id: 6
+    },
+    {
+        title: "Diphtheria: asylum seeker settings staff letter",
+        id: 7
+    },
+    {
+        title: "Apply for qualified teacher status (QTS) if you teach outside the UK",
+        id: 5
+    },
+    {
+        title: "OTS report on hybrid and distance working",
+        id: 6
+    },
+    {
+        title: "UK-Cyprus memorandum of understanding: establishing a strategic cooperation",
+        id: 7
+    }
+
+ #}
+
+<!-- DELETE ########################### -->
+
+<div style="display: none;">
+
+</div>
+
+
+
+  <main id="main-content" role="main" style="display: none;">
+
+
+
+
+
+
+<div class="app-width-container">
+  <div class="govuk-main-wrapper govuk-main-wrapper--l">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third-from-desktop govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-l govuk-!-font-weight-bold">Styles</h2>
+        <p class="govuk-body">Make your service look like GOV.UK with guides for applying layout, typography, colour and&nbsp;images.</p>
+        <p class="govuk-body govuk-!-margin-bottom-0"><a href="/styles/" class="govuk-link govuk-!-font-weight-bold">Browse styles</a></p>
+      </div>
+      <div class="govuk-grid-column-one-third-from-desktop govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-l">Components</h2>
+        <p class="govuk-body">Save time with reusable, accessible components for forms, navigation, panels, tables and&nbsp;more.</p>
+        <p class="govuk-body govuk-!-margin-bottom-0"><a href="/components/" class="govuk-link govuk-!-font-weight-bold">Browse components</a></p>
+      </div>
+      <div class="govuk-grid-column-one-third-from-desktop govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-l">Patterns</h2>
+        <p class="govuk-body">Help users complete common tasks like entering names and addresses, filling in forms and creating accounts.</p>
+        <p class="govuk-body govuk-!-margin-bottom-0"><a href="/patterns/" class="govuk-link govuk-!-font-weight-bold">Browse patterns</a></p>
+      </div>
+
+      <div class="govuk-grid-column-full">
+        <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl govuk-!-margin-top-0">
+      </div>
+
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+        <h2 id="community" class="govuk-heading-l">Community</h2>
+        <p class="govuk-body">
+          The GOV.UK Design System is for everyone, with a strong community sitting behind it. It brings together the latest research, design and development from across government to make sure it’s representative and relevant for its users.</p>
+
+        <p class="govuk-body">
+          You can contribute to the Design System by:
+        </p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li><a href="/community/propose-a-component-or-pattern/" class="govuk-link" data-hcontribute="guidelinegh">proposing a new component or pattern</a></li>
+          <li><a href="/community/develop-a-component-or-pattern/" class="govuk-link" data-hcontribute="guidelinegh">developing a component or pattern</a></li>
+        </ul>
+
+        <p class="govuk-body">
+          You can also see <a href="/community/upcoming-components-patterns/" class="govuk-link" data-hcontribute="guidelinegh">upcoming components and patterns</a> to contribute to.
+        </p>
+
+      </div>
+
+      <div class="govuk-grid-column-full">
+        <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl">
+      </div>
+
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+        <h2 id="support" class="govuk-heading-l">Support</h2>
+        <p class="govuk-body">
+          The GOV.UK Design System is <a class="govuk-link" href="/design-system-team/">maintained by a team at the Government Digital Service</a>.
+          If you’ve got a question, idea or suggestion, you can <a class="govuk-link" href="/get-in-touch/">contact the team</a>.
+        </p>
+       <p class="govuk-body">
+        See <a class="govuk-link" href="/community/blogs-talks-podcasts/">blog posts, video talks, and podcasts about the GOV.UK Design System and Prototype Kit</a>.
+</p>
+      </div>
+
+      <div class="govuk-grid-column-full">
+        <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl">
+      </div>
+
+      <div class="govuk-grid-column-two-thirds govuk-!-mb-r4">
+        <h2 class="govuk-heading-l">Roadmap</h2>
+        <p class="govuk-body">
+          See what the Design System team at GDS is planning to work on over the next 12 months in the
+          <a href="/community/roadmap/" class="govuk-link" data-hcontribute="guidelinegh">GOV.UK Design System Roadmap</a>.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h2 class="govuk-heading-l">Guidance</h2>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+
+    <h3 class="govuk-heading-m">Writing and publishing</h3>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        <a class="govuk-link" href="#">Content Data</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="#">GOV.UK style guide</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="#">How to publish content on GOV.UK</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="#">Planning, writing and managing content</a>
+      </li>
+    </ul>
+
+  </div>
+  <div class="govuk-grid-column-one-third">
+
+    <h3 class="govuk-heading-m">Product development</h3>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        <a class="govuk-link" href="#">Inside GOV.UK blog</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="#">What's new</a>
+      </li>
+    </ul>
+
+  </div>
+  <div class="govuk-grid-column-one-third">
+
+    <h3 class="govuk-heading-m">Support</h3>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        <a class="govuk-link" href="#">GDS support form (Zendesk)</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="#">Find in admin bookmarklet</a>
+      </li>
+    </ul>
+
+    <!-- <p>We recommend you add links to your prototype to this page, rather than delete it.
+      You'll find this page in the kit at '/app/views/index.html'.</p>
+
+    <p>You can change the service name by editing the file '/app/config.js'.</p>
+
+    <h2 class="govuk-heading-m">Examples and documentation</h2>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        <a href="/docs/tutorials-and-examples">Tutorials and templates</a>
+      </li>
+      <li>
+        <a href="https://design-system.service.gov.uk">GOV.UK Design System</a>
+      </li>
+    </ul> -->
+  </div>
+</div>
+
+
+
+</main>
+
+{% endblock %}

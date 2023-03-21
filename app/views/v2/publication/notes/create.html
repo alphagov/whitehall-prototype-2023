@@ -1,0 +1,93 @@
+
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+  {{ super() }}
+{% endblock %} 
+
+{% block header %}
+  {{ super() }}
+  {{ whitehallHeaderV2({
+      homepageUrl: "../../dashboard/",
+      serviceName: serviceName,
+      serviceUrl: "/",
+      containerClasses: "govuk-width-container",
+      phaseBanner: false,
+      navigation: [
+        {
+          href: "../../documents/" + hrefParams,
+          text: "Documents",
+          active: true
+        },
+        {
+          href: "../../organisation/" + hrefParams,
+          text: "My organisation"
+        },
+        {
+          href: "../../support/" + hrefParams,
+          text: "Support information"
+        },
+        {
+          href: "../../guidance/" + hrefParams,
+          text: "Guidance"
+        }
+],
+accountNavigation: [
+        {
+          href: "../../account/" + hrefParams,
+          text: globals.loggedUser
+        },
+        {
+          href: "../../signout" + hrefParams,
+          text: "Sign out"
+        }
+      ],
+      back:
+        {
+          text: "Back",
+          href: "../../publication/history"
+        }
+  }) }}
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
+        New internal note
+    </h1>
+
+    {% include "../includes/document-info.html" %}
+
+    {{ govukInsetText({
+      text: 'Internal notes will only be visible to publishers and not to the general public on GOV.UK.'
+    }) }}
+{# 
+    <form data-gtm="create-internal-note" action="" accept-charset="UTF-8" method="post">
+      <input type="hidden" name="authenticity_token" value="ye4kz8kT9o6YWlkDPe9ehzjyeXO6qZS_qseEuW8PrgV_FGk23sal0oTDylUGCsqrmaPuoZ5dYeuREJP3nuo9Ng" autocomplete="off"> 
+      <div class="gem-c-textarea govuk-form-group govuk-!-margin-bottom-6">
+        <label for="textarea-f1838351" class="gem-c-label govuk-label govuk-label--s">Internal note</label>
+        <textarea name="internal_note" class="govuk-textarea" id="textarea-f1838351" rows="5" spellcheck="true"></textarea> 
+      </div>
+      <button class="gem-c-button govuk-button" type="submit">Add internal note</button>
+    </form> #}
+
+    {{ govukTextarea({
+      id: "",
+      name: "",
+      label: {
+        text: "Internal note"
+      }
+    }) }}
+
+    {{ govukButton({
+      text: "Save",
+      href: "../../publication/history?message=noteAdded"
+    }) }}
+  </div>
+</div>
+{% endblock %}

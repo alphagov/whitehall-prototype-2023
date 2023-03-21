@@ -1,0 +1,182 @@
+
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+  {{ super() }}
+{% endblock %} 
+
+{% block header %}
+  {{ whitehallHeader({
+      homepageUrl: "../dashboard/",
+      serviceName: serviceName,
+      serviceUrl: "/",
+      containerClasses: "govuk-width-container",
+      phaseBanner: true,
+      navigation: [
+        {
+          href: "../documents/" + hrefParams,
+          text: "Documents",
+          active: true
+        },
+        {
+          href: "../organisation/" + hrefParams,
+          text: "My organisation"
+        },
+        {
+          href: "../support/" + hrefParams,
+          text: "Support information"
+        },
+        {
+          href: "../account/" + hrefParams,
+          text: globals.loggedUser
+        },
+        {
+          href: "../signout" + hrefParams,
+          text: "Sign out"
+        }
+      ],
+      back:
+        {
+          text: "Back",
+          href: "../../documents/" + hrefParams
+        }
+  }) }}
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form name="documentType" id="documentType" data-gtm="confirm-document-type" accept-charset="UTF-8" method="post">
+
+            {% from "govuk/components/radios/macro.njk" import govukRadios %}
+            {% from "govuk/components/input/macro.njk" import govukInput %}
+
+            {% set yesHtml %}
+              {%- include "./includes/include-type-yes.html" -%}
+            {% endset -%}
+
+            {{ govukRadios({
+              name: "documentTypeQuestions",
+              idPrefix: "documentTypeQuestions",
+              fieldset: {
+                legend: {
+                  text: "Do you know the content type you need?",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--xl"
+                }
+              },
+              hint: {
+                text: "Select one option."
+              },
+              items: [
+                {
+                  value: "autocomplete",
+                  text: "Yes - I know the content type I need",
+                  hint: {
+                    text: "For example news story, publication or detailed guide."
+                  },
+                  checked: true,
+                  conditional: {
+                    html: yesHtml
+                  }
+                },
+                {
+                  value: "type-cp",
+                  text: "No - select the type based on what the content is"
+                },
+                {
+                  value: "guidance2",
+                  text: "I’m not sure if the content should be on GOV.UK",
+                  hint: {
+                    text: "View this guide to see what should go on GOV.UK and where else you can publish content."
+                  }
+                }
+              ]
+            }) }}
+
+      <!-- TODO: Variable for each different type selection -->
+      <!-- {{ govukButton({
+        text: "Continue",
+        type: "submit"
+      }) }} -->
+
+      <!-- {
+                        {
+                  value: "guidance1",
+                  text: "No, I need guidance on document types",
+                  hint: {
+                    text: "View this guide to see what document types are available and a complete description of how to use them with examples."
+                  },
+                  conditional: {
+                    html: noHtml
+                  }
+                },
+
+
+        value: "list",
+        text: "Maybe, let me see the full document type list",
+        hint: {
+          text: "Lorem ipsum dolor sit amet consectutor."
+        },
+        conditional: {
+          html: maybeHtml
+        }
+      },
+
+      {{ govukButton({
+        text: "Continue",
+        href: "javascript: actionURL();"
+      }) }}
+
+      ,
+                  conditional: {
+                    html: no2Html
+                  }
+
+      {
+        divider: "or"
+      }, 
+    
+                {% set maybeHtml %}
+              {%- include "./includes/include-type-maybe.html" -%}
+            {% endset -%}
+
+            {% set maybe2Html %}
+              {%- include "./includes/include-type-maybe2.html" -%}
+            {% endset -%}
+
+            {% set noHtml %}
+              {%- include "./includes/include-type-no1.html" -%}
+            {% endset -%}
+
+            {% set no2Html%}
+              {%- include "./includes/include-type-no2.html" -%}
+            {% endset %}
+    
+    
+    -->
+      
+      <script>
+        function actionURL() {
+          var typeCP = $('#documentTypeQuestions-2').is(':checked');
+          var typeGuidance = $('#documentTypeQuestions-2').is(':checked');
+          if(typeCP) {
+            // alert(1);
+            $('#documentType').attr('action', '../../documents/type-cp').submit();
+          } else if(typeCP) {
+            // alert(1);
+            $('#documentType').attr('action', '../../documents/type-cp-6').submit();
+          } else {
+            // alert(2);
+            $('#documentType').attr('action', '../../publication/create').submit();
+          }
+        }
+      </script>
+
+    </form>
+  </div>
+</div>
+{% endblock %}
+{% block footer %}{% include "includes/footer-v1.html" %}{% endblock %}

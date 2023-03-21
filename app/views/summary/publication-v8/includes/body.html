@@ -1,0 +1,43 @@
+{# <div class="govuk-grid-row body-populated">
+  <div class="govuk-grid-column-full">
+    {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+    {{ mojSubNavigation({
+      label: 'Sub navigation',
+      items: [{
+        text: 'Document body',
+        href: '../publication/edit/body' + hrefParams,
+        active: true
+      },
+      {
+        html: 'Images <span id="notifications" class="moj-notification-badge">0</span>',
+        href: '../publication/edit/tab-images' + hrefParams
+      }]
+    }) }}
+  </div>
+</div> #}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <label class="govuk-label govuk-label--l" for="summary">
+        Body
+    </label>
+
+    {{ govukInsetText({
+      text: 'In the published GOV.UK page, this information will show as "Details" before the text body.'
+    }) }}
+
+    {% if data['pageState'] === 'empty' %}
+      {{ whitehallGovspeakEditor({
+        content: ""
+      }) }}
+    {% endif %}
+
+    {% if data['pageState'] === 'populated' or data['pageState'] === 'fullPopulated' or data['pageState'] === 'bodyAttachments' %}
+      {{ whitehallGovspeakEditor({
+        content: content.documentContent[0].bodyMarkdown
+      }) }}
+    {% endif %}
+
+  </div>
+</div>

@@ -1,0 +1,120 @@
+{% set sectionState = [] %}
+
+{% if data['pageState'] === 'bodyAttachments' %}
+
+{% endif %}
+
+{% if data['pageState'] === 'populated' %}
+
+{% endif %}
+
+{% if data['pageState'] === 'empty' %}
+
+{% endif %}
+
+{% if data['pageState'] === 'fullPopulated' %}
+
+{% endif %}
+{# <h3 class="govuk-heading-l">Excluded nations</h3> #}
+
+{# <p class="govuk-body whitehall-summary-change-link">
+  <a href="edit/excluded-nations{{hrefParams}}" class="govuk-link">Edit</a>
+</p> #}
+  {{ govukButton({
+      text: "Edit excluded nations",
+      classes: "govuk-button--secondary",
+      href: "../publication/edit/excluded-nations" + hrefParams
+  }) }}
+
+{% if content.documentContent[0].appliesToEngland %}
+  {% set enEngland = content.documentContent[0].appliesToEngland %}
+{# }}"></a></li> #}
+{% else %}
+  {% set enEngland = "Applies to England" %}
+{% endif %}
+
+{% if content.documentContent[0].appliesToWales %}
+  {% set enWales = content.documentContent[0].appliesToWales %}
+{# <li><a class="govuk-link" href="{{content.documentContent[0].}}">Guidance for Wales</a></li> #}
+{% else %}
+  {% set enWales = "Applies to Wales" %}
+{% endif %}
+
+{% if content.documentContent[0].appliesToScotland %}
+  {% set enScotland = content.documentContent[0].appliesToScotland %}
+{# <li><a class="govuk-link" href="{{content.documentContent[0].}}">Guidance for Scotland</a></li> #}
+{% else %}
+  {% set enScotland = "Applies to Scotland" %}
+{% endif %}
+
+{% if content.documentContent[0].appliesToNorthernIreland %}
+  {% set enNorthernIreland = content.documentContent[0].appliesToNorthernIreland %}
+{# <li><a class="govuk-link" href="{{content.documentContent[0].}}">Guidance for Northern Ireland</a></li> #}
+{% else %}
+  {% set enNorthernIreland = "Applies to Northern Ireland" %}
+{% endif %}
+
+{{ govukSummaryList({
+    rows: [
+    {
+        key: {
+            text: "England"
+        },
+            value: {
+            html: enEngland
+        }
+    },
+    {
+        key: {
+            text: "Wales"
+        },
+        value: {
+            html: enWales
+        }
+    },
+    {
+        key: {
+            text: "Scotland"
+        },
+        value: {
+            html: enScotland
+        }
+    },
+    {
+        key: {
+            text: "Northern Ireland"
+        },
+        value: {
+            html: enNorthernIreland
+        }
+    }
+    ]
+}) }}
+
+
+{#
+<section class="gem-c-devolved-nations">
+  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+    Applies to{% if content.documentContent[0].appliesToEngland %}{% else %} England{% endif %}
+    {% if content.documentContent[0].appliesToWales %}{% else %}, Wales{% endif %}
+    {% if content.documentContent[0].appliesToScotland %}{% else %}, Scotland{% endif %}
+    {% if content.documentContent[0].appliesToNorthernIreland %}{% else %}, Northern Ireland{% endif %}
+  </h3>
+  {% if content.documentContent[0].appliesToEngland or content.documentContent[0].appliesToWales or content.documentContent[0].appliesToScotland or content.documentContent[0].appliesToNorthernIreland %}
+  <ul class="govuk-list govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+    {% if content.documentContent[0].appliesToEngland %}
+    <li><a class="govuk-link" href="{{content.documentContent[0].appliesToEngland}}">Guidance for England</a></li>
+    {% endif %}
+    {% if content.documentContent[0].appliesToWales %}
+    <li><a class="govuk-link" href="{{content.documentContent[0].appliesToWales}}">Guidance for Wales</a></li>
+    {% endif %}
+    {% if content.documentContent[0].appliesToScotland %}
+    <li><a class="govuk-link" href="{{content.documentContent[0].appliesToScotland}}">Guidance for Scotland</a></li>
+    {% endif %}
+    {% if content.documentContent[0].appliesToNorthernIreland %}
+    <li><a class="govuk-link" href="{{content.documentContent[0].appliesToNorthernIreland}}">Guidance for Northern Ireland</a></li>
+    {% endif %}
+  </ul>
+  {% endif %}
+</section>
+#}

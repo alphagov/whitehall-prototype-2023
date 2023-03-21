@@ -1,0 +1,107 @@
+{# <!-- Javascript -->
+<script src="/public/javascripts/jquery-1.11.3.js"></script> #}
+
+{# {% for scriptUrl in extensionConfig.scripts %}
+  <script src="{{scriptUrl}}"></script>
+{% endfor %} #}
+
+{# <script src="/public/javascripts/application.js"></script> #}
+
+{# {% if useAutoStoreData %}
+  <script src="/public/javascripts/auto-store-data.js"></script>
+{% endif %} #}
+
+<!-- ADDITIONAL COMPONENTS -->
+<script src="/public/javascripts/autocomplete/accessible-autocomplete.min.js"></script>
+<script src="/public/javascripts/whitehall/whitehall-govspeak-editor.js"></script>
+<script src="/public/javascripts/whitehall/whitehall-govspeak-editor-cp.js"></script>
+<!-- <script src="/public/javascripts/whitehall/whitehall-miller-columns-init.js"></script> -->
+<script src="/public/javascripts/whitehall/whitehall-autocomplete-init.js"></script>
+<script src="/public/javascripts/whitehall/whitehall-sticky-element.js"></script>
+<script src="/public/javascripts/whitehall/whitehall-accordion.js"></script>
+
+
+
+<script src="https://unpkg.com/element-closest/browser"></script>
+<script src="https://unpkg.com/core-js-bundle/index.js"></script>
+<script src="https://unpkg.com/@webcomponents/custom-elements/custom-elements.min.js">
+</script>
+<script src="https://unpkg.com/miller-columns-element@2.0.0/dist/index.umd.js"></script>
+
+<!-- <script src="/public/javascripts/whitehall/whitehall-miller-columns.js"></script>-->
+
+<!-- <script src="/public/javascripts/whitehall/whitehall-miller-columns-esm.js"></script> -->
+<!-- <script src="/public/javascripts/govspeak-editor.js"></script> -->
+<!-- <script src="/public/javascripts/whitehall/whitehall-modal.js"></script> -->
+<!-- // END ADDITIONAL COMPONENTS -->
+
+
+
+<!-- DOCUMENTS PAGE -->
+<script>
+
+
+
+
+
+
+
+
+// alert(1);
+
+
+//*******************Delete
+// file: document/index.html
+{# $('#author-filter').autocomplete();
+$('#location-filter').autocomplete();
+$('#organisation-filter').autocomplete(); #}
+
+// file: document/type.html
+{# $('#content-type-filter').autocomplete(); #}
+
+// $('#miller-columns').MillerColumns();
+
+
+
+
+/* COLLAPSIBLE */
+$(".js-container-heading").click(function(){
+  $(this).parent();
+  $(".app-c-option-select__filter").hide();
+  $(this).parent().toggleClass("js-opened");
+  $(this).parent().toggleClass("js-closed");
+});
+
+{# /* GET URL PARAMETERS */
+var getUrlParameter = function getUrlParameter(sParam) {
+  var sPageURL = window.location.search.substring(1),
+      sURLVariables = sPageURL.split('&'),
+      sParameterName,
+      i;
+
+  for (i = 0; i < sURLVariables.length; i++) {
+      sParameterName = sURLVariables[i].split('=');
+
+      if (sParameterName[0] === sParam) {
+          return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+      }
+  }
+  return false;
+}; #}
+
+// FIX
+$('#body-field').height('');
+$('#body-field').height($('#body-field').prop('scrollHeight') + "px");
+//alert($('#body-field').prop('scrollHeight'));
+
+
+
+
+
+
+
+
+
+</script>
+
+

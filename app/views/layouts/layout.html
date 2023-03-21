@@ -1,0 +1,234 @@
+{#
+For guidance on how to use layouts see:
+https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+#}
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
+
+
+{#- We can't mount GOV.UK Frontend's assets at root as it's done automatically by the extensions framework. -#}
+{%- set assetPath = '/govuk/assets' -%}
+
+{% extends "govuk/template.njk" %}
+
+{% from "govuk/components/accordion/macro.njk"                      import govukAccordion %}
+{% from "govuk/components/back-link/macro.njk"                      import govukBackLink %}
+{% from "govuk/components/breadcrumbs/macro.njk"                    import govukBreadcrumbs %}
+{% from "govuk/components/button/macro.njk"                         import govukButton %}
+{% from "govuk/components/character-count/macro.njk"                import govukCharacterCount %}
+{% from "govuk/components/checkboxes/macro.njk"                     import govukCheckboxes %}
+{% from "govuk/components/cookie-banner/macro.njk"                  import govukCookieBanner %}
+{% from "govuk/components/date-input/macro.njk"                     import govukDateInput %}
+{% from "govuk/components/details/macro.njk"                        import govukDetails %}
+{% from "govuk/components/error-message/macro.njk"                  import govukErrorMessage %}
+{% from "govuk/components/error-summary/macro.njk"                  import govukErrorSummary %}
+{% from "govuk/components/fieldset/macro.njk"                       import govukFieldset %}
+{% from "govuk/components/file-upload/macro.njk"                    import govukFileUpload %}
+{% from "govuk/components/input/macro.njk"                          import govukInput %}
+{% from "govuk/components/inset-text/macro.njk"                     import govukInsetText %}
+{% from "govuk/components/notification-banner/macro.njk"            import govukNotificationBanner %}
+{% from "govuk/components/pagination/macro.njk"                     import govukPagination %}
+{% from "govuk/components/panel/macro.njk"                          import govukPanel %}
+{% from "govuk/components/phase-banner/macro.njk"                   import govukPhaseBanner %}
+{% from "govuk/components/radios/macro.njk"                         import govukRadios %}
+{% from "govuk/components/select/macro.njk"                         import govukSelect %}
+{% from "govuk/components/skip-link/macro.njk"                      import govukSkipLink %}
+{% from "govuk/components/summary-list/macro.njk"                   import govukSummaryList %}
+{% from "govuk/components/table/macro.njk"                          import govukTable %}
+{% from "govuk/components/tabs/macro.njk"                           import govukTabs %}
+{% from "govuk/components/tag/macro.njk"                            import govukTag %}
+{% from "govuk/components/textarea/macro.njk"                       import govukTextarea %}
+{% from "govuk/components/warning-text/macro.njk"                   import govukWarningText %}
+{% from "govuk/components/header/macro.njk"                         import govukHeader %}
+
+{% from "components/whitehall-header/macro.njk"                   import whitehallHeader %}
+{% from "components/whitehall-header-v2/macro.njk"                import whitehallHeaderV2 %}
+{% from "components/whitehall-documents-table/macro.njk"          import whitehallDocumentsTable %}
+{% from "components/whitehall-filter-collapsible/macro.njk"       import whitehallFilterCollapsible %}
+{% from "components/whitehall-govspeak-editor/macro.njk"          import whitehallGovspeakEditor %}
+{% from "components/whitehall-govspeak-guidance/macro.njk"        import whitehallGovspeakGuidance %}
+{% from "components/whitehall-modal/macro.njk"                    import whitehallModal %}
+{% from "components/whitehall-attachment/macro.njk"               import whitehallAttachment %}
+{% from "components/whitehall-back-to-top/macro.njk"              import whitehallBackToTop %}
+{% from "components/whitehall-accordion/macro.njk"                import whitehallAccordion %}
+
+{# Use this to change the document to populated or empty #}
+{% import "./includes/_globals.html" as globals %}
+{% import './mock-data/_content_example.html' as content %}
+
+{% block head %}
+  {% include "includes/head.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+  GOV.UK Whitehall Publisher
+{% endblock %} 
+
+{% block header %}
+  {{ super() }}
+  {{ whitehallHeader({
+      homepageUrl: "dashboard/",
+      serviceName: serviceName,
+      serviceUrl: "/",
+      containerClasses: "govuk-width-container",
+      phaseBanner: true,
+      navigation: [
+        {
+          href: "../documents/" + hrefParams,
+          text: "Documents",
+          active: true
+        },
+        {
+          href: "../organisation/" + hrefParams,
+          text: "My organisation"
+        },
+        {
+          href: "../support/" + hrefParams,
+          text: "Support information"
+        },
+        {
+          href: "../guidance/" + hrefParams,
+          text: "Guidance"
+        },
+        {
+          href: "../account/" + hrefParams,
+          text: globals.loggedUser
+        },
+        {
+          href: "../signout" + hrefParams,
+          text: "Sign out"
+        }
+      ]
+  }) }}
+{% endblock %}
+
+{% set bodyClasses = "whitehall" %}
+{% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
+
+{% if useAutoStoreData %}
+  {% block footer %}
+
+    {# Guidance #}
+    {{ govukFooter({
+      navigation: [
+        {
+          title: "Writing and publishing",
+          width: "one-third",
+          columns: 1,
+          items: [
+            {
+              href: "#",
+              text: "Content Data"
+            },
+            {
+              href: "#",
+              text: "Product development"
+            },
+            {
+              href: "#",
+              text: "How to publish content on GOV.UK"
+            },
+            {
+              href: "#",
+              text: "Planning, writing and managing content"
+            }
+          ]
+        },
+        {
+          title: "Product development",
+          width: "one-third",
+          items: [
+            {
+              href: "#",
+              text: "What's new in Whitehall"
+            },
+            {
+              href: "#",
+              text: "Inside GOV.UK blog"
+            }
+          ]
+        },
+        {
+          title: "Support and feedback",
+          width: "one-third",
+          items: [
+            {
+              href: "#",
+              text: "Raise a support request"
+            },
+            {
+              href: "#",
+              text: "GDS support form (Zendesk)"
+            },
+            {
+              href: "#",
+              text: "Find in admin bookmarklet"
+            }
+          ]
+        }
+      ],
+      meta: {
+        items: [
+          {
+            href: "versions",
+            text: "GOV.UK Whitehall Publishing " + releaseVersion
+          },
+          {
+            href: "/prototype-admin/clear-data",
+            text: "Clear data"
+          },
+          {
+            href: "#",
+            text: "Help"
+          },
+          {
+            href: "#",
+            text: "Cookies"
+          },
+          {
+            href: "#",
+            text: "Contact"
+          },
+          {
+            href: "#",
+            text: "Terms and conditions"
+          }
+        ],
+        html: 'Built by the <a href="#" class="govuk-footer__link">Government Digital Service</a>'
+      }
+    }) }}
+    {# ,
+          {
+            href: "#",
+            text: "Rhestr o Wasanaethau Cymraeg",
+            attributes: {
+              lang: "cy",
+              hreflang: "cy"
+            }
+          } #}
+    {# {{ govukFooter({
+      meta: {
+        items: [
+          {
+            href: "https://govuk-prototype-kit.herokuapp.com/",
+            text: "GOV.UK Whitehall Publishing " + releaseVersion
+          },
+          {
+            href: "/prototype-admin/clear-data",
+            text: "Clear data"
+          }
+        ],
+        visuallyHiddenTitle: "Footer links"
+      }
+    }) }} #}
+  {% endblock %}
+{% endif %}
+
+{% block bodyEnd %}
+  {% block scripts %}
+    {% include "includes/scripts.html" %}
+    {% block pageScripts %}
+{{ super() }}{% endblock %}
+  {% endblock %}
+  <!-- GOV.UK Prototype Kit {{releaseVersion}} -->
+{% endblock %}

@@ -1,0 +1,18 @@
+{% call whitehallFilterCollapsible({
+    title: "Location"
+  }) %}
+    <!-- <div class="autocomplete__wrapper govuk-!-margin-bottom-6">
+      <div class="govuk-form-group"> -->
+        <!-- <label class="govuk-label govuk-label--m" for="location-filter">
+          World location
+        </label> -->
+        <!-- <span id="organisation-search-error" class="govuk-error-message" role="alert">
+          <span class="govuk-visually-hidden">Error:</span> Value entered not recognised, please try again
+        </span> -->
+        <select class="govuk-select" id="location-filter" name="location-filter">
+          <option value=""></option>
+          {% include "mock-data/world_location_data.html" %}
+        </select>
+      <!-- </div>
+    </div> -->
+  {% endcall %}

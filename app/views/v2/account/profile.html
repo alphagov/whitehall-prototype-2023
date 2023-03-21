@@ -1,0 +1,155 @@
+
+{% extends "layouts/main.html" %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+  {{ super() }}
+{% endblock %} 
+
+{% block header %}
+  {{ super() }}
+
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">Profile</span>
+      <h1 class="govuk-heading-xl">
+        {{globals.loggedUser}}
+      </h1>
+    </div>
+  </div>
+
+<!-- 
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+      {{ mojSubNavigation({
+        label: 'Sub navigation',
+        items: [
+          {
+            text: 'Profile',
+            href: '../profile',
+            active: true
+          },
+          {
+            html: 'All users',
+            href: 'users'
+          }
+        ]
+      }) }}
+    </div>
+  </div> -->
+
+  <!-- {
+    html: 'History and notes <span id="notifications" class="moj-notification-badge">17</span>',
+    href: 'history'
+  }, -->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Name"
+              },
+              value: {
+                text: globals.loggedUser
+              }
+            },
+            {
+              key: {
+                text: "Email address"
+              },
+              value: {
+                text: "carlos.bernardo@digital.cabinet-office.gov.uk"
+              }
+            },
+            {
+              key: {
+                text: "Role"
+              },
+              value: {
+                text: "GDS Editor"
+              }
+            },
+            {
+              key: {
+                text: "Organisation"
+              },
+              value: {
+                text: "Government Digital Service"
+              }
+            },
+            {
+              key: {
+                text: "World locations"
+              },
+              value: {
+                html: '<ul class="govuk-list govuk-list--bullet">
+                  <li>
+                    United Kingdom
+                  </li>
+                  <li>
+                    Brazil
+                  </li>
+                  <li>
+                    Portugal
+                  </li>
+                </ul>'
+              }
+            },
+            {
+              key: {
+                text: "Document subtype"
+              },
+              value: {
+                text: "Guidance"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "Change"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Title"
+              },
+              value: {
+                text: "HM Land Registry: Sign your mortgage deed"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "Change"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Page address"
+              },
+              value: {
+                text: "https://www.integration.publishing.service.gov.uk/government/guidance/loremipsum"
+              }
+            }
+          ]
+        }) }}
+    </div>
+  </div>
+
+
+{% endblock %}

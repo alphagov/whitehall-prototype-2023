@@ -1,0 +1,16 @@
+<div class="govuk-form-group">
+    <label class="govuk-label govuk-label--l" for="title">
+        Title
+    </label>
+    <div id="title-hint" class="govuk-hint">
+        This does not have to be the full publication title. The title must be unique and specific, and make clear what the content offers users in their words.
+    </div>
+    <input class="govuk-input" id="title" name="title" type="text" value="{{content.documentContent[0].title}}" aria-describedby="title-hint">
+    <div class="govuk-hint govuk-character-count__message govuk-character-count__status" aria-hidden="true">Title should be under 65 characters. You have 65 characters remaining</div>
+</div>
+
+<div class="govuk-inset-text">
+    <b>Page address</b><br>
+    <span id="pageURL">{{content.documentContent[0].pageUrl}}</span>
+</div>
+{# You haven’t entered a title yet. #}

@@ -1,0 +1,756 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+{# Use this to change the document to populated or empty #}
+{#  #}
+
+{% block pageTitle %}
+  {{ super() }}
+{% endblock %} 
+
+<!--
+  empty
+  populated
+
+
+  already-published
+  new-draft
+  main.warning-xxxx
+  main.document-type-publication
+-->
+{% set mainClasses = "govuk-main-wrapper--auto-spacing document-type-publication summary" %}
+
+{% block header %}
+  {{ super() }}
+  {{ whitehallHeader({
+      homepageUrl: "dashboard/",
+      serviceName: serviceName,
+      serviceUrl: "/",
+      containerClasses: "govuk-width-container",
+      phaseBanner: true,
+      navigation: [
+        {
+          href: "../documents/" + hrefParams,
+          text: "Documents",
+          active: true
+        },
+        {
+          href: "../organisation/" + hrefParams,
+          text: "My organisation"
+        },
+        {
+          href: "../support/" + hrefParams,
+          text: "Support information"
+        },
+        {
+          href: "../guidance/" + hrefParams,
+          text: "Guidance"
+        },
+        {
+          href: "../account/" + hrefParams,
+          text: globals.loggedUser
+        },
+        {
+          href: "../signout" + hrefParams,
+          text: "Sign out"
+        }
+      ],
+      items: [
+        {
+          text: "Home",
+          href: "../dashboard/" + hrefParams
+        },
+        {
+          text: "Documents",
+          href: "../documents/" + hrefParams
+        }
+      ]
+  }) }}
+
+
+<style>
+  .whitehall-accordion__section-content {
+    padding-top: 30px !important;
+  }
+  .app-c-markdown-editor__container .govuk-textarea {
+    min-height: 440px;
+    overflow-y: scroll !important;
+  }
+  main.summary h2,
+  main.summary h3,
+  main.summary h4 {
+    display: block;
+    width: 100%;
+  }
+  .whitehall-summary-h3 {
+    margin-left: 0px;
+  }
+
+  .govspeak .gem-c-attachment__thumbnail-image, .gem-c-govspeak .gem-c-attachment__thumbnail-image {
+    display: block;
+    width: auto;
+    max-width: 99px;
+    height: 90px;
+    border: rgba(11, 12, 12, 0.1);
+    outline: 5px solid rgba(11, 12, 12, 0.1);
+    background: #ffffff;
+    box-shadow: 0 2px 2px rgb(11 12 12 / 40%);
+    fill: #b1b4b6;
+    stroke: #b1b4b6;
+}
+.govspeak .gem-c-attachment__details, .gem-c-govspeak .gem-c-attachment__details {
+  padding-left: 90px;
+}
+.gem-c-attachment__title {
+  margin: 0 !important;
+}
+.gem-c-attachment__title a{
+  font-size: 19px;
+  font-weight: bold;
+}
+.gem-c-attachment__metadata {
+  margin: 0 !important;
+}
+.gem-c-attachment__attribute {
+  font-size: 19px;
+}
+.gem-c-attachment__metadata--compact {
+  font-size: 19px !important;
+}
+.app-c-media-with-actions {
+    font-family: "GDS Transport", arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.25;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #b1b4b6;
+}
+.gem-c-govspeak .gem-c-attachment__thumbnail {
+    position: relative;
+    width: auto;
+    margin-right: 25px;
+    margin-bottom: 0px;
+    padding: 5px;
+    float: left;
+}
+
+#document-summary-panel .govuk-button--secondary {
+  display: none;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters govuk-!-margin-bottom-4">
+
+    {% include "./includes/summary-messages.html" %}
+
+    <span class="govuk-caption-xl">
+      {{content.documentContent[0].subtype}}
+    </span>
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">
+      {# Edit document #}
+      {{content.documentContent[0].title}}
+    </h1>
+
+    {% include "./includes/summary-document-status.html" %}
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters govuk-!-margin-bottom-4">
+
+    {% include "./includes/summary-tools.html" %}
+
+    {% include "./includes/summary-actions.html" %}
+
+    {% if data['pageState'] === 'empty' or data['pageState'] === 'bodyAttachments' %}
+    <div class="app-c-inset-prompt govuk-!-margin-top-4">
+      <h3 class="app-c-inset-prompt__title govuk-heading-m">To publish this document you need to</h3>
+      <div class="app-c-inset-prompt__body">
+        <ul class="govuk-list app-c-inset-prompt__list">
+          <!-- <li>
+            <a data-gtm="requirements-issue" data-gtm-value="Enter a summary" data-gtm-visibility-tracking="true" class="govuk-link govuk-link--no-visited-state" href="../documents/e10c314b-4193-439c-87d8-a1b28c240e91:en/content#summary" data-gtm-vis-recent-on-screen-9704122_311="98" data-gtm-vis-first-on-screen-9704122_311="98" data-gtm-vis-total-visible-time-9704122_311="100" data-gtm-vis-has-fired-9704122_311="1">Enter a summary</a>
+          </li>           -->
+          {% if data['pageState'] === 'empty' %}
+          <li>
+            <a 
+              class="govuk-link govuk-link--no-visited-state"
+              href="../publication/edit/body{{hrefParams}}">Enter a body</a>
+          </li>
+          {% endif %}
+          <li>
+            <a
+              class="govuk-link govuk-link--no-visited-state"
+              href="../publication/edit/taxonomy{{hrefParams}}">Add a topic</a>
+          </li>
+          {% if data['pageState'] === 'empty' %}
+          <li>
+            <a
+              class="govuk-link govuk-link--no-visited-state" 
+              href="../publication/attachments/{{hrefParams}}">Add an attachment</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+    {% endif %}
+
+  </div>
+</div>
+
+
+
+
+    <!-- <section class="govuk-notification-banner gem-c-notice govuk-!-margin-bottom-8" aria-label="Notice" role="region">
+      <div class="govuk-notification-banner__content">
+    <span class="gem-c-notice__title govuk-notification-banner__heading">This was published under the 2005 to 2010 Labour government</span>
+    </div></section> -->
+
+
+{# CONTENTS #}
+{# {% set hrefParams = "" %}
+{% if data['pageState'] === 'bodyAttachments' %}
+  {% set hrefParams = "?pageState=bodyAttachments" %}
+{% endif %}
+
+{% if data['pageState'] === 'populated' %}
+  {% set hrefParams = "?pageState=populated" %}
+{% endif %}
+
+{% if data['pageState'] === 'empty' %}
+  {% set hrefParams = "?pageState=bodyAttachments" %}
+{% endif %}
+
+{% if data['pageState'] === 'fullPopulated' %}
+  {% set hrefParams = "?pageState=fullPopulated" %}
+{% endif %} #}
+
+{%
+  set sectionStateTag = [
+    {
+      state: 'Completed',
+      id: 0,
+      tag: '<strong class="govuk-tag">Completed</strong>',
+      color: ""
+    },
+    {
+      state: 'Not started',
+      id: 1,
+      tag: '<strong class="govuk-tag govuk-tag--red">Not started</strong>',
+      color: "govuk-tag--red"
+    },
+    {
+      state: 'Not started',
+      id: 2,
+      tag: '<strong class="govuk-tag govuk-tag--grey">Not started</strong>',
+      color: "govuk-tag--grey"
+    },
+    {
+      state: 'In progress',
+      id: 3,
+      tag: '<strong class="govuk-tag govuk-tag--blue">In progress</strong>',
+      color: "govuk-tag--blue"
+    }
+  ]
+%}
+
+{%
+  set documentSections = [
+
+      {
+        title: 'Content',
+        description: false,
+        id: "summary",
+        anchor: "#summary",
+        href: "../publication/edit/summary" + hrefParams,
+        htmlInclude: "./summary-sections/summary-content.html",
+        mandatory: true,
+        visible: true,
+        state: 0
+      },
+      {
+        title: 'Attachments',
+        description: false,
+        id: "attachments",
+        anchor: "#attachments",
+        href: "../publication/attachments/" + hrefParams,
+        htmlInclude: "./summary-sections/summary-attachments.html",
+        mandatory: true,
+        visible: true,
+        state: 1
+      },
+      {
+        title: 'Topic taxonomy tags',
+        description: false,
+        id: "taxonomy",
+        anchor: "#taxonomy",
+        href: "../publication/edit/taxonomy" + hrefParams,
+        htmlInclude: "./summary-sections/summary-taxonomy.html",
+        mandatory: true,
+        visible: true,
+        state: 1
+      },
+      {
+        title: 'Excluded nations',
+        description: false,
+        id: "excluded-nations",
+        anchor: "#excluded-nations",
+        href: "../publication/edit/excluded-nations" + hrefParams,
+        htmlInclude: "./summary-sections/summary-excluded-nations.html",
+        mandatory: true,
+        visible: true,
+        state: 0
+      },
+      {
+        title: 'Tags',
+        description: "Specialist topics, topical events, world locations, statistical data sets, and associated user needs.",
+        id: "optional-metadata",
+        anchor: "#optional-metadata",
+        href: "../publication/edit/optional-metadata" + hrefParams,
+        htmlInclude: "./summary-sections/summary-optional-metadata.html",
+        mandatory: false,
+        visible: true,
+        state: 2
+      },
+      {
+        title: 'Translations',
+        description: false,
+        id: "translations",
+        anchor: "#translations",
+        href: "../publication/edit/translations" + hrefParams,
+        htmlInclude: "./summary-sections/summary-translations.html",
+        mandatory: false,
+        visible: true,
+        state: 2
+      }
+  ]
+%}
+{# 
+      {
+        title: 'Organisations and Ministers tags',
+        description: false,
+        id: "organisations-ministers",
+        anchor: "#organisations-ministers",
+        href: "../publication/edit/organisations" + hrefParams,
+        htmlInclude: "./summary-sections/summary-organisations-ministers.html",
+        mandatory: true,
+        visible: true,
+        state: 0
+      },
+
+ #}
+{%
+  set sectionStateEmpty = [
+      {
+        id: "title-type",
+        pageState: "empty",
+        state: 0
+      },
+      {
+        id: "summary",
+        pageState: "empty",
+        state: 3
+      },
+      {
+        id: "attachments",
+        pageState: "empty",
+        state: 1
+      },
+      {
+        id: "body",
+        pageState: "empty",
+        state: 1
+      },
+      {
+        id: "taxonomy",
+        pageState: "empty",
+        state: 1
+      },
+      {
+        id: "organisations-ministers",
+        pageState: "empty",
+        state: 0
+      },
+      {
+        id: "excluded-nations",
+        pageState: "empty",
+        state: 0
+      },
+      {
+        id: "specialist-topic",
+        pageState: "empty",
+        state: 2
+      },
+      {
+        id: "associations",
+        pageState: "empty",
+        state: 2
+      },
+      {
+        id: "translations",
+        pageState: "empty",
+        state: 2
+      },
+      {
+        id: "associated-user-needs",
+        pageState: "empty",
+        state: 2
+      },
+      {
+        id: "optional-metadata",
+        pageState: "empty",
+        state: 2
+      }
+  ]
+%}
+{%
+  set sectionStateBodyAttachments = [
+      {
+        id: "title-type",
+        pageState: "bodyAttachments",
+        state: 0
+      },
+      {
+        id: "summary",
+        pageState: "bodyAttachments",
+        state: 0
+      },
+      {
+        id: "attachments",
+        pageState: "bodyAttachments",
+        state: 0
+      },
+      {
+        id: "body",
+        pageState: "bodyAttachments",
+        state: 0
+      },
+      {
+        id: "taxonomy",
+        pageState: "bodyAttachments",
+        state: 1
+      },
+      {
+        id: "organisations-ministers",
+        pageState: "bodyAttachments",
+        state: 0
+      },
+      {
+        id: "excluded-nations",
+        pageState: "bodyAttachments",
+        state: 0
+      },
+      {
+        id: "specialist-topic",
+        pageState: "bodyAttachments",
+        state: 2
+      },
+      {
+        id: "associations",
+        pageState: "bodyAttachments",
+        state: 2
+      },
+      {
+        id: "translations",
+        pageState: "bodyAttachments",
+        state: 2
+      },
+      {
+        id: "associated-user-needs",
+        pageState: "bodyAttachments",
+        state: 2
+      },
+      {
+        id: "optional-metadata",
+        pageState: "bodyAttachments",
+        state: 2
+      }
+  ]
+%}
+{%
+  set sectionStatePopulated = [
+      {
+        id: "title-type",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "summary",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "attachments",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "body",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "taxonomy",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "organisations-ministers",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "excluded-nations",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "specialist-topic",
+        pageState: "populated",
+        state: 2
+      },
+      {
+        id: "associations",
+        pageState: "populated",
+        state: 2
+      },
+      {
+        id: "translations",
+        pageState: "populated",
+        state: 2
+      },
+      {
+        id: "associated-user-needs",
+        pageState: "populated",
+        state: 2
+      },
+      {
+        id: "optional-metadata",
+        pageState: "populated",
+        state: 2
+      }
+  ]
+%}
+{%
+  set sectionStateFullPopulated = [
+      {
+        id: "title-type",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "summary",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "attachments",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "body",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "taxonomy",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "organisations-ministers",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "excluded-nations",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "specialist-topic",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "associations",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "translations",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "associated-user-needs",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "optional-metadata",
+        pageState: "populated",
+        state: 0
+      }
+  ]
+%}
+
+
+{% set sectionState = [] %}
+{% if data['pageState'] === 'empty' %}
+  {% for states in sectionStateEmpty %}
+    {% set sectionState = (sectionState.push(states), sectionState) %}
+  {% endfor %}
+{% endif %}
+{% if data['pageState'] === 'populated' %}
+  {% for states in sectionStatePopulated %}
+    {% set sectionState = (sectionState.push(states), sectionState) %}
+  {% endfor %}
+{% endif %}
+{% if data['pageState'] === 'bodyAttachments' %}
+  {% for states in sectionStateBodyAttachments %}
+    {% set sectionState = (sectionState.push(states), sectionState) %}
+  {% endfor %}
+{% endif %}
+{% if data['pageState'] === 'fullPopulated' %}
+  {% for states in sectionStateFullPopulated %}
+    {% set sectionState = (sectionState.push(states), sectionState) %}
+  {% endfor %}
+{% endif %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters" id="tabs-content">
+    {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+    {{ mojSubNavigation({
+      label: 'Sub navigation',
+      items: [{
+        text: 'Document summary',
+        href: '../publication/summary' + hrefParams,
+        active: true
+      }, {
+        html: 'History and notes <span id="notifications" class="moj-notification-badge">17</span>',
+        href: '../publication/history' + hrefParams
+      },
+      {
+        html: 'Preview and share',
+        href: '../publication/preview' + hrefParams
+      },
+      {
+        html: 'Send for review or publish',
+        href: '../publication/publish/' + hrefParams
+      }]
+    }) }}
+  </div>
+</div>
+
+<div id="document-summary-panel" class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    
+    <h2 class="govuk-visually-hidden">Document summary</h2>
+
+    {# <div class="whitehall-accordion" data-module="whitehall-accordion" id="summary-accordion"> #}
+      {% for section in documentSections %}
+        <div class="govuk-grid-row govuk-!-margin-bottom-8">
+          <div class="govuk-grid-column-full">
+
+            <h2 class="govuk-heading-l whitehall-summary-h1-blue-v4-cp">
+              {{section.title}}
+
+              <p class="govuk-body">
+                <a class="govuk-link" href="{{section.href}}">Edit</a>
+              </p>
+              
+
+              {# {% if section.mandatory %}
+                <strong class="govuk-tag govuk-tag--grey" style="float: right; margin-top: 8px;">Required</strong>
+              {% else %}
+                <strong class="govuk-tag govuk-tag--grey" style="float: right; margin-top: 8px;">Optional</strong>
+              {% endif %} #}
+            </h2>
+            {% for stateItem in sectionState %}
+              {% if stateItem.id == section.id %}
+                  {# <strong class="govuk-tag {{sectionStateTag[stateItem.state]['color']}}">{{sectionStateTag[stateItem.state]['state']}}</strong> #}
+              {% endif %} 
+            {% endfor %}
+
+            {% if stateItem.description %}
+            {# <div class="whitehall-accordion__section-summary govuk-body" id="accordion-with-summary-sections-summary-{{section.id}}"> #}
+              {# {{stateItem.description}} #}
+            {# </div> #}
+            {% endif %}
+            {% include section.htmlInclude %}
+          </div>
+        </div>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-bottom-4 govuk-!-margin-top-4">
+      {% endfor %}
+
+  </div>
+</div>
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <div id="sticky-element" data-sticky-element="" class="app-c-contents-list-with-body__link-wrapper sticky-element--stuck-to-window sticky-element--enabled">
+        <div class="app-c-contents-list-with-body__link-container">
+          {{ whitehallBackToTop({
+            label: "Back to top",
+            href: "#main-content"
+          }) }}
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+  <!-- RIGHT COLUMN -->
+  <div class="govuk-grid-column-one-third">
+
+    <!-- Actions and tools? -->
+  
+  </div>
+</div>
+{% endblock %}
+
+{% block pageScripts %}
+{{ super() }}
+<script>
+  /* WARNING AND MESSAGES */
+  var message = getUrlParameter('message');
+
+  // Summary page
+  if(message === "second-eyes") {
+    $('main').addClass('populated second-eyes');
+  } else if(message === "documentCreated") {
+    $('main').addClass('empty documentCreated');
+  } else if(message === "saved") {
+    $('main').addClass('populated saved');
+  } else {
+    $('main').addClass('populated');
+  }
+
+  $(document).ready(function() {  
+    $.stickyElement.wrapper = $('#document-summary-panel');
+    $.stickyElement.init();
+    new GOVUKFrontend.whitehallAccordion(document.getElementById('summary-accordion')).init();
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,170 @@
+
+{% extends "layouts/main.html" %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+  {{ super() }}
+{% endblock %} 
+
+{% block header %}
+  {{ super() }}
+  <div class="govuk-width-container">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="javascript: submitNavForm('dashboard/', $(this));">Home</a>
+        </li>
+        {# <li class="govuk-breadcrumbs__list-item" aria-current="page">My organisation</li> #}
+      </ol>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  {{ super() }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">My organisation</span>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
+        Government Digital Service
+      </h1>
+
+      <p class="govuk-body">
+        <a href="#" class="govuk-link">View on website</a>
+      </p>
+    </div>
+  </div>
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+      {{ mojSubNavigation({
+        label: 'Sub navigation',
+        items: [
+          {
+            text: 'Details',
+            href: "javascript: submitNavForm('organisation/', $(this));"
+          },
+          {
+            html: 'Pages',
+            href: "javascript: submitNavForm('organisation/pages', $(this));"
+          },
+          {
+            html: 'Contacts',
+            href: "javascript: submitNavForm('organisation/contacts', $(this));"
+          },
+          {
+            html: 'Features',
+            href: "javascript: submitNavForm('organisation/features', $(this));"
+          },
+          {
+            html: 'Social media accounts',
+            href: "javascript: submitNavForm('organisation/social-media-accounts', $(this));",
+            active: true
+          },
+          {
+            html: 'People',
+            href: "javascript: submitNavForm('organisation/people', $(this));"
+          },
+          {
+            html: 'Translations',
+            href: "javascript: submitNavForm('organisation/translations', $(this));"
+          },
+          {
+            html: 'Financial Reports',
+            href: "javascript: submitNavForm('organisation/financial-reports', $(this));"
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {{ govukButton({
+        text: "Create new social media account",
+        href: "javascript: submitNavForm('organisation/create/social-media-account', $(this));",
+        classes: "govuk-button--primary"
+      }) }}
+      <p class="govuk-body">
+        TBD
+      </p>
+    </div>
+  </div>
+
+
+{% endblock %}
+
+{% block pageScripts %}
+{{ super() }}
+<script>
+  $(document).ready(function() {  
+    $("#currentPage").attr({'value': 'organisation/'});
+    mainNavSetActive('organisation/');
+  });
+</script>
+{% endblock %}
+
+{# 
+
+<div class="tab-content">
+    <h2>Social media accounts</h2>
+    <dl class="social_media_account dl-horizontal" id="social_media_account_1582">
+  
+  <dt>Twitter</dt><dd>
+    <p><a href="https://twitter.com/gdsteam">https://twitter.com/gdsteam</a></p>
+    <form class="button_to" method="post" action="/government/admin/organisations/government-digital-service/social_media_accounts/1582"><input type="hidden" name="_method" value="delete" autocomplete="off"><input class="btn btn-sm btn-danger" data-confirm="Delete 'Twitter' social media account from organisation 'Government Digital Service'?" type="submit" value="Delete"><input type="hidden" name="authenticity_token" value="xY5nWNGbXNxFx7IavST5C5w397NN3UHz_bSRfqvVJo8s8GG2kpU745Z7ymTI5aHSahDJ0iphZ6SP1qxYPfShLg" autocomplete="off"></form>
+    <a class="btn btn-default add-left-margin" href="/government/admin/organisations/government-digital-service/social_media_accounts/1582/edit"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+</dd></dl><dl class="social_media_account dl-horizontal" id="social_media_account_1583">
+  <dt>Title</dt><dd>GDS blog</dd>
+  <dt>Blog</dt><dd>
+    <p><a href="https://gds.blog.gov.uk/">https://gds.blog.gov.uk/</a></p>
+    <form class="button_to" method="post" action="/government/admin/organisations/government-digital-service/social_media_accounts/1583"><input type="hidden" name="_method" value="delete" autocomplete="off"><input class="btn btn-sm btn-danger" data-confirm="Delete 'Blog' social media account from organisation 'Government Digital Service'?" type="submit" value="Delete"><input type="hidden" name="authenticity_token" value="xY5nWNGbXNxFx7IavST5C5w397NN3UHz_bSRfqvVJo8s8GG2kpU745Z7ymTI5aHSahDJ0iphZ6SP1qxYPfShLg" autocomplete="off"></form>
+    <a class="btn btn-default add-left-margin" href="/government/admin/organisations/government-digital-service/social_media_accounts/1583/edit"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+</dd></dl><dl class="social_media_account dl-horizontal" id="social_media_account_1584">
+  
+  <dt>YouTube</dt><dd>
+    <p><a href="https://www.youtube.com/user/GovDigitalService">https://www.youtube.com/user/GovDigitalService</a></p>
+    <form class="button_to" method="post" action="/government/admin/organisations/government-digital-service/social_media_accounts/1584"><input type="hidden" name="_method" value="delete" autocomplete="off"><input class="btn btn-sm btn-danger" data-confirm="Delete 'YouTube' social media account from organisation 'Government Digital Service'?" type="submit" value="Delete"><input type="hidden" name="authenticity_token" value="xY5nWNGbXNxFx7IavST5C5w397NN3UHz_bSRfqvVJo8s8GG2kpU745Z7ymTI5aHSahDJ0iphZ6SP1qxYPfShLg" autocomplete="off"></form>
+    <a class="btn btn-default add-left-margin" href="/government/admin/organisations/government-digital-service/social_media_accounts/1584/edit"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+</dd></dl><dl class="social_media_account dl-horizontal" id="social_media_account_1949">
+  
+  <dt>LinkedIn</dt><dd>
+    <p><a href="https://www.linkedin.com/company/government-digital-service">https://www.linkedin.com/company/government-digital-service</a></p>
+    <form class="button_to" method="post" action="/government/admin/organisations/government-digital-service/social_media_accounts/1949"><input type="hidden" name="_method" value="delete" autocomplete="off"><input class="btn btn-sm btn-danger" data-confirm="Delete 'LinkedIn' social media account from organisation 'Government Digital Service'?" type="submit" value="Delete"><input type="hidden" name="authenticity_token" value="xY5nWNGbXNxFx7IavST5C5w397NN3UHz_bSRfqvVJo8s8GG2kpU745Z7ymTI5aHSahDJ0iphZ6SP1qxYPfShLg" autocomplete="off"></form>
+    <a class="btn btn-default add-left-margin" href="/government/admin/organisations/government-digital-service/social_media_accounts/1949/edit"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+</dd></dl><dl class="social_media_account dl-horizontal" id="social_media_account_3714">
+  <dt>Title</dt><dd>Instagram</dd>
+  <dt>Instagram</dt><dd>
+    <p><a href="https://www.instagram.com/gdsteam/?hl=en">https://www.instagram.com/gdsteam/?hl=en</a></p>
+    <form class="button_to" method="post" action="/government/admin/organisations/government-digital-service/social_media_accounts/3714"><input type="hidden" name="_method" value="delete" autocomplete="off"><input class="btn btn-sm btn-danger" data-confirm="Delete 'Instagram' social media account from organisation 'Government Digital Service'?" type="submit" value="Delete"><input type="hidden" name="authenticity_token" value="xY5nWNGbXNxFx7IavST5C5w397NN3UHz_bSRfqvVJo8s8GG2kpU745Z7ymTI5aHSahDJ0iphZ6SP1qxYPfShLg" autocomplete="off"></form>
+    <a class="btn btn-default add-left-margin" href="/government/admin/organisations/government-digital-service/social_media_accounts/3714/edit"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+</dd></dl><dl class="social_media_account dl-horizontal" id="social_media_account_3715">
+  <dt>Title</dt><dd>Facebook</dd>
+  <dt>Facebook</dt><dd>
+    <p><a href="https://www.facebook.com/GovernmentDigitalService/">https://www.facebook.com/GovernmentDigitalService/</a></p>
+    <form class="button_to" method="post" action="/government/admin/organisations/government-digital-service/social_media_accounts/3715"><input type="hidden" name="_method" value="delete" autocomplete="off"><input class="btn btn-sm btn-danger" data-confirm="Delete 'Facebook' social media account from organisation 'Government Digital Service'?" type="submit" value="Delete"><input type="hidden" name="authenticity_token" value="xY5nWNGbXNxFx7IavST5C5w397NN3UHz_bSRfqvVJo8s8GG2kpU745Z7ymTI5aHSahDJ0iphZ6SP1qxYPfShLg" autocomplete="off"></form>
+    <a class="btn btn-default add-left-margin" href="/government/admin/organisations/government-digital-service/social_media_accounts/3715/edit"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+</dd></dl><dl class="social_media_account dl-horizontal" id="social_media_account_3776">
+  <dt>Title</dt><dd>GDS Podcast</dd>
+  <dt>Other</dt><dd>
+    <p><a href="https://gds.blog.gov.uk/category/podcast/">https://gds.blog.gov.uk/category/podcast/</a></p>
+    <form class="button_to" method="post" action="/government/admin/organisations/government-digital-service/social_media_accounts/3776"><input type="hidden" name="_method" value="delete" autocomplete="off"><input class="btn btn-sm btn-danger" data-confirm="Delete 'Other' social media account from organisation 'Government Digital Service'?" type="submit" value="Delete"><input type="hidden" name="authenticity_token" value="xY5nWNGbXNxFx7IavST5C5w397NN3UHz_bSRfqvVJo8s8GG2kpU745Z7ymTI5aHSahDJ0iphZ6SP1qxYPfShLg" autocomplete="off"></form>
+    <a class="btn btn-default add-left-margin" href="/government/admin/organisations/government-digital-service/social_media_accounts/3776/edit"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+</dd></dl><dl class="social_media_account dl-horizontal" id="social_media_account_4045">
+  <dt>Title</dt><dd>GDS Open Notes</dd>
+  <dt>Email</dt><dd>
+    <p><a href="http://eepurl.com/h9n83j">http://eepurl.com/h9n83j</a></p>
+    <form class="button_to" method="post" action="/government/admin/organisations/government-digital-service/social_media_accounts/4045"><input type="hidden" name="_method" value="delete" autocomplete="off"><input class="btn btn-sm btn-danger" data-confirm="Delete 'Email' social media account from organisation 'Government Digital Service'?" type="submit" value="Delete"><input type="hidden" name="authenticity_token" value="xY5nWNGbXNxFx7IavST5C5w397NN3UHz_bSRfqvVJo8s8GG2kpU745Z7ymTI5aHSahDJ0iphZ6SP1qxYPfShLg" autocomplete="off"></form>
+    <a class="btn btn-default add-left-margin" href="/government/admin/organisations/government-digital-service/social_media_accounts/4045/edit"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+</dd></dl>
+
+    <div class="form-actions">
+      <a class="btn btn-lg btn-primary" href="/government/admin/organisations/government-digital-service/social_media_accounts/new">Add</a>
+    </div>
+</div>
+
+ #}

@@ -1,0 +1,338 @@
+
+{% extends "layouts/main.html" %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+  {{ super() }}
+{% endblock %} 
+
+{% block header %}
+  {{ super() }}
+  <div class="govuk-width-container">
+    <a href="javascript: submitNavForm('organisation/contacts', $(this));" class="govuk-back-link">Back</a>
+  </div>
+{% endblock %}
+
+{% block content %}
+  {{ super() }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">Government Digital Service</span>
+      <h1 class="govuk-heading-xl">
+        New contact
+      </h1>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <p class="govuk-body">
+        TBD
+      </p>
+    </div>
+  </div>
+
+
+{% endblock %}
+
+
+
+{# 
+
+<main role="main">
+
+        
+  <h1>New contact for: Government Digital Service</h1>
+<p><a href="/government/admin/organisations/government-digital-service/contacts">Back to Government Digital Service</a></p>
+
+<div class="row">
+  <div class="col-md-8">
+    <form class="well" id="new_contact" action="/government/admin/organisations/government-digital-service/contacts" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="WVPPdsHtb7-cW_GzzpGikNFGVAiZ5XR4E90uq3UrelawLcmYguMIgE_nic27UPpJJ2Fqaf5ZUi9hvxON4wr99w" autocomplete="off">
+      
+      <fieldset class="contact">
+        <div class="form-group"><label class="required" for="contact_title">Title<span>*</span></label><input class="form-control" type="text" name="contact[title]" id="contact_title"></div>
+        <div class="form-group"><label for="contact_comments">Comments</label><textarea rows="2" placeholder="Optional instructions for this contact e.g. opening hours, rules of use…" class="form-control" name="contact[comments]" id="contact_comments"></textarea></div>
+        
+        <div class="form-group">
+  <label class="control-label" for="contact_contact_type_id">Contact type</label>
+  <select class="chzn-select form-control" data-placeholder="Choose the contact type…" name="contact[contact_type_id]" id="contact_contact_type_id" style="display: none;"><option value="" label=" "></option>
+<option value="1">General contact</option>
+<option value="2">Freedom of Information contact</option>
+<option value="3">Media contact</option></select><div class="chosen-container chosen-container-single chosen-container-single-nosearch" style="width: 100%;" title="" id="contact_contact_type_id_chosen"><a class="chosen-single chosen-default" tabindex="-1"><span>Choose the contact type…</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" readonly=""></div><ul class="chosen-results"></ul></div></div>
+</div>
+
+          <p class="bold add-label-margin">Feature on home page?</p>
+          <div class="radio">
+              <div class="radio"><label><input type="radio" value="1" name="contact[show_on_home_page]" id="contact_show_on_home_page_1">yes</label></div>
+              <div class="radio"><label><input type="radio" value="0" checked="checked" name="contact[show_on_home_page]" id="contact_show_on_home_page_0">no</label></div>
+          </div>
+        <fieldset class="contact">
+  <legend>Address</legend>
+  <div class="form-group"><label for="contact_recipient">Recipient</label><input placeholder="Organisation, division, team, unit or person name" class="form-control" type="text" name="contact[recipient]" id="contact_recipient"></div>
+  <div class="form-group"><label for="contact_street_address">Street address</label><textarea rows="3" class="address form-control" name="contact[street_address]" id="contact_street_address"></textarea></div>
+  <div class="form-group"><label for="contact_locality">Locality</label><input placeholder="Town or city" class="form-control" type="text" name="contact[locality]" id="contact_locality"></div>
+  <div class="form-group"><label for="contact_region">Region</label><input placeholder="State or county" class="form-control" type="text" name="contact[region]" id="contact_region"></div>
+  <div class="form-group"><label for="contact_postal_code">Postal code</label><input class="form-control" type="text" name="contact[postal_code]" id="contact_postal_code"></div>
+
+  <div class="form-group">
+    <label class="control-label" for="contact_country_id">Country</label>
+    <select class="chzn-select form-control" data-placeholder="Choose the country…" name="contact[country_id]" id="contact_country_id" style="display: none;"><option value="" label=" "></option>
+<option value="1">Afghanistan</option>
+<option value="2">Albania</option>
+<option value="3">Algeria</option>
+<option value="222">American Samoa</option>
+<option value="164">Andorra</option>
+<option value="4">Angola</option>
+<option value="5">Anguilla</option>
+<option value="165">Antigua and Barbuda</option>
+<option value="6">Argentina</option>
+<option value="7">Armenia</option>
+<option value="223">Aruba</option>
+<option value="8">Australia</option>
+<option value="9">Austria</option>
+<option value="10">Azerbaijan</option>
+<option value="166">Bahamas</option>
+<option value="11">Bahrain</option>
+<option value="12">Bangladesh</option>
+<option value="13">Barbados</option>
+<option value="14">Belarus</option>
+<option value="15">Belgium</option>
+<option value="16">Belize</option>
+<option value="167">Benin</option>
+<option value="203">Bermuda</option>
+<option value="168">Bhutan</option>
+<option value="17">Bolivia</option>
+<option value="224">Bonaire/St Eustatius/Saba</option>
+<option value="18">Bosnia and Herzegovina</option>
+<option value="19">Botswana</option>
+<option value="20">Brazil</option>
+<option value="21">British Antarctic Territory</option>
+<option value="225">British Indian Ocean Territory</option>
+<option value="22">British Virgin Islands</option>
+<option value="23">Brunei</option>
+<option value="24">Bulgaria</option>
+<option value="169">Burkina Faso</option>
+<option value="204">Burundi</option>
+<option value="26">Cambodia</option>
+<option value="27">Cameroon</option>
+<option value="28">Canada</option>
+<option value="170">Cape Verde</option>
+<option value="29">Cayman Islands</option>
+<option value="226">Central African Republic</option>
+<option value="220">Chad</option>
+<option value="30">Chile</option>
+<option value="31">China</option>
+<option value="32">Colombia</option>
+<option value="171">Comoros</option>
+<option value="172">Congo</option>
+<option value="33">Costa Rica</option>
+<option value="173">Cote d’Ivoire</option>
+<option value="34">Croatia</option>
+<option value="35">Cuba</option>
+<option value="227">Curaçao</option>
+<option value="36">Cyprus</option>
+<option value="37">Czech Republic</option>
+<option value="38">Democratic Republic of the Congo</option>
+<option value="39">Denmark</option>
+<option value="174">Djibouti</option>
+<option value="175">Dominica</option>
+<option value="40">Dominican Republic</option>
+<option value="41">Ecuador</option>
+<option value="42">Egypt</option>
+<option value="205">El Salvador</option>
+<option value="176">Equatorial Guinea</option>
+<option value="43">Eritrea</option>
+<option value="44">Estonia</option>
+<option value="198">Eswatini</option>
+<option value="45">Ethiopia</option>
+<option value="206">Falkland Islands</option>
+<option value="46">Fiji</option>
+<option value="47">Finland</option>
+<option value="48">France</option>
+<option value="228">French Guiana</option>
+<option value="229">French Polynesia</option>
+<option value="230">Gabon</option>
+<option value="50">Georgia</option>
+<option value="51">Germany</option>
+<option value="52">Ghana</option>
+<option value="231">Gibraltar</option>
+<option value="53">Greece</option>
+<option value="177">Grenada</option>
+<option value="232">Guadeloupe</option>
+<option value="54">Guatemala</option>
+<option value="207">Guinea</option>
+<option value="178">Guinea-Bissau</option>
+<option value="55">Guyana</option>
+<option value="179">Haiti</option>
+<option value="56">Holy See</option>
+<option value="57">Honduras</option>
+<option value="58">Hong Kong</option>
+<option value="59">Hungary</option>
+<option value="60">Iceland</option>
+<option value="61">India</option>
+<option value="62">Indonesia</option>
+<option value="63">Iran</option>
+<option value="64">Iraq</option>
+<option value="65">Ireland</option>
+<option value="66">Israel</option>
+<option value="67">Italy</option>
+<option value="68">Jamaica</option>
+<option value="69">Japan</option>
+<option value="71">Jordan</option>
+<option value="72">Kazakhstan</option>
+<option value="73">Kenya</option>
+<option value="180">Kiribati</option>
+<option value="74">Kosovo</option>
+<option value="75">Kuwait</option>
+<option value="218">Kyrgyzstan</option>
+<option value="76">Laos</option>
+<option value="77">Latvia</option>
+<option value="78">Lebanon</option>
+<option value="181">Lesotho</option>
+<option value="182">Liberia</option>
+<option value="79">Libya</option>
+<option value="183">Liechtenstein</option>
+<option value="80">Lithuania</option>
+<option value="81">Luxembourg</option>
+<option value="184">Macao</option>
+<option value="83">Madagascar</option>
+<option value="84">Malawi</option>
+<option value="85">Malaysia</option>
+<option value="86">Maldives</option>
+<option value="87">Mali</option>
+<option value="88">Malta</option>
+<option value="185">Marshall Islands</option>
+<option value="233">Martinique</option>
+<option value="221">Mauritania</option>
+<option value="89">Mauritius</option>
+<option value="234">Mayotte</option>
+<option value="90">Mexico</option>
+<option value="186">Micronesia</option>
+<option value="91">Moldova</option>
+<option value="235">Monaco</option>
+<option value="92">Mongolia</option>
+<option value="93">Montenegro</option>
+<option value="94">Montserrat</option>
+<option value="95">Morocco</option>
+<option value="96">Mozambique</option>
+<option value="25">Myanmar</option>
+<option value="97">Namibia</option>
+<option value="187">Nauru</option>
+<option value="98">Nepal</option>
+<option value="99">Netherlands</option>
+<option value="236">New Caledonia</option>
+<option value="100">New Zealand</option>
+<option value="188">Nicaragua</option>
+<option value="189">Niger</option>
+<option value="101">Nigeria</option>
+<option value="102">North Korea</option>
+<option value="82">North Macedonia</option>
+<option value="103">Norway</option>
+<option value="104">Oman</option>
+<option value="105">Pakistan</option>
+<option value="191">Palau</option>
+<option value="106">Panama</option>
+<option value="107">Papua New Guinea</option>
+<option value="192">Paraguay</option>
+<option value="108">Peru</option>
+<option value="109">Philippines</option>
+<option value="219">Pitcairn Island</option>
+<option value="110">Poland</option>
+<option value="111">Portugal</option>
+<option value="112">Qatar</option>
+<option value="237">Réunion</option>
+<option value="113">Romania</option>
+<option value="114">Russia</option>
+<option value="115">Rwanda</option>
+<option value="247">Saint-Barthélemy</option>
+<option value="193">Samoa</option>
+<option value="238">San Marino</option>
+<option value="194">São Tomé and Principe</option>
+<option value="116">Saudi Arabia</option>
+<option value="117">Senegal</option>
+<option value="118">Serbia</option>
+<option value="119">Seychelles</option>
+<option value="120">Sierra Leone</option>
+<option value="121">Singapore</option>
+<option value="122">Slovakia</option>
+<option value="123">Slovenia</option>
+<option value="124">Solomon Islands</option>
+<option value="125">Somalia</option>
+<option value="126">South Africa</option>
+<option value="239">South Georgia and the South Sandwich Islands</option>
+<option value="127">South Korea</option>
+<option value="128">South Sudan</option>
+<option value="129">Spain</option>
+<option value="130">Sri Lanka</option>
+<option value="216">St Helena, Ascension and Tristan da Cunha</option>
+<option value="195">St Kitts and Nevis</option>
+<option value="217">St Lucia</option>
+<option value="240">St Maarten</option>
+<option value="246">St Martin</option>
+<option value="241">St Pierre &amp; Miquelon</option>
+<option value="196">St Vincent and The Grenadines</option>
+<option value="131">Sudan</option>
+<option value="197">Suriname</option>
+<option value="132">Sweden</option>
+<option value="133">Switzerland</option>
+<option value="134">Syria</option>
+<option value="135">Taiwan</option>
+<option value="136">Tajikistan</option>
+<option value="137">Tanzania</option>
+<option value="138">Thailand</option>
+<option value="49">The Gambia</option>
+<option value="190">The Occupied Palestinian Territories</option>
+<option value="139">Timor Leste</option>
+<option value="199">Togo</option>
+<option value="242">Tonga</option>
+<option value="140">Trinidad and Tobago</option>
+<option value="141">Tunisia</option>
+<option value="142">Turkey</option>
+<option value="143">Turkmenistan</option>
+<option value="144">Turks and Caicos Islands</option>
+<option value="200">Tuvalu</option>
+<option value="145">Uganda</option>
+<option value="154">Ukraine</option>
+<option value="155">United Arab Emirates</option>
+<option value="202">United Kingdom</option>
+<option value="156">Uruguay</option>
+<option value="157">USA</option>
+<option value="158">Uzbekistan</option>
+<option value="201">Vanuatu</option>
+<option value="159">Venezuela</option>
+<option value="160">Vietnam</option>
+<option value="243">Wallis and Futuna</option>
+<option value="244">Western Sahara</option>
+<option value="161">Yemen</option>
+<option value="162">Zambia</option>
+<option value="163">Zimbabwe</option></select><div class="chosen-container chosen-container-single" style="width: 100%;" title="" id="contact_country_id_chosen"><a class="chosen-single chosen-default" tabindex="-1"><span>Choose the country…</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off"></div><ul class="chosen-results"></ul></div></div>
+  </div>
+</fieldset>
+
+<div class="form-group"><label for="contact_email">Email</label><input class="form-control" type="text" name="contact[email]" id="contact_email"></div>
+<div class="form-group"><label for="contact_contact_form_url">Contact form url</label><input class="form-control" type="text" name="contact[contact_form_url]" id="contact_contact_form_url"></div>
+
+<fieldset class="contact_numbers js-duplicate-fields">
+  <legend>Phone numbers</legend>
+  
+    <fieldset class="contact_number well js-duplicate-fields-set">
+      <div class="form-group"><label class="required" for="contact_contact_numbers_attributes_0_label">Label<span>*</span></label><input class="form-control" type="text" name="contact[contact_numbers_attributes][0][label]" id="contact_contact_numbers_attributes_0_label"></div>
+      <div class="form-group"><label class="required" for="contact_contact_numbers_attributes_0_number">Number<span>*</span></label><input class="form-control" type="text" name="contact[contact_numbers_attributes][0][number]" id="contact_contact_numbers_attributes_0_number"></div>
+      <input class="js-hidden-destroy" autocomplete="off" type="hidden" value="false" name="contact[contact_numbers_attributes][0][_destroy]" id="contact_contact_numbers_attributes_0__destroy">
+    <a href="#" class="btn btn-danger js-remove-button">Remove</a></fieldset>
+<a href="#" class="btn btn-default add-bottom-margin add_new js-add-button">Add another</a></fieldset>
+
+
+      </fieldset>
+
+      <div class="form-actions" data-module="track-button-click" data-track-category="form-button" data-track-action="contact-button"><input type="submit" name="save" value="Save" class="btn btn-primary btn-lg" data-disable-with="Save"><span class="or_cancel"> or <a href="https://whitehall-admin.integration.publishing.service.gov.uk/government/admin/organisations/government-digital-service/contacts">cancel</a></span></div>
+</form>  </div>
+</div>
+
+
+
+
+      </main>
+ #}

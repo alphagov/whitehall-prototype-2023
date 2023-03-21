@@ -1,0 +1,206 @@
+
+{% extends "layouts/main.html" %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+  {{ super() }}
+{% endblock %} 
+
+{% block header %}
+  {{ super() }}
+  <div class="govuk-width-container">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="javascript: submitNavForm('dashboard/', $(this));">Home</a>
+        </li>
+        {# <li class="govuk-breadcrumbs__list-item" aria-current="page">My organisation</li> #}
+      </ol>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  {{ super() }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">My organisation</span>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
+        Government Digital Service
+      </h1>
+
+      <p class="govuk-body">
+        <a href="#" class="govuk-link">View on website</a>
+      </p>
+    </div>
+  </div>
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+      {{ mojSubNavigation({
+        label: 'Sub navigation',
+        items: [
+          {
+            text: 'Details',
+            href: "javascript: submitNavForm('organisation/', $(this));",
+            active: true
+          },
+          {
+            html: 'Pages',
+            href: "javascript: submitNavForm('organisation/pages', $(this));"
+          },
+          {
+            html: 'Contacts',
+            href: "javascript: submitNavForm('organisation/contacts', $(this));"
+          },
+          {
+            html: 'Features',
+            href: "javascript: submitNavForm('organisation/features', $(this));"
+          },
+          {
+            html: 'Social media accounts',
+            href: "javascript: submitNavForm('organisation/social-media-accounts', $(this));"
+          },
+          {
+            html: 'People',
+            href: "javascript: submitNavForm('organisation/people', $(this));"
+          },
+          {
+            html: 'Translations',
+            href: "javascript: submitNavForm('organisation/translations', $(this));"
+          },
+          {
+            html: 'Financial Reports',
+            href: "javascript: submitNavForm('organisation/financial-reports', $(this));"
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+
+  <!-- {
+    html: 'History and notes <span id="notifications" class="moj-notification-badge">17</span>',
+    href: 'history'
+  }, -->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {{ govukButton({
+        text: "Edit details",
+        href: "javascript: submitNavForm('organisation/edit/information', $(this));",
+        classes: "govuk-button--secondary"
+      }) }}
+      
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: "Sarah Philips"
+            }
+          },
+          {
+            key: {
+              text: "Date of birth"
+            },
+            value: {
+              text: "5 January 1978"
+            }
+          },
+          {
+            key: {
+              text: "Address"
+            },
+            value: {
+              html: "72 Guild Street<br>London<br>SE23 6FH"
+            }
+          },
+          {
+            key: {
+              text: "Contact details"
+            },
+            value: {
+              html: '<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>'
+            }
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+
+
+{% endblock %}
+
+{% block pageScripts %}
+{{ super() }}
+<script>
+  $(document).ready(function() {  
+    $("#currentPage").attr({'value': 'organisation/'});
+    mainNavSetActive('organisation/');
+  });
+</script>
+{% endblock %}
+
+{# 
+
+<div class="tab-content">
+    <h2>Details</h2>
+    <table class="table">
+      <tbody><tr><th>Type</th><td>Sub-organisation</td></tr>
+      <tr><th>Acronym</th><td>GDS</td></tr>
+      <tr><th>URL</th><td><a href=""></a></td></tr>
+      <tr><th>Status on GOV.UK</th><td>Live</td></tr>
+      <tr><th>Description<br>To edit this, select the 'Corporate Information pages' tab. Click on 'About us' and edit the 'Summary' field in a new edition.</th><td><div class="govspeak"><p>We are here to make digital government simpler, clearer and faster for everyone.</p>
+</div></td></tr>
+      <tr><th>Email address for ordering attached files in an alternative format</th><td>accessibleformats@digital.cabinet-office.gov.uk</td></tr>
+      <tr><th>Organisation chart URL</th><td></td></tr>
+      <tr><th>Custom jobs URL</th><td><a href="https://www.gov.uk/government/organisations/government-digital-service/about/recruitment">https://www.gov.uk/government/organisations/government-digital-service/about/recruitment</a></td></tr>
+      <tr><th>Sponsoring organisations</th><td>
+          <a href="/government/admin/organisations/cabinet-office">Cabinet Office</a>
+      </td></tr>
+      <tr><th>Topical events</th><td>
+          None
+      </td></tr>
+        <tr><th>Twitter</th><td><a href="https://twitter.com/gdsteam">https://twitter.com/gdsteam</a></td></tr>
+        <tr><th>Blog</th><td><a href="https://gds.blog.gov.uk/">https://gds.blog.gov.uk/</a></td></tr>
+        <tr><th>YouTube</th><td><a href="https://www.youtube.com/user/GovDigitalService">https://www.youtube.com/user/GovDigitalService</a></td></tr>
+        <tr><th>LinkedIn</th><td><a href="https://www.linkedin.com/company/government-digital-service">https://www.linkedin.com/company/government-digital-service</a></td></tr>
+        <tr><th>Instagram</th><td><a href="https://www.instagram.com/gdsteam/?hl=en">https://www.instagram.com/gdsteam/?hl=en</a></td></tr>
+        <tr><th>Facebook</th><td><a href="https://www.facebook.com/GovernmentDigitalService/">https://www.facebook.com/GovernmentDigitalService/</a></td></tr>
+        <tr><th>Other</th><td><a href="https://gds.blog.gov.uk/category/podcast/">https://gds.blog.gov.uk/category/podcast/</a></td></tr>
+        <tr><th>Email</th><td><a href="http://eepurl.com/h9n83j">http://eepurl.com/h9n83j</a></td></tr>
+      <tr><th>Crest</th><td>Single Identity</td></tr>
+      <tr>
+        <th>Brand colour</th>
+        <td>
+            Cabinet Office
+        </td>
+      </tr>
+      <tr><th>Analytics identifier</th><td>OT1056</td></tr>
+      <tr><th>Featured links</th>
+        <td>
+            <ul>
+                <li><a href="https://www.gov.uk/service-toolkit">Service Toolkit</a></li>
+                <li><a href="https://design-system.service.gov.uk">GOV.UK Design System</a></li>
+                <li><a href="https://gds.blog.gov.uk/category/digital-service-platforms/">Digital Service Platforms</a></li>
+                <li><a href="https://www.gov.uk/government/publications/govuk-proposition">GOV.UK proposition</a></li>
+            </ul>
+        </td>
+      </tr>
+    </tbody></table>
+
+      <div class="form-actions">
+        <a class="btn btn-lg btn-primary" href="/government/admin/organisations/government-digital-service/edit">Edit</a>
+      </div>
+</div>
+
+
+ #}

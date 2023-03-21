@@ -1,0 +1,47 @@
+{% set sectionState = [] %}
+
+{% if data['pageState'] === 'bodyAttachments' %}
+
+{% endif %}
+
+{% if data['pageState'] === 'populated' %}
+
+{% endif %}
+
+{% if data['pageState'] === 'empty' %}
+
+{% endif %}
+
+{% if data['pageState'] === 'fullPopulated' %}
+
+{% endif %}
+<h3 class="govuk-heading-l">Excluded nations</h3>
+
+<p class="govuk-body whitehall-summary-change-link">
+  <a href="edit/excluded-nations{{hrefParams}}" class="govuk-link">Edit</a>
+</p>
+
+<section class="gem-c-devolved-nations">
+  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+    Applies to{% if content.documentContent[0].appliesToEngland %}{% else %} England{% endif %}
+    {% if content.documentContent[0].appliesToWales %}{% else %}, Wales{% endif %}
+    {% if content.documentContent[0].appliesToScotland %}{% else %}, Scotland{% endif %}
+    {% if content.documentContent[0].appliesToNorthernIreland %}{% else %}, Northern Ireland{% endif %}
+  </h3>
+  {% if content.documentContent[0].appliesToEngland or content.documentContent[0].appliesToWales or content.documentContent[0].appliesToScotland or content.documentContent[0].appliesToNorthernIreland %}
+  <ul class="govuk-list govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+    {% if content.documentContent[0].appliesToEngland %}
+    <li><a class="govuk-link" href="{{content.documentContent[0].appliesToEngland}}">Guidance for England</a></li>
+    {% endif %}
+    {% if content.documentContent[0].appliesToWales %}
+    <li><a class="govuk-link" href="{{content.documentContent[0].appliesToWales}}">Guidance for Wales</a></li>
+    {% endif %}
+    {% if content.documentContent[0].appliesToScotland %}
+    <li><a class="govuk-link" href="{{content.documentContent[0].appliesToScotland}}">Guidance for Scotland</a></li>
+    {% endif %}
+    {% if content.documentContent[0].appliesToNorthernIreland %}
+    <li><a class="govuk-link" href="{{content.documentContent[0].appliesToNorthernIreland}}">Guidance for Northern Ireland</a></li>
+    {% endif %}
+  </ul>
+  {% endif %}
+</section>

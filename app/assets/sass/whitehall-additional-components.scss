@@ -1,0 +1,638 @@
+.popup-dialog .gen-search-results ul {list-style: none;}
+.popup-dialog .gen-search-results ul li {margin-bottom:0;}
+.pd-close-button {position: absolute; top: 9px; right: 12px; width: 36px; height: 36px; text-decoration: none !important; background: transparent; }
+.popup-dialog .standard-form-option INPUT[type=radio], .popup-dialog .standard-form-option-check INPUT[type=checkbox]{width:34px;height:34px;margin-right:1em;}
+.popup-dialog .standard-form-option {padding-right: 0; }
+.popup-dialog P {margin-bottom: 15px;}
+.popup-dialog P.spaced {margin-top: 15px; margin-bottom: 10px;}
+.popup-dialog .standard-form-option LABEL .main-label {font-weight: bold}
+.popup-dialog .standard-form-controls A, .popup-dialog .standard-form-controls .link-button {float: left;}
+#supplementary_cpv_codes_selector_form A.link-button, #cpv_codes_selector_form A.link-button, #nuts_codes_selector_form A.link-button {float:right;}
+.popup-dialog .form-openercontroller-holder {margin-top: 0; line-height: 1.4}
+.popup-dialog .form-openercontroller-holder::after {content: "\25B6"; color: #19557F}
+.popup-dialog .form-opener-button.open .form-openercontroller-holder::after {content: "\25BC"; color: #19557F}
+.pd-content-body P, .pd-content-body UL {margin-bottom: 15px;}
+.award-green, .award-green:focus, .award-yes, .award-na, .award-responding {color: #006435; background-color: #006435!important;}
+.award-red, .award-yes, .award-fail, .award-risk, .award-heatmap-hot, .award-expired {background-color: #9E1420!important; color: #9E1420}
+SELECT {height: 1.8em; color: #0B0C0C; border: 1px solid #808080; padding: 0.2em}
+SELECT.standard-miniselect {width: 4.4em!important; margin-bottom: 0.2em}
+HR {background-color: #737373; width: 100%; height: 1px; margin-bottom: 1.7em; margin-top: 1.7em}
+HR.hierarchy {margin-bottom: 0;}
+FIELDSET {direction: ltr!important; min-width: 0}
+TEXTAREA {padding: 0.2em; border: 1px solid #808080; }
+#cf_dashboard_filter_form INPUT.image-submit {display: inline; margin-right: 0}
+.text-field-answer, .text-field-long {width: 25em}
+.form-text{display: inline-block; margin-top: 0.5em; margin-bottom:1.2em}
+.quick-link-disabled, .quick-link-disabled:hover {color: #888888!important; cursor: not-allowed}
+.small-quick-links, .content-help {width: 100%; padding-bottom: 1.25rem;}
+.small-quick-links-title, .content-help H2 {padding: 0 0 0.5em 0}
+#standard-left-col .small-quick-links-questionnaires LI A {font-weight: 700}
+TABLE.layout-fixed.gadget-viewbox-full TD.gadget-item{overflow-wrap: normal}
+TABLE.layout-fixed.gadget-viewbox-full TD.gadget-item .gadget-item-column-content{text-overflow: ellipsis; overflow: hidden}
+.stat-circle P {width: 100%; text-align: center}
+.canvas {width: 100%; margin: 0 auto}
+.standard-col-content {margin: 1.6em 0}
+.questionnaire-bottombar-controls .link-button {margin-right: 5px}
+#procurementstage_gadget_body .form-opener {padding: 3px 0px 0px 0px!important}
+#procurementstage_gadget H2, #contractlocation_gadget H2 {float:left; width: 95%}
+#procurementstage_gadget H2 BUTTON, #contractlocation_gadget H2 BUTTON {float:left; overflow: hidden; text-overflow: ellipsis}
+#industry_gadget_body .form-option-group-options {background-color: white;}
+#contractlocation_gadget_body .form-option-group-options {background-color: white;}
+#noticetype_gadget_body .form-option-group-options { max-height: 300px; float: left; border-top: 5px solid #f3f2f1; width: 100% }
+#noticetype_gadget_body { background-color: white; }
+#noticetype_gadget_body .govuk-checkboxes__label {padding-top: 10px !important; padding-left: 2px !important; font-size: 1rem; width: 100% !important;}
+#noticetype_gadget_body .govuk-checkboxes__label::before {top: 0.5em; left: 0.5em; width: 25px; height: 25px;}
+#noticetype_gadget_body .govuk-checkboxes__label::after {top: 14px; left: 13px; width: 11px; height: 5px; border-width: 0 0 4px 4px;}
+#noticetype_gadget_body .govuk-checkboxes__label.selection-button-checkbox { padding-left: 2.5em !important; padding-top: 0.7em !important; width: 90% !important; }
+.standard-col {overflow-wrap: break-word;display: inline; float: left; height: auto}
+.standard-form-option-margin-applied { margin-bottom: 15.75px!important }
+.standard-form-option-margin-applied-check { margin-bottom: 2px!important }
+.standard-form-option-margin-prevent { margin-bottom: 0px!important }
+.standard-form-option LABEL.popup {width: 80%;}
+.form-field-group-inline .standard-form-option-inline LABEL {white-space:normal; width:97%}
+.standard-form-option INPUT {float: left;}
+.standard-form-option INPUT:disabled { background-color: #F2F2F2; }
+.govuk-link.standard-form-option {width: auto}
+.standard-form-option-multi-row-template {display: none;}
+.standard-form-option-multi-row-remove {display: block; float: right; margin-top: 6px;}
+.standard-form-option-row.standard-error-row div.standard-form-option:not(.standard-error) INPUT {margin-top: 3px;}
+.standard-form-option-row.standard-error-row div.standard-form-option .standard-form-option-multi-row-remove {margin-top: 9px;}
+.standard-form-option-link {cursor:pointer;}
+.standard-infobox.standard-infobox-error .standard-infobox-body{margin-bottom:10px}
+.standard-form-option-radio-block.standard-form-option {margin-top: 12px}
+.standard-form-option-radio-block-label, .standard-form-option-radio-block .hint {padding: 0px}
+.standard-form-option-row {clear:both;}
+.standard-form-option-hierarchy-selector .hierarchy-container {height: 500px; border: 2px solid #0B0C0C; padding: 20px; padding-top: 0px; overflow-y: scroll;}
+#supplementary_cpv_codes .hierarchy-level-root .hierarchy-control:not(.selection-button-text-only-child){padding:3px 0px 5px 0px}
+.selection-holder .selection-container, .selection-holder .selection-container div.selection-row, .standard-form-option-hierarchy-selector .selection-container, .standard-form-option-hierarchy-selector .selection-container div.selection-row {border-bottom: 1px solid #737373;}
+.selection-container div.selection-row, .selection-container-empty-en_GB, .selection-container-empty-cy {padding-top: 15px; padding-bottom: 15px;}
+.selection-holder .selection-container-empty-en_GB::after,.standard-form-option-hierarchy-selector .selection-container-empty-en_GB::after {content: "None";}
+.selection-holder .selection-container-empty-cy::after,.standard-form-option-hierarchy-selector .selection-container-empty-cy::after {content: "Dim un";}
+.selection-holder .selection-container div.selection-row:last-child, .standard-form-option-hierarchy-selector .selection-container div.selection-row:last-child {border-bottom: 0;}
+.selection-row .popup-data-holder { margin-left: 20px; }
+.gadget-header DIV, .gadget-footer DIV {display: inline; margin-top: 0.3em;}
+.gadget-header-info {width: 32%!important; text-align: right; float: right; margin-top: 0.7em!important}
+.gadget-item-progress .questionnaire-progressbar {border: 1px solid #737373 !important}
+.gadget-header-verb-padding {display: block !important; background: #FFFFFF; border: 1px solid gray; padding: 0;}
+.standard-header-verb-link a, .standard-header-verb-link button {display: block; line-height: 2.5em; text-align: left; text-indent: 0px!important; font-weight: 700; text-decoration: none}
+.footer-verbs .standard-header-verb-link, .footer-verbs .standard-header-verb-disabled-link, .footer-verbs .standard-header-verb-link a {line-height: 1.5em; width: auto; float: left; clear: both}
+.cf-footer-wrapper LI {margin-right: 0.8125rem}
+.gadget-item-column-content, .search-result-header {display:block}
+.gadget-item-sortable-icon {float: left; margin-top: 2px; margin-left: 5px; color: #0b0c0c; font-weight: 700}
+.gadget-controller-button {font-size: inherit; font-weight: inherit; background: transparent;}
+.gadget-controller-button:focus{outline:none;}
+.form-openercontroller-holder:after {content: "\25BC"; color: #000}
+.form-opener-button.open .form-openercontroller-holder:after {content: "\25B2"; color: #000}
+.input-data-lists LI:HOVER, .result-selected {background-color: #808080!important; color: #FFFFFF}
+.gen-search-results {position: absolute; top: 0; width: 25em; z-index: 1000; background-color: #FFFFFF}
+#supplementary_cpv_codes_selector_form .gen-search-results {margin-top: 0; margin-left: 0px;}
+.input-data-lists {position: absolute; width: 25em; margin-top: 2.1em; margin-left: -3px; z-index: 1000; background-color: #FFFFFF}
+.input-data-lists, UL.bac-selected {list-style: none; max-height: 15.5em; overflow: auto}
+UL.cpv-selected, UL.hierarchy-result-selected {list-style: none;}
+.cpv-code-option-group .form-option-group-options, .nuts-code-option-group .form-option-group-options {max-height: 460px;}
+.cpv-code-option-group .form-option-group-options DIV.gen-search-holder, .nuts-code-option-group .form-option-group-options DIV.gen-search-holder {margin-bottom: 0;}
+UL.cpv-selected LI .bac-selected-label, UL.hierarchy-result-selected LI .bac-selected-label {padding-right: 5px;}
+.inline-input-group {width:100%;float:left; margin-bottom: 15px;}
+.inline-input-group > * { margin-right: 0.25em !important; margin-bottom: 5px; }
+UL.bac-selected, UL.cpv-selected, UL.hierarchy-result-selected {border: 1px solid #808080}
+.input-data-lists LI {white-space: nowrap; text-overflow: ellipsis}
+DIV.bac-tree, UL.bac-selected, UL.cpv-selected, UL.hierarchy-result-selected {width: 91%}
+.gen-search-results DL DT, .gen-search-results UL LI, UL.bac-selected LI, UL.cpv-selected LI, UL.hierarchy-result-selected LI {padding: 0.3em; height: 1.2em; overflow: hidden}
+.input-data-lists DL DT, .input-data-lists UL LI, UL.bac-selected LI, UL.cpv-selected LI, UL.hierarchy-result-selected LI {padding: 0.3em; height: 1.2em; overflow: hidden}
+.input-data-lists UL LI {cursor: pointer}
+.bac-selected-remove {cursor: pointer; color: #1d70b8; text-decoration: underline}
+.question-answer .bac-indent {display: none}
+#header-menu-search-submit-holder {display: inline; float: left}
+#nav-bar {float: none; border-bottom: none}
+.nav-bar-text {float: left; padding-top: 0.5em}
+.nav-bar-message {float: left; vertical-align: top; margin-top: 3px}
+SELECT.questionnaire-select {margin-top: 0.25em}
+.standard-form-option-stacked LABEL + * {display: block; clear:both}
+.questionnaire-question-option-sic-codes .bac-selected, .questionnaire-question-option-sic-codes .bac-tree {margin-left: 0}
+.govuk-header-wrapper {padding-left: 0; padding-top: 8px; padding-bottom: 0.65em; height: 100%}
+#govuk-global-header {width: 100%; background-color: #000000;}
+.govuk-header-wrapper:after {content: ""; display: table; clear: both;}
+.govuk-foooter-links-ted {margin-top: 15px;}
+.content-holder H3 {line-height: 1.1111; display:inline;}
+.content-holder H4 {margin-bottom: 1em; line-height: 1.1111}
+.content-holder H5 {margin-bottom: 1em; line-height: 1.1111}
+.content-holder H6 {margin-bottom: 1em; line-height: 1.1111}
+.content-holder P {margin-bottom: 0.5em; line-height: 1.33}
+.content-holder UL LI, .content-holder OL LI {margin-bottom: 0.5em; line-height: 1.31579; list-style-position: outside; margin-left: 2em; padding-bottom: 5px}
+.content-holder .list-dashed LI {margin-left: 0;list-style-type: none; height: auto; width: auto; overflow: overlay; color: #005EA5; margin-bottom: 1px; margin-top: 1px}
+.content-holder .list-dashed > LI:before {content: "-"}
+.content-holder ol.number-list li h5{font-weight:normal;}
+.content-wrapper UL LI {margin-left:1em;list-style-type: disc;}
+.content-wrapper .hierarchy-selected-holder UL LI {margin-left:0em}
+.content UL {margin-bottom:1em;}
+.question-answer-theme-selected, .question-answer-theme-unselected {text-decoration: underline}
+.gadget-header-form .standard-form-option .text-field, .gadget-header-form .standard-form-option .long-select {width: 15.5em!important}
+#reverse-left-col .form-option-group-options {max-height: 200px; overflow-y:auto;}
+.form-field-group-inline .form-option-group-options {max-height: none; overflow-y:auto;}
+.standard-form-option .text-field-enlarge-right{width: 100%!important;}
+.js-only, .js-show, .js-hide, .hide{display: none}
+.hidden-iteration, .hidden-row .hidden-iteration{position:absolute; width:0px; overflow:hidden}
+.aria-only{position:absolute; left: -9999px; top: -9999px; overflow:hidden}
+.validation-error.validation-show, .standard-form-option.standard-error label .text-important.validation-error.validation-show, .standard-error-left-border .validation-error.validation-show, .standard-error-no-border .validation-error.validation-show {display: block}
+.validation-error.validation-show, .standard-form-option.standard-error label .text-important.validation-error.validation-show.validation-inline {display: inline-block; width:100%}
+#options_gadget .gadget-body DIV {margin-bottom: 0.75em!important}
+.ui-helper-reset {margin: 0; padding: 0; border: 0; outline: 0; line-height: 1.3; text-decoration: none; list-style: none}
+.standard-col.create-edit .govuk-inset-text {border: 5px solid #005ea5; padding: 15px; margin-top: 30px; margin-bottom: 20px;}
+.govuk-inset-text-strong {font-weight: bold}
+#standard-right-col .list-dashed BUTTON, #standard-right-col .list-dashed A {width: 96%; text-align: left; float: right}
+#content-block .right-button-menu-sub-link-button {padding-left: 20px!important; text-align: left}
+.container::after, .form-opener-container::after, .standard-col-content::after, .notice-review-stage::after {content: ""; display:block; clear: both}
+.tab-bar, .tab-bar * {box-sizing: border-box;}
+.tab-bar {display: flex; flex-direction: row; align-items: flex-end; margin-bottom: 0.75em}
+.notice-item, .notice-item * {box-sizing: border-box}
+.notice-item .notice-status {float: right; padding: 5px; border-width: 3px; border-style: solid; margin-left: 15px; font-weight: bold}
+.notice-item .notice-status-withdrawn {border-color: #0b0c0c; color: #0b0c0c}
+.notice-item .notice-title {font-weight: bold; margin-bottom: 5px}
+.notice-item .notice-type {font-weight: bold; color: #6f777B; margin-bottom: 5px}
+.notice-item .notice-description {margin-bottom: 5px}
+.notice-item .notice-link {display: inline-block; margin-left: 30px; }
+.continue-notice-edit-link.notice-link {width:100%; text-align:left; margin: 0px}
+.notice-item .notice-description, .notice-item .notice-description SPAN{word-break: break-word; word-wrap: break-word;}
+.canvas .body-inner-canvas-unscrolled .standard-body-plain .breadcrumb-title {word-break: break-word; word-wrap: break-word}
+.page-contents.stuck-to-pos {width: 262px}
+.form-field-group-inline {width:40%; float:left; margin-right:60px; margin-bottom:10px}
+.popup-dialog .standard-form-body TEXTAREA, .popup-dialog .standard-form-body INPUT, .popup-dialog .standard-form-body SELECT, .popup-dialog .questionnaire-question-option TEXTAREA, .popup-dialaog .questionnaire-question-option INPUT, .popup-dialog .questionnaire-question-option SELECT {border: 2px solid #0B0C0C!important}
+INPUT.clear-button { height: 38px; width: 38px; font-weight: bold; background-color: white; padding: 4px; border-left-style: none!important; margin-right: 14.250px!important; cursor: pointer;}
+INPUT.clear-button:focus { outline: none; }
+#search-term {display: block;border: 0px!important}
+.nav-bar-icon {line-height: 1em; padding: 0.2em 0.3em}
+.selection-container LABEL {margin-bottom:0px;}
+.selection-container .popup-data-holder {margin-top:9px; margin-bottom:9px;}
+FIELDSET {width: 100%; min-width: 0}
+#header .govuk-header-wrapper A:FOCUS {color: #0b0c0c !important;}
+.standard-form-option-check INPUT, .questionnaire-question-option-check INPUT, .standard-form-option-radio INPUT, .standard-form-option-radio-inline INPUT, .questionnaire-question-option-radio INPUT {width: 29px; height: 29px; position: absolute; top: 1px; left: 15px; margin-top: 15px}
+.standard-form-option-check LABEL, .questionnaire-question-option-check LABEL, .standard-form-option-radio LABEL, .standard-form-option-radio-inline LABEL, .questionnaire-question-option-radio LABEL {margin-left: 0px}
+.standard-error .questionnaire-question-option-info, .standard-error .questionnaire-question-option-check LABEL, .standard-error .questionnaire-question-option-radio LABEL, .standard-error .questionnaire-question-text-prompt, .standard-error .questionnaire-question-advice, .standard-error .questionnaire-question-option-text-area LABEL, .standard-error .questionnaire-question-option-text-area TEXTAREA, .standard-error .questionnaire-question-option-file-upload , .questionnaire-question-option-text-field-error LABEL, .questionnaire-question-option-text-field-error INPUT , .standard-error .questionnaire-question-option-text-field, .questionnaire-question-option-text-field-error TEXTAREA, .questionnaire-question-option.standard-error LABEL, .questionnaire-question-option.standard-error INPUT:not(.govuk-input--error), .questionnaire-question-option.standard-error TABLE, .questionnaire-question-option-text-field-error SELECT {margin-left: 15px!important}
+INPUT.link-button {box-shadow:none;}
+.label-disabled {color: #6F777B}
+.questionnaire-question-option-margin {margin-bottom: 30px}
+.standard-error:not(.govuk-input--error), .standard-error-left-border {border: 0px!important; border-left: 5px solid #d4351c!important; padding-left: 15px}
+.standard-form-option-row .standard-error-no-border {border: 0px; padding-left: 15px !important;}
+.questionnaire-question-option .text-field, TEXTAREA {width:50%}
+.questionnaire-question-option-text-area label, .questionnaire-question-option-text-field LABEL, .questionnaire-question-option-spinner INPUT, .questionnaire-question-option-file-upload label, .questionnaire-question-option-select label, .questionnaire-question-option-slider label {margin-left: 0px}
+.gadget-header-form {padding: 1em; margin-bottom: 15px;}
+.gadget-header-title A {margin: 0 0.5em}
+.gadget-column-heading-sortable:hover a {color: #003078 !important}
+#standard-right-col INPUT[type=checkbox], #reverse-left-col INPUT[type=checkbox] {margin-top: 0.25em}
+.standard-paginate-indicator {margin-left: 0.15em; margin-right: 0.15em; display: inline; text-align: center; color: #6f777B}
+DIV.standard-paginate-prev, DIV.standard-paginate-next {margin-top: 0;}
+.standard-paginate-detail {display: block; }
+#questionnaire-bottombar-controls-next {margin-left: 0px}
+.questionnaire-question-option SELECT {margin-left: 0}
+.standard-form-option {box-sizing: border-box; padding-top: 0px; padding-bottom: 0px; margin-top: 0.75em; margin-bottom: 0.75em; }
+.standard-form-option-radio-block .standard-form-option {padding-left: 0px; padding-top: 0px; padding-bottom: 0px; margin-top: 0em; margin-bottom: 0em; }
+.standard-form-option.standard-form-option-notice-check {padding-left: 0px; padding-top: 0px; padding-bottom: 0px; margin-top: 0.5em; margin-bottom: 0em; }
+.hidden-active, LEGEND.standard-form-option-hidden-label ,.standard-form-option-hidden-label div, LEGEND > DIV.standard-form-option-hidden-label{width: 0px; height: 0px; overflow: hidden; margin-top: 0px;}
+.standard-form-option.standard-form-option-notice-label {margin-bottom: 0em;}
+.standard-form-option.standard-form-gap {padding-left: 0px; padding-top: 1px; padding-bottom: 1px; margin-top: 0em; margin-bottom: 0em; }
+.standard-form-option LEGEND H3, #standard-left-col LEGEND H3,.standard-form-option H3, #standard-left-col H3, .standard-infobox-error H3 {line-height: 1.31579; margin-bottom: 5px; font-weight:bold;}
+.standard-form-option LEGEND {float: left}
+.gadget-item-column-content .standard-form-option,.gadget-item .standard-form-option {margin-top:0;margin-bottom:0; }
+.standard-form-option INPUT.text-field-char-3 {width: 5em}
+.standard-form-option INPUT.text-field-char-5 {width: 5em}
+.standard-form-option INPUT.text-field-postcode {width: 8em}
+.standard-form-option INPUT.text-field-criterion {width: 100%}
+.standard-form-option INPUT.text-field-weighting {width: 5em}
+.standard-form-option.standard-error, .standard-error-left-border {padding-left: 15px !important}
+.pd-content:after, .pd-content:not(.pd-header) > *:after, .standard-form-controls:after {content: ""; clear: both; display: block;}
+.flex-container {flex-wrap: wrap; display: flex; align-items: center;}
+.standard-form-controls > .link-button, .standard-form-controls > a {float: left}
+.standard-form-controls.f-row > .standard-submit {float: left !important;}
+.standard-form-controls > .standard-button, .standard-form-controls > input.standard-submit {float: right;}
+.standard-form-option.standard-error INPUT:not([disabled]):not(.govuk-input--error), .standard-form-option.standard-error SELECT:not([disabled]), .standard-form-option.standard-error TEXTAREA:not([disabled]), .standard-form-option-hierarchy-selector.standard-error .hierarchy-container {padding-left: 0.2em; border: 5px solid #d4351c !important}
+.standard-form-option-hidden, .popup-dialog .standard-form-option-hidden {display: none !important;}
+.standard-form-option-disabled, .popup-dialog .standard-form-option-disabled {padding-left:0px !important;border:0px !important;}
+INPUT[type=checkbox]:focus, INPUT[type=radio] {outline: none !important; border: none !important}
+INPUT[type=checkbox] {border: none !important}
+.content-block {margin: 1em 0;}
+#standard-left-col .content-block h2.share-this-notice {font-weight: 400; margin-bottom: 1em}
+#standard-left-col .content-block h3 {display: inline-block !important; padding-bottom: 5px; font-weight: bold}
+INPUT:not([disabled]):not(.govuk-input--error).standard-error, SELECT:not([disabled]).standard-error {border: 5px solid #d4351c !important}
+.standard-form-option-block-element {margin-top:0px; margin-bottom:10px}
+FIELDSET.govuk-checkboxes LEGEND {margin-bottom: 10px}
+.search-result-header {font-weight: bold; }
+.search-result-header H2 A {display:block; margin-bottom: 5px}
+.search-result-entry DT {float: left; clear: left; padding-right:5px}
+.search-result-entry DD {float: left; margin-left: 0px; min-height:25px}
+.search-result .wrap-values dd {text-overflow: ellipsis; overflow: hidden; }
+.notice-search-results .search-result-header {white-space: normal; word-break: break-word; word-wrap: break-word;}
+H2.breadcrumb-description {float: left; padding-left: 0px}
+.content-holder P, .content-holder UL LI, .content-holder OL LI {font-weight: 400; }
+.gadget-column-heading {font-weight: normal; text-align: left}
+.gadget-column-heading-sortable .gadget-item-sortable-icon {color: #1d70b8}
+.search-result-count {font-weight: bold; }
+.standard-select[multiple] {height: 200px; width: 100%; padding: 2px 0 2px 0; }
+.standard-select[multiple] OPTION {padding-left: 0.2em}
+.form-option-group .standard-form-option {width: 100%; margin-top: 0; margin-right: 0; margin-bottom: 0; background-color: #FFFFFF; }
+.form-option-group .gadget-body .standard-form-option.gen-search-holder {background-color: inherit;}
+.form-field-group-inline .standard-form-option {width:97%;}
+.form-option-group .standard-form-option ~ .standard-form-option, .form-option-group .form-opener ~ .form-opener {margin-top: 5px!important}
+#reverse-left-col .standard-form-option {margin-top: 1px!important}
+#reverse-left-col .form-field-group .gadget-header DIV {margin-top: 0.45em;}
+#reverse-left-col .standard-form-option LABEL {max-width: 90%}
+.standard-form-option-hierarchy-selector .hierarchy-container .hierarchy-level-root {border-bottom: 1px solid #737373; padding-top: 15px; padding-bottom: 10.2px;}
+.form-option-group .standard-form-option-check INPUT, .form-option-group .standard-form-option-radio INPUT, .standard-form-option-hierarchy-selector .hierarchy-container .hierarchy-level INPUT { width: 20px; height: 20px; margin-top: 0!important; margin-right: 0.5em; margin-bottom: 0.4em; margin-left: 0.4em}
+.standard-form-option-hierarchy-selector .hierarchy-container .hierarchy-level LABEL.block-label.selection-button-radio,
+.standard-form-option-hierarchy-selector .hierarchy-container .hierarchy-level LABEL.block-label.selection-button-checkbox,
+.standard-form-option-hierarchy-selector .hierarchy-container .hierarchy-level LABEL.selection-button-text-only {width: 80%;}
+.standard-form-option-hierarchy-selector #supplementary_cpv_codes.hierarchy-container .hierarchy-children-container .hierarchy-level {padding-top: 2px}
+.standard-form-option-hierarchy-selector .hierarchy-container .hierarchy-level .hierarchy-level-label-only-container LABEL {margin-top:0.35em; padding-left:1em}
+.form-option-group DIV.bac-tree, .form-option-group UL.bac-selected, .form-option-group UL.cpv-selected, .form-option-group UL.hierarchy-result-selected {width: 100%}
+.form-option-group .bac-selected-holder, .form-option-group .hierarchy-selected-holder {box-sizing: border-box; padding: 0.25em!important}
+.form-option-group .bac-selected-holder *, .form-option-group .hierarchy-selected-holder * {box-sizing: inherit}
+.form-option-group .bac-selected-holder LABEL, .form-option-group .hierarchy-selected-holder LABEL {background-color: #FFFFFF; margin-top: 10px!important; margin-bottom: 10px!important; margin-left: 5px!important}
+DIV.form-opener-container .hierarchy-container .hierarchy-level LABEL.block-label.selection-button-radio,
+DIV.form-opener-container * { box-sizing: border-box; }
+.form-option-group .bac-selected, .form-option-group .cpv-selected, .form-option-group .hierarchy-result-selected {border-left: 0; border-right: none; }
+UL.bac-selected, UL.cpv-selected, UL.hierarchy-result-selected {border: 1px solid #bfc1c3}
+UL.bac-selected LI, UL.cpv-selected LI, UL.hierarchy-result-selected LI {padding: 5px; padding-top: 10px; padding-bottom: 10px; border-bottom: 1px solid #bfc1c3}
+.form-option-group .bac-selected LI, .form-option-group .cpv-selected LI, .form-option-group .hierarchy-result-selected LI {height: auto}
+.form-option-group .bac-selected .home-search-grey, .form-option-group .cpv-selected .home-search-grey, .form-option-group .hierarchy-result-selected .home-search-grey {background-color: #FFFFFF}
+.form-option-group .form-opener {padding: 5px 0 !important ;background-color: #fff}
+.form-option-group .form-opener-button {margin-left: 4px; text-align: left;}
+.form-option-group .form-opener-button A, .popup-dialog .form-opener-button A, .form-opener .form-opener-button A{width: auto; float: none;margin-bottom:5px}
+UL.page-contents-unordered-list{margin-left:0.3em; list-style-type:inherit; padding-bottom:5px}
+UL.page-contents-unordered-list li { word-wrap: break-word; word-break: break-word }
+.form-opener-container-hidden-text LABEL { padding-top: 10px}
+.form-openercontroller-holder {margin-top: 0; line-height: 1.4}
+.form-opener-button.open .form-openercontroller-holder::after {content: "\25BC"; color: #1d70b8}
+.form-option-group .form-opener-container { padding-right: 4px; padding-left: 4px}
+UL.bac-selected LI, UL.cpv-selected LI, UL.hierarchy-result-selected LI {height: auto!important}
+.create-edit .standard-infobox.standard-infobox-success{margin-top: 25px; margin-bottom:8px}
+.published-view .standard-infobox.standard-infobox-success{margin-top: 25px; margin-bottom:30px}
+.standard-form-option-notice-label H3 .form-optional {font-weight: normal;}
+.cf-create-edit-holder, .cf-create-edit-holder * {box-sizing: border-box; }
+.subtitle {color: #6F777B; }
+.cf-create-edit-holder .input-data-lists {margin-top: 5.1em}
+.cf-create-edit-holder .input-data-lists UL LI {height: auto}
+#standard-left-col .notice-review-gadget .notice-review-stage-header H2 {font-weight: 700}
+.cf-create-edit-holder .gadget-body, .skin-contractfinder #standard-left-col .gadget-body, .popup-dialog .gadget-body {border-top: none; border-right: none; border-bottom: none; border-left: none}
+.cf-create-edit-holder .gadget-body INPUT, .skin-contractfinder #standard-left-col .gadget-body INPUT, .popup-dialog .gadget-body INPUT {margin: 2px 0}
+.cf-create-edit-holder .gadget-body .gadget-column-last, .skin-contractfinder #standard-left-col .gadget-body .gadget-column-last, .cf-create-edit-holder .gadget-body .gadget-column-last *, THING .gadget-body .gadget-column-last * {padding-right: 0!important; margin-right: 0}
+.cf-create-edit-holder .gadget-body A, .skin-contractfinder #standard-left-col .gadget-body A, .popup-dialog .gadget-body A, A.template-gadget-add {display: inline-block; margin-right: 15px}
+.skin-contractfinder #standard-left-col .gadget-body .dashboard-button{ margin-left: 0px; margin-right: 0px;}
+INPUT.file-upload {width: 315px; padding: 4px; }
+.rf{float:right!important;}
+.standard-infobox-alert {border: none !important; border-left: solid 10px #df3034 !important; background: #fceaeb !important; }
+.gadget-body .block-label, .hierarchy-level .block-label { padding-left: 2em !important; padding-top:0.3em !important; padding-bottom: 0.3em !important; margin-left:0.4em !important; width: auto; }
+.js-enabled INPUT[type=radio]:disabled + .block-label.selection-button-radio::before, .js-enabled INPUT[type=checkbox]:disabled + .block-label.selection-button-checkbox::before { background: #F2F2F2;}
+.gadget-body .block-label.selection-button-radio::before, .standard-form-option-hierarchy-selector .hierarchy-container .hierarchy-level .block-label.selection-button-radio::before { width: 20px; height: 20px; top: 3px; left: 2px; }
+.gadget-body .block-label.selection-button-radio::after, .standard-form-option-hierarchy-selector .hierarchy-container .hierarchy-level .block-label.selection-button-radio::after { border: 7px solid; top: 8px; left: 7px; }
+.gadget-body .block-label.selection-button-checkbox::before, .standard-form-option-hierarchy-selector .hierarchy-container .hierarchy-level .block-label.selection-button-checkbox::before { width: 20px; height: 20px; top: 3px; left: 2px; }
+.gadget-body .block-label.selection-button-checkbox::after, .standard-form-option-hierarchy-selector .hierarchy-container .hierarchy-level .block-label.selection-button-checkbox::after { width: 12px; height: 5px; top: 7px; left: 5px; }
+.js-enabled .long-field .block-label.selection-button-radio.active::before { -webkit-box-shadow: 0 0 0 5px #ffdd00; -moz-box-shadow: 0 0 0 5px #ffdd00; box-shadow: 0 0 0 5px #ffdd00}
+.js-enabled .long-field .block-label.selection-button-radio.active::before,.js-enabled .long-field .block-label.selection-button-radio::before { width:34px; height:34px;top:0;left:0px}
+.js-enabled .long-field .block-label.selection-button-radio.active::after,.js-enabled .long-field .block-label.selection-button-radio::after { width:0px; height:0px; top:9px; left:9px ; border: 10px solid}
+*:focus {outline: none;}
+select:-moz-focusring {color: transparent; text-shadow: 0 0 0 #000;}
+select::-moz-focus-inner, button::-moz-focus-inner, input::-moz-focus-inner {border: 0 !important;}
+A.bac-tree-toggle:focus {background-color: transparent; outline: none}
+INPUT[type=radio]{outline:none!important;}
+INPUT[type=radio]:focus{-webkit-border-radius: 50%;-moz-border-radius: 50%;border-radius: 50%;-webkit-box-shadow: 0 0 0 3px #FFDD00;-moz-box-shadow: 0 0 0 3px #FFDD00;box-shadow: 0 0 0 3px #FFDD00;}
+.input-data-lists {border: 3px solid #005EA5}
+#standard-right-col .small-quick-links, .content-help {border-top: 5px solid #005EA5; padding-top: 1.25rem}
+#standard-right-col .small-quick-links:last-of-type {padding-bottom: 0px}
+@media(max-width: 1020px){ #standard-right-col .small-quick-links:last-of-type {padding-bottom: 22px} }
+#standard-right-col .small-quick-links .text-content-line {margin-top: 1.25rem; margin-bottom: 1.25rem}
+.disable-link, .disable-link:HOVER {color:#6F777B !important;cursor:default;text-decoration:none !important; pointer-events:none;}
+INPUT.image-submit, FORM#cf_dashboard_filter_form INPUT.clear-button {background-color: #005EA5; border-color: #005EA5;}
+FORM#cf_dashboard_filter_form INPUT.clear-button {color: white;}
+#cf_dashboard_filter_form #date_filter .standard-form-option-column {padding: 0 0 0 15px}
+.standard-form-error-holder .standard-infobox {margin-bottom: 25px; margin-top: 20px}
+.standard-form-error-holder .standard-infobox-header H3, .standard-form-error-holder .standard-infobox-header H2 {font-weight: 700; margin: 10px 10px 20px!important; font-size: 1.5rem}
+.standard-form-error-holder .standard-infobox-body P {font-weight: 400; margin-left:10px}
+.standard-form-error-holder .standard-infobox-body A {margin-bottom: 5px;font-weight: 700; color: #d4351c; margin-left: 10px; display: inline-block; background-image: none!important; float:left; clear:left}
+.standard-infobox-error {background: #FFFFFF!important; border: 5px solid #d4351c!important}
+#header-holder .main-page-top {border-bottom: 1px solid #D0D0D0;}
+#header-menu-search-submit-holder INPUT {background-color: #005EA5; border-left: 2px solid #0b0c0c; border-right: 2px solid #005EA5; border-top: 2px solid #005EA5; border-bottom: 2px solid #005EA5}
+#standard-left-col .standard-form-option TEXTAREA, #reverse-right-col .standard-form-option TEXTAREA, .recommendation-options TEXTAREA { width:90% }
+.content-two-thirds {width: 68%}
+.content-one-third {width: 29%}
+.vertical-one-third {margin-top: 120px}
+#standard-right-col.content-one-third .standard-col-content{position: relative; width: unset}
+#standard-right-col.content-one-third .standard-col-content .small-quick-links{padding-left: 0em; margin-bottom: 0 !important; padding-top: 1.7em}
+#standard-right-col.content-one-third .standard-col-content .small-quick-links .small-quick-links-title{padding-left: 0px; padding: 0px; padding-left: 4px}
+#standard-right-col.content-one-third .standard-col-content .small-quick-links HR{margin-bottom: 1.7em; margin-top: 1.7em; width: 100%; height: 1px}
+#standard-right-col.content-one-third .standard-col-content .small-quick-links H2{line-height: 1.1em; margin-bottom: 12px}
+#standard-right-col.content-one-third .standard-col-content .small-quick-links P{margin-bottom: 12px; overflow-wrap: break-word}
+fieldset legend {width:100%;}
+.media-1020-show {display: none}
+.media-1020-show BUTTON {width: 100%}
+.media-740-show {display: none;}
+.media-740-hide {display: inherit;}
+#header-menu-right{max-width: 26rem}
+
+
+// @media (max-width: 1020px) {.standard-form-option INPUT.text-field-long { width: 100%; } #standard-right-col #options_gadget {display: none; position: absolute; top: 42px; right: 11px; z-index: 10; width: auto} #header-menu-right #header-menu-navigation, #header-menu-search {display: none} #header-menu-right #header-menu-navigation-text { margin-left: 0 !important; float: left; } .govuk-footer-categories, .govuk-footer-explore, .govuk-footer-inside-government {width: 100%} #standard-left-col {min-height: 0px; border-right: none} #standard-right-col {clear: both} #standard-right-col > .standard-col-content > * { padding-left: 0} #options_gadget {margin-top: 5px} .gadget-body input.standard-button {float: none; margin-left: 30%; width: 40%;} .govuk-footer-wrapper {margin: 0 auto} .govuk-footer-inside-government {clear: both} .content-one-third {width: 48%} .content-two-thirds {width: 98%} .content-last-third {clear: both; width: 98%} .vertical-one-third {margin-top: 0px} #nav-bar {height: auto!important; padding-bottom: 5px} #nav-bar .header-item {float: left; width: 100%} .footer-copyright, .footer-systemstats, #govuk-footer, #govuk-footer ul, #govuk-footer h2 {width:100%; text-align: center !important} #questionnaire-question-guidance-title-small {display: inline-block; float: left; padding-top: 0.2em} #questionnaire-question-guidance-title-large {display: none} #questionnaire-question-guidance-toggle {display: inline-block; margin-right: 0.5em; float: left; width: 16px; height: 2em; background: url('/libraries/base-noticing/images/gadgets/guidance-closed.png') center no-repeat;} #questionnaire-question-guidance-text {display: none; border-left: 5px solid #bfc1c3 !important; padding-left: 1em !important; margin-top: 0em} .questionnaire-question-option-inlinecontinued {margin-left: 0 !important} .standard-header-verb-link .quick-link-disabled {color: #888888!important} INPUT.image-submit {padding: 7px; margin-left: 0} .gadget-header-main-hamburger-container {display: block} .govuk-header__logo { float: none; } .govuk-header__content { width: 100%; padding-left: 0px; } .media-1020-show {display: block} .media-1020-hide {display: none}}
+// .standard-error-no-border {border: 0 !important;}
+// @media (max-width: 740px) { .canvas, .govuk-header-wrapper, #standard-form fieldset, .standard-form-option, #standard-left-col, #reverse-right-col, #standard-right-col, #reverse-left-col, .standard-form-option .questionnaire-select, .standard-form-info, #standard-left-col .standard-form-option .text-area, .standard-form-option .text-field, .standard-form-option TEXTAREA, .questionnaire-question-option-text-area TEXTAREA, #standard-left-col .standard-form-option TEXTAREA, .questionnaire-question-option-check label, .standard-form-option-radio-inline label, .questionnaire-question-option-radio label, .content-one-half, #standard-left-col .content-one-half, content-one-third, #standard-left-col .content-one-third, .standard-form-option .standard-select, .questionnaire-question-option-select .standard-select, DIV.bac-tree, UL.bac-selected, .cf-create-edit-holder .standard-form-option DIV.default-edit-container{width: 100%!important} .standard-form-option.standard-error {width: 100%!important} .standard-error-no-border { border: 0px!important; border-left: 5px solid #d4351c!important; } .gadget-filter-form-holder input.text-field {width: 90%!important} .gadget-filter-form-holder input.image-submit {margin-top: 0.15em; margin-left: 0} .govuk-footer-wrapper {margin: 0 0.5em; width: auto} .header-icon-alert {float: right; margin-top: 0.42em; line-height: normal; padding-left: 0.1em; padding-right: 0.55em; padding-bottom: 0.15em} #standard-right-col .standard-form-option .standard-submit, #reverse-left-col .standard-form-option .standard-submit {margin-left: 0} #menu-buttons-navigaton {display: block} #nav-bar .nav-bar-message {width: 85%; } #popup-nav-button {display: block; float: right; position: absolute; top: 14px; right: 8px} #options_gadget .gadget-body input.standard-button {margin: 0.5em 1em; padding: 0.5em; height: auto} form .gadget, form .gadget-body, form .gadget-header, .standard-form-info, .standard-infobox, .standard-form-option-check label, .questionnaire-question-option-check label, .standard-form-option-radio label, .standard-form-option-radio-inline label, .questionnaire-question-option-radio label, .standard-form-option .text-field, TEXTAREA {-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box} .gadget .gadget-header {height: 45px} .gadget-header-main-hamburger-container .gadget-header-hamburger-button {top: 0} .standard-secondarybar-content {height: auto; min-height: 5px} #standard-left-col .standard-col-content {margin-top: 0.5em} .standard-col-content {margin-left: 0.5em} .resize-indent-wrapper {float: left; padding-left: 15px; width: auto} .resize-no-indent {margin-left: -15px;} #standard-left-col .standard-infobox-success, #standard-left-col .standard-infobox-alert, #standard-left-col .standard-form-info {margin-left: 0} .standard-form-controls {text-align: center} .standard-form-controls .standard-submit {white-space: normal; } .standard-form-controls A {vertical-align: -1em} .standard-form-option .text-field {height: 1.9em; padding: 0.3em 0.3em; margin-right: 0} .standard-form-option .standard-select, .standard-form-option .questionnaire-select {padding: 0; margin-right: 0; margin-bottom: 10px;} .standard-form-option-radio-inline {margin-top: 0} .form-option-group .standard-form-option {padding: 0} .gadget.form-option-group {width: 100%!important} form .gadget, .standard-gadget-label {margin: 0.4em 0} .content-one-third, .content-two-thirds {clear: both; width: 98%} .standard-third{box-sizing: border-box; width: 100%; padding-right: 0} .gadget-scroller-holder {max-height: none} .gadget-record {padding: 0.5em 0;} .gadget-column-highlight-grey, .gadget-column-highlight-white {background-color: transparent} .gadget-column-last {border-left: none} .gadget-header-title {width: 58% !important} .gadget-header-info {width: 35% !important} .gadget-column-heading {width: auto !important; display: inline-block; float: left !important; text-align: left !important; padding-left: 0.75em !important; font-weight: normal !important; padding-top: 0em !important; height: 1em;} .gadget-column-heading A {text-decoration: none !important} .gadget-column-heading A:HOVER {text-decoration: underline !important} .gadget-column-heading.gadget-column-first, .gadget-column-heading.gadget-item-left {padding-left: 0.75em !important;} .gadget-column-heading-sorted A {margin-left: 0;} .gadget-column-heading-sorted A {font-weight: bold !important} .gadget-item-sortable-icon {float: left !important; m; margin-top: 0.4em} .gadget-item-column-name {display: inline-block; font-weight: bold; padding-right: 1%;} .gadget-item-left, .gadget-column-first {padding-left: 0 !important} .gadget-item {box-sizing: border-box; width: 50% !important; text-align: left !important; margin: 1px 0;} .gadget-item .award-traffic-light {margin: 0 !important; margin-right: 0.5em !important;} .gadget-item .award-traffic-light-right {float: none} .gadget-column-headings-sort-text {padding: 0.75em; padding-bottom: 0.25em; padding-left: 0; display: block; font-weight: bold; } .gadget-item.gadget-item-progress {border: none !important; margin-top: 0 !important; height: auto; width: 95%!important} .gadget-record-mobile-hidden, .gadget-header-mobile-hidden {display: none} .gadget-column-headings {padding-bottom: 0.5em} .gadget-column-heading-sortable:HOVER {background: none !important; cursor: default !important; color: inherit !important} .gadget-column-heading-sortable:HOVER a {color: inherit !important} .gadget-viewbox-detail LI {padding: 0} .notice-review-stage-header .gadget-column-first {width: 85%!important} .notice-review-stage-header .gadget-column-last {width: 15%!important} #footer-contact-form INPUT, #footer-contact-form LABEL, #footer-contact-form MESSAGE, #footer-contact-wrapper{ width:100% !important;} #footer-contact-form .contact-info-details{ width:100%;} .footer-submit{ width:100% !important; position:relative !important; bottom:0px !important; float:left; } .gadget-viewbox-detail {width: 100% !important} .gadget-viewbox-snap {width: 9em !important; margin-left: 50%;} .gadget-viewbox-snap-alertcircle {margin-left: -3.5em} .gadget-viewbox-snap .standard-centre {margin-left: -4.5em} #chat-icon-holder {right: 10px!important} .revision-traffic-light {margin-left: 0 !important} .questionnaire-question-option-sic-codes .bac-selected, .questionnaire-question-option-sic-codes .bac-tree {margin-left: 0} INPUT.image-submit {padding: 6px; margin-left: -37px} #context_view SELECT {width: 100%} .questionnaire-answers-section-question-prependreference {display: inline; margin-bottom: 0px; left: 0} #questionnaire-bottombar-controls-previous {margin-left: 0px} BUTTON.standard-link-center{margin-left:0px;} .form-control, .standard-form-controls A {margin-left: 0px!important; font-size: 1rem} .pd-content .standard-form-controls .align-right {float: left!important}}
+// @media (min-width: 1020px) { #questionnaire-question-guidance-text {display: block !important} .mobile-show{display: none} }
+// @media (max-width: 1020px) { body{ width: 100%; overflow-x: hidden} #header-menu-search {display: none} .govuk-header-global H2 {width: auto} #header-motd-body-left-col {width: 100%} OL.standard-breadcrumbs {margin-bottom: 1em} .govuk-footer-wrapper {width: 100%; padding-top: 0;} #govuk-footer UL {text-align: left !important} .cf-footer-wrapper {padding-left: 1em; padding-right: 1em; width: 95%} .footer-right {float: right} .footer-right A {text-decoration: none !important; display: inline-block; margin-top: 1em;} .footer-copyright, .govuk-footer .content-full {width: 95% !important;} #standard-left-col, #standard-right-col, .standard-col-content {width: 100% !important; clear: both; margin: 0} .standard-secondarybar-content {height:90px; position: relative} .standard-secondarybar-left, .standard-secondarybar-right, .standard-secondarybar-left {margin-bottom: 1em} .standard-secondarybar {margin-bottom: 1em; margin-top: 1em} .content-three-quarters {width: 100%} .organisation-logo {border: 5px solid #f3f2f1 !important; width: auto !important} .mobile-hidden{display: none} .standard-form-hint-opener .search-help{width: 100%}}
+// @media (max-width: 740px) { .gadget {width:98% !important} .footer-right {float: none} #standard-left-col {margin-right: 10px;} .graph-posneg-horizontal-award {display: none} .graph-posneg-horizontal-holder {width: 60%} .graph-posneg-horizontal-scorebar-negative, .graph-posneg-horizontal-divider {display: none} .graph-posneg-horizontal-negative {display: none} .graph-posneg-horizontal-bar:first-child {display: none} .graph-posneg-horizontal-bar:not(first-child) {width: 100%} .graph-axis-neg-label {display: none} .questionnaire-answers-section-question-holder, .questionnaire-answers-section-question-options {width: 97%} .question-answer-result-unselected, .question-answer-selected-text {width: 82.5%} .gadget-header-revision .award-traffic-light {width: 1em; text-align: center;} .standard-paginate, .standard-paginate-indicator {display: none !important} .standard-paginate-selected {display: inline !important} .gadget-header-form .standard-form-option {width: 100% !important; margin-top: 0em; margin-bottom: 0em;} .gadget-header-form .standard-form-option.standard-form-option-submit {margin: 0em} .gadget-header-form .standard-form-option.standard-form-option #search {width: 100% !important} .gadget-header-form .standard-form-option.standard-form-option-check {margin-left: 0em} .gbfood-main-banner-text{vertical-align:top; margin:0px; width:100%;} .gbfood-main-banner-text li span.red,.gbfood-main-banner-text li span.blue {display:block;} .standard-form-hint-opener .search-help{width: 100%} .media-740-show{display:inherit;} .media-740-hide{display:none;}}
+// @media (max-width: 640px){
+// 	BUTTON:not(.banner-close,.pd-close-button), .standard-submit, .standard-button, BUTTON.standard-button, .link-button:not(.banner-close,.pd-close-button,.remove-link) {width: 100%}
+// 	.banner-close {width: auto}
+// 	.hierarchy-container BUTTON, .small-quick-links BUTTON, .selection-container BUTTON {width: auto; height:100%}
+// 	#reverse-left-col .form-field-group BUTTON {text-align: left}
+// 	.notice-select-link-all {text-align: right}
+// }
+// @media (max-width: 400px){
+// 	#user-research-inner {padding: 0px 15px}
+// 	#user-research-inner .banner-text-padding, #user-research-inner .banner-text-padding BUTTON {margin: 0px}
+// }
+// .gadget .search-filter-button-control {text-align: left; width:unset!important; font-size: 1rem; margin-left: 0.55rem; margin-top: 9px; margin-bottom: 5px; float: left}
+// #deselect_all_notice_types { margin-left: 40px }
+// @media (max-width: 1020px){ #deselect_all_notice_types { margin-left: 0.55rem }}
+
+
+#reverse-left-col .standard-form-option .form-option-group-description, #reverse-left-col .standard-form-option .form-opener-container, #reverse-left-col .standard-form-option .govuk-fieldset__legend, #reverse-left-col .standard-form-option .govuk-hint, #reverse-left-col .standard-form-option .govuk-label { font-size: 1rem!important }
+#reverse-left-col .form-opener-button-span,#reverse-left-col .hint{ font-size: 1rem }
+.aciTree .aciTreeButton, .aciTree .aciTreePush, .aciTree .aciTreeItem, .aciTree .aciTreeIcon, .aciTree .aciTreeText, .aciTree .aciTreeColumn { display:inline-block; line-height:20px; color:#000; vertical-align:top; }
+.aciTree .aciTreeInode > .aciTreeLine .aciTreeEntry .aciTreePush { background: none!important; color: #FFFFFF; font-weight: bold; width: 100%; cursor: pointer; text-align: center }
+.aciTree .aciTreeItem { width: 100%; border: none!important; border-radius: 0!important; background-color: transparent!important; margin-right: 0; padding-top: 4px; padding-bottom: 4px; }
+.aciTreeText { font-weight: normal; padding-left: 10px!important; display: block!important; float: left!important; width: 75%!important }
+.support_log .cf-create-edit-holder .gadget-body A, .skin-contractfinder .support_log#standard-left-col .gadget-body A, .support_log .popup-dialog .gadget-body A, A.template-gadget-add, .truk_documentation#standard-left-col .gadget-body A {display:inline; margin-right:0px; }
+.truk_documentation#standard-left-col { width: 100%; }
+.support_log #options_gadget .gadget-body DIV{ margin-bottom:0.75em; }
+#standard-left-col.support_log.full-width-log{ width: 1010px}
+#standard-left-col.support_log.full-width-log FIELDSET{ padding-left: 12.5%; width: 85% }
+.long-field { width:100% }
+.long-field .form-option-group {border-bottom: 1px solid #bfc1c3;padding-bottom: 10.2px;}
+.create-edit .quick-link-disabled,.create-edit .quick-link-disabled:hover {color: #6F777B!important; cursor: not-allowed}
+.long-field .form-option-group .standard-form-option-radio LABEL {padding: 8px 10px 9px 50px !important; }
+.long-field .hint {float:left; width:94%; color:black; margin-top:10px}
+.notice-select-header .gadget-body{border:none; background-color:transparent}
+.notice-select-header { background:transparent }
+.notice-select-header {position: relative}
+.notice-select-header DIV {display: inline; padding-left:0px}
+.long-field .standard-form-option .notice-select-header .gadget-header-info{ margin-left:10px; text-align:left; width:99% !important; padding-top:15px; padding-bottom:15px;margin-top:0px}
+.pointer-cursor{ cursor:pointer}
+.unclickable { pointer-events :none ; }
+.notice-select:active span,.notice-select-active span { color: #0b0c0c; background-color: #fd0 !important; -webkit-box-shadow: 0 -2px #fd0, 0 4px #0b0c0c; box-shadow: 0 -2px #fd0, 0 4px #0b0c0c; }
+.long-field{height:100%}
+.long-field .notice-select{padding-top:0px; padding-bottom:0px; margin-top:0px !important ;margin-bottom:0px}
+.long-field .standard-form-option{padding-bottom:0px; margin-bottom:0px}
+.long-field .standard-form-option .notice-select-header .gadget-body{padding-top:5px}
+.grey-hr{margin-bottom:0px}
+.standard-col .standard-form-body .standard-form-option-multi-row .standard-form-option-multi-row-data .standard-error-row .standard-form-option.standard-error {width:calc(100% - 20px)}
+.standard-col .standard-form-body .standard-form-option-multi-row .standard-form-option-multi-row-data .standard-error-row .standard-error .validation-error.validation-show{white-space:initial}
+.standard-body-plain .standard-col .standard-col-content .partial-gadget .gadget-body .notice-item .notice-title, .standard-col .standard-form-body .standard-form-option.standard-form-option-margin-applied .default-edit-container LABEL {word-break: break-word; word-wrap: break-word}
+.notice-select-closed {display: none}
+.long-field .notice-select-closed.gadget-body {display: none}
+.standard-col #create_notice_form .standard-form-controls INPUT {float:right}
+.standard-col .standard-col-content .content-holder-view-notice .content-block p {overflow-wrap : break-word}
+.notice-select-open .notice-select-vertical-bar { display: none}
+.form-field-group.long-field .notice-select-header .gadget-header-title {padding-left:0px}
+.notice-select-link-all {float:right ;line-height:1.25; background:transparent;}
+.grey-hr{background-color:#bfc1c3}
+.long-field .standard-form-option .standard-form-option-radio LABEL{ overflow:inherit }
+.cf-create-edit-holder .gadget .notice-select-header, .skin-contractfinder #standard-left-col .gadget .notice-select-header, .popup-dialog .gadget .notice-select-header {background: transparent!important; border:none!important}
+.cf-create-edit-holder .notice-select-header H2, .skin-contractfinder #standard-left-col .notice-select-header H2, .popup-dialog .notice-select-header H2 {font-weight: 400}
+.content-block.help-doc p{margin-top:20px; margin-bottom:20px}
+.content-block.help-doc h2{margin-top:45px; margin-bottom:0px}
+.content-holder .help-doc h3{font-weight:700}
+.content-holder .help-doc h3{font-weight:700}
+.hidden-fields{ color: grey}
+.gds { width: 100%;}
+.gds th, .gds td {padding: 10px; border-bottom: 1px solid #BFC1C3;}
+.govuk-grid-column-full {width: 100%; padding: 0 15px;}
+#mobile-menu-container span:after {content: ""; display: table; clear: both;}
+.govuk-header__link--service-name a:hover {text-decoration: underline !important;}
+.search-results-list {max-height: 300px; overflow-y: auto; list-style-type: none; margin: 0; padding: 0 !important; border: 2px solid #0B0C0C!important; border-top: 0 !important;}
+.margin-bot {margin-bottom: 15px !important;}
+.margin-bottom-12 {margin-bottom: 12px}
+.margin-right {margin-right: 50px !important;}
+#mobile-menu-container > div{overflow: hidden;}
+.hierarchy-result-selected li:last-child {border-bottom: 0 !important;}
+.hierarchy-result-selected {padding: 1px 0;}
+.search-result:after {display: block; content: ""; clear: both;}
+
+
+// @media (max-width: 740px){ .standard-form-controls > .link-button, .standard-form-controls > a {margin-right: 10px !important;} .gadget-column-last { float: left !important;} #standard-left-col.support_log.full-width-log FIELDSET { width: 100%; padding: 0;} .standard-form-option.standard-form-option-inline button{ margin-top: 10px;} .option-margin { margin: 0 0 20px; } .standard-form-option INPUT[type=text], .standard-form-option INPUT[type=password], .standard-form-option SELECT { width: 100%; !important;}.standard-form-option.standard-form-option-inline {padding-right: 0px !important;}}
+
+
+#govuk-footer a:visited {color: #0b0c0c !important;}
+.f-row {flex-direction: row !important;}
+.notice-inline-data-holder > * {word-break: break-word; word-wrap: break-word;}
+.gen-search-searchbox {width: 100% !important;}
+ul > li.add-cpv {position: relative; padding-left: 0; margin-left: 0; list-style-type: none ;}
+ul > li.add-cpv::before {content: "\2022"; position: absolute; left: -15px;}
+.selection-flex {width: 100%; display: flex; flex-direction: row; align-items: center;}
+.selection-flex span, .selection-flex label {flex: 1; padding-right: 5px; word-break: break-word}
+#cf_dashboard_filter_form {margin-bottom: 20px;}
+.wrap-text {word-break: break-word; word-wrap: break-word;}
+#search_form > .standard-form-option {padding-bottom: 0 !important;}
+.standard-form-option.standard-form-option-inline {padding-right: 30px;}
+.standard-form-option.standard-form-option-inline:last-child {padding-right: 0;}
+.full-width-log .standard-form-option-submit {display: flex; align-items: center; flex-direction: row-reverse}
+.full-width-log .standard-form-option-submit > * {margin-left: 10px !important;}
+#create_notice_form .form-field-group:after {clear: both; content: ""; display: block;}
+.standard-form-controls {margin-bottom: 0 !important;}
+.govuk-grid-row {padding-bottom: 8px;}
+#search_form .standard-form-controls {margin-bottom: 15px !important;}
+#mobile-menu-container span a:focus {outline: none !important;}
+.govuk-hint {margin-bottom: 0;}
+#homepage-mast {background: #1d70b8; width: 100%; margin: -12px 0 0px; padding: 40px 0 40px; color: white;}
+#homepage-mast h1 {font-size: 48px;}
+.notice-select .long-field { color: #005EA5; margin-bottom: 0px; background: white; font-weight: 700; width: 100%; text-align: left }
+.control-symbol { float: right }
+.skin-support .gadget-header-form { background-color: #f3f2f1 }
+.content-holder .list-style-none LI {list-style-type: none; margin-left: 0px}
+.standard-breadcrumbs LI:not(:first-child)::before{content: url('/libraries/base-noticing/images/gadgets/breadcrumb_separator.png'); margin-left: 0.4em; margin-right: 0.4em}
+.standard-breadcrumbs LI {display: inline-flex}
+.standard-breadcrumbs {padding-left: 0px; margin-top: 10px; float: left; height: 25px}
+.align-right.form-control.govuk-button {margin-right: 0px}
+.truk_documentation A {color: #1d70b8}
+.footer-verbs .standard-header-verb-link  A {font-size: 1.1875rem}
+#dashboard_adv_search.govuk-button {margin-bottom:0px}
+.breadcrumb-left-col{width:100%}
+.standard-form-option-links {text-align: left; margin-top: 0;}
+.standard-form-option-delete {text-align: right; margin-top: 0; margin-bottom: 0;}
+.standard-form-option LABEL {margin-bottom: 10px}
+.selection-container LABEL {margin-bottom: 0px}
+.standard-form-option-radio-block LEGEND, .standard-form-option-check-block LEGEND {margin-bottom: 15px}
+.padding-top-10 {padding-top: 10px}
+.padding-top-15 {padding-top: 15px}
+.padding-bottom-10 {padding-bottom: 10px}
+.padding-bottom-15 {padding-bottom: 15px}
+.breadcrumb-title {float: left; margin-top: 22px; padding-left: 0em; width: 100%}
+.breadcrumb-description-list LI {padding: 5px 0 0 0}
+.breadcrumb-description-list LI:first-child {padding: 0px}
+TABLE.gds {border-collapse: collapse; border-spacing: 0; margin-bottom: 1em}
+TABLE.gds th {text-align: left}
+TABLE.gds td, TABLE.gds th {padding: 0.5em 0 0.5em 0.75em; word-break: break-word}
+TABLE.gds th.cookies-name, TABLE.gds th.cookies-expiry {width: 25%}
+TABLE.gds th.cookies-description {width: 50%}
+TABLE.gds td:first-child, TABLE.gds th:first-child {padding-left: 0}
+#cookie-banner .govuk-grid-row {padding-bottom: 0px}
+.breadcrumb-description-list {width: 98%; color: #6f777b; font-weight: normal}
+.paragraph-gap P {padding-top:5px}
+.paragraph-gap P:first-child {padding:0px}
+#user-research-inner{max-width: 960px}
+.translation-header.translation-header--with-additional-navigation .govuk-header__link--service-name {float: left;}
+.translation-header.translation-header--with-additional-navigation .translation-language-select { float: right;}
+.translation-header.translation-header--with-additional-navigation .translation-language-select .govuk-header__navigation-item {padding-top: 5px; display: inline-block; margin-right: 0; border-bottom: 0;}
+.translation-header.translation-header--with-additional-navigation .translation-language-select__items { margin-bottom: 0px;}
+.translation-header.translation-header--with-additional-navigation .translation-language-select .govuk-header__navigation-item+.govuk-header__navigation-item:before {content: "|"; padding-right: 2px; color: #626a6e;}
+#header #govuk-global-header .translation-header.translation-header--with-additional-navigation .translation-language-select .govuk-list .govuk-header__navigation-item a:not(.govuk-header__link) {color: #b1b4b6!important; text-decoration: none;}
+#industry_gadget_body .form-option-group-options { background-color: white; }
+#procurementstage_gadget_body .govuk-checkboxes__item { float: left; width: 100% }
+#noticetype_gadget_body .form-option-group-options { background-color: white; }
+#notice_type_guidance_div {	float: left; width: 100%; border-bottom: 5px solid #f3f2f1 }
+
+
+// @media (max-width: 1020px) { .translation-header.translation-header--with-additional-navigation .translation-language-select .govuk-header__navigation-item {padding-top: 2px;} .breadcrumb-description-list {width: 91%} .form-opener-button {width: 92%} }
+
+
+#cf_email_prefs_form .standard-form-option-radio-block { margin-top: 0px; margin-bottom: 10px }
+#cf_email_prefs_form .standard-form-option-notice-label, #cf_email_prefs_form P { margin-top: 0px; margin-bottom: 20px }
+.gem-c-cookie-banner__button .govuk-button, .gem-c-cookie-banner__button .gem-c-govspeak .gem-c-button, .gem-c-govspeak .gem-c-cookie-banner__button .gem-c-button{ width: 90% }
+.gem-c-cookie-banner#global-cookie-message { background-color: #f3f2f1; padding: 20px 0; box-sizing: border-box; float:left; width:100%;}
+.gem-c-cookie-banner__button.govuk-grid-column-one-half-from-desktop{padding:0}
+.gem-c-cookie-banner__message{display: inline-block;padding-bottom: 10px;}
+.gem-c-cookie-banner#global-cookie-message p {-webkit-font-smoothing: antialiased; font-weight: 400; margin: 0 0 10px 0;}
+.gem-c-cookie-banner__confirmation{position: relative; paddingi-top: 5px}
+.gem-c-cookie-banner__confirmation-message, .gem-c-cookie-banner__hide-button{display:block}
+.gem-c-cookie-banner__hide-button {
+    font-family: "nta", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.25;
+    outline: 0;
+    border: 0;
+    background: none;
+    text-decoration: underline;
+    color: #1d70b8;
+    padding: 0;
+    margin-top: 10px
+}
+// @media print {
+//     .gem-c-cookie-banner__hide-button {
+//         font-family: sans-serif
+//     }
+// }
+//
+// @media (min-width: 40.0625em) {
+//     .gem-c-cookie-banner__hide-button {
+//         font-size:19px;
+//         line-height: 1.3157894737;
+//     }
+// }
+//
+// @media print {
+//     .gem-c-cookie-banner__hide-button {
+//         font-size: 14pt;
+//         line-height: 1.15
+//     }
+// }
+
+.gem-c-cookie-banner__hide-button:hover {
+    color: #003078;
+    cursor: pointer
+}
+
+.gem-c-cookie-banner__hide-button:focus {
+    outline: 3px solid transparent;
+    color: #0b0c0c;
+    background-color: #ffdd00;
+    box-shadow: 0 -2px #ffdd00, 0 4px #0b0c0c;
+    text-decoration: none
+}
+
+// @media (min-width: 48.0625em) {
+//     .gem-c-cookie-banner__hide-button {
+//         margin-top:0;
+//         position: absolute;
+//         right: 5px
+//     }
+// }
+// @media (min-width: 40.0625em) {
+//     .gem-c-cookie-banner#global-cookie-message p {
+//         font-size:19px;
+//         line-height: 1.3157894737
+//     }
+// }
+// @media (min-width: 48.0625em) {
+// 	.gem-c-cookie-banner__confirmation-message,.gem-c-cookie-banner__hide-button {
+// 		display:inline-block;
+// 	}
+// }
+CODE, CODE PRE, .code PRE{
+	color:#912b88;
+    font-family: monospace;
+}
+CODE PRE{
+	overflow-x: auto;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
+}
+.code PRE{
+	white-space: pre-wrap;
+}
+.padding-left-15{
+	padding-left:15px;
+}
+.padding-left-4{
+	padding-left:4em;
+}
+.padding-left-6{
+	padding-left:6em;
+}
+.padding-left-8{
+	padding-left:8em;
+}
+.bold {
+	font-weight: bold
+}
+.ie-image-zoom {
+	width:auto;
+	max-width:95%
+}
+.standard-breadcrumbs LI{ display: inline-block; word-break: break-all;}
+OL.standard-breadcrumbs{ height: auto}
+.notice-corrections-infobox P{margin-bottom : 0.7rem}
+.notice-corrections-infobox P:last-of-type{margin-bottom : 0rem}
+.notice-corrections-infobox {padding-left: 0px}
+.padding-left-0{ padding-left:0px;}
+.padding-left-5{ padding-left:5px;}
+#standard-left-col.support_log.full-width-log FIELDSET.padding-left-0{padding-left:0px}
+.margin-bottom-0{margin-bottom: 0px}
+.standard-form-option-margin-top-0, .govuk-button--secondary.margin-top-0, .margin-top-0{margin-top: 0px}
+.margin-bottom-15px{margin-bottom: 15px}
+.create-edit div.js-select UL {width:19.9em; float:left; clear:both}
+.standard-form-option INPUT.width-100{width:100%}
+.standard-col .standard-form-body .standard-form-option-multi-row .standard-form-option-multi-row-data .standard-error-row .standard-form-option.standard-error.js-select{width:100%}
+.standard-form-option-search-results{padding-left: 0.5em}
+.standard-form-option INPUT.search-results-select{ width: 14.7rem}
+LABEL.selection-button-text-only{margin-top: 5px}
+.standard-form-option .hierarchy-container .hierarchy-level LABEL.selection-button-text-only{margin-bottom:4px}
+.standard-form-option .hierarchy-container .hierarchy-level LABEL.selection-button-text-only.selection-button-text-only-child {padding-top: 6px}
+.standard-form-option .hierarchy-container .hierarchy-level BUTTON.selection-button-text-only.selection-button-text-only-child {padding-top: 9px}
+#view-notice-side-menu .govuk-accordion { border: 0 !important; margin-bottom: 0px}
+#view-notice-side-menu .govuk-accordion__section .govuk-accordion__section-header{ text-align: left; border: 0; }
+#view-notice-side-menu .govuk-accordion__section a.govuk-accordion__section-header{ display: block; }
+#view-notice-side-menu .govuk-accordion__section-content ul.govuk-list li:before{ content: '—'; float: left; display: block; width: 0.75em; padding-right: 10px; font-weight: 400 }
+#view-notice-side-menu .govuk-accordion BUTTON {width: 100%; padding-top: 0px; padding-bottom: 0px; font-weight: bold; font-size: 16px; word-wrap: break-word}
+#view-notice-side-menu .govuk-accordion .govuk-accordion__section {line-height: 1.3; padding-top: 7.5px;}
+#view-notice-side-menu .govuk-accordion .govuk-accordion__section > A{padding-top: 0px; padding-bottom: 0px; font-weight: bold; font-size: 16px}
+#view-notice-side-menu .govuk-accordion .govuk-accordion__section-content {padding-top: 0px; padding-bottom: 0px}
+#view-notice-side-menu .govuk-accordion .govuk-accordion__section-content LI{display: block; list-style-type: none; margin-left:0px; font-size: 16px; padding-bottom: 0px; margin-bottom: 0px; padding-top: 7.5px;}
+.max-three-lines-text SPAN, DIV.govuk-accordion__section ul.govuk-list li A.max-three-lines-text{text-overflow: ellipsis; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;}
+#newer-publications-menu h4 {display: block; margin-bottom: 7.5px}
+#view-notice-side-menu HR, #newer-publications-menu HR{margin-top: 15px; margin-bottom: 15px;}
+#view-notice-side-menu .download-links li, #newer-publications-menu li {font-size: 16px; padding-top:7.5px; margin-bottom: 0px; padding-bottom:0px}
+.summary-complete-state-label, .summary-edited-state-label { background-color: #1d70b8; color: #ffffff;}
+.summary-not-complete-state-label { background-color: gray; color: #ffffff;}
+.summary-not-edited-state-label { background-color:#dbd5e9; color:#3d2375;}
+.summary-in-progress-state-label { background-color:#d2e2f1; color:#144e81;}
+.summary-not-started-state-label { background-color:#eeefef; color:#383f43;}

@@ -1,0 +1,64 @@
+[
+    {
+        "name": "folder",
+        "type": "string",
+        "required": true,
+        "description": "Main folder where the /attachments folder is, e.g. /publication or ../"
+    },
+    {
+        "name": "items",
+        "type": "array",
+        "required": true,
+        "description": "Array of attachments.",
+        "params": [
+            {
+                "name": "title",
+                "type": "string",
+                "required": true,
+                "description": ""
+            },
+            {
+                "name": "url",
+                "type": "string",
+                "required": true,
+                "description": ""
+            },
+            {
+                "name": "type",
+                "type": "string",
+                "required": true,
+                "description": "Types: PDF, PNG, ODS, CSV, HTML, External url, ODT"
+            },
+            {
+                "name": "size",
+                "type": "string",
+                "required": false,
+                "description": "745 KB, 56 MB, 47.8 KB"
+            },
+            {
+                "name": "pages",
+                "type": "string",
+                "required": false,
+                "description": "78 pages"
+            },
+            {
+                "name": "reference",
+                "type": "string",
+                "required": false,
+                "description": "Ref: ISBN 978-3-16-148410-0, 23123123123"
+            },
+            {
+                "name": "act",
+                "type": "string",
+                "required": false,
+                "description": "Unnumbered act paper"
+            },
+            {
+                "name": "toolbar",
+                "type": "boolean",
+                "required": false,
+                "description": "If true, shows the toolbar for editing, deleting and downloading an attachment"
+            }
+        ]
+    }
+]

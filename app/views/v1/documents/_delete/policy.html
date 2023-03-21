@@ -1,0 +1,97 @@
+
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+  {{ super() }}
+{% endblock %} 
+
+{% block header %}
+  {{ whitehallHeader({
+      homepageUrl: "../dashboard/",
+      serviceName: serviceName,
+      serviceUrl: "/",
+      containerClasses: "govuk-width-container",
+      phaseBanner: true,
+      navigation: [
+        {
+          href: "../documents/" + hrefParams,
+          text: "Documents",
+          active: true
+        },
+        {
+          href: "../organisation/" + hrefParams,
+          text: "My organisation"
+        },
+        {
+          href: "../support/" + hrefParams,
+          text: "Support information"
+        },
+        {
+          href: "../account/" + hrefParams,
+          text: globals.loggedUser
+        },
+        {
+          href: "../signout" + hrefParams,
+          text: "Sign out"
+        }
+      ],
+      back:
+        {
+          text: "Back",
+          href: "document/type"
+        }
+  }) }}
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form data-gtm="confirm-document-type" action="/documents/new?type=policy" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="sOl3gy0VrK0_CgVPw9v1kKJe78z_WBNzyFQelRpbB1cmYi9wMlkZh_9GNLuCextLBIYZiMAHqUesqNApNFysGw" autocomplete="off">
+      <div class="govuk-form-group govuk-!-margin-bottom-6">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading gem-c-radio__heading-text">Policy or consultation</h1>
+          </legend>
+
+          <div class="govuk-radios">
+              <div class="gem-c-radio govuk-radios__item">
+                <input type="radio" name="selected_option_id" id="radio-006bbda8-0" value="impact_assessment_managed_elsewhere" class="govuk-radios__input" aria-describedby="label-hint-3fe8e928" data-gtm="choose-document-type" data-gtm-value="Impact assessment publication">
+
+                <label for="radio-006bbda8-0" class="gem-c-label govuk-label govuk-label--s govuk-radios__label">Impact assessment publication</label>
+                <span id="label-hint-3fe8e928" class="govuk-hint govuk-radios__hint">
+                  Cost-benefit analyses and other assessments of the impact of proposed initiatives, or changes to regulations or legislation.
+                </span>
+              </div>
+
+              <div class="gem-c-radio govuk-radios__item">
+                <input type="radio" name="selected_option_id" id="radio-006bbda8-1" value="consultation" class="govuk-radios__input" aria-describedby="label-hint-c0833e93" data-gtm="choose-document-type" data-gtm-value="Consultation">
+                <label for="radio-006bbda8-1" class="gem-c-label govuk-label govuk-label--s govuk-radios__label">Consultation</label>
+                <span id="label-hint-c0833e93" class="govuk-hint govuk-radios__hint">
+                  Consultations (officially ‘documents requiring collective agreement across government’), calls for evidence and requests for people's views on a question.
+                </span>
+              </div>
+
+              <div class="gem-c-radio govuk-radios__item">
+                <input type="radio" name="selected_option_id" id="radio-006bbda8-2" value="policy_paper_managed_elsewhere" class="govuk-radios__input" aria-describedby="label-hint-c3bcd23b" data-gtm="choose-document-type" data-gtm-value="Policy paper publication">
+                <label for="radio-006bbda8-2" class="gem-c-label govuk-label govuk-label--s govuk-radios__label">Policy paper publication</label>
+                <span id="label-hint-c3bcd23b" class="govuk-hint govuk-radios__hint">
+                  An explanation of the government's position on something. It doesn’t include instructions on how to carry out a task, only the policy itself and how it’ll be implemented.
+                </span>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <!-- TODO: Variable for each different type selection -->
+        {{ govukButton({
+          text: "Continue",
+          href: "consultation/new"
+        }) }}
+    </form>
+  </div>
+</div>
+{% endblock %}
+{% block footer %}{% include "includes/footer-v1.html" %}{% endblock %}

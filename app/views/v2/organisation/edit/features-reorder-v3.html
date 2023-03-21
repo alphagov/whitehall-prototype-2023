@@ -1,0 +1,101 @@
+
+{% extends "layouts/main.html" %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+  {{ super() }}
+{% endblock %} 
+
+{% block header %}
+  {{ super() }}
+  <div class="govuk-width-container">
+    <a href="javascript: submitNavForm('organisation/features-v3', $(this));" class="govuk-back-link">Back</a>
+  </div>
+{% endblock %}
+
+{% block content %}
+  {{ super() }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">Government Digital Service</span>
+      <h1 class="govuk-heading-xl">
+        Reorder featured documents
+      </h1>
+
+      {{ govukWarningText({
+        text: "Changes to features appear instantly on the live site.",
+        iconFallbackText: "Warning"
+      }) }}
+
+      {{ govukInsetText({
+        text: "Only the first 6 documents will be featured. Any featured documents beyond this limit will not appear on the live site."
+      }) }}
+    </div>
+  </div>
+
+  {# <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <p class="govuk-body">
+        TBD
+      </p>
+    </div>
+  </div> #}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="https://whitehall-admin.integration.publishing.service.gov.uk/government/admin/editions/1424142/attachments/order" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="put" autocomplete="off"><input type="hidden" name="authenticity_token" value="zY65HnPurKb9GS4B28uiPBLivPV1nVBYAgXOkcBnvqgk8L_wMODLmS6lVn-uCvrl5MWClBIhdg9wZ_O3VkY5CQ" autocomplete="off">
+        
+        <div id="hint-3ece9fef" class="gem-c-hint govuk-hint govuk-!-margin-bottom-4">
+          Use the up and down buttons to reorder featured documents, or select and hold on a featured documents to reorder using drag and drop.
+        </div>
+
+        <ol class="gem-c-reorderable-list" data-module="reorderable-list" data-reorderable-list-module-started="true">
+        {% for document in content.organisationFeaturedv2 %}
+          <li class="gem-c-reorderable-list__item">
+            <div class="gem-c-reorderable-list__wrapper">
+              <div class="gem-c-reorderable-list__content">
+                <p class="gem-c-reorderable-list__title">{{ document.title }}</p>
+                <p class="gem-c-reorderable-list__description">
+                  <span class="type">
+                    <abbr title="Portable Document Format">{{ document.type }}</abbr>
+                  </span>,&nbsp;
+                  <span class="file-size">{{ document.published }}</span>
+                </p>
+              </div>
+              <div class="gem-c-reorderable-list__actions">
+                <div class="govuk-form-group">
+                  <label for="input-33ec09cd" class="gem-c-label govuk-label">
+                    Position<span class="govuk-visually-hidden"> for {{ document.title }}</span>
+                  </label>
+                  <input class="gem-c-input govuk-input govuk-input--width-2" id="input-33ec09cd" inputmode="numeric" name="ordering[7214243]" spellcheck="false" type="text" value="1">
+                </div>
+                <button class="gem-c-button govuk-button govuk-button--secondary js-reorderable-list-up" type="button" aria-label="Move &quot;{{ document.title }}&quot; up">Up</button>
+                <button class="gem-c-button govuk-button govuk-button--secondary js-reorderable-list-down" type="button" aria-label="Move &quot;{{ document.title }}&quot; down">Down</button>
+              </div>
+            </div>
+          </li>
+        {% endfor%}
+        </ol>
+
+      </form>
+
+      <div class="govuk-button-group">
+        {# {{ govukButton({
+            text: "Save as draft",
+            classes: "govuk-button--secondary",
+            href: "../../publication/edit/body" + hrefParamsBodyAttachments + "&pageMessage=documentSaved"
+        }) }} #}
+
+        {{ govukButton({
+          text: "Update order",
+          href: "javascript: submitNavForm('organisation/features-v3', $(this));"
+        }) }}
+
+        <a class="govuk-link" href="javascript: submitNavForm('organisation/features-v3', $(this));">Cancel</a>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

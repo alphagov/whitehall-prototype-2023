@@ -1,0 +1,141 @@
+{# {% set sectionState = [] %} #}
+{# <h3 class="govuk-heading-l">Title and summary</h3> #}
+
+<div class="whitehall-summary-title-group">
+    {% if data['pageState'] === 'populated' or data['pageState'] === 'empty' or data['pageState'] === 'bodyAttachments' or data['pageState'] === 'fullPopulated' %}
+    <span class="govuk-caption-xl">
+        {{content.documentContent[0].subtype}}
+    </span>
+
+    {% if data['pageState'] === 'populated' or data['pageState'] === 'empty' or data['pageState'] === 'bodyAttachments' or data['pageState'] === 'fullPopulated' %}
+    <p class="govuk-body whitehall-summary-change-link">
+        <a href="../publication/edit/summary{{hrefParams}}" class="govuk-link">Edit content type</a>
+    </p>
+    {% endif %}
+</div>
+
+<div class="whitehall-summary-title-group">
+    <h1 class="govuk-heading-xl">
+        {{content.documentContent[0].title}}
+    </h1>
+    {% if data['pageState'] === 'populated' or data['pageState'] === 'empty' or data['pageState'] === 'bodyAttachments' or data['pageState'] === 'fullPopulated' %}
+    <p class="govuk-body whitehall-summary-change-link">
+        <a href="../publication/edit/summary{{hrefParams}}" class="govuk-link">Edit title and summary</a>
+    </p>
+    {% endif %}
+</div>
+
+<div class="govuk-inset-text" style="word-break: break-all;">
+    <b>Page address</b><br>
+    {{content.documentContent[0].pageUrl}}
+</div>
+
+<p class="gem-c-lead-paragraph govuk-!-margin-top-8">{{content.documentContent[0].summary}}</p>
+
+{% set sectionState = [] %}
+{% if data['pageState'] === 'bodyAttachments' %}
+
+{% endif %}
+
+{% if data['pageState'] === 'populated' or data['pageState'] === 'fullPopulated' %}
+
+{% endif %}
+
+{% if data['pageState'] === 'empty' %}
+
+{% endif %}
+
+{# 
+
+
+   {
+      key: {
+        text: "Document type"
+      },
+      value: {
+        text: "Publication"
+      }
+    },
+    {
+      key: {
+        text: "Document subtype"
+      },
+      value: {
+        text: "Guidance"
+      },
+      actions: {
+        items: [
+          {
+            href: "../publication/edit/subtype" + hrefParams,
+            text: "Edit",
+            visuallyHiddenText: "Edit"
+          }
+        ]
+      }
+    }, #}
+{# <h3 class="govuk-heading-l">Document type and information</h3> #}
+{# Should be heading-m? #}
+{# <p class="govuk-body whitehall-summary-change-link">
+  <a href="../publication/edit/subtype" class="govuk-link">Edit</a>
+</p> #}
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-bottom-4 govuk-!-margin-top-4">
+{{ govukSummaryList({
+  rows: [
+ 
+    {
+      key: {
+        text: "Has this document been published before?"
+      },
+      value: {
+        text: "Yes, this document has previously been published on another website in 10th February 2020 at 00:00"
+      },
+      actions: {
+        items: [
+          {
+            href: "../publication/edit/previously-published" + hrefParams,
+            text: "Edit",
+            visuallyHiddenText: "Edit"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-bottom-4 govuk-!-margin-top-4">
+{% endif %}
+
+
+{# {% set sectionState = [] %} #}
+<div class="whitehall-summary-h3">
+    <h3 class="govuk-heading-m">Body and images (Details)</h3>
+
+    {% if data['pageState'] === 'populated' or data['pageState'] === 'fullPopulated' or data['pageState'] === 'bodyAttachments' %}
+    <p class="govuk-body whitehall-summary-change-link">
+        <a href="edit/body{{hrefParams}}" class="govuk-link">Edit body and images</a>
+    </p>
+    {% endif %}
+
+    {% if data['pageState'] === 'empty' %}
+    <p class="govuk-body whitehall-summary-change-link">
+        <a href="edit/body{{hrefParams}}" class="govuk-link">Add body and images</a>
+    </p>
+    {% endif %}
+</div>
+
+<!-- TODO: Markdown preview -->
+
+{% if data['pageState'] === 'populated' or data['pageState'] === 'bodyAttachments' or data['pageState'] === 'fullPopulated' %}
+<div id="markdown-preview">
+  {{content.bodyHTML | safe}}
+  {# {{content.documentContent[0].body | safe}} #}
+</div>
+{% endif %}
+
+{% if data['pageState'] === 'empty' %}
+<p class="govuk-body whitehall-body-empty">
+  You need to add a body text.
+</p>
+{% endif %}
+
+

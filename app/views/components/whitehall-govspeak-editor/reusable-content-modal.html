@@ -1,0 +1,252 @@
+<h1 class="govuk-heading-l">Reusable content</h1>
+  <div class="gem-c-govspeak govuk-govspeak " data-module="govspeak" data-govspeak-module-started="true">
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div class="autocomplete__wrapper">
+          <div class="govuk-form-group">
+            <!-- <label class="govuk-label govuk-label--m" for="organisation-filter">
+              Document type
+            </label>
+            <div id="event-name-hint" class="govuk-hint">
+              Type to find the document type. For example, guidance, policy paper, consultation.
+            </div> -->
+            <!-- <span id="organisation-search-error" class="govuk-error-message" role="alert">
+              <span class="govuk-visually-hidden">Error:</span> Value entered not recognised, please try again
+            </span> -->
+            <select class="govuk-select" id="reusable-content-filter" name="reusable-content-filter">
+              <option value=""></option>
+              {# {% include "mock-data/autocomplete_content_type.html" %} #}
+              <option value="1">VAT threshold (Financial): £85,000</option>
+              <option value="2">National Minimum wage (23 and over) April 2022 (Financial): £9.50</option>
+              <option value="3">National Minimum wage (23 and over) April 2023 (Financial): £10.42</option>
+              <option value="4">Benefit cap (couple, per week, outside Gr London) April 2022 (Financial): £384.62</option>
+              <option value="5">Benefit cap (couple, per month, outside Gr London) April 2022 (Financial): £1,666.67</option>
+              <option value="6">DWP benefit claim support email (Email): E.CLAIMSSUPPORT@dwp.gov.uk</option>
+              <option value="7">EA contact number (environmental permit) (Phone number): 03708 506 506</option>
+              <option value="8">DHLUC Press office number (Phone number): 0303 444 1209</option>
+              <option value="9">DFE general enquiries number (Phone number): 0370 000 2288</option>
+              <option value="0">DFE general enquiries opening hours (Opening hours): Monday to Friday 9.30am to 5pm (excluding bank holidays)</option>
+            </select>
+          </div>
+        </div>
+        <script>
+          {# $('#reusable-content-filter').autocomplete(); #}
+        </script>
+    </div>
+  </div>
+  
+  {# <markdown-whitehall-insert-link>Test</markdown-whitehall-insert-link> #}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+{{ govukTable({
+  caption: "",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Description"
+    },
+    {
+      text: "Type"
+    },
+    {
+      text: "Value"
+    },
+    {
+      text: "Markdown"
+    },
+    {
+      text: "",
+      classes: "whitehall-table-action-column"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "VAT threshold"
+      },
+      {
+        text: "Financial"
+      },
+      {
+        text: "£85,000"
+      },
+      {
+        text: "{{vat2022}}"
+      },
+      {
+        html: '<a class="govuk-link whitehall-editor-modal-insert-link" value="{{vat}}" ">Insert markdown</a>',
+      classes: "whitehall-table-action-column"
+      }
+    ],
+    [
+      {
+        text: "National Minimum wage (23 and over) April 2022"
+      },
+      {
+        text: "Financial"
+      },
+      {
+        text: "£9.50"
+      },
+      {
+        text: "{{nmw23+2022}}"
+      },
+      {
+        html: '<a class="govuk-link whitehall-editor-modal-insert-link" value="{{vat}}" ">Insert markdown</a>',
+      classes: "whitehall-table-action-column"
+      }
+    ],
+    [
+      {
+        text: "National Minimum wage (23 and over) April 2023"
+      },
+      {
+        text: "Financial"
+      },
+      {
+        text: "£10.42"
+      },
+      {
+        text: "{{nmw23+2023}}"
+      },
+      {
+        html: '<a class="govuk-link whitehall-editor-modal-insert-link" value="{{vat}}" ">Insert markdown</a>',
+      classes: "whitehall-table-action-column"
+      }
+    ],
+    [
+      {
+        text: "Benefit cap (couple, per week, outside Gr London) April 2022"
+      },
+      {
+        text: "Financial"
+      },
+      {
+        text: "£384.62"
+      },
+      {
+        text: "{{bclcw2022}}"
+      },
+      {
+        html: '<a class="govuk-link whitehall-editor-modal-insert-link" value="{{vat}}" ">Insert markdown</a>',
+      classes: "whitehall-table-action-column"
+      }
+    ],
+    [
+      {
+        text: "Benefit cap (couple, per month, outside Gr London) April 2022"
+      },
+      {
+        text: "Financial"
+      },
+      {
+        text: "£1,666.67"
+      },
+      {
+        text: "{{bclcm2022}}"
+      },
+      {
+        html: '<a class="govuk-link whitehall-editor-modal-insert-link" value="{{vat}}" ">Insert markdown</a>',
+      classes: "whitehall-table-action-column"
+      }
+    ],
+    [
+      {
+        text: "DWP benefit claim support email"
+      },
+      {
+        text: "Email"
+      },
+      {
+        text: "E.CLAIMSSUPPORT@dwp.gov.uk"
+      },
+      {
+        text: "{{DWPclaimsupportemail}}"
+      },
+      {
+        html: '<a class="govuk-link whitehall-editor-modal-insert-link" value="{{vat}}" ">Insert markdown</a>',
+      classes: "whitehall-table-action-column"
+      }
+    ],
+    [
+      {
+        text: "EA contact number (environmental permit)"
+      },
+      {
+        text: "Phone number"
+      },
+      {
+        text: "03708 506 506"
+      },
+      {
+        text: "{{EApermitnumber}}"
+      },
+      {
+        html: '<a class="govuk-link whitehall-editor-modal-insert-link" value="{{vat}}" ">Insert markdown</a>',
+      classes: "whitehall-table-action-column"
+      }
+    ],
+    [
+      {
+        text: "DHLUC Press office number"
+      },
+      {
+        text: "Phone number"
+      },
+      {
+        text: "0303 444 1209"
+      },
+      {
+        text: "{{DHLUCpressnumber}}"
+      },
+      {
+        html: '<a class="govuk-link whitehall-editor-modal-insert-link" value="{{vat}}" ">Insert markdown</a>',
+      classes: "whitehall-table-action-column"
+      }
+    ],
+    [
+      {
+        text: "DFE general enquiries number"
+      },
+      {
+        text: "Phone number"
+      },
+      {
+        text: "0370 000 2288"
+      },
+      {
+        text: "{{DFEenquiriesnumber}}"
+      },
+      {
+        html: '<a class="govuk-link whitehall-editor-modal-insert-link" value="{{vat}}" ">Insert markdown</a>',
+      classes: "whitehall-table-action-column"
+      }
+    ],
+    [
+      {
+        text: "DFE general enquiries opening hours"
+      },
+      {
+        text: "Opening hours"
+      },
+      {
+        text: "Monday to Friday 9.30am to 5pm (excluding bank holidays)"
+      },
+      {
+        text: "{{DFEenquirieshours}}"
+      },
+      {
+        html: '<a class="govuk-link whitehall-editor-modal-insert-link" value="{{vat}}" ">Insert markdown</a>',
+      classes: "whitehall-table-action-column"
+      }
+    ]
+  ]
+}) }}
+  </div>
+  </div>
+  
+
+      {# <p>Please try again or <a rel="external" href="https://support.publishing.service.gov.uk/technical_fault_report/new">raise a support request</a>.</p> #}
+  </div>

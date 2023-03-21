@@ -1,0 +1,423 @@
+{# <h4 class="govuk-heading-m">Associations (optional)</h4> #}
+{% if data['pageState'] === 'fullPopulated' %}
+{{ govukButton({
+    text: "Edit additional tags",
+    classes: "govuk-button--secondary",
+    href: "../publication/edit/associations" + hrefParams
+}) }}
+{% endif %}
+
+{% if data['pageState'] === 'populated' or data['pageState'] === 'empty' or data['pageState'] === 'bodyAttachments' %}
+{{ govukButton({
+    text: "Add additional tags",
+    classes: "govuk-button--secondary",
+    href: "../publication/edit/translations" + hrefParams
+}) }}
+{% endif %}
+
+
+{# 
+
+    {
+        key: {
+        text: "Supporting organisations (optional)"
+        },
+        value: {
+        html: '<ul class="govuk-list govuk-list--bullet">
+            <li>Youth Justice Agency of Northern Ireland</li>
+            <li>Zahid Mubarek Inquiry</li>
+            <li>Postal Services Commission</li>
+            <li>Phoenix Sports</li>
+            <li>Independent Parliamentary Standards Authority</li>
+            <li>NHS Counter Fraud Authority</li>
+        </ul>'
+        }
+    },
+    {
+        key: {
+        text: "Ministers (optional)"
+        },
+        value: {
+        html: '<ul class="govuk-list govuk-list--bullet">
+            <li>Lord Johnson</li>
+            <li>Baroness Deborah Stedman-Scott OBE DL</li>
+            <li>Lord Murray of Blidworth</li>
+            <li>Lord Parkinson of Whitley Bay</li>
+        </ul>'
+        }
+    },
+
+ #}
+
+{% if data['pageState'] === 'fullPopulated' %}
+{{ govukSummaryList({
+  card: {
+        title: {
+          text: "Tags"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Edit",
+              visuallyHiddenText: ""
+            }
+          ]
+        }
+      },
+  rows: [
+  {
+        key: {
+        text: "Lead organisations"
+        },
+        value: {
+        html: '<ul class="govuk-list govuk-list--bullet">
+            <li>' + content.documentContent[0].department + '</li>
+            <li>Government Digital Service</li>
+            <li>Civil Service Fast Stream</li>
+            <li>Milk Development Council</li>
+        </ul>'
+        },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Edit",
+                  visuallyHiddenText: "Edit date"
+                }
+              ]
+            }
+    },
+    {
+        key: {
+        text: "Supporting organisations (optional)"
+        },
+        value: {
+        html: '<ul class="govuk-list govuk-list--bullet">
+            <li>Youth Justice Agency of Northern Ireland</li>
+            <li>Zahid Mubarek Inquiry</li>
+            <li>Postal Services Commission</li>
+            <li>Phoenix Sports</li>
+            <li>Independent Parliamentary Standards Authority</li>
+            <li>NHS Counter Fraud Authority</li>
+        </ul>'
+        },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Edit",
+                  visuallyHiddenText: "Edit date"
+                }
+              ]
+            }
+    },
+    {
+        key: {
+        text: "Ministers (optional)"
+        },
+        value: {
+        html: '<ul class="govuk-list govuk-list--bullet">
+            <li>Lord Johnson</li>
+            <li>Baroness Deborah Stedman-Scott OBE DL</li>
+            <li>Lord Murray of Blidworth</li>
+            <li>Lord Parkinson of Whitley Bay</li>
+        </ul>'
+        },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Edit",
+                  visuallyHiddenText: "Edit date"
+                }
+              ]
+            }
+    },
+    {
+      key: {
+        text: "Specialist topics (optional)"
+      },
+      value: {
+        html: '<p><b>Primary specialist topic</b></p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>Work and careers: Public service pensions</li>
+        </ul>
+        <p><b>Secondary specialist topic</b></p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            Government: Public services
+          </li>
+          <li>
+            Guidance for government digital publishing and services: Content and publishing
+          </li>
+          <li>
+            Public safety and emergencies: Emergencies: preparation, response and recovery
+          </li>
+        </ul>'
+      },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Edit",
+                  visuallyHiddenText: "Edit date"
+                }
+              ]
+            }
+    },
+        {
+      key: {
+        text: "Statistical data sets (optional)"
+      },
+      value: {
+        html: '<ul class="govuk-list govuk-list--bullet">
+          <li>
+            Live tables on National Land Use Database of previously-developed Brownfield Land
+          </li>
+        </ul>'
+      },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Edit",
+              visuallyHiddenText: "Edit date"
+            }
+          ]
+        }
+    },
+    {
+      key: {
+        text: "Topical events (optional)"
+      },
+      value: {
+        html: '<ul class="govuk-list govuk-list--bullet">
+          <li>
+            Zero emission vehicle summit
+          </li>
+          <li>
+            Global Summit to End Sexual Violence in Conflict
+          </li>
+        </ul>'
+      },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Edit",
+                  visuallyHiddenText: "Edit date"
+                }
+              ]
+            }
+    },
+    {
+      key: {
+        text: "World locations (optional)"
+      },
+      value: {
+        html: '<ul class="govuk-list govuk-list--bullet">
+          <li>
+            Angola
+          </li>
+          <li>
+            Argentina
+          </li>
+          <li>
+            UK and the United Nations (Vienna)
+          </li>
+        </ul>'
+      },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Edit",
+                  visuallyHiddenText: "Edit date"
+                }
+              ]
+            }
+    }
+  ]
+}) }}
+{% endif %}
+
+
+
+
+
+{# 
+
+,
+    {
+        key: {
+            text: "Supporting organisations (optional)"
+        },
+        value: {
+            html: '<p class="govuk-body whitehall-body-empty-list">
+                No supporting organisations
+            </p>'
+        }
+    },
+    {
+        key: {
+            text: "Ministers (optional)"
+        },
+        value: {
+            html: '<p class="govuk-body whitehall-body-empty-list">
+                No ministers
+            </p>'
+        }
+    }
+ #}
+{% if data['pageState'] === 'empty' or data['pageState'] === 'bodyAttachments' or data['pageState'] === 'populated' %}
+{{ govukSummaryList({
+  card: {
+        title: {
+          text: "Tags"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Edit",
+              visuallyHiddenText: ""
+            }
+          ]
+        }
+      },
+    rows: [
+        {
+            key: {
+                text: "Lead organisations"
+            },
+                value: {
+                html: '<p class="govuk-body">' + content.documentContent[0].department + '</p>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Edit",
+                  visuallyHiddenText: "Edit date"
+                }
+              ]
+            }
+        },
+        {
+            key: {
+                text: "Supporting organisations (optional)"
+            },
+            value: {
+                html: '<p class="govuk-body whitehall-body-empty-list">
+                    No supporting organisations
+                </p>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Edit",
+                  visuallyHiddenText: "Edit date"
+                }
+              ]
+            }
+        },
+        {
+            key: {
+                text: "Ministers (optional)"
+            },
+            value: {
+                html: '<p class="govuk-body whitehall-body-empty-list">
+                    No ministers
+                </p>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Edit",
+                  visuallyHiddenText: "Edit date"
+                }
+              ]
+            }
+        },
+        {
+          key: {
+              text: "Specialist topics (optional)"
+          },
+          value: {
+              html: '<p class="govuk-body whitehall-body-empty-list">
+                  No specialist topics
+                </p>'
+          },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Edit",
+                  visuallyHiddenText: "Edit date"
+                }
+              ]
+            }
+        },
+        {
+          key: {
+              text: "Statistical data sets (optional)"
+          },
+          value: {
+              html: '<p class="govuk-body whitehall-body-empty-list">
+                  No statistical data sets
+                </p>'
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Edit",
+                visuallyHiddenText: "Edit date"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+              text: "Topical events (optional)"
+          },
+          value: {
+              html: '<p class="govuk-body whitehall-body-empty-list">
+                  No topical events
+                </p>'
+          },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Edit",
+                  visuallyHiddenText: "Edit date"
+                }
+              ]
+            }
+        },
+        {
+          key: {
+              text: "World locations (optional)"
+          },
+          value: {
+              html: '<p class="govuk-body whitehall-body-empty-list">
+                  No world locations
+                </p>'
+          },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Edit",
+                  visuallyHiddenText: "Edit date"
+                }
+              ]
+            }
+        }
+    ]
+    }) }}
+{% endif %}
