@@ -32,6 +32,7 @@ This prototype uses [GOV.UK Prototype Kit](https://prototype-kit.service.gov.uk/
 ### Requirements
 Node.js LTS version 18.x.x
 
+### Steps
 In your terminal run:
 ```
 npm run dev
