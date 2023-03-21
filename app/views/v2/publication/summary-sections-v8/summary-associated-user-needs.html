@@ -1,0 +1,64 @@
+{% set sectionState = [] %}
+{# <h4 class="govuk-heading-m">Associated user needs (optional)</h4> #}
+
+{% if data['pageState'] === 'fullPopulated' %}
+<p class="govuk-body whitehall-summary-change-link">
+  <a href="../publication/edit/associated-user-needs{{hrefParams}}" class="govuk-link">Edit</a>
+</p>
+{% endif %}
+
+{% if data['pageState'] === 'populated' or data['pageState'] === 'empty' or data['pageState'] === 'bodyAttachments' %}
+<p class="govuk-body whitehall-summary-change-link">
+    <a href="../publication/edit/associated-user-needs{{hrefParams}}" class="govuk-link">Add a user need</a>
+</p>
+{% endif %}
+
+{% if data['pageState'] === 'fullPopulated' %}
+{{ govukSummaryList({
+  classes: "whitehall-taxonomy-list",
+  rows: [
+    {
+      key: {
+        html: 'As a user with a lasting power of attorney, I need to object to the registering of the lasting power of attorney, so that I can protect the person myself or the person who has made the enduring power of attorney) (100694)',
+        classes: "govuk-body govuk-!-font-weight-regular"
+      },
+      value: {
+        text: ""
+      }
+    },
+    {
+      key: {
+        html: 'As a As a user who is looking after a child for a family member or friend, I need to know what rights I have and the child has, so that I can look after the child properly and stay within the law (101258)',
+        classes: "govuk-body govuk-!-font-weight-regular"
+      },
+      value: {
+        text: ""
+      }
+    },
+    {
+      key: {
+        html: 'As a user, I need to Know how to keep VAT records, so that I can comply with my statutory obligations (100532)',
+        classes: "govuk-body govuk-!-font-weight-regular"
+      },
+      value: {
+        text: ""
+      }
+    },
+    {
+      key: {
+        html: 'As a A training provider, I need to Understand how I can help disadvantage students with costs relating to FE, so that Support my students (102024)',
+        classes: "govuk-body govuk-!-font-weight-regular"
+      },
+      value: {
+        text: ""
+      }
+    }
+  ]
+}) }}
+{% endif %}
+
+{% if data['pageState'] === 'empty' or data['pageState'] === 'bodyAttachments' or data['pageState'] === 'populated' %}
+<p class="govuk-body whitehall-body-empty">
+  There are no associated user needs in this document.
+</p>
+{% endif %}

@@ -1,0 +1,225 @@
+{# <h4 class="govuk-heading-m">Associations (optional)</h4> #}
+{% if data['pageState'] === 'fullPopulated' %}
+{{ govukButton({
+    text: "Edit additional tags",
+    classes: "govuk-button--secondary",
+    href: "../publication/edit/associations" + hrefParams
+}) }}
+{% endif %}
+
+{% if data['pageState'] === 'populated' or data['pageState'] === 'empty' or data['pageState'] === 'bodyAttachments' %}
+{{ govukButton({
+    text: "Add additional tags",
+    classes: "govuk-button--secondary",
+    href: "../publication/edit/translations" + hrefParams
+}) }}
+{% endif %}
+
+
+
+
+{# 
+
+    {
+        key: {
+        text: "Supporting organisations (optional)"
+        },
+        value: {
+        html: '<ul class="govuk-list govuk-list--bullet">
+            <li>Youth Justice Agency of Northern Ireland</li>
+            <li>Zahid Mubarek Inquiry</li>
+            <li>Postal Services Commission</li>
+            <li>Phoenix Sports</li>
+            <li>Independent Parliamentary Standards Authority</li>
+            <li>NHS Counter Fraud Authority</li>
+        </ul>'
+        }
+    },
+    {
+        key: {
+        text: "Ministers (optional)"
+        },
+        value: {
+        html: '<ul class="govuk-list govuk-list--bullet">
+            <li>Lord Johnson</li>
+            <li>Baroness Deborah Stedman-Scott OBE DL</li>
+            <li>Lord Murray of Blidworth</li>
+            <li>Lord Parkinson of Whitley Bay</li>
+        </ul>'
+        }
+    },
+
+ #}
+
+{% if data['pageState'] === 'fullPopulated' %}
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Specialist topics"
+      },
+      value: {
+        html: '<p><b>Primary specialist topic</b></p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>Work and careers: Public service pensions</li>
+        </ul>
+        <p><b>Secondary specialist topic</b></p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            Government: Public services
+          </li>
+          <li>
+            Guidance for government digital publishing and services: Content and publishing
+          </li>
+          <li>
+            Public safety and emergencies: Emergencies: preparation, response and recovery
+          </li>
+        </ul>'
+      }
+    },
+    {
+      key: {
+        text: "Topical events"
+      },
+      value: {
+        html: '<ul class="govuk-list govuk-list--bullet">
+          <li>
+            Zero emission vehicle summit
+          </li>
+          <li>
+            Global Summit to End Sexual Violence in Conflict
+          </li>
+        </ul>'
+      }
+    },
+    {
+      key: {
+        text: "World locations"
+      },
+      value: {
+        html: '<ul class="govuk-list govuk-list--bullet">
+          <li>
+            Angola
+          </li>
+          <li>
+            Argentina
+          </li>
+          <li>
+            UK and the United Nations (Vienna)
+          </li>
+        </ul>'
+      }
+    },
+    {
+      key: {
+        text: "Statistical data sets"
+      },
+      value: {
+        html: '<ul class="govuk-list govuk-list--bullet">
+          <li>
+            Live tables on National Land Use Database of previously-developed Brownfield Land
+          </li>
+        </ul>'
+      }
+    },
+    {
+      key: {
+        text: "Associated user needs"
+      },
+      value: {
+        html: '<ul class="govuk-list govuk-list--bullet">
+            <li>As a user with a lasting power of attorney, I need to object to the registering of the lasting power of attorney, so that I can protect the person myself or the person who has made the enduring power of attorney) (100694)</li>
+            <li>As a As a user who is looking after a child for a family member or friend, I need to know what rights I have and the child has, so that I can look after the child properly and stay within the law (101258)</li>
+            <li>As a user, I need to Know how to keep VAT records, so that I can comply with my statutory obligations (100532)</li>
+            <li>As a A training provider, I need to Understand how I can help disadvantage students with costs relating to FE, so that Support my students (102024)</li>
+        </ul>'
+      }
+    }
+  ]
+}) }}
+{% endif %}
+
+
+
+
+
+{# 
+
+,
+    {
+        key: {
+            text: "Supporting organisations (optional)"
+        },
+        value: {
+            html: '<p class="govuk-body whitehall-body-empty-list">
+                No supporting organisations
+            </p>'
+        }
+    },
+    {
+        key: {
+            text: "Ministers (optional)"
+        },
+        value: {
+            html: '<p class="govuk-body whitehall-body-empty-list">
+                No ministers
+            </p>'
+        }
+    }
+ #}
+{% if data['pageState'] === 'empty' or data['pageState'] === 'bodyAttachments' or data['pageState'] === 'populated' %}
+{{ govukSummaryList({
+    rows: [
+        {
+          key: {
+              text: "Specialist topics"
+          },
+          value: {
+              html: '<p class="govuk-body whitehall-body-empty-list">
+                  No specialist topics
+                </p>'
+          }
+        },
+        {
+          key: {
+              text: "Topical events"
+          },
+          value: {
+              html: '<p class="govuk-body whitehall-body-empty-list">
+                  No topical events
+                </p>'
+          }
+        },
+        {
+          key: {
+              text: "World locations"
+          },
+          value: {
+              html: '<p class="govuk-body whitehall-body-empty-list">
+                  No world locations
+                </p>'
+          }
+        },
+        {
+          key: {
+              text: "Statistical data sets"
+          },
+          value: {
+              html: '<p class="govuk-body whitehall-body-empty-list">
+                  No statistical data sets
+                </p>'
+          }
+        },
+        {
+          key: {
+              text: "Associated user needs"
+          },
+          value: {
+              html: '<p class="govuk-body whitehall-body-empty-list">
+                  No associated user needs
+                </p>'
+          }
+        }
+    ]
+    }) }}
+{% endif %}

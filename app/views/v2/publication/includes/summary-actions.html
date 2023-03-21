@@ -1,0 +1,174 @@
+{% if data['pageState'] === 'empty' or data['pageState'] === 'bodyAttachments' %}
+<div class="app-c-inset-prompt govuk-!-margin-top-4">
+    <h3 class="app-c-inset-prompt__title govuk-heading-m">To publish this document you need to</h3>
+    <div class="app-c-inset-prompt__body">
+    <ul class="govuk-list app-c-inset-prompt__list">
+        <!-- <li>
+        <a data-gtm="requirements-issue" data-gtm-value="Enter a summary" data-gtm-visibility-tracking="true" class="govuk-link govuk-link--no-visited-state" href="../documents/e10c314b-4193-439c-87d8-a1b28c240e91:en/content#summary" data-gtm-vis-recent-on-screen-9704122_311="98" data-gtm-vis-first-on-screen-9704122_311="98" data-gtm-vis-total-visible-time-9704122_311="100" data-gtm-vis-has-fired-9704122_311="1">Enter a summary</a>
+        </li>           -->
+        {% if data['pageState'] === 'empty' %}
+        <li>
+        <a 
+            class="govuk-link govuk-link--no-visited-state"
+            href="../publication/edit/content{{hrefParams}}">Enter a body</a>
+        </li>
+        {% endif %}
+        <li>
+        <a
+            class="govuk-link govuk-link--no-visited-state"
+            href="../publication/edit/taxonomy{{hrefParams}}">Add a topic</a>
+        </li>
+        {% if data['pageState'] === 'empty' %}
+        <li>
+        <a
+            class="govuk-link govuk-link--no-visited-state" 
+            href="../publication/attachments/{{hrefParams}}">Add an attachment</a>
+        </li>
+        {% endif %}
+    </ul>
+    </div>
+</div>
+{% endif %}
+
+ <!--
+    Warnings
+    
+        When someone else force-published
+*       2i: Looks good
+
+Warning: Cannot be force published because of broken links
+-->
+<div id="warning-broken-link" class="govuk-!-margin-top-4">
+    {{ govukWarningText({
+    html: '<p class="govuk-body"><b>Broken links:</b> We’ve found links in this document that may be broken.</p>
+            <p class="govuk-body"><a href="#" class="govuk-link">https://lipsudsfsdf.com/</a></p>
+            <p class="govuk-body"><b>Error:</b> Website unavailable</p>
+            <p class="govuk-body"><b>Suggested fix:</b> Determine if this is a temporary issue or the resource is no longer available.</p>',
+    iconFallbackText: "Warning"
+    }) }}
+</div>
+
+<div id="warning-rejected" class="govuk-!-margin-top-4">
+    {{ govukWarningText({
+    html: 'Rejected by: <a href="#" class="govuk-link"><b>Carlos Bernardo Jr</b></a> (See History and notes).',
+    iconFallbackText: "Warning"
+    }) }}
+</div>
+
+<div id="warning-edit-conflict" class="govuk-!-margin-top-4">
+    {{ govukWarningText({
+    html: '<a href="account/profile" class="govuk-link"><b>John-Paul Dickie</b></a> started editing this publication about 2 hours ago and hasn’t yet saved their work.
+    You might want to check if they are still working on it.',
+    iconFallbackText: "Warning"
+    }) }}
+</div>
+
+<div id="warning-already-published" class="govuk-!-margin-top-4">
+    {{ govukInsetText({
+    html: '<p class="govuk-body govuk-!-margin-bottom-2">
+            This is a new draft of a document that has already been published.
+            </p>
+            <p class="govuk-body govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">Go to published edition</a>
+            </p>
+            <p class="govuk-body govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">See what\'s changed</a>
+            </p>'
+    }) }}
+</div>
+
+<div id="warning-2nd-eyes-others" class="govuk-!-margin-top-4">
+    {{ govukInsetText({
+    html: '<p class="govuk-body govuk-!-margin-bottom-2">
+            This document was marked as ready for 2i review in your organisation.
+            </p>
+            <p class="govuk-body govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">Review</a>
+            </p>'
+    }) }}
+</div>
+
+{# id="warning-2nd-eyes-self" #}
+{% if data['documentState'] === 'submitted' %}
+<div class="govuk-!-margin-top-4">
+    {{ govukInsetText({
+    html: '<p class="govuk-body govuk-!-margin-bottom-2">
+                <b>You marked this document as ready for 2i review.</b>
+            </p>
+            <p class="govuk-body govuk-!-margin-bottom-4">
+                Send the Whitehall Publisher link to another publisher for them to review. When content is ready you or they can publish it.
+            </p>
+            <p class="govuk-body govuk-!-margin-bottom-4">
+                <input class="gem-c-input govuk-input" data-gtm="url-for-2i-approval-input" data-gtm-copy-paste-tracking="true" id="input-d663d156" name="9ef0b3b50d0b3955fec4233bf8f33ff1" readonly="readonly" spellcheck="false" type="text" value="https://whitehall-publisher.integration.publishing.service.gov.uk/documents/52899760-d3e2-4797-ba5c-82704f14a172:en?utm_campaign=govuk-publishing&amp;utm_medium=copy-paste&amp;utm_source=2i-link">
+            </p>
+            <p class="govuk-body govuk-!-margin-bottom-0">
+                <a href="#" class="govuk-link">Copy link</a>
+            </p>'
+    }) }}
+</div>
+{% endif %}
+
+<div id="warning-new-draft" class="govuk-!-margin-top-4">
+    {{ govukInsetText({
+    html: '<p class="govuk-body govuk-!-margin-bottom-2">
+        This document has a new draft. You are currently viewing the edition that is published on the website.
+            </p>
+            <p class="govuk-body govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">Go to draft</a>
+            </p>
+            <p class="govuk-body govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">See what\'s changed</a>
+            </p>'
+    }) }}
+</div>
+
+{# {% from "govuk/components/button/macro.njk" import govukButton %}
+<div class="govuk-button-group">
+  {{ govukButton({
+    text: "Review and publish",
+    href: "../publication/publish/"
+  }) }}
+  <a class="govuk-link" href="../publication/delete">Delete draft</a>
+</div> #}
+
+{# Create a panel for when a reviewer needs to confirm (2i review) and publish or reject #}
+
+<!-- 
+
+    Actions
+*       Publish
+*       Reject
+*       Discard draft
+*       Force publish
+*       Submit for 2nd eyes
+*       Unwithdraw
+*       Force schedule
+*       Withdraw or unpublish
+
+*       Cancel schedule
+
+When someone else force-published
+*       2i: Looks good
+
+Unpublished and withdrawn
+*       Edit unpublishing explanation
+*       Edit withdrawl explanation
+ -->
+
+
+ <!-- 
+
+Draft
+* Preview on website: multiple translations
+* Preview on website: no translations
+* Share document preview
+* Edit draft
+* Go to published edition
+
+Published
+* Create a new edition to edit
+* View on website
+* View data about the page
+
+  -->
+

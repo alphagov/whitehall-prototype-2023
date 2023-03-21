@@ -1,0 +1,159 @@
+
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+  {{ super() }}
+{% endblock %} 
+
+{% block header %}
+  {{ whitehallHeader({
+      homepageUrl: "../../dashboard/",
+      serviceName: serviceName,
+      serviceUrl: "/",
+      containerClasses: "govuk-width-container",
+      phaseBanner: true,
+      navigation: [
+        {
+          href: "../documents/" + hrefParams,
+          text: "Documents",
+          active: true
+        },
+        {
+          href: "../organisation/" + hrefParams,
+          text: "My organisation"
+        },
+        {
+          href: "../support/" + hrefParams,
+          text: "Support information"
+        },
+        {
+          href: "../guidance/" + hrefParams,
+          text: "Guidance"
+        },
+        {
+          href: "../account/" + hrefParams,
+          text: globals.loggedUser
+        },
+        {
+          href: "../signout" + hrefParams,
+          text: "Sign out"
+        }
+      ],
+      back:
+        {
+          text: "Back",
+          href: "../documents/create/type"
+        }
+  }) }}
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form id="documentType" name="documentType">
+
+      <div class="govuk-form-group govuk-!-margin-bottom-6">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading gem-c-radio__heading-text">What is the content for?</h1>
+          </legend>
+
+          <br />
+
+            <div class="govuk-radios" data-module="govuk-radios" data-govuk-radios-module-started="true">
+              <div class="gem-c-radio govuk-radios__item">
+                <input type="radio" name="selected_option_id" id="radio-ebf14824-0" value="news" class="govuk-radios__input" aria-describedby="label-hint-60645a9a" data-gtm="choose-document-type" data-gtm-value="News and communications" aria-controls="conditional-faaab29e" aria-expanded="false">
+                <label for="radio-ebf14824-0" class="gem-c-label govuk-label govuk-label--s govuk-radios__label">News and communications</label>
+                <span id="label-hint-60645a9a" class="govuk-hint govuk-radios__hint">
+                  To tell users about something government has done or will do
+                </span>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden govuk-body" id="conditional-faaab29e">
+                <div class="gem-c-govspeak govuk-govspeak " data-module="govspeak" data-govspeak-module-started="true">
+                  <p>For example, news stories, press releases, speeches, or statements</p>
+                </div>
+              </div>
+              <div class="gem-c-radio govuk-radios__item">
+                <input type="radio" name="selected_option_id" id="radio-ebf14824-1" value="guidance_and_regulation" class="govuk-radios__input" aria-describedby="label-hint-43a7a4d0" data-gtm="choose-document-type" data-gtm-value="Guidance and regulation" aria-controls="conditional-fc31b180" aria-expanded="false">
+                <label for="radio-ebf14824-1" class="gem-c-label govuk-label govuk-label--s govuk-radios__label">Guidance and regulation</label>
+                <span id="label-hint-43a7a4d0" class="govuk-hint govuk-radios__hint">
+                  To help the user do something or understand what they need to do
+                </span>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden govuk-body" id="conditional-fc31b180">
+                <div class="gem-c-govspeak govuk-govspeak " data-module="govspeak" data-govspeak-module-started="true">
+                  <p>For example, manuals, or statutory guidance</p>
+                </div>
+              </div>
+              <div class="gem-c-radio govuk-radios__item">
+                <input type="radio" name="selected_option_id" id="radio-ebf14824-2" value="transparency_statistics_reports" class="govuk-radios__input" aria-describedby="label-hint-e3a5d185" data-gtm="choose-document-type" data-gtm-value="Transparency, statistics and reports" aria-controls="conditional-0a11c41a" aria-expanded="false">
+                <label for="radio-ebf14824-2" class="gem-c-label govuk-label govuk-label--s govuk-radios__label">Transparency, statistics and reports</label>
+                <span id="label-hint-e3a5d185" class="govuk-hint govuk-radios__hint">
+                  To provide information that helps users hold government to account
+                </span>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden govuk-body" id="conditional-0a11c41a">
+                <div class="gem-c-govspeak govuk-govspeak " data-module="govspeak" data-govspeak-module-started="true">
+                  <p>For example, statistics, FOI data, or reports</p>
+                </div>
+              </div>
+              <div class="gem-c-radio govuk-radios__item">
+                <input type="radio" name="selected_option_id" id="radio-ebf14824-3" value="policy" class="govuk-radios__input" aria-describedby="label-hint-55ffadc7" data-gtm="choose-document-type" data-gtm-value="Policy or consultation" aria-controls="conditional-100b20b3" aria-expanded="false">
+                <label for="radio-ebf14824-3" class="gem-c-label govuk-label govuk-label--s govuk-radios__label">Policy or consultation</label>
+                <span id="label-hint-55ffadc7" class="govuk-hint govuk-radios__hint">
+                  To explain the government’s position or request views or evidence on an issue
+                </span>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden govuk-body" id="conditional-100b20b3">
+              <div class="gem-c-govspeak govuk-govspeak " data-module="govspeak" data-govspeak-module-started="true">
+                <p>For example, policy papers or impact assessments</p>
+              </div>
+            </div>
+            <div class="gem-c-radio govuk-radios__item">
+              <input type="radio" name="selected_option_id" id="radio-ebf14824-4" value="specialist_notices" class="govuk-radios__input" aria-describedby="label-hint-f4c6a377" data-gtm="choose-document-type" data-gtm-value="Specialist notices">
+              <label for="radio-ebf14824-4" class="gem-c-label govuk-label govuk-label--s govuk-radios__label">Specialist notices</label>
+              <span id="label-hint-f4c6a377" class="govuk-hint govuk-radios__hint">
+                To give notice of permit and licence applications, fatalities and formal decisions by tribunals, regulators or adjudicators.
+              </span>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+
+      <!-- TODO: Variable for each different type selection -->
+      {{ govukButton({
+        text: "Continue",
+        href: "javascript: actionURL();"
+      }) }}
+
+    </form>
+  </div>
+</div>
+{% endblock %}
+{% block footer %}{% include "includes/footer-v1.html" %}{% endblock %}
+
+{% block pageScripts %}
+{{ super() }}
+<script>
+  function actionURL() {
+    if($('#radio-ebf14824-0').is(':checked')) {
+      $('#documentType').attr('action', '../../documents/create/type-cp-1').submit();
+    } else if($('#radio-ebf14824-1').is(':checked')) {
+      $('#documentType').attr('action', '../../documents/create/type-cp-2').submit();
+    } else if($('#radio-ebf14824-2').is(':checked')) {
+      $('#documentType').attr('action', '../../documents/create/type-cp-3').submit();
+    } else if($('#radio-ebf14824-3').is(':checked')) {
+      $('#documentType').attr('action', '../../documents/create/type-cp-4').submit();
+    } else if($('#radio-ebf14824-4').is(':checked')) {
+      $('#documentType').attr('action', '../../documents/create/type-cp-5').submit();
+    } else {
+      // alert(2);
+      $('#documentType').attr('action', '../../publication/create').submit();
+    }
+  }
+</script>
+{% endblock %}

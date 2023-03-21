@@ -1,0 +1,140 @@
+
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+  {{ super() }}
+{% endblock %} 
+
+{% block header %}
+  {{ super() }}
+
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form data-gtm="confirm-document-type" action="/documents/new?type=transparency_statistics_reports" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="yeBGPGdEqkw7Jyb8_gQeA2wdCXj_FPZyNoij3yI8l2Rfax7PeAgfZvtrFwi_pPDYysX_PMBLTEZSdG1jDDs8KA" autocomplete="off">
+        <div class="govuk-form-group govuk-!-margin-bottom-6">
+    <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+          
+          <h1 class="govuk-fieldset__heading gem-c-radio__heading-text">Transparency, statistics and reports</h1>
+  </legend>
+  
+  
+      <div class="govuk-radios">
+            <div class="gem-c-radio govuk-radios__item">
+              <input type="radio" name="selected_option_id" id="radio-b1ec9729-0" value="statistics" class="govuk-radios__input" aria-describedby="label-hint-6f0ea0d8" data-gtm="choose-document-type" data-gtm-value="Statistics">
+              
+    <label for="radio-b1ec9729-0" class="gem-c-label govuk-label govuk-label--s govuk-radios__label">Statistics</label>
+  
+    <span id="label-hint-6f0ea0d8" class="govuk-hint govuk-radios__hint">
+      Official and national statistics, announcements and raw datasets.
+  </span>
+  </div>
+  
+  
+            <div class="gem-c-radio govuk-radios__item">
+              <input type="radio" name="selected_option_id" id="radio-b1ec9729-2" value="transparency_managed_elsewhere" class="govuk-radios__input" aria-describedby="label-hint-9ac2d539" data-gtm="choose-document-type" data-gtm-value="Transparency data publication">
+              
+    <label for="radio-b1ec9729-2" class="gem-c-label govuk-label govuk-label--s govuk-radios__label">Transparency data publication</label>
+  
+    <span id="label-hint-9ac2d539" class="govuk-hint govuk-radios__hint">
+      Information about how an organisation operates, for example departmental spending, salaries and staff survey results.
+  </span>
+  </div>
+  
+  
+            <div class="gem-c-radio govuk-radios__item">
+              <input type="radio" name="selected_option_id" id="radio-b1ec9729-4" value="corporate_report_managed_elsewhere" class="govuk-radios__input" aria-describedby="label-hint-49bc2212" data-gtm="choose-document-type" data-gtm-value="Corporate report publication">
+              
+    <label for="radio-b1ec9729-4" class="gem-c-label govuk-label govuk-label--s govuk-radios__label">Corporate report publication</label>
+  
+    <span id="label-hint-49bc2212" class="govuk-hint govuk-radios__hint">
+      Publications about the organisation as a public entity, for example, annual reports, business plans and accounts.
+  </span>
+  </div>
+  
+  
+            <div class="gem-c-radio govuk-radios__item">
+              <input type="radio" name="selected_option_id" id="radio-b1ec9729-6" value="research_managed_elsewhere" class="govuk-radios__input" aria-describedby="label-hint-cce4280a" data-gtm="choose-document-type" data-gtm-value="Research and analysis publication">
+              
+    <label for="radio-b1ec9729-6" class="gem-c-label govuk-label govuk-label--s govuk-radios__label">Research and analysis publication</label>
+  
+    <span id="label-hint-cce4280a" class="govuk-hint govuk-radios__hint">
+      Research reports, surveys, analyses and evaluations.
+  </span>
+  </div>
+  
+  
+            <div class="gem-c-radio govuk-radios__item">
+              <input type="radio" name="selected_option_id" id="radio-b1ec9729-8" value="correspondence_managed_elsewhere" class="govuk-radios__input" aria-describedby="label-hint-1161d68f" data-gtm="choose-document-type" data-gtm-value="Correspondence publication">
+              
+    <label for="radio-b1ec9729-8" class="gem-c-label govuk-label govuk-label--s govuk-radios__label">Correspondence publication</label>
+  
+    <span id="label-hint-1161d68f" class="govuk-hint govuk-radios__hint">
+      Minister or organisation responses (for example to campaign letters), correspondence to individuals, organisations and professionals, circulars, bulletins and newsletters.
+  </span>
+  </div>
+  
+            <div class="gem-c-radio govuk-radios__item">
+              <input type="radio" name="selected_option_id" id="radio-b1ec9729-10" value="foi_release_managed_elsewhere" class="govuk-radios__input" aria-describedby="label-hint-71e61a29" data-gtm="choose-document-type" data-gtm-value="FOI release publication">
+              
+    <label for="radio-b1ec9729-10" class="gem-c-label govuk-label govuk-label--s govuk-radios__label">FOI release publication</label>
+  
+    <span id="label-hint-71e61a29" class="govuk-hint govuk-radios__hint">
+      Responses to Freedom of Information (FOI) requests.
+  </span>
+  </div>
+  
+            <div class="gem-c-radio govuk-radios__item">
+              <input type="radio" name="selected_option_id" id="radio-b1ec9729-12" value="independent_report_managed_elsewhere" class="govuk-radios__input" aria-describedby="label-hint-22aeace7" data-gtm="choose-document-type" data-gtm-value="Independent report publication">
+              
+    <label for="radio-b1ec9729-12" class="gem-c-label govuk-label govuk-label--s govuk-radios__label">Independent report publication</label>
+  
+    <span id="label-hint-22aeace7" class="govuk-hint govuk-radios__hint">
+      Reports commissioned by government but written by non-government organisations, including independent enquiries, investigations and reviews.
+  </span>
+  </div>
+  
+            <div class="gem-c-radio govuk-radios__item">
+              <input type="radio" name="selected_option_id" id="radio-b1ec9729-13" value="international_treaty" class="govuk-radios__input" aria-describedby="label-hint-1a5b2dba" data-gtm="choose-document-type" data-gtm-value="International treaty publication">
+              
+    <label for="radio-b1ec9729-13" class="gem-c-label govuk-label govuk-label--s govuk-radios__label">International treaty publication</label>
+  
+    <span id="label-hint-1a5b2dba" class="govuk-hint govuk-radios__hint">
+      Treaties and memorandums of understanding between the UK and other nations.
+  </span>
+  </div>
+  
+            <div class="gem-c-radio govuk-radios__item">
+              <input type="radio" name="selected_option_id" id="radio-b1ec9729-15" value="promotional_managed_elsewhere" class="govuk-radios__input" aria-describedby="label-hint-599263f8" data-gtm="choose-document-type" data-gtm-value="Promotional material publication">
+              
+    <label for="radio-b1ec9729-15" class="gem-c-label govuk-label govuk-label--s govuk-radios__label">Promotional material publication</label>
+  
+    <span id="label-hint-599263f8" class="govuk-hint govuk-radios__hint">
+      Leaflets, posters, factsheets and marketing materials.
+  </span>
+  </div>
+  
+  </div>
+  </fieldset></div>
+  
+        
+  
+  
+  <!-- TODO: Variable for each different type selection -->
+  {{ govukButton({
+    text: "Continue",
+    href: "../publication/create"
+  }) }}
+  
+  </form>
+
+
+  </div>
+</div>
+{% endblock %}

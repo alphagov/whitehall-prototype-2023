@@ -1,0 +1,176 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {# <h3 class="govuk-heading-m whitehall-summary-h3">Content type and published information</h3> #}
+    {# {{ govukButton({
+        text: "Edit content type",
+        classes: "govuk-button--secondary",
+        href: "../publication/edit/subtype" + hrefParams
+    }) }} #}
+    {# <span class="govuk-caption-xl">
+        {{content.documentContent[0].subtype}}
+    </span> #}
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Document type"
+          },
+          value: {
+            text: "Publication"
+          }
+        },
+        {
+          key: {
+            text: "Document subtype"
+          },
+          value: {
+            text: "Guidance"
+          },
+          actions: {
+            items: [
+              {
+                href: "../publication/edit/subtype" + hrefParams,
+                text: "Edit",
+                visuallyHiddenText: "Edit"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Title"
+          },
+          value: {
+            text: content.documentContent[0].title
+          },
+          actions: {
+            items: [
+              {
+                href: "../publication/edit/summary" + hrefParams,
+                text: "Edit",
+                visuallyHiddenText: "Edit"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Page address"
+          },
+          value: {
+            text: content.documentContent[0].pageUrl
+          }
+        },
+        {
+          key: {
+            text: "Summary"
+          },
+          value: {
+            text: content.documentContent[0].summary
+          },
+          actions: {
+            items: [
+              {
+                href: "../publication/edit/summary" + hrefParams,
+                text: "Edit",
+                visuallyHiddenText: "Edit"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Body (markdown)"
+          },
+          value: {
+            html: '<pre class="govuk-body whitehall-body-ellipsis">' + content.documentContent[0].bodyMarkdown | safe + '</pre>'
+          },
+          actions: {
+            items: [
+              {
+                href: "../publication/edit/body" + hrefParams,
+                text: "Edit",
+                visuallyHiddenText: "Edit"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Has this document been published before?"
+          },
+          value: {
+            text: "Yes, this document has previously been published on another website in 10th February 2020 at 00:00"
+          },
+          actions: {
+            items: [
+              {
+                href: "../publication/edit/previously-published" + hrefParams,
+                text: "Edit",
+                visuallyHiddenText: "Edit"
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+  </div>
+</div>
+
+{# 
+html: '<div class="whitehall-body-ellipsis">' + content.bodyHTML | safe + '</div>'
+text: content.documentContent[0].bodyMarkdown
+ #}
+
+{# 
+
+
+    #}
+{# <h3 class="govuk-heading-l">Document type and information</h3> #}
+{# Should be heading-m? #}
+{# <p class="govuk-body whitehall-summary-change-link">
+  <a href="../publication/edit/subtype" class="govuk-link">Edit</a>
+</p> #}
+
+{# <hr class="govuk-section-break govuk-section-break--l govuk-section-break--invisible govuk-!-margin-bottom-8 govuk-!-margin-top-0"> #}
+
+	
+  {# {% if data['pageState'] === 'populated' or data['pageState'] === 'fullPopulated' or data['pageState'] === 'bodyAttachments' %}
+    <h3 class="govuk-heading-m whitehall-summary-h3">Body and images (Details)</h3>
+  {% endif %}
+
+  {% if data['pageState'] === 'empty' %}
+    <h3 class="govuk-heading-m whitehall-summary-h3" style="border-color: #d4351c;">Body and images (Details)</h3>
+  {% endif %}
+
+{% if data['pageState'] === 'populated' or data['pageState'] === 'fullPopulated' or data['pageState'] === 'bodyAttachments' %}
+  {{ govukButton({
+      text: "Edit body and images",
+      classes: "govuk-button--secondary",
+      href: "../publication/edit/body" + hrefParams
+  }) }}
+{% endif %}
+
+{% if data['pageState'] === 'empty' %}
+  {{ govukButton({
+      text: "Add body and images",
+      classes: "govuk-button--secondary",
+      href: "../publication/edit/body" + hrefParams
+  }) }}
+{% endif %}
+<!-- TODO: Markdown preview -->
+
+{% if data['pageState'] === 'populated' or data['pageState'] === 'bodyAttachments' or data['pageState'] === 'fullPopulated' %}
+<div id="markdown-preview">
+  {{content.bodyHTML | safe}}
+</div>
+{% endif %}
+
+{% if data['pageState'] === 'empty' %}
+<p class="govuk-body whitehall-body-empty">
+  You need to add a body text before publishing.
+</p>
+{% endif %} #}
+
+
+  {# {{content.documentContent[0].body | safe}} #}

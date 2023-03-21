@@ -1,0 +1,470 @@
+{# {% set hrefParams = "" %}
+{% if data['pageState'] === 'bodyAttachments' %}
+  {% set hrefParams = "?pageState=bodyAttachments" %}
+{% endif %}
+
+{% if data['pageState'] === 'populated' %}
+  {% set hrefParams = "?pageState=populated" %}
+{% endif %}
+
+{% if data['pageState'] === 'empty' %}
+  {% set hrefParams = "?pageState=bodyAttachments" %}
+{% endif %}
+
+{% if data['pageState'] === 'fullPopulated' %}
+  {% set hrefParams = "?pageState=fullPopulated" %}
+{% endif %} #}
+
+{%
+  set sectionStateTag = [
+    {
+      state: 'Completed',
+      id: 0,
+      tag: '<strong class="govuk-tag">Completed</strong>',
+      color: ""
+    },
+    {
+      state: 'Not started',
+      id: 1,
+      tag: '<strong class="govuk-tag govuk-tag--red">Not started</strong>',
+      color: "govuk-tag--red"
+    },
+    {
+      state: 'Not started',
+      id: 2,
+      tag: '<strong class="govuk-tag govuk-tag--grey">Not started</strong>',
+      color: "govuk-tag--grey"
+    }
+  ]
+%}
+      {# {
+        title: 'Has this document been published before?',
+        id: "title-type",
+        anchor: "#title-type",
+        href: "../publication/edit/previously-published",
+        state: 0
+      }, #}
+{%
+  set documentSections = [
+      {
+        title: 'Document type',
+        id: "title-type",
+        anchor: "#title-type",
+        href: "../publication/edit/subtype" + hrefParams,
+        state: 0,
+        mandatory: "Required"
+      },
+      {
+        title: 'Title and summary',
+        id: "summary",
+        anchor: "#summary",
+        href: "../publication/edit/summary" + hrefParams,
+        state: 0,
+        mandatory: "Required"
+      },
+      {
+        title: 'Body and images',
+        id: "body",
+        anchor: "#body",
+        href: "../publication/edit/body" + hrefParams,
+        state: 1,
+        mandatory: "Required"
+      },
+      {
+        title: 'Attachments',
+        id: "attachments",
+        anchor: "#attachments",
+        href: "../publication/attachments/" + hrefParams,
+        state: 1,
+        mandatory: "Required"
+      },
+      {
+        title: 'Topic taxonomy tags',
+        id: "taxonomy",
+        anchor: "#taxonomy",
+        href: "../publication/edit/taxonomy" + hrefParams,
+        state: 1,
+        mandatory: "Required"
+      },
+      {
+        title: 'Organisations and Ministers',
+        id: "organisations-ministers",
+        anchor: "#organisations-ministers",
+        href: "../publication/edit/organisations" + hrefParams,
+        state: 0,
+        mandatory: "Required"
+      },
+      {
+        title: 'Excluded nations',
+        id: "excluded-nations",
+        anchor: "#excluded-nations",
+        href: "../publication/edit/excluded-nations" + hrefParams,
+        state: 0,
+        mandatory: "Required"
+      },
+      {
+        title: 'Specialist topics',
+        id: "specialist-topic",
+        anchor: "#specialist-topic",
+        href: "../publication/edit/specialist-topics" + hrefParams,
+        state: 2,
+        mandatory: "Optional"
+      },
+      {
+        title: 'Associations',
+        id: "associations",
+        anchor: "#associations",
+        href: "../publication/edit/associations" + hrefParams,
+        state: 2,
+        mandatory: "Optional"
+      },
+      {
+        title: 'Translations',
+        id: "translations",
+        anchor: "#translations",
+        href: "../publication/edit/translations" + hrefParams,
+        state: 2,
+        mandatory: "Optional"
+      },
+      {
+        title: 'Associated user needs',
+        id: "associated-user-needs",
+        anchor: "#associated-user-needs",
+        href: "../publication/edit/associated-user-needs" + hrefParams,
+        state: 2,
+        mandatory: "Optional"
+      }
+  ]
+%}
+{# 
+      {
+        id: "previously-published",
+        pageState: "empty",
+        state: 0
+      }, #}
+{%
+  set sectionStateEmpty = [
+      {
+        id: "title-type",
+        pageState: "empty",
+        state: 0
+      },
+      {
+        id: "summary",
+        pageState: "empty",
+        state: 0
+      },
+      {
+        id: "taxonomy",
+        pageState: "empty",
+        state: 1
+      },
+      {
+        id: "organisations-ministers",
+        pageState: "empty",
+        state: 0
+      },
+      {
+        id: "excluded-nations",
+        pageState: "empty",
+        state: 0
+      },
+      {
+        id: "attachments",
+        pageState: "empty",
+        state: 1
+      },
+      {
+        id: "body",
+        pageState: "empty",
+        state: 1
+      },
+      {
+        id: "specialist-topic",
+        pageState: "empty",
+        state: 2
+      },
+      {
+        id: "associations",
+        pageState: "empty",
+        state: 2
+      },
+      {
+        id: "translations",
+        pageState: "empty",
+        state: 2
+      },
+      {
+        id: "associated-user-needs",
+        pageState: "empty",
+        state: 2
+      }
+  ]
+%}
+      {# {
+        id: "previously-published",
+        pageState: "bodyAttachments",
+        state: 0
+      }, #}
+{%
+  set sectionStateBodyAttachments = [
+      {
+        id: "title-type",
+        pageState: "bodyAttachments",
+        state: 0
+      },
+      {
+        id: "summary",
+        pageState: "bodyAttachments",
+        state: 0
+      },
+      {
+        id: "taxonomy",
+        pageState: "bodyAttachments",
+        state: 1
+      },
+      {
+        id: "organisations-ministers",
+        pageState: "bodyAttachments",
+        state: 0
+      },
+      {
+        id: "excluded-nations",
+        pageState: "bodyAttachments",
+        state: 0
+      },
+      {
+        id: "attachments",
+        pageState: "bodyAttachments",
+        state: 0
+      },
+      {
+        id: "body",
+        pageState: "bodyAttachments",
+        state: 0
+      },
+      {
+        id: "specialist-topic",
+        pageState: "bodyAttachments",
+        state: 2
+      },
+      {
+        id: "associations",
+        pageState: "bodyAttachments",
+        state: 2
+      },
+      {
+        id: "translations",
+        pageState: "bodyAttachments",
+        state: 2
+      },
+      {
+        id: "associated-user-needs",
+        pageState: "bodyAttachments",
+        state: 2
+      }
+  ]
+%}
+{# 
+      {
+        id: "previously-published",
+        pageState: "populated",
+        state: 0
+      },
+       #}
+{%
+  set sectionStatePopulated = [
+      {
+        id: "title-type",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "summary",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "taxonomy",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "organisations-ministers",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "excluded-nations",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "attachments",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "body",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "specialist-topic",
+        pageState: "populated",
+        state: 2
+      },
+      {
+        id: "associations",
+        pageState: "populated",
+        state: 2
+      },
+      {
+        id: "translations",
+        pageState: "populated",
+        state: 2
+      },
+      {
+        id: "associated-user-needs",
+        pageState: "populated",
+        state: 2
+      }
+  ]
+%}
+{%
+  set sectionStateFullPopulated = [
+      {
+        id: "title-type",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "summary",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "taxonomy",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "organisations-ministers",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "excluded-nations",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "attachments",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "body",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "specialist-topic",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "associations",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "translations",
+        pageState: "populated",
+        state: 0
+      },
+      {
+        id: "associated-user-needs",
+        pageState: "populated",
+        state: 0
+      }
+  ]
+%}
+
+
+{% set sectionState = [] %}
+{% if data['pageState'] === 'empty' %}
+  {% for states in sectionStateEmpty %}
+    {% set sectionState = (sectionState.push(states), sectionState) %}
+  {% endfor %}
+{% endif %}
+{% if data['pageState'] === 'populated' %}
+  {% for states in sectionStatePopulated %}
+    {% set sectionState = (sectionState.push(states), sectionState) %}
+  {% endfor %}
+{% endif %}
+{% if data['pageState'] === 'bodyAttachments' %}
+  {% for states in sectionStateBodyAttachments %}
+    {% set sectionState = (sectionState.push(states), sectionState) %}
+  {% endfor %}
+{% endif %}
+{% if data['pageState'] === 'fullPopulated' %}
+  {% for states in sectionStateFullPopulated %}
+    {% set sectionState = (sectionState.push(states), sectionState) %}
+  {% endfor %}
+{% endif %}
+
+{# {{pageState}}
+{{documentState}} #}
+{# <h2 id="contents-title" class="govuk-heading-l">
+  Sections
+</h2> #}
+
+<div id="contents"></div>
+<div id="contents-tasks" class="whitehall-contents-tasks empty2">
+  <dl class="govuk-summary-list">
+    {% for section in documentSections %}
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        <a class="gem-c-contents-list__link govuk-link" href="{{section.anchor}}">{{section.title}}</a>
+        {#  govuk-link--no-underline #}
+         {# style="font-weight: bold;" #}
+        {# {{section.title}} #}
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{section.mandatory}}
+      </dd>
+      <dd class="govuk-summary-list__value">
+        {# {{section.id}}  #}
+        {% for stateItem in sectionState %}
+        {# {{stateItem.id}} #}
+            {% if stateItem.id == section.id %}
+                {# {{ stateItem.state }} #}
+                <strong class="govuk-tag {{sectionStateTag[stateItem.state]['color']}}">{{sectionStateTag[stateItem.state]['state']}}</strong>
+            {% endif %} 
+        {% endfor %}
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        <a class="govuk-link" href="{{section.href}}">
+          Edit<span class="govuk-visually-hidden"> {{section.title}}</span>
+        </a>
+      </dd>
+    </div>
+    {% else %}
+      {# <div class="empty">
+        <p class="govuk-body whitehall-body-empty">
+          There are no sections for this document.
+        </p>
+      </div> #}
+    {% endfor %}
+  </dl>
+  
+  <!-- <strong class="govuk-tag govuk-tag--blue">In progress</strong> -->
+</div>
+
+
+
+
+{# <div id="contents-tasks" class="whitehall-contents-tasks populated">
+</div> #}

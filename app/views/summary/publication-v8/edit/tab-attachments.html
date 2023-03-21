@@ -1,0 +1,122 @@
+
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+  {{ super() }}
+{% endblock %} 
+
+{% block header %}
+  {{ super() }}
+  {{ whitehallHeader({
+      homepageUrl: "dashboard/",
+      serviceName: serviceName,
+      serviceUrl: "/",
+      containerClasses: "govuk-width-container",
+      phaseBanner: true,
+      navigation: [
+        {
+          href: "../documents/" + hrefParams,
+          text: "Documents",
+          active: true
+        },
+        {
+          href: "../organisation/" + hrefParams,
+          text: "My organisation"
+        },
+        {
+          href: "../support/" + hrefParams,
+          text: "Support information"
+        },
+        {
+          href: "../guidance/" + hrefParams,
+          text: "Guidance"
+        },
+        {
+          href: "../account/" + hrefParams,
+          text: globals.loggedUser
+        },
+        {
+          href: "../signout" + hrefParams,
+          text: "Sign out"
+        }
+      ],
+      back:
+        {
+          text: "Back",
+          href: "../../publication/summary" + hrefParams
+        }
+  }) }}
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
+      Edit document body and images
+    </h1>
+
+    {% include "../includes/document-info.html" %}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+    {{ mojSubNavigation({
+      label: 'Sub navigation',
+      items: [{
+        text: 'Document body',
+        href: 'body'
+      },
+      {
+        html: 'Attachments <span id="notifications" class="moj-notification-badge">10</span>',
+        href: 'tab-attachments',
+        active: true
+      },
+      {
+        html: 'Images <span id="notifications" class="moj-notification-badge">3</span>',
+        href: 'tab-images'
+      }]
+    }) }}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    {{ whitehallAttachment({
+      folder: "/publication",
+      items: [
+        {
+          title: "Making Tax Digital for Business — stakeholder communications pack",
+          url: "#",
+          type: "HTML",
+          toolbar: true
+        },
+        {
+          title: "Making Tax Digital for Business — stakeholder communications pack",
+          url: "#",
+          type: "PDF",
+          size: "45 MB",
+          pages: "75 pages",
+          reference: "Ref: ISBN 978-3-16-148410-0, 23123123123",
+          toolbar: true
+        }
+      ]
+    }) }}
+
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Save",
+        href: "../../publication/summary" + hrefParams + "&pageMessage=documentSaved"
+      }) }}
+
+      <a class="govuk-link" href="../publication/summary{{hrefParams}}">Cancel</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

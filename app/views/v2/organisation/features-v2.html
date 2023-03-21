@@ -1,0 +1,435 @@
+
+{% extends "layouts/main.html" %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+  {{ super() }}
+{% endblock %} 
+
+{% block header %}
+  {{ super() }}
+  <div class="govuk-width-container">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="javascript: submitNavForm('dashboard/', $(this));">Home</a>
+        </li>
+        {# <li class="govuk-breadcrumbs__list-item" aria-current="page">My organisation</li> #}
+      </ol>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  {{ super() }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">My organisation</span>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
+        Government Digital Service
+      </h1>
+
+      <p class="govuk-body">
+        <a href="#" class="govuk-link">View on website</a>
+      </p>
+    </div>
+  </div>
+
+        {# {{ govukWarningText({
+        text: "Changes to features appear instantly on the live site.",
+        iconFallbackText: "Warning"
+      }) }} #}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+      {{ mojSubNavigation({
+        label: 'Sub navigation',
+        items: [
+          {
+            text: 'Details',
+            href: "javascript: submitNavForm('organisation/', $(this));"
+          },
+          {
+            html: 'Pages',
+            href: "javascript: submitNavForm('organisation/pages', $(this));"
+          },
+          {
+            html: 'Contacts',
+            href: "javascript: submitNavForm('organisation/contacts', $(this));"
+          },
+          {
+            html: 'Features',
+            href: "javascript: submitNavForm('organisation/features', $(this));",
+            active: true
+          },
+          {
+            html: 'Social media accounts',
+            href: "javascript: submitNavForm('organisation/social-media-accounts', $(this));"
+          },
+          {
+            html: 'People',
+            href: "javascript: submitNavForm('organisation/people', $(this));"
+          },
+          {
+            html: 'Translations',
+            href: "javascript: submitNavForm('organisation/translations', $(this));"
+          },
+          {
+            html: 'Financial Reports',
+            href: "javascript: submitNavForm('organisation/financial-reports', $(this));"
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      {% from "govuk/components/tabs/macro.njk" import govukTabs %}
+      {% from "govuk/components/table/macro.njk" import govukTable %}
+
+      {% set featuredHtml %}
+      {# <h2 class="govuk-heading-l">Currently featured</h2> #}
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header" colspan="2">Position</th>
+            <th scope="col" class="govuk-table__header" colspan="2">Title</th>
+            <th scope="col" class="govuk-table__header">Type</th>
+            <th scope="col" class="govuk-table__header">Published/Duration</th>
+            <th scope="col" class="govuk-table__header"></th>
+            <th scope="col" class="govuk-table__header"></th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          {% for document in content.organisationFeaturedv2 %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">{{ document.position }}</td>
+            <td class="govuk-table__cell"><img src="/public/images/featured/pos{{ document.position }}.svg" width="120" /></td>
+            <td class="govuk-table__cell"><img src="/public/images/featured/image_example{{ document.position }}.png" width="120" /></td>
+            <td class="govuk-table__cell">{{ document.title }}</td>
+            <td class="govuk-table__cell">{{ document.type }}</td>
+            <td class="govuk-table__cell">{{ document.published }}</td>
+            <td class="govuk-table__cell"><a href="javascript: submitNavForm('organisation/edit/feature-v2', $(this));" class="govuk-link">Edit</a></td>
+            <td class="govuk-table__cell"><a href="#" class="govuk-link app-link--destructive">Unfeature</a></td>
+          </tr>
+          {% endfor%}
+        </tbody>
+      </table>
+      {% endset %}
+
+      {% set documentsHtml %}
+      {# <h2 class="govuk-heading-l">Documents</h2> #}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-quarter">
+          
+          {# SEARCH #}
+          <form action="#" name="search-input" id="search-input">
+            <div class="gem-c-search govuk-!-display-none-print  gem-c-search--on-white" style="margin-bottom: 10px;" data-module="gem-toggle-input-class-on-focus" data-gem-toggle-input-class-on-focus-module-started="true">
+              <label for="search-main-c808df7d" class="govuk-label">Search by title, slug</label>
+              <!-- <div id="event-name-hint" class="govuk-hint">govuk-!-font-weight-bold
+                  URLs can be copied from the published version in GOV.UK
+              </div> -->
+              <div class="gem-c-search__item-wrapper">
+                <input enterkeyhint="search" class="gem-c-search__item gem-c-search__input js-class-toggle" id="search-main-c808df7d" name="q" title="Search" type="search" value="">
+                <div class="gem-c-search__item gem-c-search__submit-wrapper">
+                  <button class="gem-c-search__submit" type="submit" data-module="gem-track-click" enterkeyhint="search">
+                    Search
+                    <svg class="gem-c-search__icon" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                      <circle cx="12.0161" cy="11.0161" r="8.51613" stroke="currentColor" stroke-width="3"></circle>
+                      <line x1="17.8668" y1="17.3587" x2="26.4475" y2="25.9393" stroke="currentColor" stroke-width="3"></line>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <input type="hidden" id="state" name="state" value="empty" />
+          </form>
+
+          {# FILTER #}
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+          {{ govukRadios({
+            classes: "govuk-radios--small",
+            name: "changed-name",
+            fieldset: {
+              legend: {
+                text: "Quick-filters",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--s"
+              }
+            },
+            items: [
+              {
+                value: "alltypesradio",
+                text: "All types",
+                checked: true
+              },
+              {
+                value: "documentsradio",
+                text: "Documents only",
+                checked: false
+              },
+              {
+                value: "topicaleventsradio",
+                text: "Topical events only",
+                checked: false
+              },
+              {
+                value: "nongovukradio",
+                text: "Non-GOV.UK government links only",
+                checked: false
+              }
+            ]
+          }) }}
+          {% include "../documents/includes/filter-author-organisation.html" %}
+          {% include "../documents/includes/filter-content-type.html" %}
+
+
+        </div>
+
+        <div class="govuk-grid-column-three-quarters" style="width: 75%;">
+          {{ govukButton({
+            text: "Create new non-GOV.UK government link",
+            href: "javascript: submitNavForm('organisation/create/non-gov-link', $(this));",
+            classes: "govuk-button--primary"
+          }) }}
+
+          <p class="govuk-body govuk-!-margin-bottom-0 whitehall-table-counter">
+            <b>23</b> documents
+          </p>
+
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Type</th>
+                <th scope="col" class="govuk-table__header">Title</th>
+                <th scope="col" class="govuk-table__header">Published</th>
+                <th scope="col" class="govuk-table__header"></th>
+                <th scope="col" class="govuk-table__header"></th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              {% for document in content.organisationCombined %}
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">{{ document.mainType }}{% if document.type %}: {{ document.type }}{% endif %}</td>
+                <td class="govuk-table__cell">{{ document.title }}</td>
+                <td class="govuk-table__cell">{{ document.published }}</td>
+                <td class="govuk-table__cell"><a href="#" class="govuk-link">Edit</a></td>
+                <td class="govuk-table__cell"><a href="javascript: submitNavForm('organisation/edit/feature-v2', $(this));" class="govuk-link">Feature</a></td>
+              </tr>
+              {% endfor%}
+            </tbody>
+          </table>
+
+          {{ govukPagination({
+            next: {
+              href: "#"
+            },
+            items: [
+              {
+                number: 1,
+                current: true,
+                href: "#"
+              },
+              {
+                number: 2,
+                href: "#"
+              },
+              {
+                number: 3,
+                href: "#"
+              }
+            ]
+          }) }}
+        </div>
+      </div>
+      {% endset -%}
+
+
+{# 
+      
+      
+      {{ govukButton({
+        text: "Reorder featured documents",
+        href: "javascript: submitNavForm('organisation/edit/features-reorder', $(this));",
+        classes: "govuk-button--secondary"
+      }) }}
+
+      <p class="govuk-body govuk-!-margin-bottom-0 whitehall-table-counter">
+        <b>23</b> documents
+      </p>
+
+      
+
+      {{ govukPagination({
+        next: {
+          href: "#"
+        },
+        items: [
+          {
+            number: 1,
+            current: true,
+            href: "#"
+          },
+          {
+            number: 2,
+            href: "#"
+          },
+          {
+            number: 3,
+            href: "#"
+          }
+        ]
+      }) }}
+      {% endset -%} #}
+
+      
+
+      {% set topicalEventsHtml %}
+      {# <h2 class="govuk-heading-l">Topical events</h2> #}
+      
+      <p class="govuk-body govuk-!-margin-bottom-0 whitehall-table-counter">
+        <b>23</b> documents
+      </p>
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Title</th>
+            <th scope="col" class="govuk-table__header">Duration</th>
+            <th scope="col" class="govuk-table__header"></th>
+            <th scope="col" class="govuk-table__header"></th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          {% for document in content.organisationTopicalEvents %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">{{ document.title }}</td>
+            <td class="govuk-table__cell">{{ document.published }}</td>
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">Edit</a></td>
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">Feature</a></td>
+          </tr>
+          {% endfor%}
+        </tbody>
+      </table>
+
+      {{ govukPagination({
+        next: {
+          href: "#"
+        },
+        items: [
+          {
+            number: 1,
+            current: true,
+            href: "#"
+          },
+          {
+            number: 2,
+            href: "#"
+          },
+          {
+            number: 3,
+            href: "#"
+          }
+        ]
+      }) }}
+      {% endset -%}
+
+      {% set nongovukHtml %}
+      {# <h2 class="govuk-heading-l">Non-GOV.UK government links</h2> #}
+      {{ govukButton({
+        text: "Create new non-GOV.UK government link",
+        href: "javascript: submitNavForm('organisation/create/non-gov-link', $(this));",
+        classes: "govuk-button--primary"
+      }) }}
+      
+      <p class="govuk-body govuk-!-margin-bottom-0 whitehall-table-counter">
+        <b>23</b> documents
+      </p>
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Title</th>
+            <th scope="col" class="govuk-table__header">Type</th>
+            <th scope="col" class="govuk-table__header">Published</th>
+            <th scope="col" class="govuk-table__header"></th>
+            <th scope="col" class="govuk-table__header"></th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          {% for document in content.organisationLinks %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">{{ document.title }}</td>
+            <td class="govuk-table__cell">{{ document.type }}</td>
+            <td class="govuk-table__cell">{{ document.published }}</td>
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">Edit</a></td>
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">Feature</a></td>
+          </tr>
+          {% endfor%}
+        </tbody>
+      </table>
+
+      {{ govukPagination({
+        next: {
+          href: "#"
+        },
+        items: [
+          {
+            number: 1,
+            current: true,
+            href: "#"
+          },
+          {
+            number: 2,
+            href: "#"
+          },
+          {
+            number: 3,
+            href: "#"
+          }
+        ]
+      }) }}
+      {% endset -%}
+
+      {{ govukTabs({
+        items: [
+          {
+            label: "Currently featured",
+            id: "featured",
+            panel: {
+              html: featuredHtml
+            }
+          },
+          {
+            label: "Feature a new document",
+            id: "documents",
+            panel: {
+              html: documentsHtml
+            }
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+
+
+{% endblock %}
+
+{% block pageScripts %}
+{{ super() }}
+<script>
+  $(document).ready(function() {
+    $('#author-filter').autocomplete();
+    $('#organisation-filter').autocomplete();
+    $('#content-type-filter').autocomplete();
+    $("#currentPage").attr({'value': 'organisation/'});
+    mainNavSetActive('organisation/');
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,364 @@
+$app-colour-true-black: #000000;
+
+.facet-tags * {
+  @include govuk-text-colour;
+  @include govuk-font($size:16);
+
+  margin-top: 0;
+  //@include govuk-responsive-margin(4, "bottom");
+}
+
+.metadata-summary {
+  @include govuk-font(19);
+  margin-bottom: govuk-spacing(6);
+}
+
+.finder-logo {
+  margin: govuk-spacing(6) 0;
+}
+
+.finder-logo__image {
+  max-width: 100%;
+}
+
+.related-links {
+  margin-top: govuk-spacing(8);
+  margin-bottom: govuk-spacing(8);
+}
+
+.related-links__item {
+  margin-bottom: 4px;
+  list-style: none;
+
+  @include govuk-media-query($from: tablet) {
+    margin-bottom: 8px;
+  }
+}
+
+mark {
+  background-color: inherit;
+  color: inherit;
+  @include govuk-typography-weight-bold;
+}
+
+.related-links__link {
+  @include govuk-font(16, $weight: bold);
+  @include govuk-link-common;
+  @include govuk-link-style-default;
+}
+
+.filter-form {
+  .js-enabled & .button__wrapper {
+    display: none;
+  }
+
+  .js-required {
+    display: none;
+  }
+}
+
+.signup-choices {
+  @include govuk-font(19);
+  margin-top: 50px;
+
+  @include govuk-media-query($from: tablet) {
+    max-width: calc((100% / 3) * 2);
+  }
+}
+
+.live-search-loading-message {
+  margin-bottom: govuk-spacing(4);
+  display: none;
+}
+
+.finder-results {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.published-by {
+  @include govuk-font(14);
+  display: block;
+  color: govuk-colour("dark-grey");
+}
+
+.debug-results {
+  @include govuk-font(16);
+  display: block;
+  margin: govuk-spacing(1) 0 0 0;
+  word-wrap: break-word;
+}
+
+.debug-results--link {
+  color: govuk-colour("green");
+}
+
+.debug-results--meta {
+  color: govuk-colour("red");
+}
+
+.filtered-results__group {
+  margin-bottom: govuk-spacing(7);
+
+  .filtered-results__facet-heading {
+    @include govuk-font($size: 24, $weight: bold);
+    margin-bottom: govuk-spacing(4);
+  }
+}
+
+.finder-frontend {
+  margin-bottom: govuk-spacing(8);
+}
+
+.facet-tags__container {
+  display: none;
+  @include govuk-media-query($from: tablet) {
+    display: block;
+  }
+}
+
+.facet-tags {
+  padding-bottom: govuk-spacing(1);
+}
+
+.facet-tags__group {
+  padding: 5px;
+
+  @include govuk-media-query($from: tablet) {
+    &:nth-child(odd) {
+      background-color: govuk-colour("light-grey");
+    }
+  }
+}
+
+.facet-tags__wrapper {
+  @include govuk-media-query($until: tablet) {
+    vertical-align: baseline;
+  }
+
+  vertical-align: middle;
+  margin: 5px 0;
+  display: inline-block;
+}
+
+.facet-tags__wrapper:first-of-type .facet-tags__preposition:first-of-type {
+  @include govuk-media-query($until: tablet) {
+    display: block;
+  }
+
+  font-weight: bold;
+
+  &:first-letter {
+    text-transform: uppercase;
+  }
+}
+
+.facet-tags__preposition {
+  @include govuk-media-query($until: tablet) {
+    display: inline-block;
+  }
+
+  display: table-cell;
+  padding: 0 5px 0 2px;
+  vertical-align: middle;
+  text-transform: lowercase;
+}
+
+.facet-tag {
+  @include govuk-media-query($until: tablet) {
+    display: inline-block;
+    background: none;
+    border: 2px solid $govuk-input-border-colour;
+  }
+
+  display: table-cell;
+  position: relative;
+  padding: govuk-em(5, 16px);
+  border: 1px solid govuk-colour("dark-grey");
+  border-radius: govuk-em(5, 16px);
+  background-color: govuk-colour("light-grey");
+
+  .js-enabled & {
+    padding: govuk-em(8, 16px) govuk-em(8, 16px) govuk-em(8, 16px) govuk-em(24, 16px);
+  }
+}
+
+.facet-tag__text {
+  display: inline-block;
+  margin-left: 0;
+  pointer-events: none;
+  position: relative;
+  z-index: 1;
+
+  .js-enabled & {
+    margin-left: govuk-em(5, 16px);
+  }
+}
+
+.facet-tag__remove {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: govuk-em(8, 16px);
+  border-radius: govuk-em(5, 16px);
+  font-weight: bold;
+  @include govuk-font(16, $weight: bold);
+  text-align: left;
+  cursor: pointer;
+  color: $app-colour-true-black;
+  text-decoration: none;
+  background: none;
+  border: 0;
+
+  .js-enabled & {
+    display: inline-block;
+    border: 1px solid transparent;
+
+    &:hover {
+      background: govuk-colour("mid-grey");
+    }
+
+    &:focus {
+      -webkit-box-shadow: inset 0 0 0 2px;
+      box-shadow: inset 0 0 0 2px;
+      border: solid 1px govuk-colour("black");
+      outline: 3px solid $govuk-focus-colour;
+    }
+  }
+}
+
+.finder-frontend-content {
+  .app-c-search-page-heading {
+    @include govuk-font(48, $weight: bold);
+    @include govuk-responsive-margin(2, "top");
+    @include govuk-responsive-margin(4, "bottom");
+    color: govuk-colour("black");
+  }
+}
+
+.govspeak-wrapper {
+  @include govuk-responsive-margin(4, "bottom");
+}
+
+.sort-options__label {
+  @include govuk-responsive-padding(1, "right");
+  display: inline-block;
+  margin-bottom: govuk-spacing(3);
+
+  @include govuk-media-query($from: tablet) {
+    font-size: 16px;
+  }
+}
+
+.sort-options__select {
+  @include govuk-media-query($from: tablet) {
+    font-size: 16px;
+  }
+}
+
+.result-info {
+  margin: 0 0 govuk-spacing(4) 0;
+  border-bottom: solid 1px govuk-colour("black");
+
+  .govuk-grid-column-two-thirds {
+    text-align: left;
+
+    @include govuk-media-query($from: tablet) {
+      text-align: right;
+    }
+  }
+}
+
+// NOTE: Reset from element level styles inherited from the deprecated `govuk-template`.
+.app-patch--search-input-override input[type="search"] {
+  box-sizing: border-box;
+}
+
+// NOTE: Used to remove the blue global header bar for the topic finder header.
+
+.full-width #global-header-bar { // stylelint-disable-line selector-max-id
+  display: none;
+}
+
+.topic-finder__taxon-link,
+.topic-finder__taxon-link:link,
+.topic-finder__taxon-link:visited {
+  @include govuk-font(24, $weight: bold);
+  color: govuk-colour("white");
+
+  &:link:focus,
+  &:visited:focus {
+    color: $govuk-text-colour;
+  }
+}
+
+// NOTE: used to override govspeak component when it's used on an inverse header
+
+.gem-c-inverse-header {
+  .gem-c-govspeak {
+    color: govuk-colour("white");
+  }
+}
+
+.gem-c-intervention {
+  margin-bottom: 0;
+}
+
+.app-c-button-as-link {
+  padding: 0;
+  border-width: 0;
+  color: $govuk-link-colour;
+  background: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  text-decoration: underline;
+
+  // we need consistent font-size across breakpoints
+  // so we cannot use govuk-font mixin
+  font-size: 16px;
+  @include govuk-link-common;
+  @include govuk-link-style-default;
+
+  // Remove default button focus outline in Firefox
+  &::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+}
+
+.gem-c-subscription-links {
+  @include govuk-media-query($until: tablet) {
+    margin-bottom: govuk-spacing(2);
+  }
+}
+
+.subscription-links--desktop {
+  @include govuk-media-query($until: tablet) {
+    display: none;
+  }
+}
+
+// show spelling suggestion container only if suggestions are available
+.spelling-suggestions {
+  margin-top: -(govuk-spacing(1));
+  margin-bottom: govuk-spacing(4);
+
+  @include govuk-media-query($from: tablet) {
+    margin-top: -(govuk-spacing(2));
+    margin-bottom: govuk-spacing(7);
+
+    // We need to keep font size consistently 16 pixels
+    // when above the tablet breakpoint
+    .govuk-body {
+      font-size: 16px;
+    }
+  }
+}
+
+.facet-container {
+  padding-left: 13px;
+  padding-right: 13px;
+}

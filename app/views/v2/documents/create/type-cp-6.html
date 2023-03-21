@@ -1,0 +1,101 @@
+
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+  {{ super() }}
+{% endblock %} 
+
+{% block header %}
+  {{ super() }}
+
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">What to publish on GOV.UK</h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="gem-c-govspeak govuk-govspeak " data-module="govspeak" data-govspeak-module-started="true">
+      <p class="govuk-body">Content published in Whitehall publisher on www.gov.uk should be either:</p>
+      <ul>
+        <li>
+          <p class="govuk-body">guidance to help users complete a transaction with government</p>
+        </li>
+        <li>
+          <p class="govuk-body">information to help users understand what government is doing</p>
+        </li>
+      </ul>
+      <p class="govuk-body">It should be information only government can provide.</p>
+
+      <p class="govuk-body">Find out more about the <a href="#">content types you can publish in Whitehall Publisher</a>.</p>
+      
+      <h3 id="check-existing-content">Check existing content</h3>
+      <p class="govuk-body">New content should not significantly repeat existing content.</p>
+      <p class="govuk-body"><a href="https://www.gov.uk/search">Search GOV.UK</a> to check if the user need is being met elsewhere.</p>
+      
+      <h3 id="ask-gds">Ask GDS</h3>
+      <p class="govuk-body">If you’re unsure <a rel="external" href="https://support.integration.publishing.service.gov.uk/">ask the GOV.UK team at the Government Digital Service</a>.</p>
+
+      <h2 id="alternatives-to-govuk">Alternatives to GOV.UK</h2>
+
+      <h3 class="govuk-body" id="campaigns">Campaigns</h3>
+      <p>Campaign websites are designed to:</p>
+
+      <ul>
+        <li>
+          <p class="govuk-body">change behaviour by encouraging people to lead healthy, safer lives</p>
+        </li>
+        <li>
+          <p class="govuk-body">ensure operational effectiveness of Government by informing people about public services</p>
+        </li>
+        <li>
+          <p class="govuk-body">enhance the reputation of the UK, promote interests internationally, and respond in times of crisis</p>
+        </li>
+        <li>
+          <p class="govuk-body">explain government policies and programmes to clarify legal or statutory requirements</p>
+        </li>
+      </ul>
+
+      <p class="govuk-body">Campaign websites can be set up using either:</p>
+
+      <ul>
+        <li>
+          <p class="govuk-body">the government Campaign Platform</p>
+        </li>
+        <li>
+          <p class="govuk-body">or a bespoke campaigns microsite</p>
+        </li>
+      </ul>
+
+      <h3 id="intranets">Intranets</h3>
+      <p class="govuk-body">Information exclusively for civil servants with no public interest should be published on internal intranets.</p>
+
+      <h3 id="parliamentuk">Parliament.uk</h3>
+      <p class="govuk-body">The <a rel="external" href="https://www.parliament.uk/">Parliament website</a> covers the work of parliament to scrutinise proposed legislation in the House of Commons, the House of Lords, and committees.</p>
+
+      <h3 id="hansard">Hansard</h3>
+      <p class="govuk-body"><a rel="external" href="https://hansard.parliament.uk/">Hansard</a> is the record of everything said or written during proceedings of the House of Commons and the House of Lords.</p>
+
+      <h3 id="legislationgovuk">Legislation.gov.uk</h3>
+      <p class="govuk-body">Bills which have been approved by the Commons, the Lords, and the King become law and are recorded on <a rel="external" href="http://www.legislation.gov.uk/">Legislation.gov.uk</a>.</p>
+
+      <h3 id="devolved-government">Devolved government</h3>
+      <p class="govuk-body">In Scotland, Wales and Northern Ireland, devolved administrations are responsible for many domestic policy issues, and their Parliaments/Assemblies have law-making powers for those areas.</p>
+      <p class="govuk-body"><a href="https://www.gov.uk/government/how-government-works#how-government-is-run">Read more about how government is run</a></p>
+
+      <h3 id="other-organisations">Other organisations</h3>
+      <p class="govuk-body">Information or services that can be better supplied by organisations outside government should be linked to and not reproduced. For example, Shelter or the NHS.</p>
+
+      <h3 id="ask-gds-1">Ask GDS</h3>
+      <p class="govuk-body">If you’re unsure <a rel="external" href="https://support.integration.publishing.service.gov.uk/">ask the GOV.UK team at the Government Digital Service</a>.</p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

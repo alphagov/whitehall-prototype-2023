@@ -1,0 +1,849 @@
+$govuk-link-colour: #1d70b8;
+
+/* SUMMARY PAGE */
+main.summary {
+
+    @media (min-width: 40.0625em) {
+        .govuk-grid-column-three-quarters {
+            width: 91%;
+            //float: left;
+        }
+    }
+    @media (max-width: 1280px) {
+        .govuk-grid-column-three-quarters {
+            width: 95%;
+            //float: left;
+        }
+    }
+
+		&.v1 {
+			h2,
+			h3,
+			h4 {
+					display: inline-block;
+					width: 75%;
+			}
+		}
+
+// 		main.summary h2,
+// main.summary h3,
+// main.summary h4 {
+// 	display: block;
+// 	width: 100%;
+// }
+
+		.govuk-summary-card {
+			h2,
+			h3,
+			h4 {
+					display: inline-block;
+					width: auto !important;
+			}
+		}
+    .whitehall-summary-change-link {
+        position: relative;
+        float: right;
+        width: auto;
+        margin-top: 10px;
+    }
+    .govuk-inset-text {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    .govuk-inset-text {
+        border-left: 10px solid #505a5f;
+        background-color: #f3f2f1;
+    }
+    .app-c-inset-prompt {
+        border-left: 10px solid #505a5f;
+    }
+    div.sections > section {
+        margin-bottom: 30px;
+        padding-top: 40px;
+        border-top: 1px solid #b1b4b6;
+        border-top: 4px solid #1d70b8;
+        border-top: 4px solid #5694ca;
+  
+        & > h2 {
+            //   border-top: 4px solid #1d70b8;
+        }
+  
+        &:first-child {
+            // border: none;
+            margin-top: 60px;
+        }
+    }
+    .govuk-summary-list {
+        margin-bottom: 0;
+        .govuk-summary-list__row {
+					&:last-child {
+							// border-bottom: none;
+					}
+        }
+
+				&.whitehall-summary-list-row-empty {
+					display: block;
+					.govuk-summary-list__row {
+						&:first-child {
+							display: block;
+							padding-top: 10px;
+							padding-bottom: 20px;
+						}
+						&:last-child {
+							display: table;
+							width: 100%;
+						}
+					}
+				}
+    }
+    .gem-c-devolved-nations {
+        background-color: transparent;
+        padding: 0;
+    }
+
+    .moj-sub-navigation__list {
+        white-space: nowrap;
+    }
+
+    // SUMMARY V2
+    @media (min-width: 40.0625em) {
+        .govuk-summary-list__actions {
+            width: 12%;
+            padding-right: 0;
+            text-align: right;
+        }
+        .govuk-summary-list__row--no-actions:after {
+            content: "";
+            display: table-cell;
+            width: 10%;
+        }
+    }
+
+
+    // ACCORDION V7
+    .whitehall-accordion__section-heading {
+        width: 100%;
+        .whitehall-accordion__section-button {
+            border-bottom: none;
+            border-left: 20px $govuk-link-colour solid;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            padding-left: 20px;
+            padding-right: 10px;
+            .whitehall-accordion__section-heading-text {
+                display: block;
+                vertical-align: middle;
+                margin-bottom: 0px;
+                padding: 0px;
+                .govuk-heading-l {
+                    display: inline-block;
+                    margin-bottom: 0px;
+                }
+                .govuk-tag {
+                    float: right;
+                }
+            }
+            .whitehall-accordion__section-toggle {
+                margin-top: 4px;
+                margin-bottom: 0px;
+                //display: none;
+            }
+            &:hover {
+                .whitehall-accordion__section-toggle {
+                    .whitehall-accordion__section-toggle-text{
+                        text-decoration: underline;
+                    }
+                }
+            }
+            &[aria-expanded=true] {
+                //border-bottom: 1px solid #b1b4b6;
+                background-color: $govuk-link-colour;
+                .whitehall-accordion__section-heading-text {
+                    //padding-left: 20px;
+                    //padding-right: 20px;
+                    color: #fff;
+                    .govuk-tag {
+                        background-color: #fff;
+                        color: $govuk-link-colour;
+                    }
+                }
+                .whitehall-accordion__section-toggle {
+                    color: #fff;
+                    .whitehall-accordion__section-toggle-focus {
+                        color: #fff;
+                        text-decoration: underline;
+                    }
+                }
+                &:hover {
+                    .whitehall-accordion__section-toggle {
+                        color: #fff;
+                        .whitehall-accordion__section-toggle-focus {
+                            color: #fff;
+                            .whitehall-accordion-nav__chevron{
+                                color: #fff;
+                                // color: #0b0c0c;
+                                // background: #0b0c0c;
+                                background: transparent;
+                            }
+                            .whitehall-accordion__section-toggle-text{
+                                color: #fff;
+                                text-decoration: underline;
+                                .govuk-visually-hidden {
+                
+                                }
+                            }
+                        }
+                    }
+                }
+                &:active,
+                &:focus {
+                    .whitehall-accordion__section-toggle {
+                        color: #000;
+                        .whitehall-accordion-nav__chevron{
+                            color: #fff;
+                            background: #0b0c0c;
+                        }
+                        .whitehall-accordion__section-toggle-focus {
+                            color: #000;
+                            .whitehall-accordion-nav__chevron{
+                                color: #fff;
+                                background: #0b0c0c;
+                            }
+                            .whitehall-accordion__section-toggle-text{
+                                color: #000;
+                            }
+                        }
+                    }
+                    &:hover {
+                        .whitehall-accordion__section-toggle {
+                            color: #000;
+                            .whitehall-accordion-nav__chevron{
+                                color: #fff;
+                                background: #0b0c0c;
+                            }
+                            .whitehall-accordion__section-toggle-text{
+                                color: #000;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+// main.summary .whitehall-accordion__section-heading .whitehall-accordion__section-button[aria-expanded=true]:hover .whitehall-accordion__section-toggle .whitehall-accordion__section-toggle-focus .whitehall-accordion-nav__chevron {
+//     color: #fff;
+// }
+
+// .js-enabled .whitehall-accordion__section-button:hover 
+
+    // <span class="whitehall-accordion__section-toggle-focus">
+    // <span class="whitehall-accordion-nav__chevron"></span>
+    // <span class="whitehall-accordion__section-toggle-text">Hide
+    // <span class="govuk-visually-hidden"> this section</span>
+    // </span>
+    // </span>
+
+    .whitehall-accordion__section-content {
+        padding-left: 40px;
+        padding-right: 10px;
+        padding-top: 0px;
+        //padding-top: 0px;
+        // h3,
+        // h4 {
+        //     display: none;
+        // }
+        .whitehall-summary-h3 {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            h3 {
+                // width: 70%;
+                // float: left;
+            }
+            .whitehall-summary-change-link {
+                // float: right;
+                // float: none;
+                // break-after: always;
+                // width: 100%;
+                // display: block;
+                // text-align: right;
+            }
+        }
+
+        
+        .whitehall-summary-change-link {
+            // float: right;
+            float: none;
+            break-after: always;
+            width: 100%;
+            display: block;
+            text-align: right;
+            margin-bottom: 10px;
+            margin-top: 20px;
+        }
+        .whitehall-summary-title-group {
+            margin-top: 20px;
+            span,
+            h1 {
+                display: inline-block;
+            }
+            h1 {
+                margin-bottom: 20px;
+            }
+            .whitehall-summary-change-link {
+                display: inline-block;
+                width: auto;
+                float: right;
+                margin: 0px;
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+.whitehall-summary-list-small-column {
+    .govuk-summary-list__key {
+        width: 20%;
+    }
+}
+
+
+.whitehall-body-empty {
+    //border: 1px #b1b4b6 solid;
+    //padding: 1em;
+    // color: #505a5f;
+    color: #505a5f;
+    font-size: 1.5em;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.whitehall-body-empty-list {
+    color: #505a5f;
+}
+
+/* // END SUMMARY PAGE */
+
+/* CUSTOM SUMMARY PAGE */
+
+    /* Reset */
+    .documentCreated,
+    .documentSubmitted,
+    .documentSaved {
+        display: none;
+    }
+  
+  
+    /* Hide */
+    #warning-edit-conflict,
+    #warning-already-published,
+    #warning-new-draft,
+    #warning-rejected,
+    #warning-broken-link,
+    #warning-2nd-eyes-self,
+    #warning-2nd-eyes-others,
+    .section-dates-published-another,
+    .section-dates-draft,
+    .section-dates-published-new-draft {
+        display: none;
+    }
+  
+    .tag-submitted {
+        display: none;
+    }
+    .tag-draft {
+        display: block;
+    }
+
+
+    #contents-list {
+        display: none;
+    }
+    #contents-tasks {
+        display: block;
+        // &.populated {
+        //     display: block;
+        // }
+        // &.empty {
+        //     display: none;
+        // }
+    }
+  
+    // main {
+    //   .populated {
+    //     display: block;
+    //   }
+    //   .empty {
+    //     display: none;
+    //   }
+    // }
+  
+    &.populated {
+        // .populated {
+        //     display: block;
+        // }
+        // .empty {
+        //     display: none;
+        // }
+        .section-dates-published-new-draft {
+            display: none;
+        }
+        .section-dates-draft {
+            display: block;
+        }
+        &.second-eyes {
+            #warning-2nd-eyes-self {
+                display: block;
+            }
+            .tag-submitted {
+                display: block;
+            }
+            .tag-draft {
+                display: none;
+            }
+        }
+    }
+  
+    // &.empty {
+    //     .populated {
+    //         display: none; 
+    //     }
+    //     .empty {
+    //         display: block;
+    //     }
+    // }
+  
+    // main.warning-xxxx {
+    
+    // }
+  
+    &.document-type-publication {
+    
+    }
+    &.new-draft {
+        #warning-new-draft {
+            display: block;
+        }
+    }
+    &.already-published {
+        #warning-already-published {
+            display: block;
+        }
+    }
+  
+    &.saved {
+        .documentSaved {
+            display: block;
+        }
+    }
+  
+    &.documentCreated {
+        display: block;
+        .documentCreated {
+            display: block;
+        }
+        .section-dates-draft {
+            display: block;
+        }
+    }
+  
+    &.second-eyes {
+    }
+
+    /* SUMMARY SECTIONS */
+    // .associated-user-needs {
+    //     .populated {
+    //         display: none !important;
+    //     }
+    //     .empty {
+    //         display: block !important;
+    //     }
+    // }
+
+    // .translations {
+    //     .populated {
+    //         display: none !important;
+    //     }
+    //     .empty {
+    //         display: block !important;
+    //     }
+    // }
+    // .associations {
+    //     .populated {
+    //         display: none !important;
+    //     }
+    //     .empty {
+    //         display: block !important;
+    //     }
+    // }
+    // .organisations-ministers {
+    //     .populated {
+    //         display: none !important;
+    //     }
+    //     .empty {
+    //         display: block !important;
+    //     }
+    // }
+    .change-notes {
+        display: none;
+    }
+
+    /* Out of scope */
+    .lead-image {
+        display: none !important;
+    }
+    .worldwide-tags {
+        display: none !important;
+    }
+    .related-guides {
+        display: none !important;
+    }
+    .language {
+        display: none !important;
+    }
+
+    // &.documentCreated {
+    //   #contents-tasks {
+    //     display: block;
+    //     // &.populated {
+    //     //   display: none;
+    //     // }
+    //     // &.empty {
+    //     //   display: block;
+    //     // }
+    //   }
+    // }
+/* // END CUSTOM SUMMARY PAGE */
+  
+
+
+
+    
+    .whitehall-contents-tasks {
+        .govuk-summary-list__key {
+        width: 100%;
+        font-weight: normal;
+        a {
+            font-weight: normal;
+            text-decoration: underline !important;
+        }
+        }
+        .govuk-summary-list__value {
+            width: 140px;
+        }
+        .govuk-summary-list__actions {
+            width: 70px;
+        }
+    }
+    
+    
+
+    // All versions
+    .gem-c-govspeak {
+        .gem-c-attachment__thumbnail {
+            position: relative;
+            width: auto;
+            margin-right: 25px;
+            margin-bottom: 0px !important;
+            padding: 5px;
+            float: left;
+        }
+        .app-c-media-with-actions:last-child {
+            //border-bottom: 1px solid #b1b4b6;
+            margin-bottom: 0px !important;
+            padding-bottom: 10px !important;
+        }
+        .app-c-media-with-actions__actions {
+            margin-top: 15px !important;
+            margin-bottom: 0px !important;
+        }
+    }
+
+    .whitehall-attachments-list {
+        margin-bottom: 30px !important;
+    }
+
+
+    // V2
+    .whitehall-summary-h3 {
+        border-left: 20px $govuk-link-colour solid;
+        margin-left: -40px;
+        padding-left: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: govuk-colour("light-grey");
+        margin-top: 0 !important;
+        box-sizing: border-box;
+    }
+
+
+
+    // V6
+    .whitehall-summary-h1-blue {
+        border-bottom: none;
+        border-left: 20px $govuk-link-colour solid;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    //    padding-left: 20px;
+        padding-right: 20px;
+        background-color: $govuk-link-colour;
+        color: white;
+        box-sizing: border-box;
+    }
+
+
+    // V4
+    .whitehall-summary-h1-blue-v4 {
+        border-bottom: none;
+        border-left: 20px $govuk-link-colour solid;
+        //padding-top: 20px;
+        //padding-bottom: 20px;
+        padding-left: 20px;
+        //padding-right: 20px;
+        // background-color: $govuk-link-colour;
+        // color: white;
+        margin-top: 20px;
+        box-sizing: border-box;
+    }
+    .whitehall-summary-h1-blue-v4-cp {
+        border: none;
+        //border-left: 20px $govuk-link-colour solid;
+        //padding-top: 20px;
+        //padding-bottom: 20px;
+        //padding-left: 20px;
+        //padding-right: 20px;
+        // background-color: $govuk-link-colour;
+        // color: white;
+        margin-top: 20px;
+        box-sizing: border-box;
+        width: 100%;
+
+        p {
+            display: inline-block;
+            float: right;
+        }
+    }
+    .whitehall-body-ellipsis {
+        //display: -webkit-box;
+        position: relative;
+        height: 210px;
+        min-height: 200px;
+        //max-width: 500px;
+        min-width: 400px;
+        width: 100%;
+        //-webkit-line-clamp: 4;
+        //-webkit-box-orient: vertical;
+        //white-space: nowrap;
+        overflow: hidden;
+
+
+        
+        // overflow: hidden;
+        
+        text-overflow: ellipsis;
+        //text-overflow: " [..]";
+
+        &:after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            bottom: 0;
+            left: 0;
+            pointer-events: none;
+            background-image: linear-gradient(to bottom, 
+                            rgba(255,255,255, 0), 
+                            rgba(255,255,255, 1) 90%);
+            width: 100%;
+            height: 4em;
+        }
+    }
+
+
+    // V8
+    .whitehall-summary-h1-blue-v7 {
+        border-bottom: none;
+        border-left: 10px $govuk-link-colour solid;
+        border-left: 20px $govuk-link-colour solid;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        // background-color: $govuk-link-colour;
+        // color: white;
+        margin-top: 20px;
+        margin-bottom: 0;
+        box-sizing: border-box;
+        background-color: govuk-colour("light-grey");
+        
+        .govuk-tag {
+            //background-color: white;
+        }
+        .govuk-tag--grey {
+
+        }
+
+    }
+    .whitehall-summary-section-v7 {
+        border-left: 4px $govuk-link-colour solid;
+        //border-left: 10px $govuk-link-colour solid;
+        //border-left: 4px #b1b4b6 solid;
+        padding-left: 36px;
+        //margin-left: 6px;
+        padding-top: 20px;
+    }
+
+}
+
+
+
+
+
+
+// DELETE
+
+.whitehall-accordion__section-content {
+	padding-top: 30px !important;
+}
+.app-c-markdown-editor__container .govuk-textarea {
+	min-height: 440px;
+	overflow-y: scroll !important;
+}
+
+.whitehall-summary-h3 {
+	margin-left: 0px;
+}
+
+.govspeak .gem-c-attachment__thumbnail-image, .gem-c-govspeak .gem-c-attachment__thumbnail-image {
+	display: block;
+	width: auto;
+	max-width: 99px;
+	height: 90px;
+	border: rgba(11, 12, 12, 0.1);
+	outline: 5px solid rgba(11, 12, 12, 0.1);
+	background: #ffffff;
+	box-shadow: 0 2px 2px rgb(11 12 12 / 40%);
+	fill: #b1b4b6;
+	stroke: #b1b4b6;
+}
+.govspeak .gem-c-attachment__details, .gem-c-govspeak .gem-c-attachment__details {
+  padding-left: 90px;
+}
+.gem-c-attachment__title {
+  margin: 0 !important;
+}
+.gem-c-attachment__title a{
+  font-size: 19px;
+  font-weight: bold;
+}
+.gem-c-attachment__metadata {
+  margin: 0 !important;
+}
+.gem-c-attachment__attribute {
+  font-size: 19px;
+}
+.gem-c-attachment__metadata--compact {
+  font-size: 19px !important;
+}
+.app-c-media-with-actions {
+    font-family: "GDS Transport", arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.25;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #b1b4b6;
+}
+.gem-c-govspeak .gem-c-attachment__thumbnail {
+    position: relative;
+    width: auto;
+    margin-right: 25px;
+    margin-bottom: 0px;
+    padding: 5px;
+    float: left;
+}
+
+#document-summary-panel .govuk-button--secondary {
+  display: none;
+}
+
+
+
+
+
+// .whitehall-accordion__section-content {
+// 	padding-top: 30px !important;
+// }
+// .app-c-markdown-editor__container .govuk-textarea {
+// 	min-height: 440px;
+// 	overflow-y: scroll !important;
+// }
+// .whitehall-summary-h3 {
+// 	margin-left: 0px;
+// }
+
+// .govspeak .gem-c-attachment__thumbnail-image, .gem-c-govspeak .gem-c-attachment__thumbnail-image {
+// 	display: block;
+// 	width: auto;
+// 	max-width: 99px;
+// 	height: 90px;
+// 	border: rgba(11, 12, 12, 0.1);
+// 	outline: 5px solid rgba(11, 12, 12, 0.1);
+// 	background: #ffffff;
+// 	box-shadow: 0 2px 2px rgb(11 12 12 / 40%);
+// 	fill: #b1b4b6;
+// 	stroke: #b1b4b6;
+// }
+// .govspeak .gem-c-attachment__details, .gem-c-govspeak .gem-c-attachment__details {
+// padding-left: 90px;
+// }
+// .gem-c-attachment__title {
+// margin: 0 !important;
+// }
+// .gem-c-attachment__title a{
+// font-size: 19px;
+// font-weight: bold;
+// }
+// .gem-c-attachment__metadata {
+// margin: 0 !important;
+// }
+// .gem-c-attachment__attribute {
+// font-size: 19px;
+// }
+// .gem-c-attachment__metadata--compact {
+// font-size: 19px !important;
+// }
+// .app-c-media-with-actions {
+// 	font-family: "GDS Transport", arial, sans-serif;
+// 	-webkit-font-smoothing: antialiased;
+// 	-moz-osx-font-smoothing: grayscale;
+// 	font-weight: 400;
+// 	font-size: 16px;
+// 	font-size: 1rem;
+// 	line-height: 1.25;
+// 	margin-bottom: 20px;
+// 	padding-bottom: 20px;
+// 	border-bottom: 1px solid #b1b4b6;
+// }
+// .gem-c-govspeak .gem-c-attachment__thumbnail {
+// 	position: relative;
+// 	width: auto;
+// 	margin-right: 25px;
+// 	margin-bottom: 0px;
+// 	padding: 5px;
+// 	float: left;
+// }
+
+// #document-summary-panel .govuk-button--secondary {
+// display: none;
+// }

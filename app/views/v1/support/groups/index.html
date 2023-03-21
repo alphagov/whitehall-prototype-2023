@@ -1,0 +1,473 @@
+
+{% extends "layouts/main.html" %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
+{% block pageTitle %}
+  {{ super() }}
+{% endblock %} 
+
+{% block header %}
+  {{ whitehallHeader({
+      homepageUrl: "../../dashboard/",
+      serviceName: serviceName,
+      serviceUrl: "/",
+      containerClasses: "govuk-width-container",
+      phaseBanner: true,
+      navigation: [
+        {
+          href: "document/",
+          text: "Documents"
+        },
+        {
+          href: "../organisation/" + hrefParams,
+          text: "My organisation"
+        },
+        {
+          href: "../support/" + hrefParams,
+          text: "Support information",
+          active: true
+        },
+        {
+          href: "../guidance/" + hrefParams,
+          text: "Guidance"
+        },
+        {
+          href: "../account/" + hrefParams,
+          text: globals.loggedUser
+        },
+        {
+          href: "../signout" + hrefParams,
+          text: "Sign out"
+        }
+      ],
+      items: [
+        {
+          text: "Home",
+          href: "../dashboard/" + hrefParams
+        },
+        {
+          text: "Support",
+          href: "dashboard/" + hrefParams
+        }
+      ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">Support information</span>
+      <h1 class="govuk-heading-xl">
+        Groups
+      </h1>
+    </div>
+  </div>
+
+  <!-- TODO:
+    This should be a radio button after clicking in create new group
+   Do not create groups without consulting GDS.
+  Warning: changes to groups appear instantly on the live site. -->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukButton({
+        text: "Create new group"
+      }) }}
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      {{ govukTable({
+        sortable: true,
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Group name",
+            classes: 'govuk-!-width-one-half'
+          },
+          {
+            text: "Email",
+            classes: 'govuk-!-width-one-half'
+          },
+          {
+            text: "",
+            format: "numeric"
+          },
+          {
+            text: "",
+            format: "numeric"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Defence Land Safety Regulator (DLSR)"
+            },
+            {
+              text: "No email provided"
+            },
+            {
+              html: '<a class="govuk-link" href="/support/groups/edit">Edit</a>',
+              format: "numeric"
+            },
+            {
+              html: '<a class="govuk-link app-link--destructive" href="/support/groups/remove">Remove</a>',
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "Higher Education Bursaries and Scholarship Scheme (HEBSS) Steering Group"
+            },
+            {
+              text: "partner_services@slc.co.uk"
+            },
+            {
+              html: '<a class="govuk-link" href="/support/groups/edit">Edit</a>',
+              format: "numeric"
+            },
+            {
+              html: '<a class="govuk-link app-link--destructive" href="/support/groups/remove">Remove</a>',
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "[ARCHIVED] Committee on the Safety of Devices"
+            },
+            {
+              text: "No email provided"
+            },
+            {
+              html: '<a class="govuk-link" href="/support/groups/edit">Edit</a>',
+              format: "numeric"
+            },
+            {
+              html: '<a class="govuk-link app-link--destructive" href="/support/groups/remove">Remove</a>',
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "4G/TV Co-existence Oversight Board"
+            },
+            {
+              text: "oversightboardsecretariat@culture.gov.uk"
+            },
+            {
+              html: '<a class="govuk-link" href="/support/groups/edit">Edit</a>',
+              format: "numeric"
+            },
+            {
+              html: '<a class="govuk-link app-link--destructive" href="/support/groups/remove">Remove</a>',
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "Abstraction Reform Advisory Group"
+            },
+            {
+              text: "No email provided"
+            },
+            {
+              html: '<a class="govuk-link" href="/support/groups/edit">Edit</a>',
+              format: "numeric"
+            },
+            {
+              html: '<a class="govuk-link app-link--destructive" href="/support/groups/remove">Remove</a>',
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "Academies regulation and commissioning review advisory group"
+            },
+            {
+              text: "Regulatory.Review@education.gov.uk"
+            },
+            {
+              html: '<a class="govuk-link" href="/support/groups/edit">Edit</a>',
+              format: "numeric"
+            },
+            {
+              html: '<a class="govuk-link app-link--destructive" href="/support/groups/remove">Remove</a>',
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "Academy for Social Justice Commissioning learning groups"
+            },
+            {
+              text: "academy@noms.gsi.gov.uk"
+            },
+            {
+              html: '<a class="govuk-link" href="/support/groups/edit">Edit</a>',
+              format: "numeric"
+            },
+            {
+              html: '<a class="govuk-link app-link--destructive" href="/support/groups/remove">Remove</a>',
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "Accelerated Capability Environment (ACE)"
+            },
+            {
+              text: "ace@homeoffice.gov.uk"
+            },
+            {
+              html: '<a class="govuk-link" href="/support/groups/edit">Edit</a>',
+              format: "numeric"
+            },
+            {
+              html: '<a class="govuk-link app-link--destructive" href="/support/groups/remove">Remove</a>',
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "Action Group on Cross Border Remittances"
+            },
+            {
+              text: "No email provided"
+            },
+            {
+              html: '<a class="govuk-link" href="/support/groups/edit">Edit</a>',
+              format: "numeric"
+            },
+            {
+              html: '<a class="govuk-link app-link--destructive" href="/support/groups/remove">Remove</a>',
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "ACUMEN: Assessing, Capturing and Utilising Methane from Expired and Non-operational landfills"
+            },
+            {
+              text: "acumen@environment-agency.gov.uk"
+            },
+            {
+              html: '<a class="govuk-link" href="/support/groups/edit">Edit</a>',
+              format: "numeric"
+            },
+            {
+              html: '<a class="govuk-link app-link--destructive" href="/support/groups/remove">Remove</a>',
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "Administrative Burdens Advisory Board (ABAB)"
+            },
+            {
+              text: "advisoryboard.adminburden@hmrc.gov.uk"
+            },
+            {
+              html: '<a class="govuk-link" href="/support/groups/edit">Edit</a>',
+              format: "numeric"
+            },
+            {
+              html: '<a class="govuk-link app-link--destructive" href="/support/groups/remove">Remove</a>',
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "Administrative Justice Forum"
+            },
+            {
+              text: "No email provided"
+            },
+            {
+              html: '<a class="govuk-link" href="/support/groups/edit">Edit</a>',
+              format: "numeric"
+            },
+            {
+              html: '<a class="govuk-link app-link--destructive" href="/support/groups/remove">Remove</a>',
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "Adult Autism Programme Board"
+            },
+            {
+              text: "autism@dh.gsi.gov.uk"
+            },
+            {
+              html: '<a class="govuk-link" href="/support/groups/edit">Edit</a>',
+              format: "numeric"
+            },
+            {
+              html: '<a class="govuk-link app-link--destructive" href="/support/groups/remove">Remove</a>',
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "Advanced Learner Loans Stakeholders Group"
+            },
+            {
+              text: "partner_services@slc.co.uk"
+            },
+            {
+              html: '<a class="govuk-link" href="/support/groups/edit">Edit</a>',
+              format: "numeric"
+            },
+            {
+              html: '<a class="govuk-link app-link--destructive" href="/support/groups/remove">Remove</a>',
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "Advisory Board on Female Offenders"
+            },
+            {
+              text: "womenspolicyteam@justice.gsi.gov.uk"
+            },
+            {
+              html: '<a class="govuk-link" href="/support/groups/edit">Edit</a>',
+              format: "numeric"
+            },
+            {
+              html: '<a class="govuk-link app-link--destructive" href="/support/groups/remove">Remove</a>',
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "Advisory Board on the Registration of Homeopathic Products"
+            },
+            {
+              text: "No email provided"
+            },
+            {
+              html: '<a class="govuk-link" href="/support/groups/edit">Edit</a>',
+              format: "numeric"
+            },
+            {
+              html: '<a class="govuk-link app-link--destructive" href="/support/groups/remove">Remove</a>',
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "Advisory Committee on Antimicrobial Prescribing, Resistance and Healthcare Associated Infection"
+            },
+            {
+              text: "APRHAI@phe.gov.uk"
+            },
+            {
+              html: '<a class="govuk-link" href="/support/groups/edit">Edit</a>',
+              format: "numeric"
+            },
+            {
+              html: '<a class="govuk-link app-link--destructive" href="/support/groups/remove">Remove</a>',
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "Advisory Committee on Borderline Substances"
+            },
+            {
+              text: "acbs@dhsc.gov.uk"
+            },
+            {
+              html: '<a class="govuk-link" href="/support/groups/edit">Edit</a>',
+              format: "numeric"
+            },
+            {
+              html: '<a class="govuk-link app-link--destructive" href="/support/groups/remove">Remove</a>',
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "Advisory Committee on Antimicrobial Prescribing, Resistance and Healthcare Associated Infection"
+            },
+            {
+              text: "APRHAI@phe.gov.uk"
+            },
+            {
+              html: '<a class="govuk-link" href="/support/groups/edit">Edit</a>',
+              format: "numeric"
+            },
+            {
+              html: '<a class="govuk-link app-link--destructive" href="/support/groups/remove">Remove</a>',
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "Advisory Committee on Borderline Substances"
+            },
+            {
+              text: "acbs@dhsc.gov.uk"
+            },
+            {
+              html: '<a class="govuk-link" href="/support/groups/edit">Edit</a>',
+              format: "numeric"
+            },
+            {
+              html: '<a class="govuk-link app-link--destructive" href="/support/groups/remove">Remove</a>',
+              format: "numeric"
+            }
+          ]
+        ]
+      }) }}
+
+
+      {{ govukPagination({
+        previous: {
+          href: "#"
+        },
+        next: {
+          href: "#"
+        },
+        items: [
+          {
+            number: 1,
+            href: "#"
+          },
+          {
+            ellipsis: true
+          },
+          {
+            number: 6,
+            href: "#"
+          },
+          {
+            number: 7,
+            current: true,
+            href: "#"
+          },
+          {
+            number: 8,
+            href: "#"
+          },
+          {
+            ellipsis: true
+          },
+          {
+            number: 42,
+            href: "#"
+          }
+        ]
+      }) }}
+    </div>
+</div>
+{% endblock %}
+{% block footer %}{% include "includes/footer-v1.html" %}{% endblock %}

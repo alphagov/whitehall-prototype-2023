@@ -1,0 +1,122 @@
+
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+  {{ super() }}
+{% endblock %} 
+
+{% block header %}
+  {{ whitehallHeader({
+      homepageUrl: "../../dashboard/",
+      serviceName: serviceName,
+      serviceUrl: "/",
+      containerClasses: "govuk-width-container",
+      phaseBanner: true,
+      navigation: [
+        {
+          href: "../documents/" + hrefParams,
+          text: "Documents",
+          active: true
+        },
+        {
+          href: "../organisation/" + hrefParams,
+          text: "My organisation"
+        },
+        {
+          href: "../support/" + hrefParams,
+          text: "Support information"
+        },
+        {
+          href: "../guidance/" + hrefParams,
+          text: "Guidance"
+        },
+        {
+          href: "../account/" + hrefParams,
+          text: globals.loggedUser
+        },
+        {
+          href: "../signout" + hrefParams,
+          text: "Sign out"
+        }
+      ],
+      back:
+        {
+          text: "Back",
+          href: "../documents/create/type-cp"
+        }
+  }) }}
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form data-gtm="confirm-document-type" action="/documents/new?type=specialist_notices" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="FPG-ntEWcE9ynQTSRraMAUyk1C-3X176hGnVoVbYMPeCeuZtzlrFZbLRNSYHFmLa6nwia4gA5M7glRsdeN-buw" autocomplete="off">
+        <div class="govuk-form-group govuk-!-margin-bottom-6">
+    <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+          
+          <h1 class="govuk-fieldset__heading gem-c-radio__heading-text">Specialist notices</h1>
+  </legend>
+  
+  
+      <div class="govuk-radios">
+  
+            <div class="gem-c-radio govuk-radios__item">
+              <input type="radio" name="selected_option_id" id="radio-1aba54d0-1" value="notice_managed_elsewhere" class="govuk-radios__input" aria-describedby="label-hint-7083bda6" data-gtm="choose-document-type" data-gtm-value="Notice publication">
+              
+    <label for="radio-1aba54d0-1" class="gem-c-label govuk-label govuk-label--s govuk-radios__label">Notice publication</label>
+  
+    <span id="label-hint-7083bda6" class="govuk-hint govuk-radios__hint">
+      Permit and licence applications published temporarily for public awareness.
+  </span>
+  </div>
+  
+  
+            <div class="gem-c-radio govuk-radios__item">
+              <input type="radio" name="selected_option_id" id="radio-1aba54d0-3" value="decision_managed_elsewhere" class="govuk-radios__input" aria-describedby="label-hint-7d0b3cae" data-gtm="choose-document-type" data-gtm-value="Decision publication">
+              
+    <label for="radio-1aba54d0-3" class="gem-c-label govuk-label govuk-label--s govuk-radios__label">Decision publication</label>
+  
+    <span id="label-hint-7d0b3cae" class="govuk-hint govuk-radios__hint">
+      Formal decisions by tribunals, regulators or adjudicators (including courts and Secretaries of State).
+  </span>
+  </div>
+  
+            <div class="gem-c-radio govuk-radios__item">
+              <input type="radio" name="selected_option_id" id="radio-1aba54d0-4" value="specialist_notice" class="govuk-radios__input" aria-describedby="label-hint-f93d9ea3" data-gtm="choose-document-type" data-gtm-value="Specialist notice">
+              
+    <label for="radio-1aba54d0-4" class="gem-c-label govuk-label govuk-label--s govuk-radios__label">Specialist notice</label>
+  
+    <span id="label-hint-f93d9ea3" class="govuk-hint govuk-radios__hint">
+      Notices published in Specialist Publisher.
+  </span>
+  </div>
+  
+            <div class="gem-c-radio govuk-radios__item">
+              <input type="radio" name="selected_option_id" id="radio-1aba54d0-5" value="fatality_notice" class="govuk-radios__input" aria-describedby="label-hint-97df18ce" data-gtm="choose-document-type" data-gtm-value="Fatality notice">
+              
+    <label for="radio-1aba54d0-5" class="gem-c-label govuk-label govuk-label--s govuk-radios__label">Fatality notice</label>
+  
+    <span id="label-hint-97df18ce" class="govuk-hint govuk-radios__hint">
+      Initial fatality notices and subsequent obituaries of forces and Ministry of Defence personnel.
+  </span>
+  </div>
+  
+  </div>
+  </fieldset></div>
+  
+  <!-- TODO: Variable for each different type selection -->
+  {{ govukButton({
+    text: "Continue",
+    href: "../publication/create"
+  }) }}
+  
+  </form>
+
+  </div>
+</div>
+{% endblock %}
+{% block footer %}{% include "includes/footer-v1.html" %}{% endblock %}

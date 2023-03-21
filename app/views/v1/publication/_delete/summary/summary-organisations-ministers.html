@@ -1,0 +1,130 @@
+<h2 class="govuk-heading-l govuk-!-margin-bottom-2">Organisations and Ministers</h2>
+<p class="govuk-body whitehall-summary-change-link">
+    <a href="../publication/edit/organisations" class="govuk-link">Change</a>
+</p>
+{{ govukInsetText({
+html: '<p class="govuk-body">In the published GOV.UK page, this information will show as "From:" in the header.</p>
+        <p class="govuk-body">The first five organisations and ministers will be shown, and the subsequent names will be hidden in a collapsible element with the option “show more”.</p>'
+}) }}
+<!-- From: Organisations (Order: lead, support, and ministers)
+Shows 5 and hide the rest
+show more, show fewer
+Associations (h2)
+
+<p class="govuk-body">At least one lead organisation is required.</p>
+-->
+
+<div class="populated">
+{{ govukSummaryList({
+    rows: [
+    {
+        key: {
+        text: "Lead organisations"
+        },
+        value: {
+        html: '<ul class="govuk-list govuk-list--bullet">
+            <li>
+            Government Digital Service   
+            </li>
+            <li>
+            Accelerated Access Review
+            </li>
+            <li>
+            Civil Service Fast Stream
+            </li>
+            <li>
+            Milk Development Council
+            </li>
+        </ul>'
+        }
+    },
+    {
+        key: {
+        text: "Supporting organisations (optional)"
+        },
+        value: {
+        html: '<ul class="govuk-list govuk-list--bullet">
+            <li>
+            Youth Justice Agency of Northern Ireland
+            </li>
+            <li>
+            Zahid Mubarek Inquiry
+            </li>
+            <li>
+            Postal Services Commission
+            </li>
+            <li>
+            Phoenix Sports
+            </li>
+            <li>
+            Independent Parliamentary Standards Authority
+            </li>
+            <li>
+            NHS Counter Fraud Authority
+            </li>
+        </ul>'
+        }
+    },
+    {
+        key: {
+        text: "Ministers (optional)"
+        },
+        value: {
+        html: '<ul class="govuk-list govuk-list--bullet">
+            <li>
+            Lord Johnson
+            </li>
+            <li>
+            Baroness Deborah Stedman-Scott OBE DL
+            </li>
+            <li>
+            Lord Murray of Blidworth
+            </li>
+            <li>
+            Lord Parkinson of Whitley Bay
+            </li>
+        </ul>'
+        }
+    }
+    ]
+}) }}
+</div>
+
+
+
+<div class="empty">
+{{ govukSummaryList({
+    rows: [
+    {
+        key: {
+        text: "Lead organisations"
+        },
+        value: {
+        html: '<p class="govuk-body">Government Digital Service</p>'
+        }
+    },
+    {
+        key: {
+        text: "Supporting organisations (optional)"
+        },
+        value: {
+        html: '<p class="govuk-body whitehall-body-empty-list">
+            No supporting organisations
+        </p>'
+        }
+    },
+    {
+        key: {
+        text: "Ministers (optional)"
+        },
+        value: {
+        html: '<p class="govuk-body whitehall-body-empty-list">
+            No ministers
+        </p>'
+        }
+    }
+    ]
+}) }}
+</div>
+
+<!-- <hr class="govuk-section-break govuk-section-break--l govuk-section-break--invisible govuk-!-margin-bottom-6 govuk-!-margin-top-0"> -->

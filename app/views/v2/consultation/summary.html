@@ -1,0 +1,605 @@
+
+{% extends "layouts/main.html" %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% block pageTitle %}
+  {{ super() }}
+{% endblock %} 
+
+{% block header %}
+  {{ super() }}
+  
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">Consultation</span>
+      <h1 class="govuk-heading-xl">
+        Consultation on Social Research Apprenticeship
+      </h1>
+      <!-- <p>
+        This kit lets you rapidly create HTML prototypes of GOV.UK services.
+      </p> -->
+
+      <!-- <h2 class="govuk-heading-l">What’s new</h2>
+
+      <p>
+        From September 2022, Whitehall Publisher will be transitioning to using the GOV.UK Design System. This will mean a new look and feel in several parts of the application as well as changes to some of the workflows.
+      </p> -->
+
+
+
+      {{ govukButton({
+        text: "Create new edition",
+        href: "#"
+      }) }}
+
+      <!-- {{ govukButton({
+        text: "Edit document",
+        classes: "govuk-button--secondary",
+        href: "#"
+      }) }} -->
+
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Type of document"
+            },
+            value: {
+              text: "Consultation: Open consultation"
+            }
+          },
+          {
+            key: {
+              text: "Status"
+            },
+            value: {
+              text: "Draft"
+            }
+          },
+          {
+            key: {
+              text: "Change type"
+            },
+            value: {
+              text: "Major"
+            }
+          },
+          {
+            key: {
+              text: "Organization"
+            },
+            value: {
+              text: "Government Digital Service"
+            }
+          },
+          {
+            key: {
+              text: "Language"
+            },
+            value: {
+              text: "English"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Change language"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">My draft documents</h2>
+
+      {{ govukTable({
+        caption: "Month you apply",
+        sortable: true,
+        captionClasses: "govuk-table__caption--m",
+        firstCellIsHeader: true,
+        head: [
+          {
+            text: "Type",
+            classes: 'govuk-!-width-one-quarter'
+          },
+          {
+            text: "Title",
+            classes: 'govuk-!-width-one-half'
+          },
+          {
+            text: "Updated",
+            classes: 'govuk-!-width-one-quarter'
+          },
+          {
+            text: "Status",
+            classes: 'govuk-!-width-one-quarter'
+          },
+          {
+            text: "",
+            classes: 'govuk-!-width-one-quarter',
+            format: "numeric"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Consultation"
+            },
+            {
+              text: "Draft data sharing legislation to support identity verification"
+            },
+            {
+              html: '20 minutes ago<br />by <a href="author">Anne Lewis</a>'
+            },
+            {
+              text: ""
+            },
+            {
+              html: '<a href="document">Edit</a>',
+              format: "numeric"
+            }
+          ]
+        ]
+      }) }}
+
+
+
+
+
+      {{ govukRadios({
+        name: "where-do-you-live",
+        fieldset: {
+          legend: {
+            text: "Where do you live?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "england",
+            text: "England"
+          },
+          {
+            value: "scotland",
+            text: "Scotland"
+          },
+          {
+            value: "wales",
+            text: "Wales"
+          },
+          {
+            value: "northern-ireland",
+            text: "Northern Ireland"
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "abroad",
+            text: "I am a British citizen living abroad"
+          }
+        ]
+      }) }}
+
+
+      {% set emailHtml %}
+      {{ govukInput({
+        id: "contact-by-email",
+        name: "contact-by-email",
+        type: "email",
+        autocomplete: "email",
+        spellcheck: false,
+        classes: "govuk-!-width-one-half",
+        label: {
+          text: "Email address"
+        },
+        errorMessage: {
+          text: "Email address cannot be blank"
+        }
+      }) }}
+      {% endset -%}
+
+      {% set phoneHtml %}
+      {{ govukInput({
+        id: "contact-by-phone",
+        name: "contact-by-phone",
+        type: "tel",
+        autocomplete: "tel",
+        classes: "govuk-!-width-one-third",
+        label: {
+          text: "Phone number"
+        }
+      }) }}
+      {% endset -%}
+
+      {% set textHtml %}
+      {{ govukInput({
+        id: "contact-by-text",
+        name: "contact-by-text",
+        type: "tel",
+        autocomplete: "tel",
+        classes: "govuk-!-width-one-third",
+        label: {
+          text: "Mobile phone number"
+        }
+      }) }}
+      {% endset -%}
+
+      {{ govukRadios({
+        name: "contact",
+        fieldset: {
+          legend: {
+            text: "How would you prefer to be contacted?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Select one option."
+        },
+        items: [
+          {
+            value: "email",
+            text: "Email",
+            checked: true,
+            conditional: {
+              html: emailHtml
+            }
+          },
+          {
+            value: "phone",
+            text: "Phone",
+            conditional: {
+              html: phoneHtml
+            }
+          },
+          {
+            value: "text",
+            text: "Text message",
+            conditional: {
+              html: textHtml
+            }
+          }
+        ]
+      }) }}
+
+    </div>
+
+
+
+
+    <!-- RIGHT COLUMN -->
+    <div class="govuk-grid-column-one-third">
+
+
+      {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+
+      {{ mojSubNavigation({
+        label: 'Sub navigation',
+        items: [{
+          text: 'Help',
+          href: '#1',
+          active: true
+        }, {
+          html: 'Notes <span id="notifications" class="moj-notification-badge">10</span>',
+          href: '#2'
+        }, {
+          html: 'History <span id="notifications" class="moj-notification-badge">10</span>',
+          href: '#3'
+        }, {
+          html: 'Fact checking <span id="notifications" class="moj-notification-badge">10</span>',
+          href: '#3'
+        }]
+      }) }}
+
+
+      {% from "govuk/components/tabs/macro.njk" import govukTabs %}
+      {% from "govuk/components/table/macro.njk" import govukTable %}
+
+      {% set pastDayHtml %}
+      <h2 class="govuk-heading-l">Past day</h2>
+      {{ govukTable({
+        head: [
+          {
+            text: "Case manager"
+          },
+          {
+            text: "Cases opened"
+          },
+          {
+            text: "Cases closed"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "David Francis"
+            },
+            {
+              text: "3"
+            },
+            {
+              text: "0"
+            }
+          ],
+          [
+            {
+              text: "Paul Farmer"
+            },
+            {
+              text: "1"
+            },
+            {
+              text: "0"
+            }
+          ],
+          [
+            {
+              text: "Rita Patel"
+            },
+            {
+              text: "2"
+            },
+            {
+              text: "0"
+            }
+          ]
+        ]
+      }) }}
+      {% endset -%}
+
+      {% set pastWeekHtml %}
+      <h2 class="govuk-heading-l">Past week</h2>
+      {{ govukTable({
+        head: [
+          {
+            text: "Case manager"
+          },
+          {
+            text: "Cases opened"
+          },
+          {
+            text: "Cases closed"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "David Francis"
+            },
+            {
+              text: "24"
+            },
+            {
+              text: "18"
+            }
+          ],
+          [
+            {
+              text: "Paul Farmer"
+            },
+            {
+              text: "16"
+            },
+            {
+              text: "20"
+            }
+          ],
+          [
+            {
+              text: "Rita Patel"
+            },
+            {
+              text: "24"
+            },
+            {
+              text: "27"
+            }
+          ]
+        ]
+      }) }}
+      {% endset -%}
+
+      {% set pastMonthHtml %}
+      <h2 class="govuk-heading-l">Past month</h2>
+      {{ govukTable({
+        head: [
+          {
+            text: "Case manager"
+          },
+          {
+            text: "Cases opened"
+          },
+          {
+            text: "Cases closed"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "David Francis"
+            },
+            {
+              text: "98"
+            },
+            {
+              text: "95"
+            }
+          ],
+          [
+            {
+              text: "Paul Farmer"
+            },
+            {
+              text: "122"
+            },
+            {
+              text: "131"
+            }
+          ],
+          [
+            {
+              text: "Rita Patel"
+            },
+            {
+              text: "126"
+            },
+            {
+              text: "142"
+            }
+          ]
+        ]
+      }) }}
+      {% endset -%}
+
+      {% set pastYearHtml %}
+      <h2 class="govuk-heading-l">Past year</h2>
+      {{ govukTable({
+        head: [
+          {
+            text: "Case manager"
+          },
+          {
+            text: "Cases opened"
+          },
+          {
+            text: "Cases closed"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "David Francis"
+            },
+            {
+              text: "1380"
+            },
+            {
+              text: "1472"
+            }
+          ],
+          [
+            {
+              text: "Paul Farmer"
+            },
+            {
+              text: "1129"
+            },
+            {
+              text: "1083"
+            }
+          ],
+          [
+            {
+              text: "Rita Patel"
+            },
+            {
+              text: "1539"
+            },
+            {
+              text: "1265"
+            }
+          ]
+        ]
+      }) }}
+      {% endset -%}
+
+      {{ govukTabs({
+        items: [
+          {
+            label: "Help",
+            id: "past-day",
+            panel: {
+              html: pastDayHtml
+            }
+          },
+          {
+            label: "Notes",
+            id: "past-week",
+            panel: {
+              html: pastWeekHtml
+            }
+          },
+          {
+            label: 'History <a href="#">sss</a>',
+            id: "past-month",
+            panel: {
+              html: pastMonthHtml
+            }
+          },
+          {
+            label: 'Fact checking (10)',
+            id: "past-month",
+            panel: {
+              html: pastMonth2Html
+            }
+          }
+        ]
+      }) }}
+
+
+      <h2 class="govuk-heading-l">Guidance</h2>
+
+      <h3 class="govuk-heading-m">Writing and publishing</h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a class="govuk-link" href="#">Content Data</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="#">GOV.UK style guide</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="#">How to publish content on GOV.UK</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="#">Planning, writing and managing content</a>
+        </li>
+      </ul>
+
+
+      <h3 class="govuk-heading-m">Product development</h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a class="govuk-link" href="#">Inside GOV.UK blog</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="#">What's new</a>
+        </li>
+      </ul>
+
+
+      <h3 class="govuk-heading-m">Support</h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a class="govuk-link" href="#">GDS support form (Zendesk)</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="#">Find in admin bookmarklet</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="#">How to publish content on GOV.UK</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="#">Planning, writing and managing content</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+{% endblock %}

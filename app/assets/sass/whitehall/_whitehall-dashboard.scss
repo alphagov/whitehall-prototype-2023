@@ -1,0 +1,45 @@
+
+/* DASHBOARD */
+.app-whats-new {
+    border-bottom: 1px solid #b1b4b6;
+    background-color: #f8f8f8;
+  }
+  .app-masthead {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #1d70b8;
+      color: #fff;
+      background-color: #1d70b8;
+  }
+  .app-masthead__title {
+      color: #fff;
+      margin-bottom: 20px;
+      .govuk-caption-xl {
+        color: white;
+      }
+  }
+  .app-masthead__description {
+      font-family: "GDS Transport",arial,sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-weight: 400;
+      font-size: 18px;
+      font-size: 1.125rem;
+      line-height: 1.1111111111;
+      margin-bottom: 0;
+      color: white;
+  }
+  @media (min-width: 40.0625em) {
+    .app-masthead {
+        padding-top: 30px;
+    }
+    .app-masthead__title {
+        margin-bottom: 30px;
+    }
+    .app-masthead__description {
+        font-size: 24px;
+        font-size: 1.5rem;
+        line-height: 1.25;
+    }
+  }
+  /* // END DASHBOARD */

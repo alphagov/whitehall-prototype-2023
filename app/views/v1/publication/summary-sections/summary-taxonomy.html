@@ -1,0 +1,78 @@
+{% set sectionState = [] %}
+<h3 class="govuk-heading-l">Topic taxonomy tags</h3>
+
+{% if data['pageState'] === 'populated' or data['pageState'] === 'fullPopulated' %}
+<p class="govuk-body whitehall-summary-change-link">
+  <a href="../publication/edit/taxonomy{{hrefParams}}" class="govuk-link">Edit</a>
+</p>
+{% endif %}
+
+{% if data['pageState'] === 'empty' or data['pageState'] === 'bodyAttachments' %}
+<p class="govuk-body whitehall-summary-change-link">
+  <a href="../publication/edit/taxonomy{{hrefParams}}" class="govuk-link">Add a taxonomy tag</a>
+</p>
+{% endif %}
+
+
+{% if data['pageState'] === 'populated' or data['pageState'] === 'fullPopulated' %}
+{{ govukSummaryList({
+  classes: "whitehall-taxonomy-list",
+  rows: [
+    {
+      key: {
+        html: '<div class="govuk-breadcrumbs">
+          <ol class="govuk-breadcrumbs__list">
+            <li class="govuk-breadcrumbs__list-item">
+              <p class="govuk-body">
+                Transport
+              </p>
+            </li>
+            <li class="govuk-breadcrumbs__list-item">
+              <p class="govuk-body govuk-!-font-weight-bold">
+                Transport accessibility and mobility
+              </p>
+            </li>
+            <li class="govuk-breadcrumbs__list-item">
+              <p class="govuk-body govuk-!-font-weight-bold">
+                Blue badges
+              </p>
+            </li>
+          </ol>
+        </div>',
+        classes: "govuk-body"
+      },
+      value: {
+        text: ""
+      }
+    },
+    {
+      key: {
+        html: '<div class="govuk-breadcrumbs">
+          <ol class="govuk-breadcrumbs__list">
+            <li class="govuk-breadcrumbs__list-item">
+              <p class="govuk-body">
+                Regional and local government
+              </p>
+            </li>
+            <li class="govuk-breadcrumbs__list-item">
+              <p class="govuk-body govuk-!-font-weight-bold">
+                Local councils and services
+              </p>
+            </li>
+          </ol>
+        </div>',
+        classes: "govuk-body"
+      },
+      value: {
+        text: ""
+      }
+    }
+  ]
+}) }}
+{% endif %}
+
+{% if data['pageState'] === 'empty' or data['pageState'] === 'bodyAttachments' %}
+<p class="govuk-body whitehall-body-empty">
+  You need to select a taxonomy tag before publishing.
+</p>
+{% endif %}

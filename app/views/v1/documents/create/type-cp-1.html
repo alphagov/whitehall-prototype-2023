@@ -1,0 +1,153 @@
+
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+  {{ super() }}
+{% endblock %} 
+
+{% block header %}
+  {{ whitehallHeader({
+      homepageUrl: "../../dashboard/",
+      serviceName: serviceName,
+      serviceUrl: "/",
+      containerClasses: "govuk-width-container",
+      phaseBanner: true,
+      navigation: [
+        {
+          href: "../documents/" + hrefParams,
+          text: "Documents",
+          active: true
+        },
+        {
+          href: "../organisation/" + hrefParams,
+          text: "My organisation"
+        },
+        {
+          href: "../support/" + hrefParams,
+          text: "Support information"
+        },
+        {
+          href: "../guidance/" + hrefParams,
+          text: "Guidance"
+        },
+        {
+          href: "../account/" + hrefParams,
+          text: globals.loggedUser
+        },
+        {
+          href: "../signout" + hrefParams,
+          text: "Sign out"
+        }
+      ],
+      back:
+        {
+          text: "Back",
+          href: "../documents/create/type-cp"
+        }
+  }) }}
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form data-gtm="confirm-document-type" action="/documents/new?type=news" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="SZ8RZ03iVI9UkQxwPkltPCHSCDw0j1HVQupW2juhPRDfFEmUUq7hpZTdPYR_6YPnhwr-eAvQ6-EmFphmFaaWXA" autocomplete="off">
+        <div class="govuk-form-group govuk-!-margin-bottom-6">
+    <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+          
+          <h1 class="govuk-fieldset__heading gem-c-radio__heading-text">News and communications</h1>
+  </legend>
+  
+  
+      <div class="govuk-radios">
+            <div class="gem-c-radio govuk-radios__item">
+              <input type="radio" name="selected_option_id" id="radio-55346491-0" value="news_story" class="govuk-radios__input" aria-describedby="label-hint-4e460a92" data-gtm="choose-document-type" data-gtm-value="News story">
+              
+    <label for="radio-55346491-0" class="gem-c-label govuk-label govuk-label--s govuk-radios__label">News story</label>
+  
+    <span id="label-hint-4e460a92" class="govuk-hint govuk-radios__hint">
+      News written for GOV.UK which users need, can act on, and cannot get from other sources.
+  </span>
+  </div>
+  
+            <div class="gem-c-radio govuk-radios__item">
+              <input type="radio" name="selected_option_id" id="radio-55346491-1" value="press_release" class="govuk-radios__input" aria-describedby="label-hint-81836ed0" data-gtm="choose-document-type" data-gtm-value="Press release">
+              
+    <label for="radio-55346491-1" class="gem-c-label govuk-label govuk-label--s govuk-radios__label">Press release</label>
+  
+    <span id="label-hint-81836ed0" class="govuk-hint govuk-radios__hint">
+      Unedited press releases as sent to the media, and official statements from the organisation.
+  </span>
+  </div>
+  
+            <div class="gem-c-radio govuk-radios__item">
+              <input type="radio" name="selected_option_id" id="radio-55346491-2" value="speech" class="govuk-radios__input" aria-describedby="label-hint-ba3b86fc" data-gtm="choose-document-type" data-gtm-value="Speech">
+              
+    <label for="radio-55346491-2" class="gem-c-label govuk-label govuk-label--s govuk-radios__label">Speech</label>
+  
+    <span id="label-hint-ba3b86fc" class="govuk-hint govuk-radios__hint">
+      A significant speech by a minister or official.
+  </span>
+  </div>
+  
+            <div class="gem-c-radio govuk-radios__item">
+              <input type="radio" name="selected_option_id" id="radio-55346491-3" value="statement_to_parliament" class="govuk-radios__input" aria-describedby="label-hint-fa0201b4" data-gtm="choose-document-type" data-gtm-value="Statement to Parliament">
+              
+    <label for="radio-55346491-3" class="gem-c-label govuk-label govuk-label--s govuk-radios__label">Statement to Parliament</label>
+  
+    <span id="label-hint-fa0201b4" class="govuk-hint govuk-radios__hint">
+      A written or oral statement made to Parliament
+  </span>
+  </div>
+  
+            <div class="gem-c-radio govuk-radios__item">
+              <input type="radio" name="selected_option_id" id="radio-55346491-4" value="case_study" class="govuk-radios__input" aria-describedby="label-hint-d0ca5ca8" data-gtm="choose-document-type" data-gtm-value="Case study">
+              
+    <label for="radio-55346491-4" class="gem-c-label govuk-label govuk-label--s govuk-radios__label">Case study</label>
+  
+    <span id="label-hint-d0ca5ca8" class="govuk-hint govuk-radios__hint">
+      Real examples that help users understand a process or an important aspect of government policy.
+  </span>
+  </div>
+  
+            <div class="gem-c-radio govuk-radios__item">
+              <input type="radio" name="selected_option_id" id="radio-55346491-5" value="authored_article" class="govuk-radios__input" aria-describedby="label-hint-86505749" data-gtm="choose-document-type" data-gtm-value="Authored article">
+              
+    <label for="radio-55346491-5" class="gem-c-label govuk-label govuk-label--s govuk-radios__label">Authored article</label>
+  
+    <span id="label-hint-86505749" class="govuk-hint govuk-radios__hint">
+      Bylined articles written in the name of a minister or official, usually republished from elsewhere.
+  </span>
+  </div>
+  
+  </div>
+  </fieldset></div>
+  
+        
+  
+  
+          <!-- TODO: Variable for each different type selection -->
+          {{ govukButton({
+            text: "Continue",
+            href: "../publication/create"
+          }) }}
+  </form>
+
+
+
+
+
+
+      
+
+
+
+
+
+  </div>
+</div>
+{% endblock %}
+{% block footer %}{% include "includes/footer-v1.html" %}{% endblock %}

@@ -1,0 +1,573 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+
+{% block pageTitle %}
+  {{ super() }}
+{% endblock %} 
+
+<!--
+  empty
+  populated
+
+
+  already-published
+  new-draft
+  main.warning-xxxx
+  main.document-type-publication
+-->
+{% set mainClasses = "govuk-main-wrapper--auto-spacing document-type-publication summary" %}
+
+{% block header %}
+  {{ super() }}
+  {{ whitehallHeader({
+      homepageUrl: "dashboard/",
+      serviceName: serviceName,
+      serviceUrl: "/",
+      containerClasses: "govuk-width-container",
+      phaseBanner: true,
+      navigation: [
+        {
+          href: "../documents/" + hrefParams,
+          text: "Documents",
+          active: true
+        },
+        {
+          href: "../organisation/" + hrefParams,
+          text: "My organisation"
+        },
+        {
+          href: "../support/" + hrefParams,
+          text: "Support information"
+        },
+        {
+          href: "../guidance/" + hrefParams,
+          text: "Guidance"
+        },
+        {
+          href: "../account/" + hrefParams,
+          text: globals.loggedUser
+        },
+        {
+          href: "../signout" + hrefParams,
+          text: "Sign out"
+        }
+      ],
+      items: [
+        {
+          text: "Home",
+          href: "../dashboard/" + hrefParams
+        },
+        {
+          text: "Documents",
+          href: "../documents/" + hrefParams
+        }
+      ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-4">
+    <!-- 
+      Error message
+      Success message
+      -->
+    <div class="documentCreated">
+      <div class="gem-c-success-alert govuk-notification-banner govuk-notification-banner--success" role="alert" tabindex="-1" aria-labelledby="govuk-notification-banner-title-f436ae93" data-module="initial-focus" data-initial-focus-module-started="true">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title-f436ae93">Success</h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <p class="govuk-body gem-c-success-alert__message">This document was created successfully</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="documentSubmitted">
+      <div class="gem-c-success-alert govuk-notification-banner govuk-notification-banner--success" role="alert" tabindex="-1" aria-labelledby="govuk-notification-banner-title-f436ae93" data-module="initial-focus" data-initial-focus-module-started="true">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title-f436ae93">Success</h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <p class="govuk-body gem-c-success-alert__message">This document was submitted for 2nd eyes successfully</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="documentSaved">
+      <div class="gem-c-success-alert govuk-notification-banner govuk-notification-banner--success" role="alert" tabindex="-1" aria-labelledby="govuk-notification-banner-title-f436ae93" data-module="initial-focus" data-initial-focus-module-started="true">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title-f436ae93">Success</h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <p class="govuk-body gem-c-success-alert__message">This document was saved successfully</p>
+        </div>
+      </div>
+    </div>
+
+    <span class="govuk-caption-xl">
+      {{content.documentContent[0].subtype}}
+    </span>
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">
+      {{content.documentContent[0].title}}
+    </h1>
+
+    <div class="tag-draft">
+      <!-- {{ govukTag({
+        text: content.state,
+        classes: "govuk-tag--content.colour"
+      }) }} -->
+      <strong class="govuk-tag govuk-tag--{{content.documentContent[0].tagColour}}">
+        {{content.documentContent[0].state}}
+      </strong>
+    </div>
+
+    <div class="tag-submitted">
+      {{ govukTag({
+        text: "Submitted",
+        classes: "govuk-tag--green"
+      }) }}
+    </div>
+
+    <!--
+      Warnings
+      
+            When someone else force-published
+    *       2i: Looks good
+
+    Warning: Cannot be force published because of broken links
+    -->
+    <div id="warning-broken-link" class="govuk-!-margin-top-4">
+      {{ govukWarningText({
+        html: '<p class="govuk-body"><b>Broken links:</b> We’ve found links in this document that may be broken.</p>
+                <p class="govuk-body"><a href="#" class="govuk-link">https://lipsudsfsdf.com/</a></p>
+                <p class="govuk-body"><b>Error:</b> Website unavailable</p>
+                <p class="govuk-body"><b>Suggested fix:</b> Determine if this is a temporary issue or the resource is no longer available.</p>',
+        iconFallbackText: "Warning"
+      }) }}
+    </div>
+
+    <div id="warning-rejected" class="govuk-!-margin-top-4">
+      {{ govukWarningText({
+        html: 'Rejected by: <a href="#" class="govuk-link"><b>Carlos Bernardo Jr</b></a> (See History and notes).',
+        iconFallbackText: "Warning"
+      }) }}
+    </div>
+    
+    <div id="warning-edit-conflict" class="govuk-!-margin-top-4">
+      {{ govukWarningText({
+        html: '<a href="account/profile" class="govuk-link"><b>John-Paul Dickie</b></a> started editing this publication about 2 hours ago and hasn’t yet saved their work.
+        You might want to check if they are still working on it.',
+        iconFallbackText: "Warning"
+      }) }}
+    </div>
+    
+    <div id="warning-already-published" class="govuk-!-margin-top-4">
+      {{ govukInsetText({
+        html: '<p class="govuk-body govuk-!-margin-bottom-2">
+                This is a new draft of a document that has already been published.
+              </p>
+              <p class="govuk-body govuk-!-margin-bottom-2">
+                <a href="#" class="govuk-link">Go to published edition</a>
+              </p>
+              <p class="govuk-body govuk-!-margin-bottom-2">
+                <a href="#" class="govuk-link">See what\'s changed</a>
+              </p>'
+      }) }}
+    </div>
+
+    <div id="warning-2nd-eyes-others" class="govuk-!-margin-top-4">
+      {{ govukInsetText({
+        html: '<p class="govuk-body govuk-!-margin-bottom-2">
+                This document was marked as ready for 2i review in your organisation.
+              </p>
+              <p class="govuk-body govuk-!-margin-bottom-2">
+                <a href="#" class="govuk-link">Review</a>
+              </p>'
+      }) }}
+    </div>
+
+    <div id="warning-2nd-eyes-self" class="govuk-!-margin-top-4">
+      {{ govukInsetText({
+        html: '<p class="govuk-body govuk-!-margin-bottom-2">
+                <b>You marked this document as ready for 2i review.</b>
+              </p>
+              <p class="govuk-body govuk-!-margin-bottom-4">
+                Send the Content Publisher link to another publisher for them to review. When content is ready you or they can publish it.
+              </p>
+              <p class="govuk-body govuk-!-margin-bottom-4">
+                <input class="gem-c-input govuk-input" data-gtm="url-for-2i-approval-input" data-gtm-copy-paste-tracking="true" id="input-d663d156" name="9ef0b3b50d0b3955fec4233bf8f33ff1" readonly="readonly" spellcheck="false" type="text" value="https://content-publisher.integration.publishing.service.gov.uk/documents/52899760-d3e2-4797-ba5c-82704f14a172:en?utm_campaign=govuk-publishing&amp;utm_medium=copy-paste&amp;utm_source=2i-link">
+              </p>
+              <p class="govuk-body govuk-!-margin-bottom-0">
+                <a href="#" class="govuk-link">Copy link</a>
+              </p>'
+      }) }}
+    </div>
+
+    <div id="warning-new-draft" class="govuk-!-margin-top-4">
+      {{ govukInsetText({
+        html: '<p class="govuk-body govuk-!-margin-bottom-2">
+          This document has a new draft. You are currently viewing the edition that is published on the website.
+              </p>
+              <p class="govuk-body govuk-!-margin-bottom-2">
+                <a href="#" class="govuk-link">Go to draft</a>
+              </p>
+              <p class="govuk-body govuk-!-margin-bottom-2">
+                <a href="#" class="govuk-link">See what\'s changed</a>
+              </p>'
+      }) }}
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+    {{ mojSubNavigation({
+      label: 'Sub navigation',
+      items: [{
+        text: 'Summary',
+        href: 'summary',
+        active: true
+      }, {
+        html: 'History and notes <span id="notifications" class="moj-notification-badge">17</span>',
+        href: 'history'
+      },
+      {
+        html: 'Preview and share',
+        href: '../preview'
+      },
+      {
+        html: 'Publish and other actions',
+        href: '../publish'
+      }]
+    }) }}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- <section class="govuk-notification-banner gem-c-notice govuk-!-margin-bottom-8" aria-label="Notice" role="region">
+      <div class="govuk-notification-banner__content">
+    <span class="gem-c-notice__title govuk-notification-banner__heading">This was published under the 2005 to 2010 Labour government</span>
+    </div></section> -->
+
+    <div class="app-c-inset-prompt empty" data-gtm="pre-publish-issues" data-gtm-visibility-tracking="true" data-gtm-vis-recent-on-screen-9704122_311="94" data-gtm-vis-first-on-screen-9704122_311="94" data-gtm-vis-total-visible-time-9704122_311="100" data-gtm-vis-has-fired-9704122_311="1">
+      <h3 class="app-c-inset-prompt__title govuk-heading-m">To publish this document you need to</h3>
+      <div class="app-c-inset-prompt__body">
+        <ul class="govuk-list app-c-inset-prompt__list">
+          <!-- <li>
+            <a data-gtm="requirements-issue" data-gtm-value="Enter a summary" data-gtm-visibility-tracking="true" class="govuk-link govuk-link--no-visited-state" href="../documents/e10c314b-4193-439c-87d8-a1b28c240e91:en/content#summary" data-gtm-vis-recent-on-screen-9704122_311="98" data-gtm-vis-first-on-screen-9704122_311="98" data-gtm-vis-total-visible-time-9704122_311="100" data-gtm-vis-has-fired-9704122_311="1">Enter a summary</a>
+          </li>           -->
+          <li>
+            <a data-gtm="requirements-issue" data-gtm-value="Enter a body" data-gtm-visibility-tracking="true" class="govuk-link govuk-link--no-visited-state" href="#body" data-gtm-vis-recent-on-screen-9704122_311="101" data-gtm-vis-first-on-screen-9704122_311="101" data-gtm-vis-total-visible-time-9704122_311="100" data-gtm-vis-has-fired-9704122_311="1">Enter a body</a>
+          </li>
+          <li>
+            <a data-gtm="requirements-issue" data-gtm-value="Add a topic" data-gtm-visibility-tracking="true" class="govuk-link govuk-link--no-visited-state" href="#taxonomy" data-gtm-vis-recent-on-screen-9704122_311="103" data-gtm-vis-first-on-screen-9704122_311="103" data-gtm-vis-total-visible-time-9704122_311="100" data-gtm-vis-has-fired-9704122_311="1">Add a topic</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="contents" class="app-c-contents-list-with-body">
+      <nav class="gem-c-contents-list" aria-label="Contents" role="navigation" data-module="gem-track-click" data-gem-track-click-module-started="true">
+        <h2 class="gem-c-contents-list__title">
+          Sections
+        </h2>
+          <ol class="gem-c-contents-list__list">
+            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+              <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" data-track-category="contentsClicked" data-track-action="content_item 1" data-track-label="#title-type" data-track-options="{&quot;dimension29&quot;:&quot;Document type and title&quot;}" href="#title-type">Document type</a>
+            </li>
+            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+              <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" data-track-category="contentsClicked" data-track-action="content_item 2" data-track-label="#summary" data-track-options="{&quot;dimension29&quot;:&quot;Summary&quot;}" href="#summary">Title and summary</a>
+            </li>
+            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+              <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" data-track-category="contentsClicked" data-track-action="content_item 3" data-track-label="#previously-published" data-track-options="{&quot;dimension29&quot;:&quot;Has this document been published before?&quot;}" href="#previously-published">Has this document been published before?</a>
+            </li>
+            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+              <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" data-track-category="contentsClicked" data-track-action="content_item 4" data-track-label="#taxonomy" data-track-options="{&quot;dimension29&quot;:&quot;Topic taxonomy tags&quot;}" href="#taxonomy">Topic taxonomy tags</a>
+            </li>
+            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+              <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" 
+              data-track-category="contentsClicked" 
+              data-track-action="content_item 5" 
+              data-track-label="#" 
+              data-track-options="{&quot;dimension29&quot;:&quot;Organisations and Ministers&quot;}" 
+              href="#">Organisations and Ministers</a>
+            </li>
+            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+              <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" 
+              data-track-category="contentsClicked" 
+              data-track-action="content_item 5" 
+              data-track-label="#excluded-nations" 
+              data-track-options="{&quot;dimension29&quot;:&quot;Excluded nations&quot;}" 
+              href="#excluded-nations">Excluded nations</a>
+            </li>
+            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+              <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" 
+              data-track-category="contentsClicked" 
+              data-track-action="content_item 5" 
+              data-track-label="#attachments" 
+              data-track-options="{&quot;dimension29&quot;:&quot;Attachments&quot;}" 
+              href="#attachments">Attachments</a>
+            </li>
+            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+              <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" 
+              data-track-category="contentsClicked" 
+              data-track-action="content_item 5" 
+              data-track-label="#body" 
+              data-track-options="{&quot;dimension29&quot;:&quot;Document body&quot;}" 
+              href="#body">Document body and images</a>
+            </li>
+            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+              <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" 
+              data-track-category="contentsClicked" 
+              data-track-action="content_item 5" 
+              data-track-label="#images" 
+              data-track-options="{&quot;dimension29&quot;:&quot;Available images to use in document&quot;}" 
+              href="#images">Available images to use in document</a>
+            </li>
+            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+              <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" 
+              data-track-category="contentsClicked" 
+              data-track-action="content_item 5" 
+              data-track-label="#specialist-topic" 
+              data-track-options="{&quot;dimension29&quot;:&quot;Specialist topics (optional)&quot;}" 
+              href="#specialist-topic">Specialist topics (optional)</a>
+            </li>
+            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+              <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" 
+              data-track-category="contentsClicked" 
+              data-track-action="content_item 5" 
+              data-track-label="#associations" 
+              data-track-options="{&quot;dimension29&quot;:&quot;Associations (optional)&quot;}" 
+              href="#associations">Associations (optional)</a>
+            </li>
+            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+              <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" 
+              data-track-category="contentsClicked" 
+              data-track-action="content_item 5" 
+              data-track-label="#translations" 
+              data-track-options="{&quot;dimension29&quot;:&quot;Translations (optional)&quot;}" 
+              href="#translations">Translations (optional)</a>
+            </li>
+            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+              <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" 
+              data-track-category="contentsClicked" 
+              data-track-action="content_item 5" 
+              data-track-label="#associated-user-needs" 
+              data-track-options="{&quot;dimension29&quot;:&quot;Associated user needs (optional)&quot;}" 
+              href="#associated-user-needs">Associated user needs (optional)</a>
+            </li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="sections">
+      <section id="title-type" class="title-type">
+        {% include "./summary-sections/summary-title-type.html" %}
+        <a class="govuk-link app-c-back-to-top dont-print" href="#contents">
+          <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+          </svg>
+          Contents
+        </a>
+      </section>
+
+      <section id="summary" class="summary">
+        {% include "./summary-sections/summary-summary.html" %}
+        <a class="govuk-link app-c-back-to-top dont-print" href="#contents">
+          <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+          </svg>
+          Contents
+        </a>
+      </section>
+
+      <section id="language" class="language">
+        {% include "./summary-sections/summary-language.html" %}
+        <a class="govuk-link app-c-back-to-top dont-print" href="#contents">
+          <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+          </svg>
+          Contents
+        </a>
+      </section>
+
+      <section id="previously-published" class="previously-published">
+        {% include "./summary-sections/summary-previously-published.html" %}
+        <a class="govuk-link app-c-back-to-top dont-print" href="#contents">
+          <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+          </svg>
+          Contents
+        </a>
+      </section>
+
+      <section id="change-notes" class="change-notes">
+        {% include "./summary-sections/summary-change-notes.html" %}
+        <a class="govuk-link app-c-back-to-top dont-print" href="#contents">
+          <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+          </svg>
+          Contents
+        </a>
+      </section>
+        
+      <section id="taxonomy" class="taxonomy">
+        {% include "./summary-sections/summary-taxonomy.html" %}
+        <a class="govuk-link app-c-back-to-top dont-print" href="#contents">
+          <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+          </svg>
+          Contents
+        </a>
+      </section>
+        
+      <section id="organisations-ministers" class="organisations-ministers">
+        {% include "./summary-sections/summary-organisations-ministers.html" %}
+        <a class="govuk-link app-c-back-to-top dont-print" href="#contents">
+          <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+          </svg>
+          Contents
+        </a>
+      </section>
+
+      <!-- <h2 class="govuk-heading-l govuk-!-margin-bottom-2">Related content????</h2>
+      Right column 
+      Related content
+      links -->
+
+      <section id="excluded-nations" class="excluded-nations">
+        {% include "./summary-sections/summary-excluded-nations.html" %}
+        <a class="govuk-link app-c-back-to-top dont-print" href="#contents">
+          <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+          </svg>
+          Contents
+        </a>
+      </section>
+
+      <section id="attachments" class="attachments">
+        {% include "./summary-sections/summary-attachments.html" %}
+        <a class="govuk-link app-c-back-to-top dont-print" href="#contents">
+          <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+          </svg>
+          Contents
+        </a>
+      </section>
+
+      <section id="lead-image" class="lead-image">
+        {% include "./summary-sections/summary-lead-image.html" %}
+        <a class="govuk-link app-c-back-to-top dont-print" href="#contents">
+          <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+          </svg>
+          Contents
+        </a>
+      </section>
+
+      <section id="body" class="body">
+        {% include "./summary-sections/summary-body.html" %}
+        <a class="govuk-link app-c-back-to-top dont-print" href="#contents">
+          <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+          </svg>
+          Contents
+        </a>
+      </section>
+
+      <section id="images" class="images" style="display: none;">
+        {% include "./summary-sections/summary-images.html" %}
+        <a class="govuk-link app-c-back-to-top dont-print" href="#contents">
+          <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+          </svg>
+          Contents
+        </a>
+      </section>
+
+      <section id="specialist-topic" class="specialist-topic">
+        {% include "./summary-sections/summary-specialist-topic.html" %}
+        <a class="govuk-link app-c-back-to-top dont-print" href="#contents">
+          <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+          </svg>
+          Contents
+        </a>
+      </section>
+
+      <section id="associations" class="associations">
+        {% include "./summary-sections/summary-associations.html" %}
+        <a class="govuk-link app-c-back-to-top dont-print" href="#contents">
+          <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+          </svg>
+          Contents
+        </a>
+      </section>
+
+      <section id="worldwide-tags" class="worldwide-tags">
+        {% include "./summary-sections/summary-worldwide-tags.html" %}
+        <a class="govuk-link app-c-back-to-top dont-print" href="#contents">
+          <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+          </svg>
+          Contents
+        </a>
+      </section>
+
+      <section id="related-guides" class="related-guides">
+        {% include "./summary-sections/summary-related-guides.html" %}
+        <a class="govuk-link app-c-back-to-top dont-print" href="#contents">
+          <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+          </svg>
+          Contents
+        </a>
+      </section>
+
+      <section id="translations" class="translations">
+        {% include "./summary-sections/summary-translations.html" %}
+        <a class="govuk-link app-c-back-to-top dont-print" href="#contents">
+          <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+          </svg>
+          Contents
+        </a>
+      </section>
+
+      <section id="associated-user-needs" class="associated-user-needs">
+        {% include "./summary-sections/summary-associated-user-needs.html" %}
+        <a class="govuk-link app-c-back-to-top dont-print" href="#contents">
+          <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+          </svg>
+          Contents
+        </a>
+      </section>
+    </div>
+  </div>
+
+
+  <!-- RIGHT COLUMN -->
+  <div class="govuk-grid-column-one-third">
+
+    <!-- Actions and tools? -->
+  
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,103 @@
+{% set sectionState = [] %}
+{# <h3 class="govuk-heading-l">Organisations and Ministers</h3> #}
+
+{# {% if data['pageState'] === 'empty' or data['pageState'] === 'populated' or data['pageState'] === 'fullPopulated' or data['pageState'] === 'bodyAttachments' %} #}
+{{ govukButton({
+    text: "Edit organisations and ministers",
+    classes: "govuk-button--secondary",
+    href: "../publication/edit/organisations" + hrefParams
+}) }}
+{# <p class="govuk-body whitehall-summary-change-link">
+    <a href="../publication/edit/organisations{{hrefParams}}" class="govuk-link">Edit organisations and ministers</a>
+</p> #}
+{# {% endif %} #}
+<!-- From: Organisations (Order: lead, support, and ministers)
+Shows 5 and hide the rest
+show more, show fewer
+Associations (h3)
+
+<p class="govuk-body">At least one lead organisation is required.</p>
+-->
+
+{% if data['pageState'] === 'fullPopulated' %}
+{{ govukSummaryList({
+    rows: [
+    {
+        key: {
+        text: "Lead organisations"
+        },
+        value: {
+        html: '<ul class="govuk-list govuk-list--bullet">
+            <li>' + content.documentContent[0].department + '</li>
+            <li>Government Digital Service</li>
+            <li>Civil Service Fast Stream</li>
+            <li>Milk Development Council</li>
+        </ul>'
+        }
+    },
+    {
+        key: {
+        text: "Supporting organisations (optional)"
+        },
+        value: {
+        html: '<ul class="govuk-list govuk-list--bullet">
+            <li>Youth Justice Agency of Northern Ireland</li>
+            <li>Zahid Mubarek Inquiry</li>
+            <li>Postal Services Commission</li>
+            <li>Phoenix Sports</li>
+            <li>Independent Parliamentary Standards Authority</li>
+            <li>NHS Counter Fraud Authority</li>
+        </ul>'
+        }
+    },
+    {
+        key: {
+        text: "Ministers (optional)"
+        },
+        value: {
+        html: '<ul class="govuk-list govuk-list--bullet">
+            <li>Lord Johnson</li>
+            <li>Baroness Deborah Stedman-Scott OBE DL</li>
+            <li>Lord Murray of Blidworth</li>
+            <li>Lord Parkinson of Whitley Bay</li>
+        </ul>'
+        }
+    }
+    ]
+}) }}
+{% endif %}
+
+{% if data['pageState'] === 'empty' or data['pageState'] === 'bodyAttachments' or data['pageState'] === 'populated' %}
+{{ govukSummaryList({
+    rows: [
+    {
+        key: {
+            text: "Lead organisations"
+        },
+            value: {
+            html: '<p class="govuk-body">' + content.documentContent[0].department + '</p>'
+        }
+    },
+    {
+        key: {
+            text: "Supporting organisations (optional)"
+        },
+        value: {
+            html: '<p class="govuk-body whitehall-body-empty-list">
+                No supporting organisations
+            </p>'
+        }
+    },
+    {
+        key: {
+            text: "Ministers (optional)"
+        },
+        value: {
+            html: '<p class="govuk-body whitehall-body-empty-list">
+                No ministers
+            </p>'
+        }
+    }
+    ]
+}) }}
+{% endif %}

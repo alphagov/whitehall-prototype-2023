@@ -1,0 +1,86 @@
+
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+  {{ super() }}
+{% endblock %} 
+
+{% block header %}
+  {{ super() }}
+
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form data-gtm="confirm-document-type" action="/documents/new?type=guidance_and_regulation" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="OyiqhoxzSXWr0cNA1XA8zCbu0e3BM801fN17NaHZwLCto_J1kz_8X2ud8rSU0NIXgDYnqf5sdwEYIbWJj95r_A" autocomplete="off">
+        <div class="govuk-form-group govuk-!-margin-bottom-6">
+    <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+          
+          <h1 class="govuk-fieldset__heading gem-c-radio__heading-text">Guidance and regulation</h1>
+  </legend>
+  
+  
+      <div class="govuk-radios">
+            <div class="gem-c-radio govuk-radios__item">
+              <input type="radio" name="selected_option_id" id="radio-6b35fd5e-0" value="guidance_publications" class="govuk-radios__input" aria-describedby="label-hint-c6d8d51c" data-gtm="choose-document-type" data-gtm-value="Guidance">
+              
+    <label for="radio-6b35fd5e-0" class="gem-c-label govuk-label govuk-label--s govuk-radios__label">Guidance</label>
+  
+    <span id="label-hint-c6d8d51c" class="govuk-hint govuk-radios__hint">
+      Guidance to help the user do something or understand what they need to do.
+  </span>
+  </div>
+  
+            <div class="gem-c-radio govuk-radios__item">
+              <input type="radio" name="selected_option_id" id="radio-6b35fd5e-2" value="form_managed_elsewhere" class="govuk-radios__input" aria-describedby="label-hint-078ca184" data-gtm="choose-document-type" data-gtm-value="Form publication">
+              
+    <label for="radio-6b35fd5e-2" class="gem-c-label govuk-label govuk-label--s govuk-radios__label">Form publication</label>
+  
+    <span id="label-hint-078ca184" class="govuk-hint govuk-radios__hint">
+      Form documents that need to be completed by the users.
+  </span>
+  </div>
+  
+            <div class="gem-c-radio govuk-radios__item">
+              <input type="radio" name="selected_option_id" id="radio-6b35fd5e-4" value="regulation_managed_elsewhere" class="govuk-radios__input" aria-describedby="label-hint-468ca4a9" data-gtm="choose-document-type" data-gtm-value="Regulation publication">
+              
+    <label for="radio-6b35fd5e-4" class="gem-c-label govuk-label govuk-label--s govuk-radios__label">Regulation publication</label>
+  
+    <span id="label-hint-468ca4a9" class="govuk-hint govuk-radios__hint">
+      Regulations imposed by an independent regulatory authority.
+  </span>
+  </div>
+  
+            <div class="gem-c-radio govuk-radios__item">
+              <input type="radio" name="selected_option_id" id="radio-6b35fd5e-6" value="map_managed_elsewhere" class="govuk-radios__input" aria-describedby="label-hint-c1e89116" data-gtm="choose-document-type" data-gtm-value="Map publication">
+              
+    <label for="radio-6b35fd5e-6" class="gem-c-label govuk-label govuk-label--s govuk-radios__label">Map publication</label>
+  
+    <span id="label-hint-c1e89116" class="govuk-hint govuk-radios__hint">
+      Drawn maps and geographical data.
+  </span>
+  </div>
+  
+  </div>
+  </fieldset></div>
+  
+        
+  
+  
+  <!-- TODO: Variable for each different type selection -->
+  {{ govukButton({
+    text: "Continue",
+    href: "../../documents/create/type-cp-2-1"
+  }) }}
+  </form>
+
+
+
+  </div>
+</div>
+{% endblock %}

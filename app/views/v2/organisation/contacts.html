@@ -1,0 +1,209 @@
+
+{% extends "layouts/main.html" %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+  {{ super() }}
+{% endblock %} 
+
+{% block header %}
+  {{ super() }}
+  <div class="govuk-width-container">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="javascript: submitNavForm('dashboard/', $(this));">Home</a>
+        </li>
+        {# <li class="govuk-breadcrumbs__list-item" aria-current="page">My organisation</li> #}
+      </ol>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  {{ super() }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">My organisation</span>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
+        Government Digital Service
+      </h1>
+
+      <p class="govuk-body">
+        <a href="#" class="govuk-link">View on website</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+      {{ mojSubNavigation({
+        label: 'Sub navigation',
+        items: [
+          {
+            text: 'Details',
+            href: "javascript: submitNavForm('organisation/', $(this));"
+          },
+          {
+            html: 'Pages',
+            href: "javascript: submitNavForm('organisation/pages', $(this));"
+          },
+          {
+            html: 'Contacts',
+            href: "javascript: submitNavForm('organisation/contacts', $(this));",
+            active: true
+          },
+          {
+            html: 'Features',
+            href: "javascript: submitNavForm('organisation/features', $(this));"
+          },
+          {
+            html: 'Social media accounts',
+            href: "javascript: submitNavForm('organisation/social-media-accounts', $(this));"
+          },
+          {
+            html: 'People',
+            href: "javascript: submitNavForm('organisation/people', $(this));"
+          },
+          {
+            html: 'Translations',
+            href: "javascript: submitNavForm('organisation/translations', $(this));"
+          },
+          {
+            html: 'Financial Reports',
+            href: "javascript: submitNavForm('organisation/financial-reports', $(this));"
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {{ govukButton({
+        text: "Create new contact",
+        href: "javascript: submitNavForm('organisation/create/contact', $(this));",
+        classes: "govuk-button--primary"
+      }) }}
+      <p class="govuk-body">
+        TBD
+      </p>
+    </div>
+  </div>
+
+
+{% endblock %}
+
+{% block pageScripts %}
+{{ super() }}
+<script>
+  $(document).ready(function() {  
+    $("#currentPage").attr({'value': 'organisation/'});
+    mainNavSetActive('organisation/');
+  });
+</script>
+{% endblock %}
+
+
+{# 
+
+<div class="tab-content">
+  <h2>Contacts</h2>
+    <div class="tabbable">
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#manage-all" data-toggle="tab">All</a></li>
+        <li><a href="#on-home-page" data-toggle="tab">Order on home page</a></li>
+      </ul>
+      <div class="tab-content add-top-margin">
+        <div class="tab-pane active" id="manage-all">
+  <div class="contact well contacts-admin" id="contact_1858">
+  <h3 class="remove-top-margin">Government Digital Service</h3>
+
+  <div class="vcard">
+    The White Chapel Building
+<br>10 Whitechapel High Street<br>London<br>E1 8QS
+  </div>
+  <dl class="dl-horizontal">
+    <dt>Contact type</dt><dd>General contact</dd>
+    <dt>Markdown to use</dt><dd>[Contact:1858]</dd>
+      <dt>On home page?</dt><dd>Yes</dd>
+</dl>
+  <form class="button_to" method="post" action="/government/admin/organisations/government-digital-service/contacts/1858"><input type="hidden" name="_method" value="delete" autocomplete="off"><input class="btn btn-sm btn-danger" data-confirm="Delete contact 'Government Digital Service' from organisation 'Government Digital Service'?" type="submit" value="Delete"><input type="hidden" name="authenticity_token" value="s1QdPz7Jeq4gFlh_x_biOkRQMKV9gGjS1fkvMe3rpQVaKhvRfccdkfOqIAGyN7rjsncOxBo8ToWnmxIXe8oipA" autocomplete="off"></form>
+  <a class="btn btn-default btn-sm" href="/government/admin/organisations/government-digital-service/contacts/1858/edit"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+        <form class="button_to" method="post" action="/government/admin/organisations/government-digital-service/contacts/1858/remove_from_home_page"><input type="hidden" name="_method" value="patch" autocomplete="off"><input class="btn btn-default btn-sm" type="submit" value="Remove from home page"><input type="hidden" name="authenticity_token" value="s1QdPz7Jeq4gFlh_x_biOkRQMKV9gGjS1fkvMe3rpQVaKhvRfccdkfOqIAGyN7rjsncOxBo8ToWnmxIXe8oipA" autocomplete="off"></form>
+
+</div><div class="contact well contacts-admin" id="contact_2584">
+  <h3 class="remove-top-margin">Freedom of information requests</h3>
+
+  <div class="vcard">
+    FOI Team<br>Cabinet Office 
+<br>Room 3.32 
+<br>1 Horse Guards Road  
+<br>London<br>SW1A 2HQ
+  </div>
+  <dl class="dl-horizontal">
+      <dt>Email</dt><dd>foi-team@cabinetoffice.gov.uk</dd>
+    <dt>Contact type</dt><dd>Freedom of Information contact</dd>
+    <dt>Markdown to use</dt><dd>[Contact:2584]</dd>
+      <dt>On home page?</dt><dd>Yes (in FOI section)</dd>
+</dl>
+  <form class="button_to" method="post" action="/government/admin/organisations/government-digital-service/contacts/2584"><input type="hidden" name="_method" value="delete" autocomplete="off"><input class="btn btn-sm btn-danger" data-confirm="Delete contact 'Freedom of information requests' from organisation 'Government Digital Service'?" type="submit" value="Delete"><input type="hidden" name="authenticity_token" value="s1QdPz7Jeq4gFlh_x_biOkRQMKV9gGjS1fkvMe3rpQVaKhvRfccdkfOqIAGyN7rjsncOxBo8ToWnmxIXe8oipA" autocomplete="off"></form>
+  <a class="btn btn-default btn-sm" href="/government/admin/organisations/government-digital-service/contacts/2584/edit"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+
+</div><div class="contact well contacts-admin" id="contact_3400">
+  <h3 class="remove-top-margin">Media enquiries</h3>
+
+  <div class="vcard">
+    
+  </div>
+  <dl class="dl-horizontal">
+    <dt>Contact type</dt><dd>Media contact</dd>
+    <dt>Markdown to use</dt><dd>[Contact:3400]</dd>
+      <dt>On home page?</dt><dd>Yes</dd>
+</dl>    <p class="comments">For GDS media enquiries, please contact the Cabinet Office press office: https://www.gov.uk/government/organisations/cabinet-office/about/media-enquiries</p>
+
+  <form class="button_to" method="post" action="/government/admin/organisations/government-digital-service/contacts/3400"><input type="hidden" name="_method" value="delete" autocomplete="off"><input class="btn btn-sm btn-danger" data-confirm="Delete contact 'Media enquiries' from organisation 'Government Digital Service'?" type="submit" value="Delete"><input type="hidden" name="authenticity_token" value="s1QdPz7Jeq4gFlh_x_biOkRQMKV9gGjS1fkvMe3rpQVaKhvRfccdkfOqIAGyN7rjsncOxBo8ToWnmxIXe8oipA" autocomplete="off"></form>
+  <a class="btn btn-default btn-sm" href="/government/admin/organisations/government-digital-service/contacts/3400/edit"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+        <form class="button_to" method="post" action="/government/admin/organisations/government-digital-service/contacts/3400/remove_from_home_page"><input type="hidden" name="_method" value="patch" autocomplete="off"><input class="btn btn-default btn-sm" type="submit" value="Remove from home page"><input type="hidden" name="authenticity_token" value="s1QdPz7Jeq4gFlh_x_biOkRQMKV9gGjS1fkvMe3rpQVaKhvRfccdkfOqIAGyN7rjsncOxBo8ToWnmxIXe8oipA" autocomplete="off"></form>
+
+</div>
+  <div class="form-actions">
+    <a class="btn btn-lg btn-primary" href="/government/admin/organisations/government-digital-service/contacts/new"><i class="glyphicon-plus glyphicon"></i> Add</a>
+  </div>
+        </div>
+        <div class="tab-pane" id="on-home-page">
+            <h3>FOI Contacts</h3>
+            <p>All FOI contacts are always shown on the home page in static order.</p>
+              <div class="well">
+                <p>Freedom of information requests</p>
+              </div>
+            <h3>Other contacts</h3>
+          <p>Drag up and down to re-order then click "Update contact list order" at the bottom of the form</p>
+          <p class="warning">Warning: changes to contacts appear instantly on the live site.</p>
+          <form action="/government/admin/organisations/government-digital-service/contacts/reorder_for_home_page" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="s1QdPz7Jeq4gFlh_x_biOkRQMKV9gGjS1fkvMe3rpQVaKhvRfccdkfOqIAGyN7rjsncOxBo8ToWnmxIXe8oipA" autocomplete="off">
+            <fieldset class="sortable">
+                
+                
+            </fieldset><ul class="list-unstyled ui-sortable"><li class="sort_item ui-sortable-handle"><div class="well">
+                  <label for="ordering-1858">
+                    Government Digital Service
+</label>
+                  <input type="text" name="ordering[1858]" id="ordering-1858" value="0" class="ordering" style="display: none;">
+                </div></li><li class="sort_item ui-sortable-handle"><div class="well">
+                  <label for="ordering-3400">
+                    Media enquiries
+</label>
+                  <input type="text" name="ordering[3400]" id="ordering-3400" value="1" class="ordering" style="display: none;">
+                </div></li></ul>
+            <div class="form-actions">
+              <input type="submit" name="commit" value="Update contact list order" class="btn btn-primary" data-disable-with="Update contact list order">
+            </div>
+</form>        </div>
+      </div>
+    </div>
+</div>
+
+ #}

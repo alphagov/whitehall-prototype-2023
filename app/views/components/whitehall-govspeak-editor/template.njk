@@ -1,0 +1,280 @@
+{% from "components/whitehall-modal/macro.njk" import whitehallModal %}
+{% from "govuk/components/table/macro.njk"     import govukTable %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% set insertItems = [
+    {
+      label: "Abbreviations and acronyms",
+      id: "abbr-acron",
+      href: ""
+    },
+    {
+      label: "Addresses",
+      id: "addresses",
+      href: ""
+    },
+    {
+      label: "Attachment",
+      id: "attachment",
+      href: ""
+    },
+    {
+      label: "Call to action",
+      id: "call-to-action",
+      href: ""
+    },
+    {
+      label: "Chart",
+      id: "chart",
+      href: ""
+    },
+    {
+      label: "Contact",
+      id: "contact",
+      href: ""
+    },
+    {
+      label: "Image",
+      id: "image",
+      href: ""
+    },
+    {
+      label: "Reusable content",
+      id: "reusable-content",
+      href: ""
+    },
+    {
+      label: "Table",
+      id: "table",
+      href: ""
+    },
+    {
+      label: "Video",
+      id: "video",
+      href: ""
+    }
+  ] %}
+
+<div class="app-c-markdown-editor govuk-form-group" data-module="markdown-editor" data-govspeak-path="/documents/caeeb65b-1232-4349-a9c9-50eab164d5cb:en/govspeak-preview" data-markdown-editor-module-started="true">
+  <div class="app-c-markdown-editor__container js-markdown-editor__container">
+    <div class="app-c-markdown-editor__head js-markdown-editor__head" style="display: block;">
+
+      <div class="app-c-markdown-editor__preview-toggle">
+        <button type="button" class="app-c-markdown-editor__button app-c-markdown-editor__button--muted js-markdown-edit-button" data-gtm="edit-markdown">Edit markdown</button>
+        <button type="button" class="app-c-markdown-editor__button js-markdown-preview-button" data-gtm="preview-markdown">Preview markdown</button>
+      </div>
+
+      <div class="app-c-markdown-editor__toolbar">
+        <markdown-toolbar class="app-c-markdown-editor__toolbar-group" for="body-field">
+          <md-header-2 class="app-c-markdown-editor__toolbar-button" title="Heading level 2" aria-label="Heading level 2" data-gtm="markdown-toolbar-h2" data-gtm-click-tracking="true" tabindex="0" role="button">
+            <svg version="1.1" viewBox="0 0 50 50" width="50" height="50" aria-hidden="true" class="app-c-markdown-editor__toolbar-icon">
+              <path d="M23.43,27.12l-7.64,0,0,7.41H12.29l0-17.6h3.51l0,7,7.64,0,0-7h3.51l0,17.6H23.45Z"></path>
+              <path d="M33.55,17.46a2,2,0,0,0-.78.14,1.49,1.49,0,0,0-.55.4,1.66,1.66,0,0,0-.32.6,2.49,2.49,0,0,0-.1.74l-2.25-.2a3.88,3.88,0,0,1,.31-1.58,3.34,3.34,0,0,1,.85-1.16A3.67,3.67,0,0,1,32,15.69a5,5,0,0,1,1.59-.25,4.86,4.86,0,0,1,1.65.26,3.76,3.76,0,0,1,1.28.75,3.32,3.32,0,0,1,.82,1.15,3.68,3.68,0,0,1,.3,1.48,3.88,3.88,0,0,1-.35,1.64,5.67,5.67,0,0,1-.93,1.42A8,8,0,0,1,35,23.33a14.45,14.45,0,0,1-1.56,1l-.2.11h4.53v2l-7.92,0v-2q.61-.33,1.25-.71t1.24-.79q.6-.41,1.14-.86a7,7,0,0,0,.93-.92,4.49,4.49,0,0,0,.63-1,2.47,2.47,0,0,0,.23-1,1.82,1.82,0,0,0-.11-.61,1.58,1.58,0,0,0-.32-.53,1.53,1.53,0,0,0-.53-.37A1.84,1.84,0,0,0,33.55,17.46Z"></path>
+            </svg>
+          </md-header-2>
+          <md-header-3 class="app-c-markdown-editor__toolbar-button" title="Heading level 3" aria-label="Heading level 3" data-gtm="markdown-toolbar-h3" data-gtm-click-tracking="true" tabindex="0" role="button">
+            <svg version="1.1" viewBox="0 0 50 50" width="50" height="50" aria-hidden="true" class="app-c-markdown-editor__toolbar-icon">
+              <path d="M24.51,26.41l-8.78,0,0,7.89h-2l0-17.17h2l0,7.46,8.78,0,0-7.46h2.06l0,17.17H24.53Z"></path>
+              <path d="M30.22,23.57a2.87,2.87,0,0,0,.91,1.22,2.56,2.56,0,0,0,1.62.47,2.89,2.89,0,0,0,1-.15,2,2,0,0,0,.7-.41,1.7,1.7,0,0,0,.42-.6,1.92,1.92,0,0,0,.14-.74A1.57,1.57,0,0,0,34.3,22a3,3,0,0,0-1.77-.48h-.45V20.4h.41a2.94,2.94,0,0,0,1-.16,2.19,2.19,0,0,0,.73-.44,1.75,1.75,0,0,0,.43-.6,1.72,1.72,0,0,0,.14-.68,1.6,1.6,0,0,0-.14-.64,1.75,1.75,0,0,0-.39-.56,1.71,1.71,0,0,0-.64-.38,2.61,2.61,0,0,0-.88-.14,2.41,2.41,0,0,0-1.47.45,2.65,2.65,0,0,0-.88,1.11l-1.07-.52a3.38,3.38,0,0,1,1.36-1.59,3.88,3.88,0,0,1,2.06-.56,4.14,4.14,0,0,1,1.34.21,3.19,3.19,0,0,1,1.06.59,2.76,2.76,0,0,1,.7.89,2.48,2.48,0,0,1,.25,1.11,2.44,2.44,0,0,1-.15.87,2.48,2.48,0,0,1-.41.71,2.25,2.25,0,0,1-.62.52,2.49,2.49,0,0,1-.76.29,2.51,2.51,0,0,1,2,1.59,2.45,2.45,0,0,1,.17.89,2.75,2.75,0,0,1-1.07,2.26,3.47,3.47,0,0,1-1.14.58,4.77,4.77,0,0,1-1.37.19,4.44,4.44,0,0,1-2.29-.59A3.26,3.26,0,0,1,29,24.1Z"></path>
+            </svg>
+          </md-header-3>
+          <md-link class="app-c-markdown-editor__toolbar-button" title="Link" aria-label="Link" data-gtm="markdown-toolbar-link" data-gtm-click-tracking="true" hotkey="k" tabindex="0" role="button">
+            <svg version="1.1" viewBox="0 0 50 50" width="50" height="50" aria-hidden="true" class="app-c-markdown-editor__toolbar-icon">
+              <path d="M34.14,15.81a3.78,3.78,0,0,0-2.69-1.11h0a3.79,3.79,0,0,0-2.69,1.12l-3.09,3.11a3.81,3.81,0,0,0-.93,3.84l.09.28,1.52-1.53v-.07a2,2,0,0,1,.58-1.27L30,17.08a2,2,0,1,1,2.88,2.86l-3.09,3.11a2,2,0,0,1-1.27.59h-.07l-1.52,1.53.28.09a3.81,3.81,0,0,0,3.84-.95l3.09-3.11a3.82,3.82,0,0,0,0-5.39Z"></path>
+              <path d="M25.19,26.93l-1.52,1.53v.07a2,2,0,0,1-.58,1.27L20,32.9A2,2,0,0,1,17.12,30l3.09-3.11a2,2,0,0,1,1.27-.59h.07l1.52-1.53-.28-.09a3.81,3.81,0,0,0-3.83.95l-3.09,3.11a3.81,3.81,0,0,0,2.7,6.5h0a3.79,3.79,0,0,0,2.69-1.12l3.09-3.11a3.8,3.8,0,0,0,.93-3.84Z"></path>
+              <polygon points="28.63 20.15 20.3 28.52 20.17 28.65 21.38 29.85 29.71 21.48 29.83 21.35 28.63 20.15"></polygon>
+            </svg>
+          </md-link>
+          <md-quote class="app-c-markdown-editor__toolbar-button" title="Blockquote" aria-label="Blockquote" data-gtm="markdown-toolbar-blockquote" data-gtm-click-tracking="true" tabindex="0" role="button">
+            <svg version="1.1" viewBox="0 0 50 50" width="50" height="50" aria-hidden="true" class="app-c-markdown-editor__toolbar-icon">
+              <path d="M18.86,32.09a4.76,4.76,0,0,1-3.42-1.43,5.05,5.05,0,0,1-1-1.64A5.67,5.67,0,0,1,14,26.9a7.87,7.87,0,0,1,.45-2.56,8.36,8.36,0,0,1,1.4-2.5,10.74,10.74,0,0,1,2.37-2.15,11.07,11.07,0,0,1,3.39-1.5l.77-.25.74,2.35-.45.14A9.08,9.08,0,0,0,19.85,22a5.32,5.32,0,0,0-1.68,2.22h.74a4,4,0,0,1,2.82,1.1,3.85,3.85,0,0,1,.86,1.23,3.77,3.77,0,0,1,.32,1.54,3.87,3.87,0,0,1-.31,1.56,4,4,0,0,1-.86,1.27,4.06,4.06,0,0,1-1.29.85A4.16,4.16,0,0,1,18.86,32.09Zm12.85,0a4.76,4.76,0,0,1-3.42-1.43,5.05,5.05,0,0,1-1-1.64,5.67,5.67,0,0,1-.39-2.11,7.87,7.87,0,0,1,.45-2.56,8.36,8.36,0,0,1,1.4-2.5,10.74,10.74,0,0,1,2.37-2.15,11.11,11.11,0,0,1,3.39-1.5l.77-.25L36,20.27l-.45.14A9.08,9.08,0,0,0,32.7,22,5.32,5.32,0,0,0,31,24.19h.74a4,4,0,0,1,2.82,1.1,3.85,3.85,0,0,1,.86,1.23,3.77,3.77,0,0,1,.32,1.54,3.87,3.87,0,0,1-.31,1.56,4,4,0,0,1-.86,1.27,4.06,4.06,0,0,1-1.29.85A4.16,4.16,0,0,1,31.71,32.06Z"></path>
+            </svg>
+          </md-quote>
+          <md-ordered-list class="app-c-markdown-editor__toolbar-button" title="Numbered list" aria-label="Numbered list" data-gtm="markdown-toolbar-list" data-gtm-click-tracking="true" tabindex="0" role="button">
+            <svg version="1.1" viewBox="0 0 50 50" width="50" height="50" aria-hidden="true" class="app-c-markdown-editor__toolbar-icon">
+              <path d="M22,20.71v-3l15.55,0v3Z"></path>
+              <path d="M22,32.31v-3l15.55,0v3Z"></path>
+              <path d="M16.34,14.93l0,6.93H18.1V23.4H12.85V21.86H14.6V17.81H12.84V16.26h.59a2.34,2.34,0,0,0,.62-.07.79.79,0,0,0,.37-.21.75.75,0,0,0,.18-.36,2.6,2.6,0,0,0,0-.53v-.15Z"></path>
+              <path d="M15.39,28.14a1.44,1.44,0,0,0-.57.11,1.1,1.1,0,0,0-.41.3,1.23,1.23,0,0,0-.24.44,1.86,1.86,0,0,0-.08.55l-1.66-.15a2.89,2.89,0,0,1,.23-1.17,2.48,2.48,0,0,1,.62-.86,2.7,2.7,0,0,1,.93-.53,3.66,3.66,0,0,1,1.17-.18,3.56,3.56,0,0,1,1.21.2,2.76,2.76,0,0,1,.94.55,2.47,2.47,0,0,1,.61.86,2.75,2.75,0,0,1,.22,1.1,2.89,2.89,0,0,1-.26,1.22,4.21,4.21,0,0,1-.69,1.05,5.94,5.94,0,0,1-1,.88,10.64,10.64,0,0,1-1.15.72l-.15.08h3.34v1.46H12.66V33.32l.92-.53q.47-.28.91-.59t.84-.64a5.21,5.21,0,0,0,.69-.69,3.33,3.33,0,0,0,.46-.73,1.85,1.85,0,0,0,.17-.78,1.36,1.36,0,0,0-.08-.45,1.18,1.18,0,0,0-.23-.4,1.13,1.13,0,0,0-.39-.28A1.35,1.35,0,0,0,15.39,28.14Z"></path>
+            </svg>
+          </md-ordered-list>
+          <md-unordered-list class="app-c-markdown-editor__toolbar-button" title="Bullets" aria-label="Bullets" data-gtm="markdown-toolbar-bullets" data-gtm-click-tracking="true" tabindex="0" role="button">
+            <svg version="1.1" viewBox="0 0 50 50" width="50" height="50" aria-hidden="true" class="app-c-markdown-editor__toolbar-icon">
+              <circle cx="15.35" cy="19.22" r="3.45"></circle>
+              <circle cx="15.37" cy="30.76" r="3.45"></circle>
+              <path d="M22.53,20.73v-3l15.57,0v3Z"></path>
+              <path d="M22.53,32.31v-3l15.57,0v3Z"></path>
+            </svg>
+          </md-unordered-list>
+
+
+          <details class="app-c-toolbar-dropdown app-c-toolbar-dropdown--end whitehall-editor-help-component" data-module="toolbar-dropdown" data-toolbar-dropdown-module-started="true">
+            <summary class="app-c-toolbar-dropdown__title whitehall-editor-help-button">Guidance...</summary>
+            <div class="app-c-toolbar-dropdown__container whitehall-govspeak-editor-help">
+              {% include "./govspeak-guidance.html" %}
+            </div>
+          </details>
+                    
+          <details class="app-c-toolbar-dropdown app-c-toolbar-dropdown--end whitehall-editor-insert-component" data-module="toolbar-dropdown" data-toolbar-dropdown-module-started="true">
+            <summary class="app-c-toolbar-dropdown__title whitehall-editor-insert-button">Insert...</summary>
+            <div class="app-c-toolbar-dropdown__container whitehall-govspeak-editor-insert">
+              <ul class="app-c-toolbar-dropdown__list">
+                
+                {% for insertItem in insertItems %}
+                {#  #}
+                <li class="app-c-toolbar-dropdown__list-item">
+                    <a class="app-c-toolbar-dropdown__link" data-module="{{ insertItem.id }}-modal" data-gtm="{{ insertItem.id }}-modal" data-modal-action="open" data-modal-action-url="/{{ insertItem.id }}-modal" target="_blank" href="{{ insertItem.href }}">{{ insertItem.label }}</a>
+                </li>
+                {% endfor %}
+
+                {#
+                  Reusable content
+                #}
+                
+                
+              </ul>
+            </div>
+          </details>
+
+{# Formatting #}
+{# Images #}
+{# Video links #}
+{# Tables #}
+{# Charts #}
+{# Call to action #}
+{# Abbreviations and acronyms #}
+{# Blockquotes #}
+{# Addresses #}
+{# Email links #}
+
+
+        </markdown-toolbar>
+      </div>
+    </div>
+
+    <div class="app-c-markdown-editor__input js-markdown-editor-input">
+      <div class="gem-c-textarea govuk-form-group govuk-!-margin-bottom-6">
+        <textarea 
+          name="body" 
+          class="govuk-textarea" 
+          id="body-field" 
+          rows="20" 
+          data-gramm="false" data-gtm="body-input" data-gtm-copy-paste-tracking="true" 
+          data-paste-html-to-govspeak="true" spellcheck="false" aria-describedby="body-guidance"  
+          oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px"'>{{ params.content }}</textarea>
+      </div>
+    </div>
+
+    <div class="app-c-markdown-editor__preview js-markdown-preview-body">
+      <div class="govuk-textarea">
+
+          TBD
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{# {{ caller() if caller }}  #}
+
+
+
+{# Modals #}
+{% for modal in insertItems %}
+  {% call whitehallModal({
+    id: modal.id,
+    ariaLabel: "Add a " + modal.label
+  }) %}
+    {% set modalInclude =  "./" + modal.id + "-modal.html" %}
+    {# {{ modal.id }}
+    {{ modal.label }}
+    {{ modalInclude }} #}
+    {% include modalInclude %}
+  {% endcall %}
+{% endfor %}
+
+
+{% call whitehallModal({
+  id: "error"
+}) %}
+  <h1 class="govuk-heading-l">Something has gone wrong</h1>
+  <div class="gem-c-govspeak govuk-govspeak " data-module="govspeak" data-govspeak-module-started="true">
+      <p>Please try again or <a rel="external" href="https://support.publishing.service.gov.uk/technical_fault_report/new">raise a support request</a>.</p>
+  </div>
+{% endcall %}
+	
+			
+
+
+{# 
+Tools
+Check broken links
+Check words to avoid
+
+
+Paste and convert to Markdown
+
+You can paste formatted text into the body field and Whitehall publisher will try to convert it into GOV.UK’s version of Markdown, Govspeak.
+
+This works best when copy and pasting from text editing software like Word or Google Docs. It is less likely to recognise formatting from PDFs.
+
+It will convert:
+
+headings
+bullets
+numbered lists
+links
+email links
+Other formatting, such as tables, will be removed and only plain text pasted. You’ll need to write the Markdown for these separately.
+
+
+
+Headings
+Links
+Bullets
+Numbered list
+Images
+Video links
+Tables
+Charts
+Call to action
+Abbreviations and acronyms
+Blockquotes
+Addresses
+Email links #}
+
+
+              {# <div class="booklet section section-help section-visible" rel="help" id="wikiEditor-section-help" aria-expanded="true">
+                <div class="index" tabindex="0" role="listbox">
+                  <div rel="format" role="option" class="">Formatting</div>
+                  <div rel="link" role="option" class="">Links</div>
+                  <div rel="heading" role="option" class="">Headings</div>
+                  <div rel="list" role="option" class="">Lists</div>
+                  <div rel="file" role="option" class="">Files</div>
+                  <div rel="reference" role="option" class="">References</div>
+                  <div rel="discussion" role="option" class="current">Discussion</div>
+                </div>
+                <div class="pages" tabindex="0" role="listbox">
+                  <div class="page page-format page-table" rel="format" style="display: none;">
+                    <table class="table-format"><tbody><tr><th>Description</th><th>What you type</th><th>What you get</th></tr><tr><td class="cell cell-description"><span>Italic</span></td><td class="cell cell-syntax"><span>''Italic text''</span></td><td class="cell cell-result"><span><em>Italic text</em></span></td></tr><tr><td class="cell cell-description"><span>Bold</span></td><td class="cell cell-syntax"><span>'''Bold text'''</span></td><td class="cell cell-result"><span><strong>Bold text</strong></span></td></tr><tr><td class="cell cell-description"><span>Bold &amp; italic</span></td><td class="cell cell-syntax"><span>'''''Bold &amp; italic text'''''</span></td><td class="cell cell-result"><span><strong><em>Bold &amp; italic text</em></strong></span></td></tr></tbody></table>
+                  </div>
+                  <div class="page page-link page-table" rel="link" style="display: none;">
+                    <table class="table-link"><tbody><tr><th>Description</th><th>What you type</th><th>What you get</th></tr><tr><td class="cell cell-description"><span>Internal link</span></td><td class="cell cell-syntax"><span>[[Page title]]<br>[[Page title|Link label]]</span></td><td class="cell cell-result"><span><a href="#">Page title</a><br><a href="#">Link label</a></span></td></tr><tr><td class="cell cell-description"><span>External link</span></td><td class="cell cell-syntax"><span>[http://www.example.org Link label]<br>[http://www.example.org]<br>http://www.example.org</span></td><td class="cell cell-result"><span><a href="#" class="external">Link label</a><br><a href="#" class="external autonumber">[1]</a><br><a href="#" class="external">http://www.example.org</a></span></td></tr></tbody></table>
+                  </div>
+                  <div class="page page-heading page-table" rel="heading" style="display: none;">
+                    <table class="table-heading"><tbody><tr><th>Description</th><th>What you type</th><th>What you get</th></tr><tr><td class="cell cell-description"><span>2nd level heading</span></td><td class="cell cell-syntax"><span>== Heading text ==</span></td><td class="cell cell-result"><span><h2>Heading text</h2></span></td></tr><tr><td class="cell cell-description"><span>3rd level heading</span></td><td class="cell cell-syntax"><span>=== Heading text ===</span></td><td class="cell cell-result"><span><h3>Heading text</h3></span></td></tr><tr><td class="cell cell-description"><span>4th level heading</span></td><td class="cell cell-syntax"><span>==== Heading text ====</span></td><td class="cell cell-result"><span><h4>Heading text</h4></span></td></tr><tr><td class="cell cell-description"><span>5th level heading</span></td><td class="cell cell-syntax"><span>===== Heading text =====</span></td><td class="cell cell-result"><span><h5>Heading text</h5></span></td></tr></tbody></table>
+                  </div>
+                  <div class="page page-list page-table" rel="list" style="display: none;">
+                    <table class="table-list"><tbody><tr><th>Description</th><th>What you type</th><th>What you get</th></tr><tr><td class="cell cell-description"><span>Bulleted list</span></td><td class="cell cell-syntax"><span>* List item<br>* List item</span></td><td class="cell cell-result"><span><ul><li>List item</li><li>List item</li></ul></span></td></tr><tr><td class="cell cell-description"><span>Numbered list</span></td><td class="cell cell-syntax"><span># List item<br># List item</span></td><td class="cell cell-result"><span><ol><li>List item</li><li>List item</li></ol></span></td></tr></tbody></table></div><div class="page page-file page-table" rel="file" style="display: none;">
+                    <table class="table-file"><tbody><tr><th>Description</th><th>What you type</th><th>What you get</th></tr><tr><td class="cell cell-description"><span>Embedded file</span></td><td class="cell cell-syntax"><span>[[File:Example.png|thumb|Caption text]]</span></td><td class="cell cell-result"><span><div class="thumbinner" style="width: 102px;"><a class="image"><img alt="" src="/w/extensions/WikiEditor/modules/images/toolbar/example-image.png" width="100" height="50" class="thumbimage"></a><div class="thumbcaption"><div class="magnify"><a title="Enlarge" class="internal"></a></div>Caption text</div></div></span></td></tr></tbody></table>
+                  </div>
+                  <div class="page page-reference page-table" rel="reference" style="display: none;">
+                    <table class="table-reference"><tbody><tr><th>Description</th><th>What you type</th><th>What you get</th></tr><tr><td class="cell cell-description"><span>Reference</span></td><td class="cell cell-syntax"><span>Page text.&lt;ref&gt;[http://www.example.org Link text], additional text.&lt;/ref&gt;</span></td><td class="cell cell-result"><span>Page text.<sup><a href="#">[1]</a></sup></span></td></tr><tr><td class="cell cell-description"><span>Named reference</span></td><td class="cell cell-syntax"><span>Page text.&lt;ref name="test"&gt;[http://www.example.org Link text]&lt;/ref&gt;</span></td><td class="cell cell-result"><span>Page text.<sup><a href="#">[2]</a></sup></span></td></tr><tr><td class="cell cell-description"><span>Additional use of same reference</span></td><td class="cell cell-syntax"><span>&lt;ref name="test" /&gt;</span></td><td class="cell cell-result"><span>Page text.<sup><a href="#">[2]</a></sup></span></td></tr><tr><td class="cell cell-description"><span>Display references</span></td><td class="cell cell-syntax"><span>&lt;references /&gt;</span></td><td class="cell cell-result"><span><ol class="references"><li id="cite_note-test-0"><b><a title="" href="#">^</a></b> <a rel="nofollow" title="http://www.example.org" class="external text" href="#">Link text</a>, additional text.</li><li id="cite_note-test-1"><b><a title="" href="#">^</a></b> <a rel="nofollow" title="http://www.example.org" class="external text" href="#">Link text</a></li></ol></span></td></tr></tbody></table>
+                  </div>
+                  <div class="page page-discussion page-table" rel="discussion" style="">
+                    <table class="table-discussion"><tbody><tr><th>Description</th><th>What you type</th><th>What you get</th></tr><tr><td class="cell cell-description"><span>Signature with timestamp</span></td><td class="cell cell-syntax"><span>--~~~~</span></td><td class="cell cell-result"><span>--<a href="#" title="User:Username">Username</a> (<a href="#" title="User talk:Username">talk</a>) 15:54, 10 June 2009 (UTC)</span></td></tr><tr><td class="cell cell-description"><span>Signature</span></td><td class="cell cell-syntax"><span>~~~</span></td><td class="cell cell-result"><span><a href="#" title="User:Username">Username</a> (<a href="#" title="User talk:Username">talk</a>)</span></td></tr><tr><td class="cell cell-description"><span>Indent</span></td><td class="cell cell-syntax"><span>Normal text<br>:Indented text<br>::Indented text</span></td><td class="cell cell-result"><span>Normal text<dl><dd>Indented text<dl><dd>Indented text</dd></dl></dd></dl></span></td></tr></tbody></table>
+                  </div>
+                </div>
+              </div> #}
+

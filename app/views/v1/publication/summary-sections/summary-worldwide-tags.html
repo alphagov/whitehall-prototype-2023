@@ -1,0 +1,55 @@
+{% set sectionState = [] %}
+<!-- Only for foreign office? -->
+<h3 class="govuk-heading-l">Worldwide tags (optional)</h3>
+
+{% if data['pageState'] === 'populated' or data['pageState'] === 'fullPopulated' %}
+<p class="govuk-body">
+    <a href="../publication/edit/worldwide-tag{{hrefParams}}" class="govuk-link">Edit</a>
+</p>
+{% endif %}
+
+{% if data['pageState'] === 'empty' or data['pageState'] === 'bodyAttachments' %}
+<p class="govuk-body">
+    <a href="../publication/edit/worldwide-tag{{hrefParams}}" class="govuk-link">Add worldwide tags</a>
+</p>
+{% endif %}
+
+
+{% if data['pageState'] === 'fullPopulated' %}
+{{ govukSummaryList({
+    rows: [
+    {
+        key: {
+        text: "Primary specialist topic"
+        },
+        value: {
+        text: "Work and careers: Public service pensions"
+        }
+    },
+    {
+        key: {
+        text: "Secondary specialist topic"
+        },
+        value: {
+        html: '<ul class="govuk-list govuk-list--bullet">
+            <li>
+                Government: Public services
+            </li>
+            <li>
+                Guidance for government digital publishing and services: Content and publishing
+            </li>
+            <li>
+                Public safety and emergencies: Emergencies: preparation, response and recovery
+            </li>
+        </ul>'
+        }
+    }
+    ]
+}) }}
+{% endif %}
+
+{% if data['pageState'] === 'empty' or data['pageState'] === 'bodyAttachments' or data['pageState'] === 'populated' %}
+<p class="govuk-body whitehall-body-empty">
+There are no worldwide tags for this document.
+</p>
+{% endif %}

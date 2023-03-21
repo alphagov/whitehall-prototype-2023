@@ -1,0 +1,14 @@
+<ol class="onboarding-stages">
+{%- if params.steps %}
+  {%- for item in params.steps %}
+  <li class="{{ item.status }}">
+    <h3 class="title">{{ item.title }}</h3>
+    <p class="action">Status: {{ item.action }}. <a href="{{ item.stageURL }}">{{ item.label }}</a></p>
+    <p class="narrative">
+      <span class="name">{{ item.name }}.</span>
+      {{ item.narrative }}.
+    </p>
+  </li>
+  {% endfor %}
+{% endif %}
+</ol>

@@ -1,0 +1,14 @@
+  <h1 class="govuk-heading-l">Call to action</h1>
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-label--s" for="more-detail">
+      Content
+    </label>
+    <div id="more-detail-hint" class="govuk-hint">
+      For example, highlight an action for the user.
+    </div>
+    <textarea class="govuk-textarea" id="call-to-action-text" name="call-to-action-text" rows="5" aria-describedby="call-to-action-text-hint"></textarea>
+  </div>
+  {{ govukButton({
+    text: "Add call to action",
+    classes: "whitehall-editor-modal-insert-link-call-to-action"
+  }) }}

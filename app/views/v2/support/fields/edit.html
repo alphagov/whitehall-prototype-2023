@@ -1,0 +1,101 @@
+
+{% extends "layouts/main.html" %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+  {{ super() }}
+{% endblock %} 
+
+{% block header %}
+  {{ super() }}
+  <div class="govuk-width-container">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="javascript: submitNavForm('dashboard/', $(this));">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="javascript: submitNavForm('support/', $(this));">Support information</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="javascript: submitNavForm('support/fields', $(this));">Fields of operation</a>
+        </li>
+        {# <li class="govuk-breadcrumbs__list-item" aria-current="page">Documents</li> #}
+      </ol>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  {{ super() }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">Support information</span>
+      <h1 class="govuk-heading-xl">
+        Edit field of operation
+      </h1>
+
+      {{ govukWarningText({
+        text: "Changes to fields of operation appear instantly on the live site.",
+        iconFallbackText: "Warning"
+      }) }}
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukInput({
+        label: {
+          text: "Name",
+          classes: "govuk-label--m"
+        },
+        id: "event-name",
+        name: "event-name",
+        value: "Afghanistan"
+      }) }}
+
+      <label class="govuk-label govuk-label--m" for="summary">
+        Description (optional)
+      </label>
+      {{ whitehallGovspeakEditor({
+        content: fieldsMarkdown
+      }) }}
+
+      <div class="govuk-button-group">
+        {# {{ govukButton({
+            text: "Save as draft",
+            classes: "govuk-button--secondary",
+            href: "../../publication/edit/body" + hrefParamsBodyAttachments + "&pageMessage=documentSaved"
+        }) }} #}
+
+        {{ govukButton({
+          text: "Save",
+          href: "javascript: submitNavForm('support/fields', $(this));"
+        }) }}
+
+        <a class="govuk-link" href="javascript: submitNavForm('support/fields', $(this));">Cancel</a>
+      </div>
+
+    </div>
+  </div>
+{% endblock %}
+
+
+{% set fieldsMarkdown %}
+UK forces were deployed to Afghanistan in support of the UN-authorised, NATO-led International Security Assistance Force (ISAF) mission and as part of the US-led Operation Enduring Freedom (OEF). Between 2003 and the end of 2014 UK operations in Afghanistan were conducted under the name Operation Herrick. UK personnel then operated under the name Operation Toral. 
+
+###British fatalities in Afghanistan 
+
+It is with very deep regret that the Ministry of Defence (MOD) has confirmed the following fatalities suffered during operations in Afghanistan.
+
+As at 23 July 2015, a total of 454 British forces personnel or MOD civilians have died while serving in Afghanistan since the start of operations in October 2001.
+
+Of these, 405 were killed as a result of hostile action.
+
+49 are known to have died either as a result of illness, non-combat injuries or accidents, or have not yet officially been assigned a cause of death pending the outcome of an investigation. The balance of these figures may change as inquests are concluded.
+
+Following a helicopter crash on 11 October 2015, 2 further UK personnel have died while serving in Afghanistan, taking the total number of military deaths to 456.
+
+*[MOD]: Ministry of Defence
+{% endset %}

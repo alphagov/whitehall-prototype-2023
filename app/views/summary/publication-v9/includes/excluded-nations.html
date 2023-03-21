@@ -1,0 +1,113 @@
+{% set englandHtml %}
+{{ govukInput({
+  id: "url1",
+  name: "url1",
+  label: {
+    text: "URL of corresponding content"
+  }
+}) }}
+{% endset -%}
+
+{% set walesHtml %}
+{{ govukInput({
+  id: "url2",
+  name: "url2",
+  label: {
+    text: "URL of corresponding content"
+  }
+}) }}
+{% endset -%}
+
+{% set scotlandHtml %}
+{{ govukInput({
+  id: "url3",
+  name: "url3",
+  label: {
+    text: "URL of corresponding content"
+  }
+}) }}
+{% endset -%}
+
+{% set northernIrelandHtml %}
+{{ govukInput({
+  id: "url4",
+  name: "url4",
+  label: {
+    text: "URL of corresponding content"
+  }
+}) }}
+{% endset -%}
+
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% set uknationsHtml %}
+{{ govukCheckboxes({
+  idPrefix: "excluded-nations",
+  name: "excluded-nations",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "england",
+      html: "Does not apply to England",
+      conditional: {
+        html: englandHtml
+      }
+    },
+    {
+      value: "scotland",
+      html: "Does not apply to Scotland",
+      conditional: {
+        html: scotlandHtml
+      }
+    },
+    {
+      value: "wales",
+      html: "Does not apply to Wales",
+      conditional: {
+        html: walesHtml
+      }
+    },
+    {
+      value: "northern-ireland",
+      html: "Does not apply to Northern Ireland",
+      conditional: {
+        html: northernIrelandHtml
+      }
+    }
+  ]
+  }) }}
+{% endset -%}
+
+{{ govukRadios({
+  name: "excluded-nations-radio",
+  fieldset: {
+  legend: {
+      text: "Which nations does this document apply to?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "Select if this document applies to all or some UK nations. If it does not, you can add a link to relevant guidance for that nation."
+  },
+  items: [
+    {
+    value: "all-nations",
+    text: "Applies to all UK nations"
+  },
+    {
+    value: "some-nations",
+    text: "It does not apply to all UK nations",
+    conditional: {
+      html: uknationsHtml
+    }
+  }
+]
+}) }}

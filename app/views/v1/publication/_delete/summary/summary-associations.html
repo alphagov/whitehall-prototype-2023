@@ -1,0 +1,158 @@
+<h2 class="govuk-heading-l govuk-!-margin-bottom-2">Associations (optional)</h2>
+{{ govukInsetText({
+  text: 'In the published GOV.UK page, this information appear in the footer area.'
+}) }}
+<!-- <p class="govuk-body whitehall-summary-change-link populated">
+    <a href="#" class="govuk-link">Change</a>
+</p>
+<p class="govuk-body whitehall-summary-change-link empty">
+    <a href="#" class="govuk-link">Add a new user needs</a>
+</p> -->
+<div class="populated">
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: {
+          text: "Topical events"
+        },
+        value: {
+          html: '<ul class="govuk-list govuk-list--bullet">
+            <li>
+              Zero emission vehicle summit
+            </li>
+            <li>
+              Global Summit to End Sexual Violence in Conflict
+            </li>
+          </ul>'
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Change",
+              visuallyHiddenText: "Change"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "World locations"
+        },
+        value: {
+          html: '<ul class="govuk-list govuk-list--bullet">
+            <li>
+              Angola
+            </li>
+            <li>
+              Argentina
+            </li>
+            <li>
+              UK and the United Nations (Vienna)
+            </li>
+          </ul>'
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Change",
+              visuallyHiddenText: "Change"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Statistical data sets"
+        },
+        value: {
+          html: '<ul class="govuk-list govuk-list--bullet">
+            <li>
+              Live tables on National Land Use Database of previously-developed Brownfield Land
+            </li>
+          </ul>'
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Change",
+              visuallyHiddenText: "Change"
+            }
+          ]
+        }
+      }
+    ]
+  }) }}
+</div>
+
+<!-- <p class="govuk-body whitehall-body-empty-list">
+    There are no topical events associated to this document.
+  </p> -->
+
+<div class="empty">
+    {{ govukSummaryList({
+        rows: [
+            {
+            key: {
+                text: "Topical events"
+            },
+            value: {
+                html: '<p class="govuk-body whitehall-body-empty-list">
+                    No topical events
+                  </p>'
+            },
+            actions: {
+                items: [
+                {
+                    href: "#",
+                    text: "Add",
+                    visuallyHiddenText: "Change"
+                }
+                ]
+            }
+            },
+            {
+            key: {
+                text: "World locations"
+            },
+            value: {
+                html: '<p class="govuk-body whitehall-body-empty-list">
+                    No world locations
+                  </p>'
+            },
+            actions: {
+                items: [
+                {
+                    href: "#",
+                    text: "Add",
+                    visuallyHiddenText: "Change"
+                }
+                ]
+            }
+            },
+            {
+            key: {
+                text: "Statistical data sets"
+            },
+            value: {
+                html: '<p class="govuk-body whitehall-body-empty-list">
+                    No statistical data sets
+                  </p>'
+            },
+            actions: {
+                items: [
+                {
+                    href: "#",
+                    text: "Add",
+                    visuallyHiddenText: "Change"
+                }
+                ]
+            }
+            }
+        ]
+        }) }}
+</div>
+
+<!-- <hr class="govuk-section-break govuk-section-break--l govuk-section-break--invisible govuk-!-margin-bottom-6"> -->

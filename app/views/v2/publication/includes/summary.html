@@ -1,0 +1,10 @@
+<div class="govuk-form-group">
+<label class="govuk-label govuk-label--m" for="summary">
+    Summary
+</label>
+<div id="summary-hint" class="govuk-hint">
+    The summary explains the main point of the content and it should end with a full stop. Keep it short, possibly under 160 characters, and avoid repeating the first line of the body.
+</div>
+<textarea class="govuk-textarea" id="summary" name="summary" rows="5" aria-describedby="summary-hint" style="margin-bottom: 0;">{{content.documentContent[0].summary}}</textarea>
+<div class="govuk-hint govuk-character-count__message govuk-character-count__status" aria-hidden="true">Title should be under 160 characters. You have 160 characters remaining</div>
+</div>

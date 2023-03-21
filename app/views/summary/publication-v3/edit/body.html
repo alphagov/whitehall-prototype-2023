@@ -1,0 +1,134 @@
+{% set sectionState = [] %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {# {{pageMessage}} #}
+    {% if pageMessage === 'documentSaved' %}
+    {# <div id="whitehall-body-saved"> #}
+      <div class="gem-c-success-alert govuk-notification-banner govuk-notification-banner--success" role="alert" tabindex="-1" aria-labelledby="govuk-notification-banner-title-f436ae93" data-module="initial-focus" data-initial-focus-module-started="true">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title-f436ae93">Success</h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <p class="govuk-body gem-c-success-alert__message">This document was saved successfully</p>
+        </div>
+      </div>
+    {# </div> #}
+    {% endif %}
+
+  </div>
+</div>
+
+
+{# {% set hrefParams = "" %}
+{% if data['pageState'] === 'bodyAttachments' %}
+  {% set hrefParams = "?pageState=bodyAttachments" %}
+{% endif %}
+
+{% if data['pageState'] === 'populated' %}
+  {% set hrefParams = "?pageState=populated" %}
+{% endif %}
+
+{% if data['pageState'] === 'empty' %}
+  {% set hrefParams = "?pageState=bodyAttachments" %}
+{% endif %}
+
+{% if data['pageState'] === 'fullPopulated' %}
+  {% set hrefParams = "?pageState=fullPopulated" %}
+{% endif %}
+
+{% if data['pageState'] %}
+{% else %}
+  {% set hrefParams = "?pageState=bodyAttachments" %}
+{% endif %} #}
+
+<div class="govuk-grid-row body-populated">
+  <div class="govuk-grid-column-full">
+    {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+    {{ mojSubNavigation({
+      label: 'Sub navigation',
+      items: [{
+        text: 'Document body',
+        href: '../publication/edit/body' + hrefParams,
+        active: true
+      },
+      {
+        html: 'Images <span id="notifications" class="moj-notification-badge">0</span>',
+        href: '../publication/edit/tab-images' + hrefParams
+      }]
+    }) }}
+  </div>
+</div>
+
+    
+
+    {# 
+      Detailed guide only:
+      {
+        html: 'Attachments <span id="notifications" class="moj-notification-badge">10</span>',
+        href: 'tab-attachments'
+      },
+     #}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    {{ govukInsetText({
+      text: 'In the published GOV.UK page, this information will show as "Details" before the text body.'
+    }) }}
+
+<!-- BROKEN LINK -->
+<!-- WORDS TO AVOID -->
+<!-- GUIDANCE -->
+<!-- ? -->
+    {# <div class="govuk-button-group">
+      {{ govukButton({
+          text: "Save as draft",
+          classes: "govuk-button--secondary",
+          href: "../../publication/edit/body" + hrefParamsBodyAttachments + "&pageMessage=documentSaved"
+      }) }}
+
+      {{ govukButton({
+        text: "Save and back",
+        href: "../../publication/summary" + hrefParamsBodyAttachments + "&pageMessage=documentSaved"
+      }) }}
+       #}
+      {# <a class="govuk-link" href="../publication/summary{{hrefParams}}">Cancel</a>
+    </div> #}
+
+    {% if data['pageState'] === 'empty' %}
+      {# <span class="body-empty"> #}
+      {{ whitehallGovspeakEditor({
+        content: ""
+      }) }}
+      {# </span> #}
+    {% endif %}
+
+    {% if data['pageState'] === 'populated' or data['pageState'] === 'fullPopulated' or data['pageState'] === 'bodyAttachments' %}
+      {# <span class="body-populated"> #}
+      {{ whitehallGovspeakEditor({
+        content: content.documentContent[0].bodyMarkdown
+      }) }}
+      {# </span> #}
+    {% endif %}
+
+
+
+    <div class="govuk-button-group">
+      {{ govukButton({
+          text: "Save as draft",
+          classes: "govuk-button--secondary",
+          href: "../../publication/edit/body" + hrefParamsBodyAttachments + "&pageMessage=documentSaved"
+      }) }}
+
+      {{ govukButton({
+        text: "Save and back",
+        href: "../../publication/summary" + hrefParamsBodyAttachments + "&pageMessage=documentSaved"
+      }) }}
+
+      <a class="govuk-link" href="../publication/summary{{hrefParams}}">Cancel</a>
+    </div>
+  </div>
+</div>
+
+

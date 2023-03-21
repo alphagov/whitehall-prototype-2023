@@ -1,0 +1,134 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+{% set summaryBody = content.bodyHTML | safe %}
+
+{% if data['pageState'] === 'empty' %}
+  {% set summaryBody %}
+  <p class="govuk-body whitehall-body-empty-list">
+    You need to add a body copy
+  </p>
+  {% endset %}
+{% endif %}
+
+    {{ govukSummaryList({
+      card: {
+        title: {
+          text: "Content"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Edit",
+              visuallyHiddenText: ""
+            }
+          ]
+        }
+      },
+      rows: [
+        {
+          key: {
+            text: "Document type"
+          },
+          value: {
+            text: "Publication"
+          }
+        },
+        {
+          key: {
+            text: "Document subtype"
+          },
+          value: {
+            text: "Guidance"
+          },
+          actions: {
+            items: [
+              {
+                href: "../publication/edit/subtype" + hrefParams,
+                text: "Edit",
+                visuallyHiddenText: "Edit"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Title"
+          },
+          value: {
+            text: content.documentContent[0].title
+          },
+          actions: {
+            items: [
+              {
+                href: "../publication/edit/content" + hrefParams,
+                text: "Edit",
+                visuallyHiddenText: "Edit"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Page address"
+          },
+          value: {
+            text: content.documentContent[0].pageUrl
+          }
+        },
+        {
+          key: {
+            text: "Summary"
+          },
+          value: {
+            text: content.documentContent[0].summary
+          },
+          actions: {
+            items: [
+              {
+                href: "../publication/edit/content" + hrefParams,
+                text: "Edit",
+                visuallyHiddenText: "Edit"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Body"
+          },
+          value: {
+            html: summaryBody
+          },
+          actions: {
+            items: [
+              {
+                href: "../publication/edit/content" + hrefParams,
+                text: "Edit",
+                visuallyHiddenText: "Edit"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Has this document been published before?"
+          },
+          value: {
+            text: "Yes, this document has previously been published on another website in 10th February 2020 at 00:00"
+          },
+          actions: {
+            items: [
+              {
+                href: "../publication/edit/previously-published" + hrefParams,
+                text: "Edit",
+                visuallyHiddenText: "Edit"
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+  </div>
+</div>

@@ -1,0 +1,38 @@
+.search-wrapper {
+  padding-bottom: 30px;
+
+  @include govuk-media-query($from: tablet) {
+    padding-bottom: 60px;
+  }
+
+  h1 {
+    @include govuk-font(24);
+    font-weight: bold;
+    padding-bottom: 10px;
+  }
+
+  .search-header {
+    position: relative;
+    margin: 0;
+    padding: govuk-spacing(6) 0 govuk-spacing(3);
+    overflow: visible;
+
+    @include govuk-media-query($from: tablet) {
+      padding: govuk-spacing(8) 0 govuk-spacing(6);
+      width: 66.666%;
+    }
+
+    h1 {
+      color: govuk-colour("black");
+    }
+  }
+}
+
+.search-wrapper--no-search-term {
+  @include govuk-media-query($from: tablet) {
+    h1 {
+      @include govuk-font(48, $weight: bold);
+      padding-bottom: 15px;
+    }
+  }
+}

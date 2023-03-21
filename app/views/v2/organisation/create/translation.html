@@ -1,0 +1,99 @@
+
+{% extends "layouts/main.html" %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+  {{ super() }}
+{% endblock %} 
+
+{% block header %}
+  {{ super() }}
+  <div class="govuk-width-container">
+    <a href="javascript: submitNavForm('organisation/translations', $(this));" class="govuk-back-link">Back</a>
+  </div>
+{% endblock %}
+
+{% block content %}
+  {{ super() }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">Government Digital Service</span>
+      <h1 class="govuk-heading-xl">
+        New translation
+      </h1>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <p class="govuk-body">
+        TBD
+      </p>
+    </div>
+  </div>
+
+
+{% endblock %}
+
+
+
+{# 
+
+<main role="main">
+
+        
+  
+<h1>Edit ‘العربيَّة (Arabic)’ translation for: Government Digital Service</h1>
+
+<div class="row">
+  <div class="col-md-8">
+    <form class="well" id="edit_organisation_1056" action="/government/admin/organisations/government-digital-service/translations/ar" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="put" autocomplete="off"><input type="hidden" name="authenticity_token" value="OfLLtlYiLLKRmTW4ztMzD23wAhWy76clNzBkSzbA1S3QjM1YFSxLjUIlTca7EmvWm9c8dNVTgXJFUlltoOFSjA" autocomplete="off">
+      
+
+      <fieldset class="right-to-left"><div class="form-group"><label class="required" for="organisation_name">Name<span>*</span></label><input dir="rtl" class="form-control" type="text" value="Government Digital Service" name="organisation[name]" id="organisation_name"></div><p class="original-translation" id="english_name">English: Government Digital Service</p></fieldset>
+      <fieldset class="right-to-left"><div class="form-group"><label for="organisation_acronym">Acronym</label><input dir="rtl" class="form-control" type="text" value="GDS" name="organisation[acronym]" id="organisation_acronym"></div><p class="original-translation" id="english_acronym">English: GDS</p></fieldset>
+      <fieldset class="right-to-left"><div class="form-group"><label class="required" for="organisation_logo_formatted_name">Logo formatted name<span>*</span></label><textarea rows="4" style="width: auto" dir="rtl" class="form-control" name="organisation[logo_formatted_name]" id="organisation_logo_formatted_name">Government Digital Service</textarea></div><p class="original-translation" id="english_logo_formatted_name">English: Government Digital Service</p></fieldset>
+
+      
+<fieldset class="named featured-links js-duplicate-fields">
+  <legend>Featured links</legend>
+  <p class="alert alert-info">Only the first 10 links will be shown on the public site.</p>
+
+  
+    <div class="js-duplicate-fields-set well">
+        <fieldset class="right-to-left"><div class="form-group"><label class="required" for="organisation_featured_links_attributes_0_title">Title<span>*</span></label><input class="input-md-4 form-control" dir="rtl" type="text" value="Service Toolkit" name="organisation[featured_links_attributes][0][title]" id="organisation_featured_links_attributes_0_title"></div><p class="original-translation" id="english_title">English: Service Toolkit</p></fieldset>
+        <fieldset class="right-to-left"><div class="form-group"><label class="required" for="organisation_featured_links_attributes_0_url">URL<span>*</span></label><input dir="rtl" class="form-control" type="text" value="https://www.gov.uk/service-toolkit" name="organisation[featured_links_attributes][0][url]" id="organisation_featured_links_attributes_0_url"></div><p class="original-translation" id="english_url">English: https://www.gov.uk/service-toolkit</p></fieldset>
+      <input class="js-hidden-destroy" autocomplete="off" type="hidden" value="false" name="organisation[featured_links_attributes][0][_destroy]" id="organisation_featured_links_attributes_0__destroy">
+    <a href="#" class="btn btn-danger js-remove-button">Remove</a></div>
+<input autocomplete="off" type="hidden" value="1331" name="organisation[featured_links_attributes][0][id]" id="organisation_featured_links_attributes_0_id">
+    <div class="js-duplicate-fields-set well">
+        <fieldset class="right-to-left"><div class="form-group"><label class="required" for="organisation_featured_links_attributes_1_title">Title<span>*</span></label><input class="input-md-4 form-control" dir="rtl" type="text" value="GOV.UK Design System" name="organisation[featured_links_attributes][1][title]" id="organisation_featured_links_attributes_1_title"></div><p class="original-translation" id="english_title">English: GOV.UK Design System</p></fieldset>
+        <fieldset class="right-to-left"><div class="form-group"><label class="required" for="organisation_featured_links_attributes_1_url">URL<span>*</span></label><input dir="rtl" class="form-control" type="text" value="https://design-system.service.gov.uk" name="organisation[featured_links_attributes][1][url]" id="organisation_featured_links_attributes_1_url"></div><p class="original-translation" id="english_url">English: https://design-system.service.gov.uk</p></fieldset>
+      <input class="js-hidden-destroy" autocomplete="off" type="hidden" value="false" name="organisation[featured_links_attributes][1][_destroy]" id="organisation_featured_links_attributes_1__destroy">
+    <a href="#" class="btn btn-danger js-remove-button">Remove</a></div>
+<input autocomplete="off" type="hidden" value="2760" name="organisation[featured_links_attributes][1][id]" id="organisation_featured_links_attributes_1_id">
+    <div class="js-duplicate-fields-set well">
+        <fieldset class="right-to-left"><div class="form-group"><label class="required" for="organisation_featured_links_attributes_2_title">Title<span>*</span></label><input class="input-md-4 form-control" dir="rtl" type="text" value="Digital Service Platforms" name="organisation[featured_links_attributes][2][title]" id="organisation_featured_links_attributes_2_title"></div><p class="original-translation" id="english_title">English: Digital Service Platforms</p></fieldset>
+        <fieldset class="right-to-left"><div class="form-group"><label class="required" for="organisation_featured_links_attributes_2_url">URL<span>*</span></label><input dir="rtl" class="form-control" type="text" value="https://gds.blog.gov.uk/category/digital-service-platforms/" name="organisation[featured_links_attributes][2][url]" id="organisation_featured_links_attributes_2_url"></div><p class="original-translation" id="english_url">English: https://gds.blog.gov.uk/category/digital-service-platforms/</p></fieldset>
+      <input class="js-hidden-destroy" autocomplete="off" type="hidden" value="false" name="organisation[featured_links_attributes][2][_destroy]" id="organisation_featured_links_attributes_2__destroy">
+    <a href="#" class="btn btn-danger js-remove-button">Remove</a></div>
+<input autocomplete="off" type="hidden" value="3113" name="organisation[featured_links_attributes][2][id]" id="organisation_featured_links_attributes_2_id">
+    <div class="js-duplicate-fields-set well">
+        <fieldset class="right-to-left"><div class="form-group"><label class="required" for="organisation_featured_links_attributes_3_title">Title<span>*</span></label><input class="input-md-4 form-control" dir="rtl" type="text" value="GOV.UK proposition" name="organisation[featured_links_attributes][3][title]" id="organisation_featured_links_attributes_3_title"></div><p class="original-translation" id="english_title">English: GOV.UK proposition</p></fieldset>
+        <fieldset class="right-to-left"><div class="form-group"><label class="required" for="organisation_featured_links_attributes_3_url">URL<span>*</span></label><input dir="rtl" class="form-control" type="text" value="https://www.gov.uk/government/publications/govuk-proposition" name="organisation[featured_links_attributes][3][url]" id="organisation_featured_links_attributes_3_url"></div><p class="original-translation" id="english_url">English: https://www.gov.uk/government/publications/govuk-proposition</p></fieldset>
+      <input class="js-hidden-destroy" autocomplete="off" type="hidden" value="false" name="organisation[featured_links_attributes][3][_destroy]" id="organisation_featured_links_attributes_3__destroy">
+    <a href="#" class="btn btn-danger js-remove-button">Remove</a></div>
+<input autocomplete="off" type="hidden" value="3241" name="organisation[featured_links_attributes][3][id]" id="organisation_featured_links_attributes_3_id"><a href="#" class="btn btn-default add-bottom-margin add_new js-add-button">Add another</a></fieldset>
+
+
+      <div class="form-actions" data-module="track-button-click" data-track-category="form-button" data-track-action="organisation-button"><input type="submit" name="save" value="Save" class="btn btn-primary btn-lg" data-disable-with="Save"><span class="or_cancel"> or <a href="/government/admin/organisations/government-digital-service/translations">cancel</a></span></div>
+</form>  </div>
+</div>
+
+
+
+      </main>
+
+ #}

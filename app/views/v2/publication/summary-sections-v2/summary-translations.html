@@ -1,0 +1,87 @@
+{% if data['pageState'] === 'fullPopulated' %}
+
+{{ govukSummaryList({
+  card: {
+        title: {
+          text: "Translations (optional)"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Add a translation",
+              visuallyHiddenText: ""
+            }
+          ]
+        }
+      },
+  rows: [
+    {
+      key: {
+        text: "Arabic"
+      },
+      value: {
+        text: "HM Land Registry: قم بتوقيع عقد الرهن العقاري الخاص بك"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Edit",
+            visuallyHiddenText: "Edit"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "German"
+      },
+      value: {
+        text: "HM Grundbuchamt: Unterschreiben Sie Ihre Hypothekenurkunde"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Edit",
+            visuallyHiddenText: "Edit"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+{% endif %}
+
+{% if data['pageState'] === 'empty' or data['pageState'] === 'bodyAttachments' or data['pageState'] === 'populated' %}
+{{ govukSummaryList({
+  card: {
+        title: {
+          text: "Translations (optional)"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Add a translation",
+              visuallyHiddenText: ""
+            }
+          ]
+        }
+      },
+  rows: [
+    {
+      key: {
+        text: "",
+        classes: "govuk-!-display-none"
+      },
+      value: {
+        html: '<p class="govuk-body whitehall-body-empty-list">
+                    No translations
+                </p>'
+      }
+    }
+  ]
+}) }}
+{% endif %}

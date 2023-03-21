@@ -1,0 +1,194 @@
+
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+  {{ super() }}
+{% endblock %} 
+
+{% block header %}
+  {{ whitehallHeader({
+      homepageUrl: "../../dashboard/",
+      serviceName: serviceName,
+      serviceUrl: "/",
+      containerClasses: "govuk-width-container",
+      phaseBanner: true,
+      navigation: [
+        {
+          href: "../documents/" + hrefParams,
+          text: "Documents",
+          active: true
+        },
+        {
+          href: "../organisation/" + hrefParams,
+          text: "My organisation"
+        },
+        {
+          href: "../support/" + hrefParams,
+          text: "Support information"
+        },
+        {
+          href: "../guidance/" + hrefParams,
+          text: "Guidance"
+        },
+        {
+          href: "../account/" + hrefParams,
+          text: globals.loggedUser
+        },
+        {
+          href: "../signout" + hrefParams,
+          text: "Sign out"
+        }
+      ],
+      back:
+        {
+          text: "Back",
+          href: "../publication/attachments/type" + hrefParams
+        }
+  }) }}
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
+        Upload new file attachment
+    </h1>
+
+    {% include "../includes/document-info.html" %}
+
+    <p class="govuk-body">  
+        
+    </p>
+
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Save",
+        href: "../publication/summary?message=saved"
+      }) }}
+
+      <a class="govuk-link" href="../publication/attachments/">Cancel</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block footer %}{% include "includes/footer-v1.html" %}{% endblock %}
+
+
+
+ <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+
+          
+          <span class="govuk-caption-l"></span>
+          <h1 class="govuk-heading-l">Attachments for ‘sadasd’</h1>
+        </div>
+        <div class="govuk-grid-column-one-third app-grid-column--align-right">
+          
+        </div>
+      </div>
+      
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body">
+      Publications have a summary page that must link to a file attachment.
+
+    </p>
+
+    
+
+
+  <a class="gem-c-button govuk-button gem-c-button--bottom-margin" role="button" data-module="govuk-button" draggable="false" href="https://content-publisher.integration.publishing.service.gov.uk/documents/db85b18c-1908-4a98-b3b0-c355ff51d729:en/file-attachments/new?wizard=featured-attachment-upload" data-govuk-button-module-started="true">Upload file attachment</a>
+
+
+
+
+    <h2 class="govuk-heading-m">
+      Attachments
+    </h2>
+
+      <p class="govuk-body">
+        Attachments will be listed on the document in this order.
+
+      </p>
+
+        <p class="govuk-body govuk-!-margin-bottom-8">
+          <a class="govuk-link" data-gtm="reorder-attachments" href="https://content-publisher.integration.publishing.service.gov.uk/documents/db85b18c-1908-4a98-b3b0-c355ff51d729:en/attachments/reorder">Reorder attachments</a>
+        </p>
+
+        
+
+
+
+
+
+<div class="app-c-media-with-actions">
+  
+  <section class="gem-c-attachment govuk-!-display-none-print">
+  <div class="gem-c-attachment__thumbnail">
+    <a class="govuk-link" target="_blank" tabindex="-1" aria-hidden="true" href="https://content-publisher.integration.publishing.service.gov.uk/documents/db85b18c-1908-4a98-b3b0-c355ff51d729:en/file-attachments/85/preview">
+        <svg class="gem-c-attachment__thumbnail-image" version="1.1" viewBox="0 0 99 140" width="99" height="140" aria-hidden="true">
+  <path d="M12 12h75v27H12zM12 59h9v9h-9zM12 77h9v9h-9zM12 95h9v9h-9zM12 113h9v9h-9zM30 59h57v9H30zM30 77h39v9H30zM30 95h57v9H30zM30 113h48v9H30z" stroke-width="0"></path>
+</svg>
+
+</a></div>
+  <div class="gem-c-attachment__details">
+    <h2 class="gem-c-attachment__title">
+      <a class="govuk-link gem-c-attachment__link" target="_blank" href="https://content-publisher.integration.publishing.service.gov.uk/documents/db85b18c-1908-4a98-b3b0-c355ff51d729:en/file-attachments/85/preview">sfasdasdasdasdad</a>
+</h2>
+
+
+      <p class="gem-c-attachment__metadata"><span class="gem-c-attachment__attribute"><abbr title="Portable Document Format" class="gem-c-attachment__abbr">PDF</abbr></span>, <span class="gem-c-attachment__attribute">797 KB</span>, <span class="gem-c-attachment__attribute">69 pages</span></p>
+
+
+
+</div></section>
+
+    <ul class="app-c-media-with-actions__actions">
+        <li><a class="govuk-link govuk-link--no-visited-state app-link--button" data-gtm="edit-attachment" href="https://content-publisher.integration.publishing.service.gov.uk/documents/db85b18c-1908-4a98-b3b0-c355ff51d729:en/file-attachments/85/replace?wizard=featured-attachment-replace">Edit attachment</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state app-link--button" data-gtm="edit-details" href="https://content-publisher.integration.publishing.service.gov.uk/documents/db85b18c-1908-4a98-b3b0-c355ff51d729:en/file-attachments/85/edit">Edit details</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state app-link--button" data-gtm="download-attachment" href="https://content-publisher.integration.publishing.service.gov.uk/documents/db85b18c-1908-4a98-b3b0-c355ff51d729:en/file-attachments/85/download">Download</a></li>
+        <li><a class="govuk-link app-link--button app-link--destructive" href="https://content-publisher.integration.publishing.service.gov.uk/documents/db85b18c-1908-4a98-b3b0-c355ff51d729:en/file-attachments/85/delete?wizard=featured-attachment-delete">Delete attachment</a></li>
+</ul></div>
+        
+
+
+
+
+
+<div class="app-c-media-with-actions">
+  
+  <section class="gem-c-attachment govuk-!-display-none-print">
+  <div class="gem-c-attachment__thumbnail">
+    <a class="govuk-link" target="_blank" tabindex="-1" aria-hidden="true" href="https://content-publisher.integration.publishing.service.gov.uk/documents/db85b18c-1908-4a98-b3b0-c355ff51d729:en/file-attachments/86/preview">
+        <svg class="gem-c-attachment__thumbnail-image" version="1.1" viewBox="0 0 84 120" width="84" height="120" aria-hidden="true">
+  <path d="M74.85 5v106H5" fill="none" stroke-miterlimit="10" stroke-width="2"></path>
+  <path d="M79.85 10v106H10" fill="none" stroke-miterlimit="10" stroke-width="2"></path>
+</svg>
+
+</a></div>
+  <div class="gem-c-attachment__details">
+    <h2 class="gem-c-attachment__title">
+      <a class="govuk-link gem-c-attachment__link" target="_blank" href="https://content-publisher.integration.publishing.service.gov.uk/documents/db85b18c-1908-4a98-b3b0-c355ff51d729:en/file-attachments/86/preview">dgdfgdsffgdsfsdf</a>
+</h2>
+
+
+      <p class="gem-c-attachment__metadata"><span class="gem-c-attachment__attribute"><abbr title="Portable Network Graphic" class="gem-c-attachment__abbr">PNG</abbr></span>, <span class="gem-c-attachment__attribute">22 KB</span></p>
+
+
+
+</div></section>
+
+    <ul class="app-c-media-with-actions__actions">
+        <li><a class="govuk-link govuk-link--no-visited-state app-link--button" data-gtm="edit-attachment" href="https://content-publisher.integration.publishing.service.gov.uk/documents/db85b18c-1908-4a98-b3b0-c355ff51d729:en/file-attachments/86/replace?wizard=featured-attachment-replace">Edit attachment</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state app-link--button" data-gtm="edit-details" href="https://content-publisher.integration.publishing.service.gov.uk/documents/db85b18c-1908-4a98-b3b0-c355ff51d729:en/file-attachments/86/edit">Edit details</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state app-link--button" data-gtm="download-attachment" href="https://content-publisher.integration.publishing.service.gov.uk/documents/db85b18c-1908-4a98-b3b0-c355ff51d729:en/file-attachments/86/download">Download</a></li>
+        <li><a class="govuk-link app-link--button app-link--destructive" href="https://content-publisher.integration.publishing.service.gov.uk/documents/db85b18c-1908-4a98-b3b0-c355ff51d729:en/file-attachments/86/delete?wizard=featured-attachment-delete">Delete attachment</a></li>
+</ul></div>
+  </div>
+</div>

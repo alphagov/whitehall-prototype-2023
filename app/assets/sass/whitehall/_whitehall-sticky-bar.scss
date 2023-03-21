@@ -1,0 +1,105 @@
+
+
+
+/* STICK BAR */
+.app-c-contents-list-with-body__link-wrapper.sticky-element--stuck-to-window {
+    background-color: #f3f2f1;
+    bottom: -1px;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    padding-left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+}
+.js-enabled .sticky-element--enabled {
+    transition: opacity, .3s, ease;
+    opacity: 1;
+}
+.js-enabled .sticky-element--stuck-to-window {
+    bottom: 0;
+    position: fixed;
+}
+.app-c-contents-list-with-body__link-wrapper {
+    padding-bottom: 10px;
+    .app-c-back-to-top {
+      padding-bottom: 10px;
+    }
+}
+.app-c-contents-list-with-body__link-container {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 15px;
+
+    .app-c-back-to-top {
+      margin: 0;
+    }
+}
+.app-c-contents-list-with-body__link-wrapper.sticky-element--stuck-to-window {
+  .app-c-back-to-top {
+    margin-bottom: 0;
+    padding: 0;
+    width: 66.6666666667%;
+  }
+}
+@media (min-width: 48.0625em) {
+  .app-c-contents-list-with-body__link-container {
+    padding-left: 0;
+  }
+  .app-c-contents-list-with-body__link-wrapper {
+    padding-left: 0;
+  }
+}
+@media (min-width: 40.0625em) {
+  .app-c-contents-list-with-body__link-container {
+    max-width: $wh-page-max-width;
+    padding: 20px;
+  }
+  .app-c-contents-list-with-body__link-wrapper.sticky-element--stuck-to-window {
+    padding-left: 10px;
+  }
+}
+@media (min-width: 1280px) {
+  .app-c-contents-list-with-body__link-container {
+    padding-left: 0;
+    .app-c-back-to-top {
+      //margin-left: -10px;
+    }
+  }
+  .app-c-contents-list-with-body__link-wrapper.sticky-element--stuck-to-window {
+    .app-c-contents-list-with-body__link-container {
+      padding-left: 20px;
+      .app-c-back-to-top {
+        margin-left: -10px;
+      }
+    }
+  }
+}
+@media (min-width: 1300px) {
+  
+  .app-c-contents-list-with-body__link-container {
+    padding-left: 0;
+    .app-c-back-to-top {
+      //margin-left: -10px;
+    }
+  }
+  
+  .app-c-contents-list-with-body__link-wrapper.sticky-element--stuck-to-window {
+    .app-c-contents-list-with-body__link-container {
+      padding-left: 0;
+      .app-c-back-to-top {
+        margin-left: -10px;
+      }
+    }
+  }
+}
+
+//app-c-contents-list-with-body__link-wrapper sticky-element--enabled sticky-element--stuck-to-window
+
+.js-enabled .sticky-element--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
