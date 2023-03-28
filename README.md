@@ -1,4 +1,4 @@
-# GOV.UK Whitehall Transition Prototype
+# GOV.UK Whitehall Prototype
 
 This prototype is part of the Whitehall improvement work within the GOV.UK Publishing Experience Team. Its goal is to investigate ways to enhance the user experience across various Whitehall sections by using realistic scenarios in User Research testing sessions.
 
