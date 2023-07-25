@@ -25,6 +25,16 @@ This prototype contains hypotheses for the following journeys and features:
 
 The detail about every journey and feature in this prototype, including ideation workshops, user interviews, user testing, legacy mapping, design decisions, etc., can be found in the team’s [Google Drive folder](https://drive.google.com/drive/folders/1BScq4ZitS40z15dVcyLs4qn2U9OnAhmo)
 
+## Hosted in Heroku
+
+The prototype is hosted in the GOV.UK Heroku account under the pipeline [whitehall-prototype](https://dashboard.heroku.com/pipelines/2f915a5e-edfd-4c90-b24d-00ed5c8c3c66).
+
+It can be accessed at: https://whitehall-prototype-91f05d25216a.herokuapp.com
+
+Heroku will automatically create [review apps](https://devcenter.heroku.com/articles/github-integration-review-apps) for pull requests.
+
+Changes to the `main` branch will deploy automatically.
+
 ## Running the prototype locally
 
 This prototype uses [GOV.UK Prototype Kit](https://prototype-kit.service.gov.uk/docs/) v13, [Publishing Components](https://components.publishing.service.gov.uk/component-guide), and [MOJ patterns](https://design-patterns.service.justice.gov.uk/).
@@ -38,7 +48,6 @@ In your terminal run:
 npm run dev
 ```
 [Go to localhost:3000](http://localhost:3000/) in your browser.
-
 
 ## Previous projects
 
