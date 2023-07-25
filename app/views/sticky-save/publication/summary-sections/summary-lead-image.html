@@ -1,0 +1,52 @@
+{% set sectionState = [] %}
+<div id="section-lead-image" class="gem-c-govspeak govuk-govspeak direction-ltr" data-module="govspeak" data-govspeak-module-started="true">
+  <h3 class="govuk-heading-l">Lead image</h3>
+
+  {% if data['pageState'] === 'populated' or data['pageState'] === 'fullPopulated' %}
+  <p class="govuk-body whitehall-summary-change-link">
+    <a href="../publication/edit/lead-image{{hrefParams}}" class="govuk-link">Edit</a>
+  </p>
+  {% endif %}
+
+  {% if data['pageState'] === 'empty' or data['pageState'] === 'bodyAttachments' %}
+  <p class="govuk-body whitehall-summary-change-link">
+    <a href="/piblication/edit/lead-image{{hrefParams}}" class="govuk-link">Add a lead image</a>
+  </p>
+  {% endif %}
+
+  {% if data['pageState'] === 'populated' or data['pageState'] === 'fullPopulated' %}
+  <section class="attachment image embedded govuk-!-margin-top-0" id="attachment_7059298">
+    <div class="attachment-thumb image-thumb">
+      <a aria-hidden="true" class="thumbnail" tabindex="-1" target="_blank" href="/public/images/download/image_example2.jpg">
+        <img alt="" width="300" src="/public/images/download/image_example2.jpg" />
+      </a>
+    </div>
+    <div class="attachment-details image-details">
+      <p class="govuk-body metadata">
+        <span class="key">
+          Caption: <span class="value">Lorem ipsum</span>
+        </span>
+        <span class="key">
+          Alt text: <span class="value">Lorem ipsum</span>
+        </span>
+        <span class="key">
+          Credit: <span class="value">Lorem ipsum</span>
+        </span>
+        <span class="key">
+          File info: <span class="value">PNG, 22 KB</span>
+        </span>
+        <span class="key">
+          Markdown: <span class="value">[Image: lorem-ipsum.jpg]</span>
+        </span>
+      </p>
+    </div>
+  </section>
+  {% endif %}
+
+  {% if data['pageState'] === 'empty' or data['pageState'] === 'bodyAttachments' %}
+  <p class="govuk-body whitehall-body-empty">
+    There are no lead image in this document.
+  </p>
+  {% endif %}
+
+</div>

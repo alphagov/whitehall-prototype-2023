@@ -1,0 +1,172 @@
+{% set dateHtml %}
+    <form data-gtm="confirm-schedule-proposal" action="/documents/caeeb65b-1232-4349-a9c9-50eab164d5cb:en/schedule-proposal" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="0YBSVFVHpTX4VFi_8-fnoI9hs9sdCB7a4yyJbXZSOm-z1QXOIVC7UZ5nqQETsiMkeLKZsy1z-8m9-OM0S_3aDg" autocomplete="off">
+      <input type="hidden" name="wizard" id="wizard" value="schedule" autocomplete="off">
+      <div class="govuk-form-group">
+        <div class="gem-c-fieldset govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="hint-3a028e21" role="group">
+              <legend class="govuk-fieldset__legend">
+                <span class="govuk-heading-s govuk-!-margin-bottom-0">Date</span>
+              </legend>
+              <div id="hint-3a028e21" class="gem-c-hint govuk-hint govuk-!-margin-bottom-2">
+                For example, 01 08 2027
+              </div>
+              <div class="gem-c-date-input govuk-date-input" id="date">
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label for="input-63862a73" class="gem-c-label govuk-label">Day</label>
+                    <input class="gem-c-input govuk-input govuk-input--width-2" id="input-63862a73" inputmode="numeric" name="schedule[date][day]" spellcheck="false" type="text" value="6">
+                  </div>
+                </div>
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label for="input-ae5a74e1" class="gem-c-label govuk-label">Month</label>
+                    <input class="gem-c-input govuk-input govuk-input--width-2" id="input-ae5a74e1" inputmode="numeric" name="schedule[date][month]" spellcheck="false" type="text" value="1">
+                  </div>
+                </div>
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label for="input-6bbc17ef" class="gem-c-label govuk-label">Year</label>
+                    <input class="gem-c-input govuk-input govuk-input--width-4" id="input-6bbc17ef" inputmode="numeric" name="schedule[date][year]" spellcheck="false" type="text" value="2023">
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="sort">
+            Time
+          </label>
+          <select class="govuk-select" style="width: 60px; max-width: 60px; min-width: 60px;" id="sort" name="sort">
+            <option value="00">00</option>
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+            <option value="04">04</option>
+            <option value="05">05</option>
+            <option value="06">06</option>
+            <option value="07">07</option>
+            <option value="08">08</option>
+            <option value="09" selected="selected">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+          </select>
+          &nbsp;&nbsp;:&nbsp;&nbsp;
+          <select class="govuk-select" style="width: 60px; max-width: 60px; min-width: 60px;" id="sort" name="sort">
+            <option value="00">00</option>
+            <option value="15">15</option>
+            <option value="30" selected="selected">30</option>
+            <option value="45">45</option>
+          </select>
+        </div>
+
+
+        <div class="app-c-autocomplete govuk-form-group app-c-autocomplete--narrow" style="display:none;" data-autocomplete-without-narrowing-results="true" data-module="autocomplete" data-autocomplete-module-started="true">
+          <label for="time" class="gem-c-label govuk-label govuk-label--s">Time</label>
+          <datalist id="time-list">
+              <option value="12:01am"></option>
+              <option value="12:30am"></option>
+              <option value="1:00am"></option>
+              <option value="1:30am"></option>
+              <option value="2:00am"></option>
+              <option value="2:30am"></option>
+              <option value="3:00am"></option>
+              <option value="3:30am"></option>
+              <option value="4:00am"></option>
+              <option value="4:30am"></option>
+              <option value="5:00am"></option>
+              <option value="5:30am"></option>
+              <option value="6:00am"></option>
+              <option value="6:30am"></option>
+              <option value="7:00am"></option>
+              <option value="7:30am"></option>
+              <option value="8:00am"></option>
+              <option value="8:30am"></option>
+              <option value="9:00am"></option>
+              <option value="9:30am"></option>
+              <option value="10:00am"></option>
+              <option value="10:30am"></option>
+              <option value="11:00am"></option>
+              <option value="11:30am"></option>
+              <option value="12:00pm"></option>
+              <option value="12:30pm"></option>
+              <option value="1:00pm"></option>
+              <option value="1:30pm"></option>
+              <option value="2:00pm"></option>
+              <option value="2:30pm"></option>
+              <option value="3:00pm"></option>
+              <option value="3:30pm"></option>
+              <option value="4:00pm"></option>
+              <option value="4:30pm"></option>
+              <option value="5:00pm"></option>
+              <option value="5:30pm"></option>
+              <option value="6:00pm"></option>
+              <option value="6:30pm"></option>
+              <option value="7:00pm"></option>
+              <option value="7:30pm"></option>
+              <option value="8:00pm"></option>
+              <option value="8:30pm"></option>
+              <option value="9:00pm"></option>
+              <option value="9:30pm"></option>
+              <option value="10:00pm"></option>
+              <option value="10:30pm"></option>
+              <option value="11:00pm"></option>
+              <option value="11:30pm"></option>
+            </datalist>
+            <div class="autocomplete__wrapper" role="combobox" aria-expanded="false">
+              <div aria-atomic="true" aria-live="polite" role="status" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">1 result is available. 9:00am (1 of 1) is selected.<span>,,</span>
+            </div>
+            <input aria-owns="time__listbox" autocomplete="off" class="autocomplete__input autocomplete__input--show-all-values" id="time" name="schedule[time]" placeholder="" type="text" role="textbox">
+            <div class="autocomplete__dropdown-arrow-down-wrapper">
+              <svg class="autocomplete__dropdown-arrow-down" style="top: 8px;" viewBox="0 0 512 512">
+                <path d="M256,298.3L256,298.3L256,298.3l174.2-167.2c4.3-4.2,11.4-4.1,15.8,0.2l30.6,29.9c4.4,4.3,4.5,11.3,0.2,15.5L264.1,380.9  c-2.2,2.2-5.2,3.2-8.1,3c-3,0.1-5.9-0.9-8.1-3L35.2,176.7c-4.3-4.2-4.2-11.2,0.2-15.5L66,131.3c4.4-4.3,11.5-4.4,15.8-0.2L256,298.3  z"></path>
+              </svg>
+            </div>
+            <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="time__listbox" role="listbox">
+              <li class="autocomplete__option" id="time__option--0" role="option" tabindex="-1">9:00am</li>
+            </ul>
+          </div>
+        </div>
+    </form>
+{% endset -%}
+
+{{ govukRadios({
+    idPrefix: "previously-published",
+    name: "previously-published",
+    fieldset: {
+        legend: {
+        text: "Has this document been published before?",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--l"
+        }
+    },
+    items: [
+        {
+        value: "never",
+        text: "No, it’s new - this document has never been published before."
+        },
+        {
+            value: "has",
+            text: "Yes, this document has previously been published on GOV.UK or another website.",
+            hint: {
+                text: "Provide the date for when it was first published online. This prevents old information being presented as new."
+            },
+                conditional: {
+                html: dateHtml
+            }
+        }
+    ]
+}) }}

@@ -1,0 +1,198 @@
+
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+  {{ super() }}
+{% endblock %} 
+
+{% block header %}
+  {{ whitehallHeader({
+      homepageUrl: "../dashboard/",
+      serviceName: serviceName,
+      serviceUrl: "/",
+      containerClasses: "govuk-width-container",
+      phaseBanner: true,
+      navigation: [
+        {
+          href: "../documents/" + hrefParams,
+          text: "Documents",
+          active: true
+        },
+        {
+          href: "../organisation/" + hrefParams,
+          text: "My organisation"
+        },
+        {
+          href: "../support/" + hrefParams,
+          text: "Support information"
+        },
+        {
+          href: "../guidance/" + hrefParams,
+          text: "Guidance"
+        },
+        {
+          href: "../account/" + hrefParams,
+          text: globals.loggedUser
+        },
+        {
+          href: "../signout" + hrefParams,
+          text: "Sign out"
+        }
+      ],
+      back:
+        {
+          text: "Back",
+          href: "../publication/publish"
+        }
+  }) }}
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Submit for 2i review
+    </h1>
+
+    <!-- {{ govukInsetText({
+      text: "Check the information, select a recipient, and submit for 2nd eyes or go back to the document to cancel the operation lorem ipsum dolor sit amet."
+    }) }} -->
+
+    <!-- Document info -->
+    <!-- {{ govukSummaryList({
+
+      rows: [
+        {
+          key: {
+            text: "Document type"
+          },
+          value: {
+            text: "Publication: Guidance"
+          }
+        },
+        {
+          key: {
+            text: "Title"
+          },
+          value: {
+            text: "HM Land Registry: Sign your mortgage deed"
+          }
+        },
+        {
+          key: {
+            text: "Page address"
+          },
+          value: {
+            text: "https://www.integration.publishing.service.gov.uk/government/guidance/loremipsum"
+          }
+        },
+        {
+          key: {
+            text: "Last updated"
+          },
+          value: {
+            text: "10:01am on 2 December 2022"
+          }
+        },
+        {
+          key: {
+            text: "Created"
+          },
+          value: {
+            text: "10:53am on 4 July 2022"
+          }
+        },
+        {
+          key: {
+            text: "Document created by"
+          },
+          value: {
+            text: "Clarence J. Boddicker"
+          }
+        },
+        {
+          key: {
+            text: "Last edited by"
+          },
+          value: {
+            text: globals.loggedUser
+          }
+        }
+      ]
+    }) }} -->
+
+    {% include "./includes/document-info.html" %}
+
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+    {% set specificHtml %}
+      <div class="autocomplete__wrapper govuk-!-margin-bottom-6">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--s" for="author-filter">
+            Search for publishers with editor permissions
+          </label>
+          <!-- <span id="organisation-search-error" class="govuk-error-message" role="alert">
+            <span class="govuk-visually-hidden">Error:</span> Value entered not recognised, please try again
+          </span> -->
+          <select class="govuk-select" id="author-filter" name="author-filter">
+            <option value=""></option>
+            {% include "mock-data/authors_data.html" %}
+          </select>
+        </div>
+      </div>
+    {% endset -%}
+
+
+    {{ govukRadios({
+      name: "contact",
+      fieldset: {
+        legend: {
+          text: "How do you want to share this document for review?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      hint: {
+        text: "Select one option."
+      },
+      items: [
+        {
+          value: "department",
+          text: "Share a link with another publisher",
+          hint: {
+            text: "You’ll be given a link to share with another publisher for them to review and publish this document."
+          }
+        },
+        {
+          value: "specific",
+          text: "Send to another publisher for review",
+          hint: {
+            text: "The selected publisher who has editor permissions will get an email asking them to review and publish this content. Anyone with editor permissions can still review this document."
+          },
+          conditional: {
+            html: specificHtml
+          }
+        }
+      ]
+    }) }}
+
+    {{ govukButton({
+      text: "Submit for 2i review",
+      href: "summary?message=second-eyes"
+    }) }}
+  </div>
+</div>
+{% endblock %}
+{% block footer %}{% include "includes/footer-v1.html" %}{% endblock %}
+
+
+{% block pageScripts %}
+{{ super() }}
+<script>
+  $('#author-filter').autocomplete();
+</script>
+{% endblock %}
+
