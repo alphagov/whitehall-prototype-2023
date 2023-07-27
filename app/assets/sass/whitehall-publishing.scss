@@ -602,8 +602,10 @@ $wh-page-max-width: 1280px;
   // app-view-summary__sidebar-actions (for e.g. sticky save buttons)
   .app-view-summary__sidebar-actions {
     padding: govuk-spacing(3);
+    margin-top: govuk-spacing(6);
     margin-bottom: govuk-spacing(6);
     background-color: govuk-colour("light-grey");
+    z-index: 99999999999;
   }
 
   .app-view-summary__sidebar-actions .gem-c-button {
@@ -616,6 +618,9 @@ $wh-page-max-width: 1280px;
   }
 
   .sticky-save-buttons {
+    padding-top: govuk-spacing(1);
+    background-color: white;
+    z-index: 5;
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 0;
@@ -626,6 +631,11 @@ $wh-page-max-width: 1280px;
     cursor: not-allowed;
     opacity: 0.5;
     text-decoration: none;
+  }
+
+  .sidebar-tabs {
+    z-index: 1;
+    position:relative;
   }
 
 }
