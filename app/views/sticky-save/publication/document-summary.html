@@ -1,0 +1,311 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+  {{ super() }}
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div data-module="auto-track-event" data-track-category="flash-message" data-track-action="alert-success" data-track-label="The tags have been updated." data-auto-track-event-module-started="true">
+
+      <div class="gem-c-success-alert govuk-notification-banner govuk-notification-banner--success" role="alert" tabindex="-1" aria-labelledby="govuk-notification-banner-title-1d5fef9c" data-module="initial-focus" data-initial-focus-module-started="true">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title-1d5fef9c">Success</h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <p class="govuk-body gem-c-success-alert__message">The tags have been updated.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds"></div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds"></div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <div class="gem-c-title govuk-!-margin-top-0 govuk-!-margin-bottom-8">
+          <span class="govuk-caption-xl gem-c-title__context"></span>
+
+          <h1 class="gem-c-title__text govuk-heading-xl">
+            {{content.documentContent[0].title}}
+          </h1>
+        </div>
+      </div>
+
+      <div class="govuk-grid-column-one-third app-grid-column--align-right"></div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="app-view-summary__main">
+          <section class="app-view-summary__section page-header">
+            <div class="app-view-summary__document-summary">
+              <p class="govuk-body-lead">{{content.documentContent[0].summary}}</p>
+            </div>
+
+            <div>
+              <div class="gem-c-summary-list govuk-summary-list--no-border ">
+
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+
+                    <dt class="govuk-summary-list__key">Type of document</dt>
+                    <dd class="govuk-summary-list__value">Publication: guidance</dd>
+
+                  </div>
+                  <div class="govuk-summary-list__row">
+
+                    <dt class="govuk-summary-list__key">Status</dt>
+                    <dd class="govuk-summary-list__value">Draft</dd>
+
+                  </div>
+                  <div class="govuk-summary-list__row">
+
+                    <dt class="govuk-summary-list__key">Change type</dt>
+                    <dd class="govuk-summary-list__value">Major</dd>
+
+                  </div>
+                  <div class="govuk-summary-list__row">
+
+                    <dt class="govuk-summary-list__key">Organisations</dt>
+                    <dd class="govuk-summary-list__value">Government Digital Service</dd>
+
+                  </div>
+                  <div class="govuk-summary-list__row">
+
+                    <dt class="govuk-summary-list__key">Review date</dt>
+                    <dd class="govuk-summary-list__value">Not set</dd>
+
+                  </div>
+                </dl>
+                <div class="gem-c-summary__block"></div>
+              </div>
+            </div>
+
+          </section>
+
+          <section class="app-view-summary__section">
+            <h2 class="gem-c-heading govuk-heading-l govuk-!-margin-bottom-3">Preview</h2>
+
+            <p class="govuk-body">
+              <a class="govuk-link" target="_blank" data-module="gem-track-click" data-track-category="button-clicked" data-track-action="news-article-button" data-track-label="Preview on website" href="https://draft-origin.integration.publishing.service.gov.uk/government/news/test-upload" data-gem-track-click-module-started="true">Preview on website  (opens in new tab)</a>
+            </p>
+
+            <details class="gem-c-details govuk-details govuk-!-margin-bottom-3" data-module="govuk-details gem-details" data-govuk-details-module-started="true" data-gem-details-module-started="true">
+              <summary class="govuk-details__summary" data-details-track-click="">
+                <span class="govuk-details__summary-text">
+      Share document preview
+    </span>
+              </summary>
+              <div class="govuk-details__text">
+
+                <p class="govuk-body">Send this preview link to someone so they can see the content and how the document will appear on GOV.UK.</p>
+                <p class="govuk-body">No password is needed and anyone with the preview link can view it. You're responsible for who you share draft documents with. </p>
+                <p class="govuk-body">The preview link will expire on 27 August 2023 or when the document is published.</p>
+
+                <div class="gem-c-copy-to-clipboard" data-module="copy-to-clipboard" data-copy-to-clipboard-module-started="true">
+
+                  <div class="govuk-form-group">
+
+                    <label for="input-4fdb27a2" class="gem-c-label govuk-label">Copy and send this link to someone and they’ll be able to preview your draft on GOV.UK.</label>
+
+                    <input class="gem-c-input govuk-input" id="input-4fdb27a2" name="ac975dd03dc69fc7b537af2960c09f44" readonly="readonly" spellcheck="false" type="text" value="https://draft-origin.integration.publishing.service.gov.uk/government/news/test-upload?token=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwZTgzOTc5ZC00YjMwLTQxNDYtOTAzYS03NjI4NGY4OGJlMDkiLCJjb250ZW50X2lkIjoiYzY0NDc3NTYtY2MzZi00OWM1LWFhODAtNTJjOWY1NWI4MWNmIiwiaWF0IjoxNjkwNDkyMjAyLCJleHAiOjE2OTMxNzA2MDJ9.2_x1XyX9CYqv_hgJ2t09T8HislZT7pCwSiwGtl7oBmY&amp;utm_campaign=govuk_publishing&amp;utm_medium=preview&amp;utm_source=share">
+                  </div>
+
+                  <button class="gem-c-button govuk-button gem-c-button--secondary-quiet" type="submit">Copy link</button>
+
+                </div>
+
+                <p class="govuk-body govuk-!-margin-top-7">Reset and generate a new preview link if you've shared the preview with the wrong person or if the link has expired. This will disable the previous preview link.</p>
+                <form action="/government/admin/editions/1469764/update_bypass_id" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="patch" autocomplete="off"><input type="hidden" name="authenticity_token" value="qjVeaRAeMv3LHiBNlkcvPsF7aeY6WcKD6WfWsjvRW_AJl496fvUePLU63sAWcOFVHnWqii-wLaUWjgWPu2U5ig" autocomplete="off">
+                  <input type="hidden" name="_method" value="patch">
+
+                  <button class="gem-c-button govuk-button gem-c-button--secondary-quiet" type="submit">Generate new link</button>
+
+                </form>
+              </div>
+            </details>
+          </section>
+
+          <section class="app-view-summary__section app-view-summary__taxonomy-topics">
+            <h2 class="gem-c-heading govuk-heading-l govuk-!-margin-bottom-3">Topic taxonomy tags</h2>
+
+            <p class="govuk-body">
+              <a class="govuk-link" href="/government/admin/editions/1469764/tags/edit">Change tags</a>
+            </p>
+
+            <div class="govuk-breadcrumbs">
+              <ol class="govuk-breadcrumbs__list app-view-summary__topic-tag-list">
+                <li class="govuk-breadcrumbs__list-item app-view-summary__topic-tag-list-item">Brexit</li>
+                <li class="govuk-breadcrumbs__list-item app-view-summary__topic-tag-list-item">Brexit: business guidance</li>
+              </ol>
+            </div>
+          </section>
+
+          <section class="app-view-summary__section">
+            <h2 class="gem-c-heading govuk-heading-l govuk-!-margin-bottom-3">Specialist topic tags</h2>
+
+            <p class="govuk-body">
+              <a class="govuk-link" href="/government/admin/editions/1469764/legacy_associations/edit">Add specialist topic tags</a>
+            </p>
+
+            <p class="govuk-body">No specialist topic tags for this document</p>
+          </section>
+
+          <section class="app-view-summary__section app-view-summary__section--attachments">
+            <h2 class="gem-c-heading govuk-heading-l govuk-!-margin-bottom-3">Attachments</h2>
+
+            <p class="govuk-body">
+              <a class="govuk-link" data-module="gem-track-click" data-track-category="button-clicked" data-track-action="news-article-button" data-track-label="Modify attachments" href="/government/admin/editions/1469764/attachments" data-gem-track-click-module-started="true">Add attachments</a>
+            </p>
+
+            <p class="govuk-body">No attachments for this document</p>
+          </section>
+          <section class="app-view-summary__section">
+            <h2 class="gem-c-heading govuk-heading-l govuk-!-margin-bottom-3">Translations</h2>
+
+            <p class="govuk-body">
+              <a class="govuk-link" href="/government/admin/editions/1469764/translations/new">Add translation</a>
+            </p>
+            <p class="govuk-body">No translations for this document</p>
+          </section>
+
+          <section class="app-view-summary__section app-view-summary__section-user-needs">
+            <h2 class="gem-c-heading govuk-heading-l govuk-!-margin-bottom-3">Associated user needs</h2>
+
+            <p class="govuk-body">
+              <a class="govuk-link" href="/government/admin/c6447756-cc3f-49c5-aa80-52c9f55b81cf/needs">Add associated user needs</a>
+            </p>
+            <p class="govuk-body">No associated user needs for this document</p>
+          </section>
+        </div>
+
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <aside class="app-view-summary__sidebar">
+          <div class="app-view-summary__sidebar-actions">
+            <ul class="gem-c-list govuk-list govuk-list--spaced">
+              <li>
+
+                <a class="gem-c-button govuk-button gem-c-button--secondary-quiet" role="button" href="/sticky-save/publication/edit-document">Edit draft</a>
+
+              </li>
+              <li>
+                <form data-module="prevent-multiple-form-submissions" action="/government/admin/editions/1469764/submit?lock_version=0" accept-charset="UTF-8" method="post" data-prevent-multiple-form-submissions-module-started="true"><input type="hidden" name="authenticity_token" value="ogytIF-0WQW4G3XAxcAHRoZiN1ArpsnnOUVH0EY7srMBrnwzMV91xMY_i01F98ktWWz0PD5PJsHGrJTtxo_QyQ" autocomplete="off">
+
+                  <button class="gem-c-button govuk-button" type="submit" data-module="gem-track-click" data-track-category="button-pressed" data-track-action="news-article-button" data-track-label="Submit for 2nd eyes" data-gem-track-click-module-started="true">Submit for 2nd eyes</button>
+
+                </form>
+              </li>
+              <li>
+
+                <a class="gem-c-button govuk-button gem-c-button--secondary-quiet" role="button" data-module="govuk-button gem-track-click" data-track-category="button-pressed" data-track-action="news-article-button" data-track-label="Force publish" title="Publish test upload" draggable="false" href="/government/admin/editions/1469764/confirm_force_publish?lock_version=0" data-govuk-button-module-started="true" data-gem-track-click-module-started="true">Force publish</a>
+
+              </li>
+              <li>
+                <a class="govuk-link gem-link--destructive" data-module="gem-track-click" data-track-category="button-clicked" data-track-action="news-article-button" data-track-label="Delete draft" href="/government/admin/editions/1469764/confirm_destroy" data-gem-track-click-module-started="true">Delete draft</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="app-view-summary__sidebar-notices"></div>
+
+          <div data-module="govuk-tabs" class="govuk-tabs gem-c-tabs" data-govuk-tabs-module-started="true">
+            <h2 class="govuk-tabs__title">
+      Contents
+    </h2>
+            <ul class="govuk-tabs__list" role="tablist">
+              <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation">
+                <a class="govuk-tabs__tab" href="#history_tab" id="tab_history_tab" role="tab" aria-controls="history_tab" aria-selected="true" tabindex="0">History</a>
+              </li>
+              <li class="govuk-tabs__list-item" role="presentation">
+                <a class="govuk-tabs__tab" href="#fact_checking_tab" id="tab_fact_checking_tab" role="tab" aria-controls="fact_checking_tab" aria-selected="false" tabindex="-1">Fact checking</a>
+              </li>
+            </ul>
+            <section class="govuk-tabs__panel" id="history_tab" role="tabpanel" aria-labelledby="tab_history_tab">
+              <div data-module="document-history-paginator" data-document-history-paginator-module-started="true">
+                <h2 class="govuk-heading-l">History</h2>
+
+                <p class="govuk-body">
+                  <a class="govuk-body govuk-link govuk-link--no-visited-state" data-module="gem-track-click" data-track-category="button-pressed" data-track-action="news-article-button" data-track-label="Add new remark" href="/government/admin/editions/1469764/editorial_remarks/new" data-gem-track-click-module-started="true">Add internal note</a>
+                </p>
+
+                <form class="js-filter-form" data-remote-pagination="/government/admin/editions/1469764/document_history" accept-charset="UTF-8" method="get">
+                  <input autocomplete="off" type="hidden" name="editing" id="editing">
+                  <div class="govuk-form-group gem-c-select">
+                    <label class="govuk-label govuk-label--s" for="document_history_filter">Show</label>
+
+                    <select name="only" id="document_history_filter" class="govuk-select gem-c-select__select--full-width">
+                      <option selected="selected" value="">Everything</option>
+                      <option value="internal_notes">Internal notes</option>
+                      <option value="history">Document history</option>
+                    </select>
+                  </div>
+
+                  <button class="gem-c-button govuk-button" type="submit" hidden="" style="display: none;">Filter</button>
+
+                </form>
+
+                <div class="app-view-editions__current-edition-entries">
+                  <h3 class="govuk-heading-m govuk-!-margin-bottom-2">On this edition</h3>
+
+                  <ul class="gem-c-list govuk-list govuk-!-margin-bottom-0">
+                    <li>
+                      <div class="app-view-editions-audit-trail-entry__list-item govuk-!-margin-bottom-4">
+                        <h4 class="govuk-heading-s govuk-!-margin-bottom-0">Document created</h4>
+
+                        <p class="app-view-editions-audit-trail-entry__list-item-datetime govuk-body-s govuk-!-margin-bottom-0 govuk-!-margin-top-0">
+                          <time class="datetime" datetime="2023-07-27T13:08:43+01:00">27 July 2023  1:08pm</time> by <a class="govuk-link" href="/">Willem</a>
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+            </section>
+            <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="fact_checking_tab" role="tabpanel" aria-labelledby="tab_fact_checking_tab">
+              <h2 class="govuk-heading-l">Fact checking</h2>
+
+              <section class="responses">
+                <p class="govuk-body">Document doesn't have any fact checking responses yet.</p>
+              </section>
+
+              <section class="pending"></section>
+
+              <section class="send-request">
+                <h3 class="govuk-heading-m">Send request</h3>
+                <form class="new_fact_check_request" id="new_fact_check_request" action="/government/admin/editions/1469764/fact_check_requests" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="IbjZE3YI88bnEwrtIfIs5w1IYPBy_gVrYVO94x1L0tmCGggAGOPfB5k39GChxeKM0kajnGcX6k2eum7enf-wow" autocomplete="off">
+
+                  <div class="govuk-form-group">
+
+                    <label for="fact_check_request_email_address" class="gem-c-label govuk-label govuk-label--s">Email address (required)</label>
+
+                    <input class="gem-c-input govuk-input" id="fact_check_request_email_address" name="fact_check_request[email_address]" spellcheck="false" type="text">
+                  </div>
+
+                  <div class="gem-c-textarea govuk-form-group govuk-!-margin-bottom-6">
+
+                    <label for="fact_check_request_instructions" class="gem-c-label govuk-label govuk-label--s">Extra instructions</label>
+
+                    <textarea name="fact_check_request[instructions]" class="govuk-textarea" id="fact_check_request_instructions" rows="5" spellcheck="true"></textarea>
+
+                  </div>
+
+                  <button class="gem-c-button govuk-button" type="submit">Send request</button>
+
+                </form>
+              </section>
+
+            </section>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+
+  </main>
+{% endblock %}
