@@ -1,0 +1,385 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+  {{ super() }}
+
+  <div class="govuk-width-container">
+    {# <div class="gem-c-phase-banner govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-phase-banner__content__tag">What's new</strong>
+        <span class="govuk-phase-banner__text">New review date functionality -
+        <a class="govuk-link" data-module="gem-track-click" data-track-category="phaseBanner" data-track-action="whats-new-banner-click" data-track-label="Whats new" href="/government/admin/whats-new" data-gem-track-click-module-started="true">read more about the changes</a>.</span>
+      </p>
+    </div> #}
+    <div>
+      {{ govukBreadcrumbs({
+          items: [
+            {
+              text: "Document summary",
+              href: "#"
+            },
+            {
+              text: "Add associations",
+              href: "#"
+            }
+          ]
+        }) }}
+    </div>
+
+    <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <div class="gem-c-title govuk-!-margin-top-0 govuk-!-margin-bottom-8">
+            <span class="govuk-caption-xl gem-c-title__context">
+              {{content.documentContent[0].title}}
+            </span>
+            <h1 class="gem-c-title__text govuk-heading-xl">
+              Associations
+            </h1>
+          </div>
+          <div class="govuk-!-margin-bottom-8 govuk-body">
+            <div class="app-c-autocomplete govuk-form-group" data-module="autocomplete" data-autocomplete-configuration-options="{}" data-autocomplete-module-started="true">
+
+              <label for="edition_role_appointment_ids" class="gem-c-label govuk-label govuk-label--m">Ministers</label>
+
+              <input type="hidden" name="edition[role_appointment_ids][]" id="edition_role_appointment_ids_" value="" autocomplete="off">
+
+              {# <span class="govuk-hint app-c-autocomplete__multiselect-instructions">To select multiple items in a list, hold down Ctrl (PC) or Command (Mac) key.</span> #}
+
+              <span>
+                <div class="autocomplete__wrapper" role="combobox" aria-expanded="false">
+                  <div aria-atomic="true" aria-live="polite" role="status" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">Type in 3 or more characters for results.<span>,,</span></div><input aria-owns="edition_role_appointment_ids__listbox" autocomplete="off" class="autocomplete__input autocomplete__input--show-all-values" id="edition_role_appointment_ids" name="" placeholder="" type="text" role="textbox">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="autocomplete__dropdown-arrow-down" focusable="false">
+                    <g stroke="none" fill="none" fill-rule="evenodd">
+                      <polygon fill="#000000" points="0 0 22 0 11 17"></polygon>
+                    </g>
+                  </svg>
+                  <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="edition_role_appointment_ids__listbox" role="listbox"></ul>
+                </div>
+              </span>
+              <select name="edition[role_appointment_ids][]" id="edition_role_appointment_ids-select" class="govuk-select" multiple="multiple" style="display: none;">
+                <option value=""></option>
+                <option value="8766">The Rt Hon Michelle Donelan MP, Secretary of State for Science, Innovation and Technology, Department for Science, Innovation and Technology</option>
+                <option selected="selected" value="8621">Nigel Huddleston MP, Minister of State (Minister for International Trade), Department for Business and Trade</option>
+              </select>
+            </div>
+
+            <div class="app-c-autocomplete govuk-form-group" data-module="autocomplete" data-autocomplete-configuration-options="{}" data-autocomplete-module-started="true">
+
+              <label for="edition_role_appointment_ids" class="gem-c-label govuk-label govuk-label--m">Topical events</label>
+
+              <input type="hidden" name="edition[role_appointment_ids][]" id="edition_role_appointment_ids_" value="" autocomplete="off">
+
+              {# <span class="govuk-hint app-c-autocomplete__multiselect-instructions">To select multiple items in a list, hold down Ctrl (PC) or Command (Mac) key.</span> #}
+
+              <span>
+                <div class="autocomplete__wrapper" role="combobox" aria-expanded="false">
+                  <div aria-atomic="true" aria-live="polite" role="status" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">Type in 3 or more characters for results.<span>,,</span></div><input aria-owns="edition_role_appointment_ids__listbox" autocomplete="off" class="autocomplete__input autocomplete__input--show-all-values" id="edition_role_appointment_ids" name="" placeholder="" type="text" role="textbox">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="autocomplete__dropdown-arrow-down" focusable="false">
+                    <g stroke="none" fill="none" fill-rule="evenodd">
+                      <polygon fill="#000000" points="0 0 22 0 11 17"></polygon>
+                    </g>
+                  </svg>
+                  <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="edition_role_appointment_ids__listbox" role="listbox"></ul>
+                </div>
+              </span>
+              <select name="edition[role_appointment_ids][]" id="edition_role_appointment_ids-select" class="govuk-select" multiple="multiple" style="display: none;">
+                <option value=""></option>
+                <option value="8766">The Rt Hon Michelle Donelan MP, Secretary of State for Science, Innovation and Technology, Department for Science, Innovation and Technology</option>
+                <option selected="selected" value="8621">Nigel Huddleston MP, Minister of State (Minister for International Trade), Department for Business and Trade</option>
+              </select>
+            </div>
+
+            <div class="app-c-autocomplete govuk-form-group" data-module="autocomplete" data-autocomplete-configuration-options="{}" data-autocomplete-module-started="true">
+
+              <label for="edition_role_appointment_ids" class="gem-c-label govuk-label govuk-label--m">World locations</label>
+
+              <input type="hidden" name="edition[role_appointment_ids][]" id="edition_role_appointment_ids_" value="" autocomplete="off">
+
+              {# <span class="govuk-hint app-c-autocomplete__multiselect-instructions">To select multiple items in a list, hold down Ctrl (PC) or Command (Mac) key.</span> #}
+
+              <span>
+                <div class="autocomplete__wrapper" role="combobox" aria-expanded="false">
+                  <div aria-atomic="true" aria-live="polite" role="status" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">Type in 3 or more characters for results.<span>,,</span></div><input aria-owns="edition_role_appointment_ids__listbox" autocomplete="off" class="autocomplete__input autocomplete__input--show-all-values" id="edition_role_appointment_ids" name="" placeholder="" type="text" role="textbox">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="autocomplete__dropdown-arrow-down" focusable="false">
+                    <g stroke="none" fill="none" fill-rule="evenodd">
+                      <polygon fill="#000000" points="0 0 22 0 11 17"></polygon>
+                    </g>
+                  </svg>
+                  <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="edition_role_appointment_ids__listbox" role="listbox"></ul>
+                </div>
+              </span>
+              <select name="edition[role_appointment_ids][]" id="edition_role_appointment_ids-select" class="govuk-select" multiple="multiple" style="display: none;">
+                <option value=""></option>
+                <option value="8766">The Rt Hon Michelle Donelan MP, Secretary of State for Science, Innovation and Technology, Department for Science, Innovation and Technology</option>
+                <option selected="selected" value="8621">Nigel Huddleston MP, Minister of State (Minister for International Trade), Department for Business and Trade</option>
+              </select>
+            </div>
+
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h3 class="govuk-fieldset__heading">Organisations</h3>
+            </legend>
+
+            <div class="app-c-autocomplete govuk-form-group" data-module="autocomplete" data-autocomplete-configuration-options="{}" data-autocomplete-module-started="true">
+
+              <label for="edition_role_appointment_ids" class="gem-c-label govuk-label govuk-label--s">Lead organisation 1</label>
+
+              <input type="hidden" name="edition[role_appointment_ids][]" id="edition_role_appointment_ids_" value="" autocomplete="off">
+
+              {# <span class="govuk-hint app-c-autocomplete__multiselect-instructions">To select multiple items in a list, hold down Ctrl (PC) or Command (Mac) key.</span> #}
+
+              <span>
+                <div class="autocomplete__wrapper" role="combobox" aria-expanded="false">
+                  <div aria-atomic="true" aria-live="polite" role="status" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">Type in 3 or more characters for results.<span>,,</span></div><input aria-owns="edition_role_appointment_ids__listbox" autocomplete="off" class="autocomplete__input autocomplete__input--show-all-values" id="edition_role_appointment_ids" name="" placeholder="" type="text" role="textbox">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="autocomplete__dropdown-arrow-down" focusable="false">
+                    <g stroke="none" fill="none" fill-rule="evenodd">
+                      <polygon fill="#000000" points="0 0 22 0 11 17"></polygon>
+                    </g>
+                  </svg>
+                  <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="edition_role_appointment_ids__listbox" role="listbox"></ul>
+                </div>
+              </span>
+              <select name="edition[role_appointment_ids][]" id="edition_role_appointment_ids-select" class="govuk-select" multiple="multiple" style="display: none;">
+                <option value=""></option>
+                <option value="8766">The Rt Hon Michelle Donelan MP, Secretary of State for Science, Innovation and Technology, Department for Science, Innovation and Technology</option>
+                <option selected="selected" value="8621">Nigel Huddleston MP, Minister of State (Minister for International Trade), Department for Business and Trade</option>
+              </select>
+            </div>
+
+            <div class="app-c-autocomplete govuk-form-group" data-module="autocomplete" data-autocomplete-configuration-options="{}" data-autocomplete-module-started="true">
+
+              <label for="edition_role_appointment_ids" class="gem-c-label govuk-label govuk-label--s">Lead organisation 2</label>
+
+              <input type="hidden" name="edition[role_appointment_ids][]" id="edition_role_appointment_ids_" value="" autocomplete="off">
+
+              {# <span class="govuk-hint app-c-autocomplete__multiselect-instructions">To select multiple items in a list, hold down Ctrl (PC) or Command (Mac) key.</span> #}
+
+              <span>
+                <div class="autocomplete__wrapper" role="combobox" aria-expanded="false">
+                  <div aria-atomic="true" aria-live="polite" role="status" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">Type in 3 or more characters for results.<span>,,</span></div><input aria-owns="edition_role_appointment_ids__listbox" autocomplete="off" class="autocomplete__input autocomplete__input--show-all-values" id="edition_role_appointment_ids" name="" placeholder="" type="text" role="textbox">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="autocomplete__dropdown-arrow-down" focusable="false">
+                    <g stroke="none" fill="none" fill-rule="evenodd">
+                      <polygon fill="#000000" points="0 0 22 0 11 17"></polygon>
+                    </g>
+                  </svg>
+                  <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="edition_role_appointment_ids__listbox" role="listbox"></ul>
+                </div>
+              </span>
+              <select name="edition[role_appointment_ids][]" id="edition_role_appointment_ids-select" class="govuk-select" multiple="multiple" style="display: none;">
+                <option value=""></option>
+                <option value="8766">The Rt Hon Michelle Donelan MP, Secretary of State for Science, Innovation and Technology, Department for Science, Innovation and Technology</option>
+                <option selected="selected" value="8621">Nigel Huddleston MP, Minister of State (Minister for International Trade), Department for Business and Trade</option>
+              </select>
+            </div>
+
+            <div class="app-c-autocomplete govuk-form-group" data-module="autocomplete" data-autocomplete-configuration-options="{}" data-autocomplete-module-started="true">
+
+              <label for="edition_role_appointment_ids" class="gem-c-label govuk-label govuk-label--s">Lead organisation 3</label>
+
+              <input type="hidden" name="edition[role_appointment_ids][]" id="edition_role_appointment_ids_" value="" autocomplete="off">
+
+              {# <span class="govuk-hint app-c-autocomplete__multiselect-instructions">To select multiple items in a list, hold down Ctrl (PC) or Command (Mac) key.</span> #}
+
+              <span>
+                <div class="autocomplete__wrapper" role="combobox" aria-expanded="false">
+                  <div aria-atomic="true" aria-live="polite" role="status" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">Type in 3 or more characters for results.<span>,,</span></div><input aria-owns="edition_role_appointment_ids__listbox" autocomplete="off" class="autocomplete__input autocomplete__input--show-all-values" id="edition_role_appointment_ids" name="" placeholder="" type="text" role="textbox">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="autocomplete__dropdown-arrow-down" focusable="false">
+                    <g stroke="none" fill="none" fill-rule="evenodd">
+                      <polygon fill="#000000" points="0 0 22 0 11 17"></polygon>
+                    </g>
+                  </svg>
+                  <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="edition_role_appointment_ids__listbox" role="listbox"></ul>
+                </div>
+              </span>
+              <select name="edition[role_appointment_ids][]" id="edition_role_appointment_ids-select" class="govuk-select" multiple="multiple" style="display: none;">
+                <option value=""></option>
+                <option value="8766">The Rt Hon Michelle Donelan MP, Secretary of State for Science, Innovation and Technology, Department for Science, Innovation and Technology</option>
+                <option selected="selected" value="8621">Nigel Huddleston MP, Minister of State (Minister for International Trade), Department for Business and Trade</option>
+              </select>
+            </div>
+
+            <div class="app-c-autocomplete govuk-form-group" data-module="autocomplete" data-autocomplete-configuration-options="{}" data-autocomplete-module-started="true">
+
+              <label for="edition_role_appointment_ids" class="gem-c-label govuk-label govuk-label--s">Lead organisation 4</label>
+
+              <input type="hidden" name="edition[role_appointment_ids][]" id="edition_role_appointment_ids_" value="" autocomplete="off">
+
+              {# <span class="govuk-hint app-c-autocomplete__multiselect-instructions">To select multiple items in a list, hold down Ctrl (PC) or Command (Mac) key.</span> #}
+
+              <span>
+                <div class="autocomplete__wrapper" role="combobox" aria-expanded="false">
+                  <div aria-atomic="true" aria-live="polite" role="status" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">Type in 3 or more characters for results.<span>,,</span></div><input aria-owns="edition_role_appointment_ids__listbox" autocomplete="off" class="autocomplete__input autocomplete__input--show-all-values" id="edition_role_appointment_ids" name="" placeholder="" type="text" role="textbox">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="autocomplete__dropdown-arrow-down" focusable="false">
+                    <g stroke="none" fill="none" fill-rule="evenodd">
+                      <polygon fill="#000000" points="0 0 22 0 11 17"></polygon>
+                    </g>
+                  </svg>
+                  <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="edition_role_appointment_ids__listbox" role="listbox"></ul>
+                </div>
+              </span>
+              <select name="edition[role_appointment_ids][]" id="edition_role_appointment_ids-select" class="govuk-select" multiple="multiple" style="display: none;">
+                <option value=""></option>
+                <option value="8766">The Rt Hon Michelle Donelan MP, Secretary of State for Science, Innovation and Technology, Department for Science, Innovation and Technology</option>
+                <option selected="selected" value="8621">Nigel Huddleston MP, Minister of State (Minister for International Trade), Department for Business and Trade</option>
+              </select>
+            </div>
+
+            <div class="app-c-autocomplete govuk-form-group" data-module="autocomplete" data-autocomplete-configuration-options="{}" data-autocomplete-module-started="true">
+
+              <label for="edition_role_appointment_ids" class="gem-c-label govuk-label govuk-label--s">Supporting organisation 1</label>
+
+              <input type="hidden" name="edition[role_appointment_ids][]" id="edition_role_appointment_ids_" value="" autocomplete="off">
+
+              {# <span class="govuk-hint app-c-autocomplete__multiselect-instructions">To select multiple items in a list, hold down Ctrl (PC) or Command (Mac) key.</span> #}
+
+              <span>
+                <div class="autocomplete__wrapper" role="combobox" aria-expanded="false">
+                  <div aria-atomic="true" aria-live="polite" role="status" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">Type in 3 or more characters for results.<span>,,</span></div><input aria-owns="edition_role_appointment_ids__listbox" autocomplete="off" class="autocomplete__input autocomplete__input--show-all-values" id="edition_role_appointment_ids" name="" placeholder="" type="text" role="textbox">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="autocomplete__dropdown-arrow-down" focusable="false">
+                    <g stroke="none" fill="none" fill-rule="evenodd">
+                      <polygon fill="#000000" points="0 0 22 0 11 17"></polygon>
+                    </g>
+                  </svg>
+                  <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="edition_role_appointment_ids__listbox" role="listbox"></ul>
+                </div>
+              </span>
+              <select name="edition[role_appointment_ids][]" id="edition_role_appointment_ids-select" class="govuk-select" multiple="multiple" style="display: none;">
+                <option value=""></option>
+                <option value="8766">The Rt Hon Michelle Donelan MP, Secretary of State for Science, Innovation and Technology, Department for Science, Innovation and Technology</option>
+                <option selected="selected" value="8621">Nigel Huddleston MP, Minister of State (Minister for International Trade), Department for Business and Trade</option>
+              </select>
+            </div>
+
+            <div class="app-c-autocomplete govuk-form-group" data-module="autocomplete" data-autocomplete-configuration-options="{}" data-autocomplete-module-started="true">
+
+              <label for="edition_role_appointment_ids" class="gem-c-label govuk-label govuk-label--s">Supporting organisation 2</label>
+
+              <input type="hidden" name="edition[role_appointment_ids][]" id="edition_role_appointment_ids_" value="" autocomplete="off">
+
+              {# <span class="govuk-hint app-c-autocomplete__multiselect-instructions">To select multiple items in a list, hold down Ctrl (PC) or Command (Mac) key.</span> #}
+
+              <span>
+                <div class="autocomplete__wrapper" role="combobox" aria-expanded="false">
+                  <div aria-atomic="true" aria-live="polite" role="status" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">Type in 3 or more characters for results.<span>,,</span></div><input aria-owns="edition_role_appointment_ids__listbox" autocomplete="off" class="autocomplete__input autocomplete__input--show-all-values" id="edition_role_appointment_ids" name="" placeholder="" type="text" role="textbox">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="autocomplete__dropdown-arrow-down" focusable="false">
+                    <g stroke="none" fill="none" fill-rule="evenodd">
+                      <polygon fill="#000000" points="0 0 22 0 11 17"></polygon>
+                    </g>
+                  </svg>
+                  <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="edition_role_appointment_ids__listbox" role="listbox"></ul>
+                </div>
+              </span>
+              <select name="edition[role_appointment_ids][]" id="edition_role_appointment_ids-select" class="govuk-select" multiple="multiple" style="display: none;">
+                <option value=""></option>
+                <option value="8766">The Rt Hon Michelle Donelan MP, Secretary of State for Science, Innovation and Technology, Department for Science, Innovation and Technology</option>
+                <option selected="selected" value="8621">Nigel Huddleston MP, Minister of State (Minister for International Trade), Department for Business and Trade</option>
+              </select>
+            </div>
+
+            <div class="app-c-autocomplete govuk-form-group" data-module="autocomplete" data-autocomplete-configuration-options="{}" data-autocomplete-module-started="true">
+
+              <label for="edition_role_appointment_ids" class="gem-c-label govuk-label govuk-label--s">Supporting organisation 3</label>
+
+              <input type="hidden" name="edition[role_appointment_ids][]" id="edition_role_appointment_ids_" value="" autocomplete="off">
+
+              {# <span class="govuk-hint app-c-autocomplete__multiselect-instructions">To select multiple items in a list, hold down Ctrl (PC) or Command (Mac) key.</span> #}
+
+              <span>
+                <div class="autocomplete__wrapper" role="combobox" aria-expanded="false">
+                  <div aria-atomic="true" aria-live="polite" role="status" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">Type in 3 or more characters for results.<span>,,</span></div><input aria-owns="edition_role_appointment_ids__listbox" autocomplete="off" class="autocomplete__input autocomplete__input--show-all-values" id="edition_role_appointment_ids" name="" placeholder="" type="text" role="textbox">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="autocomplete__dropdown-arrow-down" focusable="false">
+                    <g stroke="none" fill="none" fill-rule="evenodd">
+                      <polygon fill="#000000" points="0 0 22 0 11 17"></polygon>
+                    </g>
+                  </svg>
+                  <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="edition_role_appointment_ids__listbox" role="listbox"></ul>
+                </div>
+              </span>
+              <select name="edition[role_appointment_ids][]" id="edition_role_appointment_ids-select" class="govuk-select" multiple="multiple" style="display: none;">
+                <option value=""></option>
+                <option value="8766">The Rt Hon Michelle Donelan MP, Secretary of State for Science, Innovation and Technology, Department for Science, Innovation and Technology</option>
+                <option selected="selected" value="8621">Nigel Huddleston MP, Minister of State (Minister for International Trade), Department for Business and Trade</option>
+              </select>
+            </div>
+            <div class="app-c-autocomplete govuk-form-group" data-module="autocomplete" data-autocomplete-configuration-options="{}" data-autocomplete-module-started="true">
+
+              <label for="edition_role_appointment_ids" class="gem-c-label govuk-label govuk-label--s">Supporting organisation 4</label>
+
+              <input type="hidden" name="edition[role_appointment_ids][]" id="edition_role_appointment_ids_" value="" autocomplete="off">
+
+              {# <span class="govuk-hint app-c-autocomplete__multiselect-instructions">To select multiple items in a list, hold down Ctrl (PC) or Command (Mac) key.</span> #}
+
+              <span>
+                <div class="autocomplete__wrapper" role="combobox" aria-expanded="false">
+                  <div aria-atomic="true" aria-live="polite" role="status" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">Type in 3 or more characters for results.<span>,,</span></div><input aria-owns="edition_role_appointment_ids__listbox" autocomplete="off" class="autocomplete__input autocomplete__input--show-all-values" id="edition_role_appointment_ids" name="" placeholder="" type="text" role="textbox">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="autocomplete__dropdown-arrow-down" focusable="false">
+                    <g stroke="none" fill="none" fill-rule="evenodd">
+                      <polygon fill="#000000" points="0 0 22 0 11 17"></polygon>
+                    </g>
+                  </svg>
+                  <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="edition_role_appointment_ids__listbox" role="listbox"></ul>
+                </div>
+              </span>
+              <select name="edition[role_appointment_ids][]" id="edition_role_appointment_ids-select" class="govuk-select" multiple="multiple" style="display: none;">
+                <option value=""></option>
+                <option value="8766">The Rt Hon Michelle Donelan MP, Secretary of State for Science, Innovation and Technology, Department for Science, Innovation and Technology</option>
+                <option selected="selected" value="8621">Nigel Huddleston MP, Minister of State (Minister for International Trade), Department for Business and Trade</option>
+              </select>
+            </div>
+            <div class="app-c-autocomplete govuk-form-group" data-module="autocomplete" data-autocomplete-configuration-options="{}" data-autocomplete-module-started="true">
+
+              <label for="edition_role_appointment_ids" class="gem-c-label govuk-label govuk-label--s">Supporting organisation 5</label>
+
+              <input type="hidden" name="edition[role_appointment_ids][]" id="edition_role_appointment_ids_" value="" autocomplete="off">
+
+              {# <span class="govuk-hint app-c-autocomplete__multiselect-instructions">To select multiple items in a list, hold down Ctrl (PC) or Command (Mac) key.</span> #}
+
+              <span>
+                <div class="autocomplete__wrapper" role="combobox" aria-expanded="false">
+                  <div aria-atomic="true" aria-live="polite" role="status" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">Type in 3 or more characters for results.<span>,,</span></div><input aria-owns="edition_role_appointment_ids__listbox" autocomplete="off" class="autocomplete__input autocomplete__input--show-all-values" id="edition_role_appointment_ids" name="" placeholder="" type="text" role="textbox">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="autocomplete__dropdown-arrow-down" focusable="false">
+                    <g stroke="none" fill="none" fill-rule="evenodd">
+                      <polygon fill="#000000" points="0 0 22 0 11 17"></polygon>
+                    </g>
+                  </svg>
+                  <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="edition_role_appointment_ids__listbox" role="listbox"></ul>
+                </div>
+              </span>
+              <select name="edition[role_appointment_ids][]" id="edition_role_appointment_ids-select" class="govuk-select" multiple="multiple" style="display: none;">
+                <option value=""></option>
+                <option value="8766">The Rt Hon Michelle Donelan MP, Secretary of State for Science, Innovation and Technology, Department for Science, Innovation and Technology</option>
+                <option selected="selected" value="8621">Nigel Huddleston MP, Minister of State (Minister for International Trade), Department for Business and Trade</option>
+              </select>
+            </div>
+            <div class="app-c-autocomplete govuk-form-group" data-module="autocomplete" data-autocomplete-configuration-options="{}" data-autocomplete-module-started="true">
+
+              <label for="edition_role_appointment_ids" class="gem-c-label govuk-label govuk-label--s">Supporting organisation 6</label>
+
+              <input type="hidden" name="edition[role_appointment_ids][]" id="edition_role_appointment_ids_" value="" autocomplete="off">
+
+              {# <span class="govuk-hint app-c-autocomplete__multiselect-instructions">To select multiple items in a list, hold down Ctrl (PC) or Command (Mac) key.</span> #}
+
+              <span>
+                <div class="autocomplete__wrapper" role="combobox" aria-expanded="false">
+                  <div aria-atomic="true" aria-live="polite" role="status" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">Type in 3 or more characters for results.<span>,,</span></div><input aria-owns="edition_role_appointment_ids__listbox" autocomplete="off" class="autocomplete__input autocomplete__input--show-all-values" id="edition_role_appointment_ids" name="" placeholder="" type="text" role="textbox">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="autocomplete__dropdown-arrow-down" focusable="false">
+                    <g stroke="none" fill="none" fill-rule="evenodd">
+                      <polygon fill="#000000" points="0 0 22 0 11 17"></polygon>
+                    </g>
+                  </svg>
+                  <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="edition_role_appointment_ids__listbox" role="listbox"></ul>
+                </div>
+              </span>
+              <select name="edition[role_appointment_ids][]" id="edition_role_appointment_ids-select" class="govuk-select" multiple="multiple" style="display: none;">
+                <option value=""></option>
+                <option value="8766">The Rt Hon Michelle Donelan MP, Secretary of State for Science, Innovation and Technology, Department for Science, Innovation and Technology</option>
+                <option selected="selected" value="8621">Nigel Huddleston MP, Minister of State (Minister for International Trade), Department for Business and Trade</option>
+              </select>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </main>
+  {% endblock %}

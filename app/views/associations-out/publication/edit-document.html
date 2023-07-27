@@ -1,0 +1,1041 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{% block content %}
+  {{ super() }}
+
+  <div class="govuk-width-container">
+    {# <div class="gem-c-phase-banner govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-phase-banner__content__tag">What's new</strong>
+        <span class="govuk-phase-banner__text">New review date functionality -
+        <a class="govuk-link" data-module="gem-track-click" data-track-category="phaseBanner" data-track-action="whats-new-banner-click" data-track-label="Whats new" href="/government/admin/whats-new" data-gem-track-click-module-started="true">read more about the changes</a>.</span>
+      </p>
+    </div> #}
+    <div>
+      {{ govukBreadcrumbs({
+          items: [
+            {
+              text: "Document summary",
+              href: "#"
+            },
+            {
+              text: "Edit document",
+              href: "#"
+            }
+          ]
+        }) }}
+    </div>
+    <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content">
+      <div class="gem-c-success-alert govuk-notification-banner govuk-notification-banner--success" role="alert" tabindex="-1" aria-labelledby="govuk-notification-banner-title-f3482d99" data-module="initial-focus" data-initial-focus-module-started="true">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title-f3482d99">Success</h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <p class="govuk-body gem-c-success-alert__message">Your draft has been saved</p>
+        </div>
+      </div>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <div class="gem-c-title govuk-!-margin-top-0 govuk-!-margin-bottom-8">
+            <span class="govuk-caption-xl gem-c-title__context">
+              {{content.documentContent[0].title}}
+            </span>
+            <h1 class="gem-c-title__text govuk-heading-xl">
+              Editing guidance
+            </h1>
+          </div>
+        </div>
+      </div>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <div>
+            {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+            {{ mojSubNavigation({
+            label: 'Sub navigation',
+            items: [{
+              text: 'Document',
+              href: '../publication/summary' + hrefParams,
+              active: true
+            }, {
+              html: 'Attachments',
+              href: '../publication/history' + hrefParams
+            },
+            {
+              html: 'Images',
+              href: '../publication/preview' + hrefParams
+            }]
+            }) 
+            }}
+          </div>
+          <div class="format-advice">
+            <p class="govuk-body">
+              <strong>Use this format for:</strong> Stand-alone government documents, issued on a specified date through GOV.UK for distribution.</p>
+          </div>
+          <label class="govuk-label govuk-label--l" id="edition_publication_type_id_label" for="edition_publication_type_id">Publication type (required)</label>
+          {% from "govuk/components/input/macro.njk" import govukInput %}
+          <div class="govuk-!-margin-bottom-6">
+            <input disabled="disabled" class="gem-c-input govuk-input govuk-body" id="edition_slug" name="edition[slug]" readonly="readonly" spellcheck="false" type="text" value="Guidance">
+          </div>
+          <div class="app-view-edition-form__subtype-format-advice js-app-view-edition-form__subtype-format-advice govuk-body govuk-!-margin-top-4">
+            <strong>Use this subformat for…</strong>
+            <p>Non-statutory guidance publications. Includes: manuals, handbooks and other documents that offer advice.</p>
+            <p>Do <em>not</em> use for: statutory guidance (use the “statutory guidance” publication type) or guidance about completing a form (attach to same publication as the form itself).</p>
+          </div>
+          <div class="govuk-!-margin-bottom-8">
+            <label for="edition_slug" class="gem-c-label govuk-label govuk-label--l govuk-!-font-weight-bold">Slug (read only)</label>
+            <input disabled="disabled" class="gem-c-input govuk-input govuk-body" id="edition_slug" name="edition[slug]" readonly="readonly" spellcheck="false" type="text" value="who-can-get-blue-badge">
+          </div>
+          <div class="gem-c-textarea govuk-form-group govuk-!-margin-bottom-6">
+
+            <label for="edition_title" class="gem-c-label govuk-label govuk-label--l">Title (required)</label>
+            <textarea name="edition[title]" class="govuk-textarea govuk-js-character-count" id="edition_title" rows="1" spellcheck="true">{{content.documentContent[0].title}}</textarea>
+            <div id="edition_title-info" class="govuk-hint govuk-character-count__message govuk-visually-hidden">
+                You can enter up to 65 characters
+              </div>
+            <div class="govuk-hint govuk-character-count__message govuk-character-count__status" aria-hidden="true">You have 36 characters remaining</div>
+            <div class="govuk-character-count__sr-status govuk-visually-hidden" aria-live="polite">You have 36 characters remaining</div>
+
+          </div>
+          <div class="gem-c-character-count govuk-character-count" data-module="govuk-character-count" data-maxlength="160" data-govuk-character-count-module-started="true">
+
+            <div class="gem-c-textarea govuk-form-group govuk-!-margin-bottom-8">
+
+              <label for="edition_summary" class="gem-c-label govuk-label govuk-label--l">Summary (required)</label>
+
+              <textarea name="edition[summary]" class="govuk-textarea govuk-js-character-count" id="edition_summary" rows="4" spellcheck="true">{{content.documentContent[0].summary}}</textarea>
+              <div id="edition_summary-info" class="govuk-hint govuk-character-count__message govuk-visually-hidden">
+                You can enter up to 160 characters
+              </div>
+              <div class="govuk-hint govuk-character-count__message govuk-character-count__status" aria-hidden="true">You have 47 characters remaining</div>
+              <div class="govuk-character-count__sr-status govuk-visually-hidden" aria-live="polite">You have 47 characters remaining</div>
+
+            </div>
+
+          </div>
+
+          <div class="govuk-!-margin-bottom-8 js-locale-switcher-field">
+
+            <div class="app-c-govspeak-editor govuk-form-group" data-image-ids="[]" data-attachment-ids="[]" data-alternative-format-provider-id="1329" data-module="govspeak-editor" data-govspeak-editor-module-started="true">
+              <div class="govuk-grid-row">
+                <div class="govuk-grid-column-three-quarters ">
+
+                  <label id="edition_body-label" for="edition_body" class="gem-c-label govuk-label govuk-label--l">Body (required)</label>
+
+                </div>
+                <div class="govuk-grid-column-one-quarter app-c-govspeak-editor__preview-button-wrapper">
+
+                  <button class="gem-c-button govuk-button gem-c-button--secondary-quiet govuk-!-margin-bottom-2 js-app-c-govspeak-editor__preview-button" type="button" aria-controls="edition_body-preview" aria-describedby="edition_body-label" data-content-target="#edition_body">Preview</button>
+
+                </div>
+              </div>
+              <div class="app-c-govspeak-editor__textarea">
+
+                <div class="gem-c-textarea govuk-form-group govuk-!-margin-bottom-0">
+
+                  <textarea name="edition[body]" class="govuk-textarea" id="edition_body" rows="20" data-module="paste-html-to-govspeak" spellcheck="true" aria-describedby="edition_body-hint" data-paste-html-to-govspeak-module-started="true">{{content.documentContent[0].bodyMarkdown}}</textarea>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gem-c-fieldset govuk-form-group">
+            <fieldset class="govuk-fieldset" id="edition_first_published_at">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">Document status (required)</legend>
+
+              <div id="edition_previously_published" class="govuk-form-group govuk-!-margin-bottom-6">
+                <fieldset class="govuk-fieldset">
+
+                  <div class="govuk-radios" data-module="govuk-radios" data-govuk-radios-module-started="true">
+                    <div class="gem-c-radio govuk-radios__item">
+                      <input type="radio" name="edition[previously_published]" id="radio-7d8d854c-0" value="false" class="govuk-radios__input" checked="checked">
+                      <label for="radio-7d8d854c-0" class="gem-c-label govuk-label govuk-radios__label">
+                              This document has never been published before.
+                            </label>
+                    </div>
+                    <div class="gem-c-radio govuk-radios__item">
+                      <input type="radio" name="edition[previously_published]" id="radio-7d8d854c-1" value="true" class="govuk-radios__input" aria-controls="conditional-18bc066b" aria-expanded="false">
+                      <label for="radio-7d8d854c-1" class="gem-c-label govuk-label govuk-radios__label">
+                              This document has previously been published on another website.
+                            </label>
+                    </div>
+                  </fieldset>
+                </div>
+              </fieldset>
+            </div>
+            <div class="govuk-!-margin-bottom-8">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">Excluded nations (required) </legend>
+
+                <ul class="govuk-checkboxes gem-c-checkboxes__list" data-module="govuk-checkboxes" data-govuk-checkboxes-module-started="true">
+                  <li class="govuk-checkboxes__item">
+                    <input type="checkbox" name="edition[all_nation_applicability][]" id="edition_nation_inapplicabilities-0" value="all_nations" class="govuk-checkboxes__input">
+                    <label for="edition_nation_inapplicabilities-0" class="govuk-label govuk-checkboxes__label">Applies to all UK nations</label>
+
+                  </li>
+                  <li class="govuk-checkboxes__item">
+                    <input type="checkbox" name="edition[all_nation_applicability][]" id="edition_nation_inapplicabilities-1" value="england" class="govuk-checkboxes__input" aria-controls="edition_nation_inapplicabilities-1-conditional-1" aria-expanded="false">
+                    <label for="edition_nation_inapplicabilities-1" class="govuk-label govuk-checkboxes__label">Does not apply to England</label>
+
+                    <div id="edition_nation_inapplicabilities-1-conditional-1" class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden">
+                      <div class="govuk-form-group">
+
+                        <label for="edition_nation_inapplicabilities_attributes_0_alternative_url" class="gem-c-label govuk-label">URL of corresponding content</label>
+
+                        <input class="gem-c-input govuk-input" id="edition_nation_inapplicabilities_attributes_0_alternative_url" name="edition[nation_inapplicabilities_attributes][0][alternative_url]" spellcheck="false" type="text">
+                      </div>
+                    </div>
+
+                  </li>
+                  <li class="govuk-checkboxes__item">
+                    <input type="checkbox" name="edition[all_nation_applicability][]" id="edition_nation_inapplicabilities-2" value="scotland" class="govuk-checkboxes__input" aria-controls="edition_nation_inapplicabilities-2-conditional-2" aria-expanded="false">
+                    <label for="edition_nation_inapplicabilities-2" class="govuk-label govuk-checkboxes__label">Does not apply to Scotland</label>
+
+                    <div id="edition_nation_inapplicabilities-2-conditional-2" class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden">
+                      <div class="govuk-form-group">
+
+                        <label for="edition_nation_inapplicabilities_attributes_1_alternative_url" class="gem-c-label govuk-label">URL of corresponding content</label>
+
+                        <input class="gem-c-input govuk-input" id="edition_nation_inapplicabilities_attributes_1_alternative_url" name="edition[nation_inapplicabilities_attributes][1][alternative_url]" spellcheck="false" type="text">
+                      </div>
+                    </div>
+
+                  </li>
+                  <li class="govuk-checkboxes__item">
+                    <input type="checkbox" name="edition[all_nation_applicability][]" id="edition_nation_inapplicabilities-3" value="wales" class="govuk-checkboxes__input" aria-controls="edition_nation_inapplicabilities-3-conditional-3" aria-expanded="false">
+                    <label for="edition_nation_inapplicabilities-3" class="govuk-label govuk-checkboxes__label">Does not apply to Wales</label>
+
+                    <div id="edition_nation_inapplicabilities-3-conditional-3" class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden">
+                      <div class="govuk-form-group">
+
+                        <label for="edition_nation_inapplicabilities_attributes_2_alternative_url" class="gem-c-label govuk-label">URL of corresponding content</label>
+
+                        <input class="gem-c-input govuk-input" id="edition_nation_inapplicabilities_attributes_2_alternative_url" name="edition[nation_inapplicabilities_attributes][2][alternative_url]" spellcheck="false" type="text">
+                      </div>
+                    </div>
+
+                  </li>
+                  <li class="govuk-checkboxes__item">
+                    <input type="checkbox" name="edition[all_nation_applicability][]" id="edition_nation_inapplicabilities-4" value="northern_ireland" class="govuk-checkboxes__input" aria-controls="edition_nation_inapplicabilities-4-conditional-4" aria-expanded="false">
+                    <label for="edition_nation_inapplicabilities-4" class="govuk-label govuk-checkboxes__label">Does not apply to  Northern Ireland</label>
+
+                    <div id="edition_nation_inapplicabilities-4-conditional-4" class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden">
+                      <div class="govuk-form-group">
+
+                        <label for="edition_nation_inapplicabilities_attributes_3_alternative_url" class="gem-c-label govuk-label">URL of corresponding content</label>
+
+                        <input class="gem-c-input govuk-input" id="edition_nation_inapplicabilities_attributes_3_alternative_url" name="edition[nation_inapplicabilities_attributes][3][alternative_url]" spellcheck="false" type="text">
+                      </div>
+                    </div>
+
+                  </li>
+                </ul>
+              </fieldset>
+            </div>
+            <div class="govuk-!-margin-bottom-4">
+              <fieldset class="govuk-fieldset" id="edition_alternative_format_provider">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">Images and Attachments</legend>
+
+                <p class="govuk-body">
+                  Use the tabs at the top of the page to upload, edit and delete images
+                  and attachments.
+                </p>
+                <div class="govuk-form-group gem-c-select">
+                  <label class="govuk-label govuk-label--m govuk-!-font-weight-bold" for="alternative_format_provider_id">
+                    Email address for ordering attachment files in an alternative format 
+                  </label>
+
+                  <div id="alternative-format-provider-hint" class="gem-c-hint govuk-hint govuk-!-margin-bottom-3">
+                    If the email address you need isn’t here, it should be added to the relevant Department or Agency
+                  </div>
+
+                  <select name="edition[alternative_format_provider_id]" id="edition_alternative_format_provider_id" class="govuk-select" aria-describedby="alternative-format-provider-hint">
+                    <option></option>
+                    <option value="1025">
+                      Academy for Justice Commissioning (academy@justice.gov.uk)
+                    </option>
+                    <option value="1276">
+                      Academy for Social Justice (academy@justice.gov.uk)
+                    </option>
+                    <option value="1208">
+                      Academy for Social Justice Commissioning (academy@justice.gov.uk)
+                    </option>
+                  </select>
+                </div>
+
+              </fieldset>
+            </div>
+
+            <div class="govuk-!-margin-bottom-8">
+              <h3 class="govuk-heading-l">HTML attachment</h3>
+              <p class="govuk-body">
+                You can create and edit HTML attachments in the
+                <a class="govuk-link" href="/government/admin/editions/1469748/attachments">same tab as the other attachments</a>.
+              </p>
+            </div>
+
+            <div class="govuk-!-margin-bottom-4">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h3 class="govuk-fieldset__heading">Associations</h3>
+              </legend>
+            </div>
+
+            <p class="govuk-body">You'll be able to select Topics and Specialist Sectors later.</p>
+
+            <label for="edition_role_appointment_ids" class="gem-c-label govuk-label govuk-label--m">Ministers</label>
+
+            <div class="govuk-!-margin-bottom-6">
+              <span>
+                <div class="autocomplete__wrapper" role="combobox" aria-expanded="false">
+                  <div aria-atomic="true" aria-live="polite" role="status" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">Type in 3 or more characters for results.<span>,,</span></div><input aria-owns="edition_role_appointment_ids__listbox" autocomplete="off" class="autocomplete__input autocomplete__input--show-all-values" id="edition_role_appointment_ids" name="" placeholder="" type="text" role="textbox">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="autocomplete__dropdown-arrow-down" focusable="false">
+                    <g stroke="none" fill="none" fill-rule="evenodd">
+                      <polygon fill="#000000" points="0 0 22 0 11 17"></polygon>
+                    </g>
+                  </svg>
+                  <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="edition_role_appointment_ids__listbox" role="listbox">
+                    <li class="autocomplete__option" id="edition_role_appointment_ids__option--0" role="option" tabindex="-1">The Rt Hon Michelle Donelan MP, Secretary of State for Science, Innovation and Technology, Department for Science, Innovation and Technology</li>
+                  </ul>
+                </div>
+              </span>
+            </div>
+            <label for="edition_role_appointment_ids" class="gem-c-label govuk-label govuk-label--m">Statistical data sets</label>
+            <div class="govuk-!-margin-bottom-6">
+              <span>
+                <div class="autocomplete__wrapper" role="combobox" aria-expanded="false">
+                  <div aria-atomic="true" aria-live="polite" role="status" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">Type in 3 or more characters for results.<span>,,</span></div><input aria-owns="edition_role_appointment_ids__listbox" autocomplete="off" class="autocomplete__input autocomplete__input--show-all-values" id="edition_role_appointment_ids" name="" placeholder="" type="text" role="textbox">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="autocomplete__dropdown-arrow-down" focusable="false">
+                    <g stroke="none" fill="none" fill-rule="evenodd">
+                      <polygon fill="#000000" points="0 0 22 0 11 17"></polygon>
+                    </g>
+                  </svg>
+                  <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="edition_role_appointment_ids__listbox" role="listbox">
+                    <li class="autocomplete__option" id="edition_role_appointment_ids__option--0" role="option" tabindex="-1">The Rt Hon Michelle Donelan MP, Secretary of State for Science, Innovation and Technology, Department for Science, Innovation and Technology</li>
+                  </ul>
+                </div>
+              </span>
+            </div>
+            <label for="edition_role_appointment_ids" class="gem-c-label govuk-label govuk-label--m">Topical events</label>
+            <div class="govuk-!-margin-bottom-6">
+              <span>
+                <div class="autocomplete__wrapper" role="combobox" aria-expanded="false">
+                  <div aria-atomic="true" aria-live="polite" role="status" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">Type in 3 or more characters for results.<span>,,</span></div><input aria-owns="edition_role_appointment_ids__listbox" autocomplete="off" class="autocomplete__input autocomplete__input--show-all-values" id="edition_role_appointment_ids" name="" placeholder="" type="text" role="textbox">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="autocomplete__dropdown-arrow-down" focusable="false">
+                    <g stroke="none" fill="none" fill-rule="evenodd">
+                      <polygon fill="#000000" points="0 0 22 0 11 17"></polygon>
+                    </g>
+                  </svg>
+                  <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="edition_role_appointment_ids__listbox" role="listbox">
+                    <li class="autocomplete__option" id="edition_role_appointment_ids__option--0" role="option" tabindex="-1">The Rt Hon Michelle Donelan MP, Secretary of State for Science, Innovation and Technology, Department for Science, Innovation and Technology</li>
+                  </ul>
+                </div>
+              </span>
+            </div>
+            <label for="edition_role_appointment_ids" class="gem-c-label govuk-label govuk-label--m">World locations</label>
+            <div class="govuk-!-margin-bottom-6">
+              <span>
+                <div class="autocomplete__wrapper" role="combobox" aria-expanded="false">
+                  <div aria-atomic="true" aria-live="polite" role="status" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">Type in 3 or more characters for results.<span>,,</span></div><input aria-owns="edition_role_appointment_ids__listbox" autocomplete="off" class="autocomplete__input autocomplete__input--show-all-values" id="edition_role_appointment_ids" name="" placeholder="" type="text" role="textbox">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="autocomplete__dropdown-arrow-down" focusable="false">
+                    <g stroke="none" fill="none" fill-rule="evenodd">
+                      <polygon fill="#000000" points="0 0 22 0 11 17"></polygon>
+                    </g>
+                  </svg>
+                  <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="edition_role_appointment_ids__listbox" role="listbox">
+                    <li class="autocomplete__option" id="edition_role_appointment_ids__option--0" role="option" tabindex="-1">The Rt Hon Michelle Donelan MP, Secretary of State for Science, Innovation and Technology, Department for Science, Innovation and Technology</li>
+                  </ul>
+                </div>
+              </span>
+            </div>
+
+            <div id="lead-organisations" class="govuk-!-margin-bottom-8">
+
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h3 class="govuk-fieldset__heading">Organisations</h3>
+              </legend>
+
+              <div class="govuk-!-margin-bottom-4">
+                <label class="govuk-label govuk-label--s" id="edition_lead_organisation_ids_1_label" for="edition_lead_organisation_ids_1">Lead organisation 1</label>
+                <select name="edition[alternative_format_provider_id]" id="edition_alternative_format_provider_id" class="govuk-select" aria-describedby="alternative-format-provider-hint">
+                  <option>
+                    <option value="1025">
+                    Government Digital Service (GDS@gds.gov.uk)Government Digital Service (GDS@gds.gov.uk)Government Digital Service (GDS@gds.gov.uk)
+                  </option>
+                  </select>
+                </div>
+
+                <div class="govuk-!-margin-bottom-4">
+                  <label class="govuk-label govuk-label--s" id="edition_lead_organisation_ids_1_label" for="edition_lead_organisation_ids_1">Lead organisation 2</label>
+                  <select name="edition[alternative_format_provider_id]" id="edition_alternative_format_provider_id" class="govuk-select" aria-describedby="alternative-format-provider-hint">
+                    <option>
+                      <option value="1025">
+                    Government Digital Service (GDS@gds.gov.uk)Government Digital Service (GDS@gds.gov.uk)Government Digital Service (GDS@gds.gov.uk)
+                  </option>
+                    </select>
+                  </div>
+
+                  <div class="govuk-!-margin-bottom-4">
+                    <label class="govuk-label govuk-label--s" id="edition_lead_organisation_ids_1_label" for="edition_lead_organisation_ids_1">Lead organisation 3</label>
+                    <select name="edition[alternative_format_provider_id]" id="edition_alternative_format_provider_id" class="govuk-select" aria-describedby="alternative-format-provider-hint">
+                      <option>
+                        <option value="1025">
+                    Government Digital Service (GDS@gds.gov.uk)Government Digital Service (GDS@gds.gov.uk)Government Digital Service (GDS@gds.gov.uk)
+                  </option>
+                      </select>
+                    </div>
+
+                    <div class="govuk-!-margin-bottom-4">
+                      <label class="govuk-label govuk-label--s" id="edition_lead_organisation_ids_1_label" for="edition_lead_organisation_ids_1">Lead organisation 4</label>
+                      <select name="edition[alternative_format_provider_id]" id="edition_alternative_format_provider_id" class="govuk-select" aria-describedby="alternative-format-provider-hint">
+                        <option>
+                          <option value="1025">
+                    Government Digital Service (GDS@gds.gov.uk)Government Digital Service (GDS@gds.gov.uk)Government Digital Service (GDS@gds.gov.uk)
+                  </option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div id="supporting-organisations" class="govuk-!-margin-bottom-8">
+
+                      <div class="govuk-!-margin-bottom-4">
+                        <label class="govuk-label govuk-label--s" id="edition_lead_organisation_ids_1_label" for="edition_lead_organisation_ids_1">Supporting organisation 1</label>
+                        <select name="edition[alternative_format_provider_id]" id="edition_alternative_format_provider_id" class="govuk-select" aria-describedby="alternative-format-provider-hint">
+                          <option>
+                            <option value="1025">
+                    Government Digital Service (GDS@gds.gov.uk)Government Digital Service (GDS@gds.gov.uk)Government Digital Service (GDS@gds.gov.uk)
+                  </option>
+                          </select>
+                        </div>
+
+                        <div class="govuk-!-margin-bottom-4">
+                          <label class="govuk-label govuk-label--s" id="edition_lead_organisation_ids_1_label" for="edition_lead_organisation_ids_1">Supporting organisation 2</label>
+                          <select name="edition[alternative_format_provider_id]" id="edition_alternative_format_provider_id" class="govuk-select" aria-describedby="alternative-format-provider-hint">
+                            <option>
+                              <option value="1025">
+                    Government Digital Service (GDS@gds.gov.uk)Government Digital Service (GDS@gds.gov.uk)Government Digital Service (GDS@gds.gov.uk)
+                  </option>
+                            </select>
+                          </div>
+
+                          <div class="govuk-!-margin-bottom-4">
+                            <label class="govuk-label govuk-label--s" id="edition_lead_organisation_ids_1_label" for="edition_lead_organisation_ids_1">Supporting organisation 3</label>
+                            <select name="edition[alternative_format_provider_id]" id="edition_alternative_format_provider_id" class="govuk-select" aria-describedby="alternative-format-provider-hint">
+                              <option>
+                                <option value="1025">
+                    Government Digital Service (GDS@gds.gov.uk)Government Digital Service (GDS@gds.gov.uk)Government Digital Service (GDS@gds.gov.uk)
+                  </option>
+                              </select>
+                            </div>
+
+                            <div class="govuk-!-margin-bottom-4">
+                              <label class="govuk-label govuk-label--s" id="edition_lead_organisation_ids_1_label" for="edition_lead_organisation_ids_1">Supporting organisation 4</label>
+                              <select name="edition[alternative_format_provider_id]" id="edition_alternative_format_provider_id" class="govuk-select" aria-describedby="alternative-format-provider-hint">
+                                <option>
+                                  <option value="1025">
+                    Government Digital Service (GDS@gds.gov.uk)Government Digital Service (GDS@gds.gov.uk)Government Digital Service (GDS@gds.gov.uk)
+                  </option>
+                                </select>
+                              </div>
+
+                              <div class="govuk-!-margin-bottom-4">
+                                <label class="govuk-label govuk-label--s" id="edition_lead_organisation_ids_1_label" for="edition_lead_organisation_ids_1">Supporting organisation 5</label>
+                                <select name="edition[alternative_format_provider_id]" id="edition_alternative_format_provider_id" class="govuk-select" aria-describedby="alternative-format-provider-hint">
+                                  <option>
+                                    <option value="1025">
+                    Government Digital Service (GDS@gds.gov.uk)Government Digital Service (GDS@gds.gov.uk)Government Digital Service (GDS@gds.gov.uk)
+                  </option>
+                                  </select>
+                                </div>
+
+                                <div class="govuk-!-margin-bottom-4">
+                                  <label class="govuk-label govuk-label--s" id="edition_lead_organisation_ids_1_label" for="edition_lead_organisation_ids_1">Supporting organisation 6</label>
+                                  <select name="edition[alternative_format_provider_id]" id="edition_alternative_format_provider_id" class="govuk-select" aria-describedby="alternative-format-provider-hint">
+                                    <option>
+                                      <option value="1025">
+                    Government Digital Service (GDS@gds.gov.uk)Government Digital Service (GDS@gds.gov.uk)Government Digital Service (GDS@gds.gov.uk)
+                  </option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="govuk-!-margin-bottom-4">
+                                  <fieldset class="govuk-fieldset">
+                                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                                      <h3 class="govuk-fieldset__heading">Access limiting</h3>
+                                    </legend>
+                                    <input value="0" autocomplete="off" type="hidden" name="edition[access_limited]" id="edition_access_limited">
+
+                                    <div id="edition_access_limited" data-module="gem-checkboxes govuk-checkboxes" class="gem-c-checkboxes govuk-form-group" data-gem-checkboxes-module-started="true" data-govuk-checkboxes-module-started="true">
+                                      <div class="govuk-checkboxes__item">
+                                        <input type="checkbox" name="edition[access_limited]" id="edition_access_limited-0" value="1" class="govuk-checkboxes__input">
+                                        <label for="edition_access_limited-0" class="govuk-label govuk-checkboxes__label">Limit access to producing organisations prior to publication</label>
+                                      </div>
+                                    </div>
+
+                                  </fieldset>
+                                </div>
+
+                                <div class="govuk-!-margin-bottom-8">
+                                  <fieldset class="govuk-fieldset">
+                                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">Schedule publication</legend>
+                                    <ul class="govuk-checkboxes gem-c-checkboxes__list">
+                                      <li class="govuk-checkboxes__item">
+                                        <input type="checkbox" name="scheduled_publication_active" id="scheduled_publication_active-0" value="1" class="govuk-checkboxes__input" aria-controls="scheduled_publication_active-0-conditional-0" aria-expanded="false">
+                                        <label for="scheduled_publication_active-0" class="govuk-label govuk-checkboxes__label">Schedule for publication</label>
+                                      </li>
+                                    </ul>
+                                  </fieldset>
+                                </div>
+
+                                <div class="govuk-!-margin-bottom-6">
+                                  <fieldset class="govuk-fieldset">
+                                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">Review Date</legend>
+                                    <ul class="govuk-checkboxes gem-c-checkboxes__list">
+                                      <li class="govuk-checkboxes__item">
+                                        <input type="checkbox" name="scheduled_publication_active" id="scheduled_publication_active-0" value="1" class="govuk-checkboxes__input" aria-controls="scheduled_publication_active-0-conditional-0" aria-expanded="false">
+                                        <label for="scheduled_publication_active-0" class="govuk-label govuk-checkboxes__label">Set a reminder to review this content after it has been published</label>
+                                      </li>
+                                    </ul>
+                                  </fieldset>
+                                </div>
+
+                              </div>
+
+                              <div class="govuk-grid-column-one-third sidebar">
+                                <div class="sticky-save-buttons">
+
+                                  <div class="app-view-summary__sidebar-actions">
+                                    <ul class="gem-c-list govuk-list govuk-list--spaced">
+                                      <li>
+
+                                        <a class="gem-c-button govuk-button gem-c-button--secondary-quiet" role="button" href="#">Save draft</a>
+
+                                      </li>
+                                      <li>
+                                        <a href="/sticky-save/publication/add-taxonomy-tags">
+                                          <button class="gem-c-button govuk-button">Save and add taxonomy tags</button>
+                                        </a>
+                                      </li>
+                                      <li>
+                                        <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank">Preview on GOV.UK (opens in new tab)</a>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                                <div class="govuk-tabs gem-c-tabs sidebar-tabs" data-module="govuk-tabs" data-govuk-tabs-module-started="true">
+                                  <h2 class="govuk-tabs__title">
+    Contents
+  </h2>
+                                  <ul class="govuk-tabs__list" role="tablist">
+                                    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation">
+                                      <a class="govuk-tabs__tab" href="#govspeak_tab" id="tab_govspeak_tab" role="tab" aria-controls="govspeak_tab" aria-selected="true" tabindex="0">Help</a>
+                                    </li>
+                                    <li class="govuk-tabs__list-item" role="presentation">
+                                      <a class="govuk-tabs__tab" href="#history_tab" id="tab_history_tab" role="tab" aria-controls="history_tab" aria-selected="false" tabindex="-1">History</a>
+                                    </li>
+                                    <li class="govuk-tabs__list-item" role="presentation">
+                                      <a class="govuk-tabs__tab" href="#fact_checking_tab" id="tab_fact_checking_tab" role="tab" aria-controls="fact_checking_tab" aria-selected="false" tabindex="-1">Fact checking</a>
+                                    </li>
+                                  </ul>
+                                  <section class="govuk-tabs__panel" id="govspeak_tab" role="tabpanel" aria-labelledby="tab_govspeak_tab">
+
+                                    <div class="govspeak-help">
+                                      <h2 class="govuk-heading-l">Formatting</h2>
+
+                                      <p class="govuk-body">For details, read the <a class="govuk-link" href="https://www.gov.uk/guidance/how-to-publish-on-gov-uk/markdown">guide to using Markdown</a>
+
+                                      </p>
+                                      <details class="gem-c-details govuk-details govuk-!-margin-bottom-3" data-module="govuk-details gem-details" data-govuk-details-module-started="true" data-gem-details-module-started="true">
+                                        <summary class="govuk-details__summary" data-track-category="formatting-help" data-track-action="Paste and convert to Markdown" data-details-track-click="">
+                                          <span class="govuk-details__summary-text">
+    Paste and convert to Markdown
+  </span>
+                                        </summary>
+                                        <div class="govuk-details__text">
+
+                                          <p class="govuk-body">You can paste formatted text into the body field and Whitehall publisher will try to convert it into GOV.UK’s version of Markdown, Govspeak.</p>
+                                          <p class="govuk-body">This works best when copy and pasting from text editing software like Word or Google Docs. It is less likely to recognise formatting from PDFs.</p>
+                                          <p class="govuk-body">It will convert:</p>
+                                          <ul class="gem-c-list govuk-list govuk-list--bullet">
+                                            <li>headings</li>
+                                            <li>bullets</li>
+                                            <li>numbered lists</li>
+                                            <li>links</li>
+                                            <li>email links</li>
+                                          </ul>
+                                          <p class="govuk-body">Other formatting, such as tables, will be removed and only plain text pasted. You’ll need to write the Markdown for these separately.</p>
+
+                                        </div>
+                                      </details>
+                                      <details class="gem-c-details govuk-details govuk-!-margin-bottom-3" data-module="govuk-details gem-details" data-govuk-details-module-started="true" data-gem-details-module-started="true">
+                                        <summary class="govuk-details__summary" data-track-category="formatting-help" data-track-action="Headings" data-details-track-click="">
+                                          <span class="govuk-details__summary-text">
+    Headings
+  </span>
+                                        </summary>
+                                        <div class="govuk-details__text">
+
+                                          <pre class="govspeak-help__pre">## Top level heading – H2<br>### Second level heading – H3<br>#### Third level heading – H4<br><br>Don’t use a single # – this is H1 and is for the title only</pre>
+
+                                        </div>
+                                      </details>
+                                      <details class="gem-c-details govuk-details govuk-!-margin-bottom-3" data-module="govuk-details gem-details" data-govuk-details-module-started="true" data-gem-details-module-started="true">
+                                        <summary class="govuk-details__summary" data-track-category="formatting-help" data-track-action="Links" data-details-track-click="">
+                                          <span class="govuk-details__summary-text">
+    Links
+  </span>
+                                        </summary>
+                                        <div class="govuk-details__text">
+
+                                          <p class="govuk-body">All documents created in the publisher – publications, news, speeches, detailed guides etc – should be linked to using absolute admin paths or full public URLs:</p>
+                                          <pre class="govspeak-help__pre">[an admin path](/government/admin/policies/12345)<br>[a public URL](https://www.gov.uk/government/policies/example-policy)</pre>
+                                          <p class="govuk-body">All content created under an organisation tab – collection pages, topics, organisations, people, roles etc – should be linked to using the full, public URLs:</p>
+                                          <pre class="govspeak-help__pre">[link text](https://www.gov.uk/government/topics/climate-change)</pre>
+                                          <p class="govuk-body">For external websites, use the full URL including http://:</p>
+                                          <pre class="govspeak-help__pre">[link text](http://www.example.com)</pre>
+                                          <h4 class="govuk-heading-m">Linking to paragraphs</h4>
+                                          <p class="govuk-body">If you want to link to specific paragraphs within a document, you need to mark the paragraph as linkable by placing an anchor tag <strong>below</strong> the paragraph:
+  </p>
+                                          <pre class="govspeak-help__pre">Stocks of some fish species are very low. For example, stocks of European Eel have declined by about 95% over the last 30 years.<br>{:#eel-decline}</pre>
+                                          <p class="govuk-body">The paragraph can then be linked to from the same document:</p>
+                                          <pre class="govspeak-help__pre">[Sample link text](#eel-decline)</pre>
+                                          <p class="govuk-body">or from another document:</p>
+                                          <pre class="govspeak-help__pre">[Sample link text](https://www.gov.uk/government/policies/managing-freshwater-fisheries#eel-decline)</pre>
+
+                                        </div>
+                                      </details>
+                                      <details class="gem-c-details govuk-details govuk-!-margin-bottom-3" data-module="govuk-details gem-details" data-govuk-details-module-started="true" data-gem-details-module-started="true">
+                                        <summary class="govuk-details__summary" data-track-category="formatting-help" data-track-action="Bullets" data-details-track-click="">
+                                          <span class="govuk-details__summary-text">
+    Bullets
+  </span>
+                                        </summary>
+                                        <div class="govuk-details__text">
+
+                                          <pre class="govspeak-help__pre">* item 1<br>* item 2<br>* item 3<br></pre>
+
+                                        </div>
+                                      </details>
+                                      <details class="gem-c-details govuk-details govuk-!-margin-bottom-3" data-module="govuk-details gem-details" data-govuk-details-module-started="true" data-gem-details-module-started="true">
+                                        <summary class="govuk-details__summary" data-track-category="formatting-help" data-track-action="Numbered lists" data-details-track-click="">
+                                          <span class="govuk-details__summary-text">
+    Numbered lists
+  </span>
+                                        </summary>
+                                        <div class="govuk-details__text">
+
+                                          <pre class="govspeak-help__pre">1. item 1<br>2. item 2<br>3. item 3<br></pre>
+
+                                        </div>
+                                      </details>
+                                      <details class="gem-c-details govuk-details govuk-!-margin-bottom-3" data-module="govuk-details gem-details" data-govuk-details-module-started="true" data-gem-details-module-started="true">
+                                        <summary class="govuk-details__summary" data-track-category="formatting-help" data-track-action="Images" data-details-track-click="">
+                                          <span class="govuk-details__summary-text">
+    Images
+  </span>
+                                        </summary>
+                                        <div class="govuk-details__text">
+
+                                          <p class="govuk-body">First upload your image(s), then:</p>
+                                          <pre class="govspeak-help__pre">[Image:&nbsp;filename]</pre>
+                                          <p class="govuk-body">eg for the first image:</p>
+                                          <pre class="govspeak-help__pre">[Image:&nbsp;example.jpg]</pre>
+
+                                        </div>
+                                      </details>
+                                      <details class="gem-c-details govuk-details govuk-!-margin-bottom-3" data-module="govuk-details gem-details" data-govuk-details-module-started="true" data-gem-details-module-started="true">
+                                        <summary class="govuk-details__summary" data-track-category="formatting-help" data-track-action="Video links" data-details-track-click="">
+                                          <span class="govuk-details__summary-text">
+    Video links
+  </span>
+                                        </summary>
+                                        <div class="govuk-details__text">
+
+                                          <p class="govuk-body">Use the title of the video and the URL of the YouTube page that shows the video for watching. Don’t use the embed code or the ‘Share this video’ URL:</p>
+                                          <pre class="govspeak-help__pre">[title of video](youtube-video-url)</pre>
+                                          <p class="govuk-body">Only YouTube videos will work at present:</p>
+                                          <pre class="govspeak-help__pre">[The Queen’s Diamond Jubilee Concert](http://www.youtube.com/watch?v=OXHPWmnycno)</pre>
+                                          <p class="govuk-body">The title text does not show. The video will display in an embedded media player automatically.</p>
+
+                                        </div>
+                                      </details>
+                                      <details class="gem-c-details govuk-details govuk-!-margin-bottom-3" data-module="govuk-details gem-details" data-govuk-details-module-started="true" data-gem-details-module-started="true">
+                                        <summary class="govuk-details__summary" data-track-category="formatting-help" data-track-action="Attachments" data-details-track-click="">
+                                          <span class="govuk-details__summary-text">
+    Attachments
+  </span>
+                                        </summary>
+                                        <div class="govuk-details__text">
+
+                                          <p class="govuk-body">Upload your attachment(s) on the ‘Attachments’ tab (you must save a draft edition to make the tab visible).</p>
+
+                                          <p class="govuk-body">Add an attachment as a callout box:</p>
+                                          <pre>!@<em>n</em></pre>
+                                          <p class="govuk-body">Or, if you want to use a link to an attachment in a sentence or list:</p>
+                                          <pre>[InlineAttachment:<em>n</em>]</pre>
+                                          <p class="govuk-body">eg for the first file:</p>
+                                          <pre>!@1</pre>
+                                          <p class="govuk-body">or:</p>
+                                          <pre>[InlineAttachment:1]</pre>
+
+                                        </div>
+                                      </details>
+                                      <details class="gem-c-details govuk-details govuk-!-margin-bottom-3" data-module="govuk-details gem-details" data-govuk-details-module-started="true" data-gem-details-module-started="true">
+                                        <summary class="govuk-details__summary" data-track-category="formatting-help" data-track-action="Tables" data-details-track-click="">
+                                          <span class="govuk-details__summary-text">
+    Tables
+  </span>
+                                        </summary>
+                                        <div class="govuk-details__text">
+
+                                          <p class="govuk-body">Insert tables by splitting your content into cells using the pipe (|) character. </p>
+                                          <pre class="govspeak-help__pre">|  name   |  colour |<br>|---------|---------|<br>| apple   | green   |<br>| banana  | yellow  |</pre>
+                                          <p class="govuk-body">Add row titles by putting a hashtag (#) character directly next to the pipe (|) at the start of the row:</p>
+                                          <pre class="govspeak-help__pre">|             | Fruit | Vegetables |<br>|-------------|-------|------------|<br>|# per gram   |   5p  |     8p     |<br>|# per kilo   |   7p  |     6p     |</pre>
+                                          <p class="govuk-body">Right align a column by including a colon at the end of a separator, eg <code>|---:|</code>. In the example below the cost column will be right aligned.</p>
+                                          <pre class="govspeak-help__pre">|  name   |  cost  |<br>|---------|-------:|<br>| apple   | 0.45   |<br>| banana  | 0.32   |<br>| guava   | 10.32  |</pre>
+
+                                        </div>
+                                      </details>
+                                      <details class="gem-c-details govuk-details govuk-!-margin-bottom-3" data-module="govuk-details gem-details" data-govuk-details-module-started="true" data-gem-details-module-started="true">
+                                        <summary class="govuk-details__summary" data-track-category="formatting-help" data-track-action="Charts" data-details-track-click="">
+                                          <span class="govuk-details__summary-text">
+    Charts
+  </span>
+                                        </summary>
+                                        <div class="govuk-details__text">
+
+                                          <p class="govuk-body">Numeric data can be shown as a simple bar chart. Grouped bars are used for multiple columns.</p>
+                                          <pre class="govspeak-help__pre">Department   | Short Speeches | Long Speeches<br>-|-|-<br>Department 1 | 6              | 6<br>Department 2 | 6              | 8<br>Department 3 | 18             | 2<br>{barchart}</pre>
+                                          <p class="govuk-body">Stacked bars can be created. The final column is used to display the total.</p>
+                                          <pre class="govspeak-help__pre">Department | Short Speeches | Long Speeches | Total<br>-|-|-|-<br>Dept 1     | 6              | 6             | 12<br>Dept 2     | 6              | 8             | 14<br>Dept 3     | 18             | 2             | 20<br>{barchart stacked}</pre>
+                                          <p class="govuk-body">Large graphs can be displayed compactly to save space.</p>
+                                          <pre class="govspeak-help__pre">Department   | Short Speeches | Long Speeches<br>-|-|-<br>Department 1 | 6              | 6<br>Department 2 | 6              | 8<br>Department 3 | 18             | 2<br>Department 4 | 5              | 4<br>Department 4 | 7              | 7<br>Department 6 | 11             | 1<br>{barchart compact}</pre>
+                                          <p class="govuk-body">If you include negative values, you must indicate this.</p>
+                                          <pre class="govspeak-help__pre">Department   | Change in Number of Buildings<br>-|-<br>Department 1 | -12<br>Department 1 | 3<br>Department 1 | -4<br>Department 1 | 2<br>{barchart negative}</pre>
+                                          <p class="govuk-body">All effects can be combined.</p>
+
+                                        </div>
+                                      </details>
+                                      <details class="gem-c-details govuk-details govuk-!-margin-bottom-3" data-module="govuk-details gem-details" data-govuk-details-module-started="true" data-gem-details-module-started="true">
+                                        <summary class="govuk-details__summary" data-track-category="formatting-help" data-track-action="Call to action" data-details-track-click="">
+                                          <span class="govuk-details__summary-text">
+    Call to action
+  </span>
+                                        </summary>
+                                        <div class="govuk-details__text">
+
+                                          <pre class="govspeak-help__pre">$CTA<br>[Use the trade tariff tool to find commodity codes.](https://www.gov.uk/trade-tariff)<br>$CTA</pre>
+
+                                        </div>
+                                      </details>
+                                      <details class="gem-c-details govuk-details govuk-!-margin-bottom-3" data-module="govuk-details gem-details" data-govuk-details-module-started="true" data-gem-details-module-started="true">
+                                        <summary class="govuk-details__summary" data-track-category="formatting-help" data-track-action="Abbreviations and acronyms" data-details-track-click="">
+                                          <span class="govuk-details__summary-text">
+    Abbreviations and acronyms
+  </span>
+                                        </summary>
+                                        <div class="govuk-details__text">
+
+                                          <p class="govuk-body">The first time you use an abbreviation or acroynm, write it out in full.</p>
+                                          <p class="govuk-body">Add the <a class="govuk-link" href="https://www.gov.uk/guidance/how-to-publish-on-gov-uk/markdown#acronyms">acronym Markdown</a> at the end of the body copy leaving one empty line space above it, as in the following example.</p>
+                                          <pre class="govspeak-help__pre">Example content that includes a three-letter acronym (TLA).<br><br>*[TLA]: three-letter acronym</pre>
+                                          <p class="govuk-body">When a user hovers their mouse over a <abbr title="three-letter acronym">TLA</abbr>, they will see it written in full.</p>
+
+                                        </div>
+                                      </details>
+                                      <details class="gem-c-details govuk-details govuk-!-margin-bottom-3" data-module="govuk-details gem-details" data-govuk-details-module-started="true" data-gem-details-module-started="true">
+                                        <summary class="govuk-details__summary" data-track-category="formatting-help" data-track-action="Blockquotes" data-details-track-click="">
+                                          <span class="govuk-details__summary-text">
+    Blockquotes
+  </span>
+                                        </summary>
+                                        <div class="govuk-details__text">
+
+                                          <pre class="govspeak-help__pre">Introduction to the quote:<br><br>&gt; First paragraph of the quote.<br>&gt;<br>&gt; Second paragraph of the quote.</pre>
+                                          <p class="govuk-body">The &gt; in the line space is important. If you leave it out you will get 2 separate quotes, not 1 running quote.</p>
+
+                                        </div>
+                                      </details>
+                                      <details class="gem-c-details govuk-details govuk-!-margin-bottom-3" data-module="govuk-details gem-details" data-govuk-details-module-started="true" data-gem-details-module-started="true">
+                                        <summary class="govuk-details__summary" data-track-category="formatting-help" data-track-action="Addresses" data-details-track-click="">
+                                          <span class="govuk-details__summary-text">
+    Addresses
+  </span>
+                                        </summary>
+                                        <div class="govuk-details__text">
+
+                                          <pre class="govspeak-help__pre">$A<br>Address<br>Only<br>Here<br>$A</pre>
+                                          <p class="govuk-body">You can also embed contact information:</p>
+                                          <pre class="govspeak-help__pre">[Contact:<em>n</em>]</pre>
+                                          <p class="govuk-body">(n is the ID of the contact you want to embed.)</p>
+                                          <p class="govuk-body">You can find the ID on the list of contacts for an <a class="govuk-link" href="/government/admin/organisations">organisation</a> or <a class="govuk-link" href="/government/admin/worldwide_organisations">worldwide organisation</a> or you can type ‘[Contact: ’ and then type a keyword to find your contact (if it exists).</p>
+                                          <p class="govuk-body">If it doesn’t exist you will have to add it (see your ‘Publishing explained’ guidance). </p>
+
+                                        </div>
+                                      </details>
+                                      <details class="gem-c-details govuk-details govuk-!-margin-bottom-3" data-module="govuk-details gem-details" data-govuk-details-module-started="true" data-gem-details-module-started="true">
+                                        <summary class="govuk-details__summary" data-track-category="formatting-help" data-track-action="Email links" data-details-track-click="">
+                                          <span class="govuk-details__summary-text">
+    Email links
+  </span>
+                                        </summary>
+                                        <div class="govuk-details__text">
+
+                                          <p class="govuk-body">Use ‘less than’ (<em>&lt;</em>) and ‘greater than’ (<em>&gt;</em>) arrows around email addresses to make them a link.</p>
+                                          <p></p>
+
+                                        </div>
+                                      </details>
+
+                                    </div>
+
+                                    <h3 class="govuk-heading-m">Use plain English</h3>
+
+                                    <p class="govuk-body">For details, see the <a class="govuk-link" href="https://www.gov.uk/guidance/content-design/writing-for-gov-uk#plain-english">guideline on using plain English</a>
+
+                                    </p>
+                                    <details class="gem-c-details govuk-details govuk-!-margin-bottom-3" data-module="govuk-details gem-details" data-govuk-details-module-started="true" data-gem-details-module-started="true">
+                                      <summary class="govuk-details__summary" data-details-track-click="">
+                                        <span class="govuk-details__summary-text">
+    List of words to avoid
+  </span>
+                                      </summary>
+                                      <div class="govuk-details__text">
+
+                                        <ul class="gem-c-list govuk-list govuk-list--bullet">
+                                          <li>agenda (unless it’s for a meeting)</li>
+                                          <li>advancing</li>
+                                          <li>collaborate (use ‘working with’)</li>
+                                          <li>combating</li>
+                                          <li>commit/pledge (we need to be more specific – we’re either doing something or we’re not)</li>
+                                          <li>countering</li>
+                                          <li>deliver (pizzas, post and services are delivered – not abstract concepts like ‘improvements’ or ‘priorities’)</li>
+                                          <li>deploy (unless it’s military or software)</li>
+                                          <li>dialogue (we speak to people)</li>
+                                          <li>disincentivise (and incentivise)</li>
+                                          <li>empower</li>
+                                          <li>facilitate (instead, say something specific about how you are helping)</li>
+                                          <li>focusing</li>
+                                          <li>foster (unless it’s children)</li>
+                                          <li>impact (as a verb)</li>
+                                          <li>initiate</li>
+                                          <li>key (unless it unlocks something. A subject/thing isn’t ‘key’ – it’s probably ‘important’)</li>
+                                          <li>land (as a verb. Only use if you are talking about aircraft)</li>
+                                          <li>leverage (unless in the financial sense)</li>
+                                          <li>liaise</li>
+                                          <li>overarching</li>
+                                          <li>progress (as a verb – what are you actually doing?)</li>
+                                          <li>promote (unless you are talking about an ad campaign or some other marketing promotion)</li>
+                                          <li>robust</li>
+                                          <li>slimming down (processes don’t diet – we are probably removing x amount of paperwork, etc)</li>
+                                          <li>streamline</li>
+                                          <li>strengthening (unless it’s strengthening bridges or other structures)</li>
+                                          <li>tackling (unless it’s rugby, football or some other sport)</li>
+                                          <li>transforming (what are you actually doing to change it?)</li>
+                                          <li>utilise</li>
+                                        </ul>
+
+                                        <p style="govuk-body">Always avoid metaphors. For example:</p>
+
+                                        <ul class="gem-c-list govuk-list govuk-list--bullet">
+                                          <li>drive (you can only drive vehicles; not schemes or people)</li>
+                                          <li>drive out (unless it’s cattle)</li>
+                                          <li>going forward (unlikely we are giving travel directions)</li>
+                                          <li>in order to (superfluous – don’t use it)</li>
+                                          <li>one-stop shop (we are government, not a retail outlet)</li>
+                                          <li>ring fencing</li>
+                                        </ul>
+
+                                      </div>
+                                    </details>
+                                    <h3 class="govuk-heading-m">Style</h3>
+
+                                    <p class="govuk-body">For style, see the <a class="govuk-link" href="https://www.gov.uk/guidance/style-guide">style guide</a>
+
+                                    </p>
+                                  </section>
+                                  <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="history_tab" role="tabpanel" aria-labelledby="tab_history_tab">
+                                    <div data-module="document-history-paginator" data-document-history-paginator-module-started="true">
+                                      <h2 class="govuk-heading-l">History</h2>
+
+                                      <p class="govuk-body">To add an internal note, save your changes.</p>
+
+                                      <p class="govuk-body">
+                                        <a class="govuk-body govuk-link govuk-link--no-visited-state" data-module="gem-track-click" data-track-category="button-pressed" data-track-action="detailed-guide-button" data-track-label="Add new remark" href="/government/admin/editions/1464308/editorial_remarks/new" data-gem-track-click-module-started="true">Add internal note</a>
+                                      </p>
+
+                                      <form class="js-filter-form" data-remote-pagination="/government/admin/editions/1464308/document_history" accept-charset="UTF-8" method="get">
+                                        <input value="true" autocomplete="off" type="hidden" name="editing" id="editing">
+                                        <div class="govuk-form-group gem-c-select">
+                                          <label class="govuk-label govuk-label--s" for="document_history_filter">Show</label>
+
+                                          <select name="only" id="document_history_filter" class="govuk-select gem-c-select__select--full-width">
+                                            <option selected="selected" value="">Everything</option>
+                                            <option value="internal_notes">Internal notes</option>
+                                            <option value="history">Document history</option>
+                                          </select>
+                                        </div>
+
+                                        <button class="gem-c-button govuk-button" type="submit" hidden="" style="display: none;">Filter</button>
+
+                                      </form>
+                                      <nav class="govuk-grid-row govuk-!-margin-bottom-4" role="navigation">
+
+                                        <a class="govuk-body govuk-link govuk-link--no-visited-state govuk-!-margin-bottom-0 app-view-document-history-tab__older-pagination-link" data-remote-pagination="/government/admin/editions/1464308/document_history?editing=true&amp;page=2" rel="next" href="/government/admin/detailed-guides/1464308/edit?page=2">Older</a>
+
+                                      </nav>
+
+                                      <div class="app-view-editions__current-edition-entries">
+                                        <h3 class="govuk-heading-m govuk-!-margin-bottom-2">On this edition</h3>
+
+                                        <ul class="gem-c-list govuk-list govuk-!-margin-bottom-8">
+                                          <li>
+                                            <div class="app-view-editions-audit-trail-entry__list-item govuk-!-margin-bottom-4">
+                                              <h4 class="govuk-heading-s govuk-!-margin-bottom-0">Document updated</h4>
+
+                                              <p class="app-view-editions-audit-trail-entry__list-item-datetime govuk-body-s govuk-!-margin-bottom-0 govuk-!-margin-top-0">
+                                                <time class="datetime" datetime="2023-07-11T14:10:05+01:00">11 July 2023  2:10pm</time> by <a class="govuk-link" href="/government/admin/authors/464">Nora Brodian</a>
+                                              </p>
+                                            </div>
+                                          </li>
+                                          <li>
+                                            <div class="app-view-editions-audit-trail-entry__list-item govuk-!-margin-bottom-4">
+                                              <h4 class="govuk-heading-s govuk-!-margin-bottom-0">Document editioned</h4>
+
+                                              <p class="app-view-editions-audit-trail-entry__list-item-datetime govuk-body-s govuk-!-margin-bottom-0 govuk-!-margin-top-0">
+                                                <time class="datetime" datetime="2023-07-11T14:04:20+01:00">11 July 2023  2:04pm</time> by <a class="govuk-link" href="/government/admin/authors/464">Nora Brodian</a>
+                                              </p>
+                                            </div>
+                                          </li>
+                                        </ul>
+                                      </div>
+
+                                      <div class="app-view-editions__previous-edition-entries">
+                                        <h3 class="govuk-heading-m govuk-!-margin-bottom-2">On previous editions</h3>
+
+                                        <ul class="gem-c-list govuk-list">
+                                          <li>
+                                            <div class="app-view-editions-audit-trail-entry__list-item govuk-!-margin-bottom-4">
+                                              <h4 class="govuk-heading-s govuk-!-margin-bottom-0">Document updated</h4>
+
+                                              <p class="app-view-editions-audit-trail-entry__list-item-datetime govuk-body-s govuk-!-margin-bottom-0 govuk-!-margin-top-0">
+                                                <time class="datetime" datetime="2022-03-04T11:25:16+00:00"> 4 March 2022 11:25am</time> by <a class="govuk-link" href="/government/admin/authors/2215">Claire Ashworth</a>
+                                              </p>
+                                            </div>
+                                          </li>
+                                          <li>
+                                            <div class="app-view-editions-editorial-remark__list-item govuk-!-margin-bottom-4">
+                                              <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Internal note</h4>
+
+                                              <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-0">
+  Force published: A small change to heading layout at the bottom of the page to avoid confusion for screenreader users
+  </p>
+
+                                              <p class="app-view-editions-editorial-remark__list-item-datetime govuk-body govuk-body-s govuk-!-margin-bottom-0 govuk-!-margin-top-0">
+                                                <time class="datetime" datetime="2022-02-11T11:01:26+00:00">11 February 2022 11:01am</time> by <a class="govuk-link" href="/government/admin/authors/8561">Kevin McLaughlin</a>
+                                              </p>
+                                            </div>
+                                          </li>
+                                          <li>
+                                            <div class="app-view-editions-audit-trail-entry__list-item govuk-!-margin-bottom-4">
+                                              <h4 class="govuk-heading-s govuk-!-margin-bottom-0">Document published</h4>
+
+                                              <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-0">
+                                                <a class="govuk-link" href="/government/admin/editions/1464308/diff?audit_trail_entry_id=1296944">[Compare with previous version]</a>
+                                              </p>
+
+                                              <p class="app-view-editions-audit-trail-entry__list-item-datetime govuk-body-s govuk-!-margin-bottom-0 govuk-!-margin-top-0">
+                                                <time class="datetime" datetime="2022-02-11T11:01:26+00:00">11 February 2022 11:01am</time> by <a class="govuk-link" href="/government/admin/authors/8561">Kevin McLaughlin</a>
+                                              </p>
+                                            </div>
+                                          </li>
+                                          <li>
+                                            <div class="app-view-editions-audit-trail-entry__list-item govuk-!-margin-bottom-4">
+                                              <h4 class="govuk-heading-s govuk-!-margin-bottom-0">Document updated</h4>
+
+                                              <p class="app-view-editions-audit-trail-entry__list-item-datetime govuk-body-s govuk-!-margin-bottom-0 govuk-!-margin-top-0">
+                                                <time class="datetime" datetime="2022-02-11T11:00:23+00:00">11 February 2022 11:00am</time> by <a class="govuk-link" href="/government/admin/authors/8561">Kevin McLaughlin</a>
+                                              </p>
+                                            </div>
+                                          </li>
+                                          <li>
+                                            <div class="app-view-editions-audit-trail-entry__list-item govuk-!-margin-bottom-4">
+                                              <h4 class="govuk-heading-s govuk-!-margin-bottom-0">Document editioned</h4>
+
+                                              <p class="app-view-editions-audit-trail-entry__list-item-datetime govuk-body-s govuk-!-margin-bottom-0 govuk-!-margin-top-0">
+                                                <time class="datetime" datetime="2022-02-10T11:52:09+00:00">10 February 2022 11:52am</time> by <a class="govuk-link" href="/government/admin/authors/8561">Kevin McLaughlin</a>
+                                              </p>
+                                            </div>
+                                          </li>
+                                          <li>
+                                            <div class="app-view-editions-editorial-remark__list-item govuk-!-margin-bottom-4">
+                                              <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Internal note</h4>
+
+                                              <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-0">
+    Force published: No changes to content were made. The layout was changed slightly.
+  </p>
+
+                                              <p class="app-view-editions-editorial-remark__list-item-datetime govuk-body govuk-body-s govuk-!-margin-bottom-0 govuk-!-margin-top-0">
+                                                <time class="datetime" datetime="2022-02-09T17:22:25+00:00"> 9 February 2022  5:22pm</time> by <a class="govuk-link" href="/government/admin/authors/8561">Kevin McLaughlin</a>
+                                              </p>
+                                            </div>
+                                          </li>
+                                          <li>
+                                            <div class="app-view-editions-audit-trail-entry__list-item govuk-!-margin-bottom-4">
+                                              <h4 class="govuk-heading-s govuk-!-margin-bottom-0">Document published</h4>
+
+                                              <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-0">
+                                                <a class="govuk-link" href="/government/admin/editions/1464308/diff?audit_trail_entry_id=1296765">[Compare with previous version]</a>
+                                              </p>
+
+                                              <p class="app-view-editions-audit-trail-entry__list-item-datetime govuk-body-s govuk-!-margin-bottom-0 govuk-!-margin-top-0">
+                                                <time class="datetime" datetime="2022-02-09T17:22:25+00:00"> 9 February 2022  5:22pm</time> by <a class="govuk-link" href="/government/admin/authors/8561">Kevin McLaughlin</a>
+                                              </p>
+                                            </div>
+                                          </li>
+                                          <li>
+                                            <div class="app-view-editions-audit-trail-entry__list-item govuk-!-margin-bottom-4">
+                                              <h4 class="govuk-heading-s govuk-!-margin-bottom-0">Document updated</h4>
+
+                                              <p class="app-view-editions-audit-trail-entry__list-item-datetime govuk-body-s govuk-!-margin-bottom-0 govuk-!-margin-top-0">
+                                                <time class="datetime" datetime="2022-02-09T17:21:29+00:00"> 9 February 2022  5:21pm</time> by <a class="govuk-link" href="/government/admin/authors/8561">Kevin McLaughlin</a>
+                                              </p>
+                                            </div>
+                                          </li>
+                                        </ul>
+                                      </div>
+
+                                      <nav class="govuk-grid-row govuk-!-margin-bottom-4" role="navigation">
+
+                                        <a class="govuk-body govuk-link govuk-link--no-visited-state govuk-!-margin-bottom-0 app-view-document-history-tab__older-pagination-link" data-remote-pagination="/government/admin/editions/1464308/document_history?editing=true&amp;page=2" rel="next" href="/government/admin/detailed-guides/1464308/edit?page=2">Older</a>
+
+                                      </nav>
+
+                                    </div>
+                                  </section>
+                                  <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="fact_checking_tab" role="tabpanel" aria-labelledby="tab_fact_checking_tab">
+                                    <h2 class="govuk-heading-l">Fact checking</h2>
+
+                                    <section class="responses">
+                                      <p class="govuk-body">Document doesn't have any fact checking responses yet.</p>
+                                    </section>
+
+                                    <section class="pending"></section>
+
+                                    <section class="send-request">
+                                      <p class="govuk-body">To send a fact check request, save your changes.</p>
+                                    </section>
+
+                                  </section>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </main>
+                {% endblock %}
